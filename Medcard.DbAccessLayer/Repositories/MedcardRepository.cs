@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-public class MedcardRepository :  IRepository
+public class MedcardRepository : IRepository
 {
     private readonly AppDbContext _dbcontext;
     public MedcardRepository(AppDbContext dbcontext)
@@ -91,31 +91,29 @@ public class MedcardRepository :  IRepository
     }
 
 
-    public async Task<OwnerEntity> UpdateAsync(
-    Guid id, string name, string phone,
-    string petName, int chipNumber,
-    int petAge, string petBreed,
-    string petDrugs,
-    string petTreatment)
+    public async Task<OwnerEntity> UpdateAsync(Guid id,
+     string name, string phone,
+     string petName, int chipNumber,
+     int petAge, string petBreed,
+     string petDrugs,
+     string petTreatment)
     {
 
+        var updateMedcard = await _dbcontext.Owners
+            .Include(o => o.Pets)
+            .Where(x => x.Id == id)
+            .SingleOrDefaultAsync();
 
-        if (id != Guid.Empty)
+        if (updateMedcard != null)
         {
-            var updateMedcard = await _dbcontext.Owners
-                .Include(o => o.Pets)
-                .Where(x => x.Id == id)
-                .SingleOrDefaultAsync();
 
-            if (updateMedcard != null)
+            updateMedcard.Name = name;
+            updateMedcard.PhoneNumber = phone;
+
+
+            var petToUpdate = updateMedcard.Pets.FirstOrDefault();
+            if (petToUpdate != null)
             {
-                updateMedcard.Name = name;
-                updateMedcard.PhoneNumber = phone;
-
-
-
-
-                var petToUpdate = updateMedcard.Pets.First();
                 petToUpdate.Name = petName;
                 petToUpdate.ChipNumber = chipNumber;
                 petToUpdate.Age = petAge;
@@ -125,19 +123,17 @@ public class MedcardRepository :  IRepository
                 petToUpdate.Drugs.Clear();
                 petToUpdate.Treatments.Clear();
 
-
                 petToUpdate.Drugs.Add(new DrugEntity { Description = petDrugs });
                 petToUpdate.Treatments.Add(new TreatmentEntity { Description = petTreatment });
-
-
-                await _dbcontext.SaveChangesAsync();
             }
 
-            return updateMedcard;
+
+            await _dbcontext.SaveChangesAsync();
         }
 
-        return null;
+        return updateMedcard;
     }
+
 
 
 
@@ -160,4 +156,6 @@ public class MedcardRepository :  IRepository
     {
         throw new NotImplementedException();
     }
+
+    
 }
