@@ -15,7 +15,6 @@ C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\obj\Debug\net5.0\MedcardMvc
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\obj\Debug\net5.0\MedcardMvc.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\obj\Debug\net5.0\MedcardMvc.RazorAssemblyInfo.cache
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\obj\Debug\net5.0\MedcardMvc.RazorAssemblyInfo.cs
-C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\obj\Debug\net5.0\MedcardMvc.sourcelink.json
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\obj\Debug\net5.0\MedcardMvc.TagHelpers.input.cache
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\obj\Debug\net5.0\MedcardMvc.TagHelpers.output.cache
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\obj\Debug\net5.0\MedcardMvc.RazorCoreGenerate.cache

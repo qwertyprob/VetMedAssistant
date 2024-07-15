@@ -1,4 +1,5 @@
 ﻿@model List<OwnerModel>
+
 @{
     ViewData["Title"] = "Card";
     Layout = "_Layout";
@@ -7,20 +8,21 @@
 
 
 <!-- твоё модальное окно для добавления, можно и для изменения сделать, это уже в js-->
-<form method="POST">
+<form method="POST" action="@Url.Action("CreateMedcard", "Medcard")">
     <div id="popup" class="popup disable">
         <div class="popup__box">
             <input placeholder="ФИО" type="text" id="name" name="name">
-            <input placeholder="Номер телефона" type="text" id="name" name="phonenumber">
-            <input placeholder="Кличка" type="text" id="nick" name="petname">
-            <input placeholder="Номер чипа" type="text" id="chip" name="chipnumber">
-            <input placeholder="Возраст" type="text" id="chip" name="age">
-            <input placeholder="Порода" type="text" id="nick" name="breed">
+            <input placeholder="Номер телефона" type="text" id="phonenumber" name="phone">
+            <input placeholder="Кличка" type="text" id="nick" name="petName">
+            <input placeholder="Номер чипа" type="text" id="chip" name="chipNumber">
+            <input placeholder="Возраст" type="text" id="age" name="petAge">
+            <input placeholder="Порода" type="text" id="breed" name="petBreed">
 
             <button class="list__more" type="submit">Отправить</button>
         </div>
     </div>
 </form>
+
 <header class="header">
     <div class="logo"><a asp-page="/Index"><img src="~/img/logo.png" alt="VetAsist"></a></div>
     <div class="dark-mode">
@@ -76,20 +78,8 @@
                         </div>
                     </div>
                 }
-                <div class="list__line-title">
-                    <p class="number"> </p>
-                    <p class="name"></p>
-                    <p class="phone"></p>
-                    <p class="nick"></p>
-                    <p class="chip"></p>
-                    <p class="age"></p>
-                    <p class="breed"></p>
-                    <p class="heal"></p>
-                </div>
             </div>
         }
-        
-           
         else
         {
             <h1 style="align-content">Нет доступных медкарт.</h1>

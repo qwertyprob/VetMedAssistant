@@ -1,10 +1,8 @@
 ﻿using Medcard.DbAccessLayer.Entities;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using MedcardMvc.Models;
-using System.Threading.Tasks;
-using System.Linq;
 using System;
+using System.Threading.Tasks;
+using Medcard.Mvc.Models;
 
 public class MedcardController : Controller
 {
@@ -18,82 +16,43 @@ public class MedcardController : Controller
     [HttpGet]
     public async Task<IActionResult> More(Guid ownerId)
     {
-        var ownerEntity = await _medcardService.GetMedcardById(ownerId);
-
-        if (ownerEntity == null)
-        {
-            return NotFound();
-        }
-
-        var ownerModel = new OwnerModel
-        {
-            Id = ownerEntity.Id,
-            Name = ownerEntity.Name,
-            PhoneNumber = ownerEntity.PhoneNumber,
-            Pets = ownerEntity.Pets.Select(pet => new PetModel
-            {
-                Id = pet.Id,
-                Name = pet.Name,
-                ChipNumber = pet.ChipNumber,
-                Age = pet.Age,
-                Breed = pet.Breed,
-                Drugs = pet.Drugs.Select(drug => new DrugModel
-                {
-                    Id = drug.Id,
-                    Description = drug.Description
-                }).ToList(),
-                Treatments = pet.Treatments.Select(treatment => new TreatmentModel
-                {
-                    Id = treatment.Id,
-                    Description = treatment.Description
-                }).ToList()
-            }).ToList()
-        };
+        var ownerModel = await _medcardService.GetMedcardById(ownerId);
 
         return View(ownerModel);
     }
 
-
     public async Task<IActionResult> Index()
     {
-        var medcards = await _medcardService.GetMedcardsAsync();
-        var medcardModels = MapToModels(medcards);
+        var ownerModels = await _medcardService.GetMedcardsAsync();
 
-        return View(medcardModels);
+        return View(ownerModels);
     }
 
-
-    private List<OwnerModel> MapToModels(List<OwnerEntity> entities)
+    [HttpPost]
+    public async Task<IActionResult> UpdateMedcard(
+    Guid id, 
+    string name, string phone,
+    string petName, int chipNumber,
+    int petAge, string petBreed,
+    string petDrugs, string petTreatment)
     {
-        var models = new List<OwnerModel>();
-        foreach (var entity in entities)
-        {
-            var ownerModel = new OwnerModel
-            {
-                Id = entity.Id,
-                Name = entity.Name,
-                PhoneNumber = entity.PhoneNumber,
-                Pets = entity.Pets.Select(p => new PetModel 
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    ChipNumber = p.ChipNumber,
-                    Age = p.Age,
-                    Breed = p.Breed,
-                    Drugs = p.Drugs.Select(d => new DrugModel
-                    {
-                        Id = d.Id,
-                        Description = d.Description
-                    }).ToList(),
-                    Treatments = p.Treatments.Select(t => new TreatmentModel
-                    {
-                        Id = t.Id,
-                        Description = t.Description
-                    }).ToList()
-                }).ToList()
-            };
-            models.Add(ownerModel);
-        }
-        return models;
+        var ownerModel = await _medcardService.UpdateMedcardAsync(id, name, phone, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
+
+        
+        return View("Index"); 
+    }
+    [HttpPost]
+    public async Task<IActionResult> CreateMedcard(
+        string name, string phone,
+        string petName, int chipNumber,
+        int petAge, string petBreed)
+    {
+        string petDrugs = "Здесь пока пусто!"; 
+        string petTreatment = "Здесь пока пусто!"; 
+
+        var medcard = await _medcardService.CreateMedcardAsync(name, phone, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
+        var allMedcards = await _medcardService.GetMedcardsAsync(); 
+
+        return View("MedcardList", allMedcards); 
     }
 }
