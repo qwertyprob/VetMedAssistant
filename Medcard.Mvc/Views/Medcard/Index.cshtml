@@ -1,0 +1,99 @@
+﻿@model List<OwnerModel>
+@{
+    ViewData["Title"] = "Card";
+    Layout = "_Layout";
+
+}
+
+
+<!-- твоё модальное окно для добавления, можно и для изменения сделать, это уже в js-->
+<form method="POST">
+    <div id="popup" class="popup disable">
+        <div class="popup__box">
+            <input placeholder="ФИО" type="text" id="name" name="name">
+            <input placeholder="Номер телефона" type="text" id="name" name="phonenumber">
+            <input placeholder="Кличка" type="text" id="nick" name="petname">
+            <input placeholder="Номер чипа" type="text" id="chip" name="chipnumber">
+            <input placeholder="Возраст" type="text" id="chip" name="age">
+            <input placeholder="Порода" type="text" id="nick" name="breed">
+
+            <button class="list__more" type="submit">Отправить</button>
+        </div>
+    </div>
+</form>
+<header class="header">
+    <div class="logo"><a asp-page="/Index"><img src="~/img/logo.png" alt="VetAsist"></a></div>
+    <div class="dark-mode">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label display="hidden" for="checkbox" class="checkbox-label">
+            <span class="ball"></span>
+        </label>
+    </div>
+    <button id="Add" type="button" class="btn-input">Добавить</button>
+</header>
+
+<div class="search">
+    <div class="search__box search-border">
+        <input placeholder="Поиск" class="search__field__input search-border" type="search" id="search" name="search">
+        <button class="search__field__btn search-border" type="button">Найти</button>
+    </div>
+</div>
+
+
+<section class="list">
+    <div class="list__wrapper shadow">
+        <div class="list__line-title">
+            <p class="number"> </p>
+            <p class="name">ФИО</p>
+            <p class="phone">Номер телефона</p>
+            <p class="nick">Кличка</p>
+            <p class="chip">Номер чипа</p>
+            <p class="age">Возраст</p>
+            <p class="breed">Порода</p>
+            <p class="heal">Параметры</p>
+        </div>
+
+        @if (Model != null && Model.Count > 0)
+        {
+            <div class="list__container">
+                @foreach (var item in Model)
+                {
+                    <div class="list__lines">
+                        <p class="number"> </p>
+                        <p class="name">@item.Name</p>
+                        <p class="phone">@item.PhoneNumber</p>
+                        @foreach(var pet in item.Pets)
+                        {
+                        <p class="nick">@pet.Name</p>
+                        <p class="chip">@pet.ChipNumber</p>
+                        <p class="age">@pet.Age</p>
+                        <p class="breed">@pet.Breed</p>
+                        }
+                        <div class="list__param">
+                            <a href="@Url.Action("More", "Medcard", new { ownerId = item.Id })" class="list__more">Подробнее</a>
+                            <a class="list__more" type="submit">Изменить</a>
+                            <a class="list__remove" type="submit">Удалить</a>
+                        </div>
+                    </div>
+                }
+                <div class="list__line-title">
+                    <p class="number"> </p>
+                    <p class="name"></p>
+                    <p class="phone"></p>
+                    <p class="nick"></p>
+                    <p class="chip"></p>
+                    <p class="age"></p>
+                    <p class="breed"></p>
+                    <p class="heal"></p>
+                </div>
+            </div>
+        }
+        
+           
+        else
+        {
+            <h1 style="align-content">Нет доступных медкарт.</h1>
+        }
+        
+
+</section>

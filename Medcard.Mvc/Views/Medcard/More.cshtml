@@ -1,0 +1,64 @@
+﻿@model OwnerModel
+
+@{
+    ViewData["Title"] = "Medcard";
+}
+
+<header class="header">
+    <div class="logo">
+        <a href="@Url.Action("Index", "Medcard")">
+            <img src="~/img/logo.png" alt="VetAsist">
+        </a>
+    </div>
+
+    <div class="dark-mode">
+        <input type="checkbox" class="checkbox" id="checkbox">
+        <label for="checkbox" class="checkbox-label">
+            <span class="ball"></span>
+        </label>
+    </div>
+
+    <input type="hidden" name="id" value="">
+    <button id="newChange" type="submit" class="btn-input">Изменить</button>
+</header>
+
+<section class="card">
+    <div id="main" class="main shadow">
+        <div class="main__column1">
+            <div class="main__elem" id="client-name"><strong>Фио: @Model.Name</strong></div>
+            <div class="main__elem" id="phone-number"><strong>Телефон: @Model.PhoneNumber</strong></div>
+            @foreach (var pet in Model.Pets)
+            {
+                <div class="main__elem" id="pet-name"><strong>Кличка: @pet.Name</strong></div>
+                <div class="main__elem" id="chip-number"><strong>Чип: @pet.ChipNumber</strong></div>
+                <div class="main__elem" id="pet-age"><strong>Возраст: @pet.Age</strong></div>
+                <div class="main__elem" id="pet-breed"><strong>Порода: @pet.Breed</strong></div>
+            }
+        </div>
+
+        <div class="main__column2">
+            <h2>Препараты</h2>
+            <textarea class="main__elem-input disable" id="drug" type="text"></textarea>
+            <div class="main__elem" id="drugs">
+                @foreach (var pet in Model.Pets){
+                    @foreach(var drugs in pet.Drugs){
+                        @drugs.Description
+                    }
+                }
+               
+            </div>
+            <h2>Лечение</h2>
+            <textarea class="main__elem-input disable" id="treatments" type="text"></textarea>
+            <div class="main__elem" id="treatment">
+                @foreach (var pet in Model.Pets)
+                {
+                    @foreach (var treatmeants in pet.Treatments)
+                    {
+                        @treatmeants.Description
+                    }
+                }
+            </div>
+            <button class="disable" id="saveButton">Save</button>
+        </div>
+    </div>
+</section>
