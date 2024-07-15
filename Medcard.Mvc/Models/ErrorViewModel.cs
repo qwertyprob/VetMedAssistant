@@ -1,6 +1,6 @@
 using System;
 
-namespace MedcardMvc.Models
+namespace Medcard.Mvc.Models
 {
     public class ErrorViewModel
     {
