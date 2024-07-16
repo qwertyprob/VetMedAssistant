@@ -1,4 +1,4 @@
-==================================================
+
 Medcard MVC App. Crud app on ASP NET CORE (.NET 5)
 --------------------------------------------------
 clean front on html,css,js & Razor pages.
