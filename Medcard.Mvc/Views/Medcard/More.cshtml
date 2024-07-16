@@ -36,20 +36,26 @@
             }
         </div>
 
-        <div class="main__column2">
-            <h2>Препараты</h2>
-            <textarea class="main__elem-input disable" id="drug" type="text"></textarea>
-            <div class="main__elem" id="drugs">
-                @foreach (var pet in Model.Pets){
-                    @foreach(var drugs in pet.Drugs){
+        <div class="main__column2" ">
+            <h2 style="background-color: azure;">Препараты</h2>
+
+            <textarea class="main__elem-input disable" id="drug" type="text" style="font-size: 30px; "></textarea>
+
+            <div class="main__elem" id="drugs" style="font-size: 30px">
+                @foreach (var pet in Model.Pets)
+                {
+                    @foreach (var drugs in pet.Drugs)
+                    {
                         @drugs.Description
                     }
                 }
-               
             </div>
-            <h2>Лечение</h2>
-            <textarea class="main__elem-input disable" id="treatments" type="text"></textarea>
-            <div class="main__elem" id="treatment">
+
+            <h2 style="background-color: azure;">Лечение</h2>
+
+            <textarea class="main__elem-input disable" id="treatments" type="text" style="font-size: 30px;"></textarea>
+
+            <div class="main__elem" id="treatment" style="font-size: 30px">
                 @foreach (var pet in Model.Pets)
                 {
                     @foreach (var treatmeants in pet.Treatments)
@@ -58,7 +64,11 @@
                     }
                 }
             </div>
+        </div>
+
+
             <button class="disable" id="saveButton">Save</button>
+
         </div>
     </div>
 </section>

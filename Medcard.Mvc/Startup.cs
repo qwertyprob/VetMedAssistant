@@ -23,10 +23,10 @@ namespace MedcardMvc
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {   
+        {
             services.AddScoped<IRepository, MedcardRepository>();
             services.AddScoped<IMedcardService, MedcardService>();
-           
+
 
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(
@@ -45,14 +45,15 @@ namespace MedcardMvc
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/Medcard/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-           
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -62,14 +63,22 @@ namespace MedcardMvc
 
             app.UseEndpoints(endpoints =>
             {
+                // Маршрут по умолчанию для контроллера Medcard
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Medcard}/{action=Index}/{id?}");
 
+                // Специфический маршрут для действия More с параметром ownerId
                 endpoints.MapControllerRoute(
-                    name: "template",
-                    pattern: "{controller=Template}/{action=More}/{id?}");
+                    name: "medcardRoute",
+                    pattern: "Medcard/More/{ownerId}",
+                    defaults: new
+                    {
+                        controller = "Medcard",
+                        action = "More"
+                    });
             });
+
         }
     }
 }

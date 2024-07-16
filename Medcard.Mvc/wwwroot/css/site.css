@@ -369,3 +369,19 @@ body {
     .list__remove:hover {
         background-color: #ab0237;
     }
+.list__more__edit {
+    border-radius: 6px;
+    width: 50%;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+    .list__more__edit:hover {
+        background-color: rgb(32, 41, 74);
+    }

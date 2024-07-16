@@ -4,10 +4,10 @@
     ViewData["Title"] = "Card";
     Layout = "_Layout";
 
+
+
 }
 
-
-<!-- твоё модальное окно для добавления, можно и для изменения сделать, это уже в js-->
 <form method="POST" action="@Url.Action("CreateMedcard", "Medcard")">
     <div id="popup" class="popup disable">
         <div class="popup__box">
@@ -41,22 +41,21 @@
     </div>
 </div>
 
+@if (Model != null && Model.Count > 0)
+{
+    <section class="list">
+        <div class="list__wrapper shadow">
+            <div class="list__line-title">
+                <p class="number"> </p>
+                <p class="name">ФИО</p>
+                <p class="phone">Номер телефона</p>
+                <p class="nick">Кличка</p>
+                <p class="chip">Номер чипа</p>
+                <p class="age">Возраст</p>
+                <p class="breed">Порода</p>
+                <p class="heal">Параметры</p>
+            </div>
 
-<section class="list">
-    <div class="list__wrapper shadow">
-        <div class="list__line-title">
-            <p class="number"> </p>
-            <p class="name">ФИО</p>
-            <p class="phone">Номер телефона</p>
-            <p class="nick">Кличка</p>
-            <p class="chip">Номер чипа</p>
-            <p class="age">Возраст</p>
-            <p class="breed">Порода</p>
-            <p class="heal">Параметры</p>
-        </div>
-
-        @if (Model != null && Model.Count > 0)
-        {
             <div class="list__container">
                 @foreach (var item in Model)
                 {
@@ -64,26 +63,35 @@
                         <p class="number"> </p>
                         <p class="name">@item.Name</p>
                         <p class="phone">@item.PhoneNumber</p>
-                        @foreach(var pet in item.Pets)
+                        @foreach (var pet in item.Pets)
                         {
-                        <p class="nick">@pet.Name</p>
-                        <p class="chip">@pet.ChipNumber</p>
-                        <p class="age">@pet.Age</p>
-                        <p class="breed">@pet.Breed</p>
+                            <p class="nick">@pet.Name</p>
+                            <p class="chip">@pet.ChipNumber</p>
+                            <p class="age">@pet.Age</p>
+                            <p class="breed">@pet.Breed</p>
                         }
                         <div class="list__param">
                             <a href="@Url.Action("More", "Medcard", new { ownerId = item.Id })" class="list__more">Подробнее</a>
-                            <a class="list__more" type="submit">Изменить</a>
-                            <a class="list__remove" type="submit">Удалить</a>
+
+                            <!-- Форма для кнопки "Изменить" -->
+                            <form asp-action="UpdateMedcard" method="post">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="list__more">Изменить</button>
+                            </form>
+
+                            <!-- Форма для кнопки "Удалить" -->
+                            <form asp-action="DeleteMedcard" method="post">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <button type="submit" class="list__remove">Удалить</button>
+                            </form>
                         </div>
                     </div>
                 }
             </div>
-        }
-        else
-        {
-            <h1 style="align-content">Нет доступных медкарт.</h1>
-        }
-        
-
-</section>
+        </div>
+    </section>
+}
+else
+{
+    <h1 style="text-align: center;">Медкард не найдено. Пожалуйста проверьте данные на наличие ошибок или начните ее вести!</h1>
+}

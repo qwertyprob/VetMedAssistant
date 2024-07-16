@@ -106,7 +106,7 @@ public class MedcardService : IMedcardService
         return ownerModel;
     }
 
-    public async Task<OwnerEntity> DeleteMedcard(Guid id)
+    public async Task<OwnerEntity> DeleteMedcardAsync(Guid id)
     {
         var ownerModel = await _repository.DeleteAsync(id);
 

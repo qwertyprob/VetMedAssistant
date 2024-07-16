@@ -4,7 +4,7 @@
 [assembly: global::Microsoft.AspNetCore.Razor.Hosting.RazorCompiledItemAttribute(typeof(AspNetCore.Views_Shared_Error), @"mvc.1.0.view", @"/Views/Shared/Error.cshtml")]
 namespace AspNetCore
 {
-    #line hidden
+    #line default
     using global::System;
     using global::System.Collections.Generic;
     using global::System.Linq;
@@ -14,18 +14,18 @@ namespace AspNetCore
     using global::Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\Views\_ViewImports.cshtml"
-using MedcardMvc;
+using MedcardMvc
 
-#line default
-#line hidden
 #nullable disable
+    ;
 #nullable restore
 #line 2 "C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\Views\_ViewImports.cshtml"
-using Medcard.Mvc.Models;
+using Medcard.Mvc.Models
 
 #line default
 #line hidden
 #nullable disable
+    ;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"5dbf98b6b9394ad78206edce40cab1d7a238aa69cfefa41bab0ebc6aa22488aa", @"/Views/Shared/Error.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"96d7d48e5f934cf9446843c3325ce76f63fd5b9bc2e5324336736c9f53d85a48", @"/Views/_ViewImports.cshtml")]
     #nullable restore
@@ -43,6 +43,7 @@ using Medcard.Mvc.Models;
 #line default
 #line hidden
 #nullable disable
+
             WriteLiteral("\r\n<h1 class=\"text-danger\">Error.</h1>\r\n<h2 class=\"text-danger\">An error occurred while processing your request.</h2>\r\n\r\n");
 #nullable restore
 #line 9 "C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\Views\Shared\Error.cshtml"
@@ -52,14 +53,17 @@ using Medcard.Mvc.Models;
 #line default
 #line hidden
 #nullable disable
+
             WriteLiteral("    <p>\r\n        <strong>Request ID:</strong> <code>");
+            Write(
 #nullable restore
 #line 12 "C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\Views\Shared\Error.cshtml"
-                                      Write(Model.RequestId);
+                                            Model.RequestId
 
 #line default
 #line hidden
 #nullable disable
+            );
             WriteLiteral("</code>\r\n    </p>\r\n");
 #nullable restore
 #line 14 "C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\Views\Shared\Error.cshtml"
@@ -68,6 +72,7 @@ using Medcard.Mvc.Models;
 #line default
 #line hidden
 #nullable disable
+
             WriteLiteral(@"
 <h3>Development Mode</h3>
 <p>
