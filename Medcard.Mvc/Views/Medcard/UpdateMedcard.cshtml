@@ -1,0 +1,38 @@
+﻿@model OwnerModel
+<header class="header">
+    <div class="logo">
+        <a href="@Url.Action("Index", "Medcard")">
+            <img src="~/img/logo.png" alt="VetAsist">
+        </a>
+    </div>
+    <button id="Add" type="submit" formmethod="post" class="btn-input">Изменить</button>
+</header>
+
+
+
+
+
+<h1 style="text-align: center;">Проверьте изменения нажав на кнопку изменить.Или же вернитесь на главную страницу, нажав на логотип.</h1>
+<form method="POST" action="@Url.Action("Index", "Medcard")">
+    <div id="popup" class="popup enable">
+        <div class="popup__box">
+            <label>ФИО:</label>
+            <input placeholder="ФИО" type="text" id="name" name="name" value="@Model.Name">
+            <label>Номер телефона:</label>
+            <input placeholder="Номер телефона" type="text" id="phonenumber" name="phone" value="@Model.PhoneNumber" >
+            @foreach (var pet in Model.Pets)
+            {
+                <label>Кличка:</label>
+                <input placeholder="Кличка" type="text" id="nick" name="petName" value="@pet.Name">
+                <label>Номер чипа:</label>
+                <input placeholder="Номер чипа" type="text" id="chip" name="chipNumber" value="@pet.ChipNumber">
+                <label>Возраст:</label>
+                <input placeholder="Возраст" type="text" id="age" name="petAge" value="@pet.Age">
+                <label>Порода:</label>
+                <input placeholder="Порода" type="text" id="breed" name="petBreed" value="@pet.Breed">
+            }
+            <button class="list__more" type="submit">Отправить</button>
+            <label></label>
+        </div>
+    </div>
+</form>

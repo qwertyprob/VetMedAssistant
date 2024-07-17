@@ -24,12 +24,10 @@
 </form>
 
 <header class="header">
-    <div class="logo"><a asp-page="/Index"><img src="~/img/logo.png" alt="VetAsist"></a></div>
-    <div class="dark-mode">
-        <input type="checkbox" class="checkbox" id="checkbox">
-        <label display="hidden" for="checkbox" class="checkbox-label">
-            <span class="ball"></span>
-        </label>
+    <div class="logo">
+        <a href="@Url.Action("Index", "Medcard")">
+            <img src="~/img/logo.png" alt="VetAsist">
+        </a>
     </div>
     <button id="Add" type="button" class="btn-input">Добавить</button>
 </header>
@@ -70,20 +68,21 @@
                             <p class="age">@pet.Age</p>
                             <p class="breed">@pet.Breed</p>
                         }
+                        
                         <div class="list__param">
+                            
                             <a href="@Url.Action("More", "Medcard", new { ownerId = item.Id })" class="list__more">Подробнее</a>
+                            
+                            <a href="@Url.Action("UpdateMedcard", "Medcard", new { ownerId = item.Id })" class="list__more">Изменить</a>
 
-                            <!-- Форма для кнопки "Изменить" -->
-                            <form asp-action="UpdateMedcard" method="post">
+                            
+                            <form asp-action="DeleteMedcard" method="post" class="list__remove">
                                 <input type="hidden" name="id" value="@item.Id" />
-                                <button type="submit" class="list__more">Изменить</button>
+                                <button type="submit" style="background: none; border: none; color: white; ">
+                                    Удалить
+                                </button>
                             </form>
 
-                            <!-- Форма для кнопки "Удалить" -->
-                            <form asp-action="DeleteMedcard" method="post">
-                                <input type="hidden" name="id" value="@item.Id" />
-                                <button type="submit" class="list__remove">Удалить</button>
-                            </form>
                         </div>
                     </div>
                 }

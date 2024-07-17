@@ -63,12 +63,16 @@ namespace MedcardMvc
 
             app.UseEndpoints(endpoints =>
             {
-                // Маршрут по умолчанию для контроллера Medcard
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Medcard}/{action=Index}/{id?}");
 
-                // Специфический маршрут для действия More с параметром ownerId
+                endpoints.MapControllerRoute(
+                    name: "medcardUpdateRoute",
+                    pattern: "Medcard/UpdateMedcard/{ownerId}",
+                    defaults: new
+                    {
+                        controller = "Medcard",
+                        action = "UpdateMedcard"
+                    });
+
                 endpoints.MapControllerRoute(
                     name: "medcardRoute",
                     pattern: "Medcard/More/{ownerId}",
@@ -77,6 +81,12 @@ namespace MedcardMvc
                         controller = "Medcard",
                         action = "More"
                     });
+                // Маршрут по умолчанию для контроллера Medcard
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Medcard}/{action=Index}/{id?}");
+
+               
             });
 
         }

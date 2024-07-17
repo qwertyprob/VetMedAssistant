@@ -16,16 +16,19 @@ public class MedcardController : Controller
         _medcardService = medcardService;
         _logger = logger;
     }
-    [HttpPost]
-    public async Task<IActionResult> UpdateMedcard(MedcardUpdateModel model)
+    [HttpGet]
+    [Route("Medcard/UpdateMedcard/{ownerId}")]
+    public async Task<IActionResult> UpdateMedcard(Guid ownerId)
     {
-        var updateOwnerModel = await _medcardService.UpdateMedcardAsync
-            (
-            model.Id, model.Name, model.Phone, model.PetName,
-            model.ChipNumber, model.PetAge, model.PetBreed,
-            model.PetDrugs, model.PetTreatment);
+        var ownerModel = await _medcardService.GetMedcardById(ownerId);
 
-        return RedirectToAction("Index", "Medcard");
+        if (ownerModel == null)
+        {
+            return NotFound(); 
+        }
+
+        return View("UpdateMedcard", ownerModel);
+
     }
     [HttpPost]
     public async Task<IActionResult> DeleteMedcard(Guid id)

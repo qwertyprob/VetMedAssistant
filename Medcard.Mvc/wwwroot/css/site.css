@@ -327,6 +327,18 @@ body {
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: lightblue;
+    padding: 10px 20px;
+    font-size: 1.5em;
+    background-color: #20B2AA;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 
@@ -354,7 +366,7 @@ body {
     }
 
 .list__remove {
-    border-radius: 6px;
+    border-radius: 5px;
     width: 50%;
     background-color: lightblue;
     color: white;
@@ -385,3 +397,4 @@ body {
     .list__more__edit:hover {
         background-color: rgb(32, 41, 74);
     }
+

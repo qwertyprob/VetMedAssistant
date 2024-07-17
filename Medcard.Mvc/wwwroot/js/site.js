@@ -1,8 +1,6 @@
 ﻿'use strict';
 
-
-
-
+//Модальное окно для кнопки Добавить
 window.addEventListener('load', () => {
     const btnAdd = document.getElementById("Add");
     if (btnAdd) {

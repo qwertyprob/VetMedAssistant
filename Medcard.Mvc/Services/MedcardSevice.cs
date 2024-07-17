@@ -72,39 +72,14 @@ public class MedcardService : IMedcardService
         return ownerModel;
     }
 
-    public async Task<OwnerModel> UpdateMedcardAsync(Guid id,string name, string phone,
-                                                       string petName, int chipNumber,
-                                                       int petAge, string petBreed,
-                                                       string petDrugs,
-                                                       string petTreatment)
-    {
-        var ownerEntity = await _repository.UpdateAsync(id,name, phone, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
-        var ownerModel = new OwnerModel
-        {
-            Id = ownerEntity.Id,
-            Name = ownerEntity.Name,
-            PhoneNumber = ownerEntity.PhoneNumber,
-            Pets = ownerEntity.Pets.Select(pet => new PetModel
-            {
-                Id = pet.Id,
-                Name = pet.Name,
-                ChipNumber = pet.ChipNumber,
-                Age = pet.Age,
-                Breed = pet.Breed,
-                Drugs = pet.Drugs.Select(drug => new DrugModel
-                {
-                    Id = drug.Id,
-                    Description = drug.Description
-                }).ToList(),
-                Treatments = pet.Treatments.Select(treatment => new TreatmentModel
-                {
-                    Id = treatment.Id,
-                    Description = treatment.Description
-                }).ToList()
-            }).ToList()
-        };
-        return ownerModel;
-    }
+    //public async Task<OwnerModel> UpdateMedcardAsync(string name, string phone,
+    //                                                   string petName, int chipNumber,
+    //                                                   int petAge, string petBreed,
+    //                                                   string petDrugs,
+    //                                                   string petTreatment)
+    //var ownerModel = await _re
+
+    //}
 
     public async Task<OwnerEntity> DeleteMedcardAsync(Guid id)
     {
@@ -183,5 +158,8 @@ public class MedcardService : IMedcardService
         return models;
     }
 
-   
+    public Task<OwnerModel> UpdateMedcardAsync(Guid id, string name, string phone, string petName, int chipNumber, int petAge, string petBreed, string petDrugs, string petTreatment)
+    {
+        throw new NotImplementedException();
+    }
 }

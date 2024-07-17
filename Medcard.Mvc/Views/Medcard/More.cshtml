@@ -5,34 +5,29 @@
 }
 
 <header class="header">
-    <div class="logo">
-        <a href="@Url.Action("Index", "Medcard")">
-            <img src="~/img/logo.png" alt="VetAsist">
-        </a>
-    </div>
-
+    <div class="logo"><a href="@Url.Action("Index", "Medcard")"> <img src="~/img/logo.png" alt="VetAsist"></a></div>
     <div class="dark-mode">
         <input type="checkbox" class="checkbox" id="checkbox">
-        <label for="checkbox" class="checkbox-label">
-            <span class="ball"></span>
-        </label>
+       
     </div>
 
+    <!-- <form method="POST" action="/Main/Medcard/Update/"> -->
     <input type="hidden" name="id" value="">
     <button id="newChange" type="submit" class="btn-input">Изменить</button>
+
 </header>
 
 <section class="card">
     <div id="main" class="main shadow">
         <div class="main__column1">
-            <div class="main__elem" id="client-name"><strong>Фио: @Model.Name</strong></div>
-            <div class="main__elem" id="phone-number"><strong>Телефон: @Model.PhoneNumber</strong></div>
+            <div class="main__elem" id="client-name">Фио:<strong> @Model.Name</strong></div>
+            <div class="main__elem" id="phone-number">Телефон:<strong> @Model.PhoneNumber</strong></div>
             @foreach (var pet in Model.Pets)
             {
-                <div class="main__elem" id="pet-name"><strong>Кличка: @pet.Name</strong></div>
-                <div class="main__elem" id="chip-number"><strong>Чип: @pet.ChipNumber</strong></div>
-                <div class="main__elem" id="pet-age"><strong>Возраст: @pet.Age</strong></div>
-                <div class="main__elem" id="pet-breed"><strong>Порода: @pet.Breed</strong></div>
+                <div class="main__elem" id="pet-name">Кличка:<strong> @pet.Name</strong></div>
+                <div class="main__elem" id="chip-number">Чип:<strong> @pet.ChipNumber</strong></div>
+                <div class="main__elem" id="pet-age">Возраст:<strong> @pet.Age</strong></div>
+                <div class="main__elem" id="pet-breed">Порода:<strong> @pet.Breed</strong></div>
             }
         </div>
 
@@ -65,10 +60,8 @@
                 }
             </div>
         </div>
-
-
-            <button class="disable" id="saveButton">Save</button>
-
-        </div>
+        
+            <button style=""class="disable" id="saveButton">Сохранить</button>
+    </div>
     </div>
 </section>

@@ -342,3 +342,4 @@ C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\staticwebasse
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard..49DCFF90.Up2Date
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.genruntimeconfig.cache
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\ref\Medcard.Mvc.dll
+C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Razor\Views\Medcard\UpdateMedcard.cshtml.g.cs
