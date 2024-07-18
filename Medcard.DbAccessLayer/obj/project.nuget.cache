@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "R1nfhhyfDHU/Zt/s39b5x0bDE+9y6SkQqlNOx1QCAx5zN4Kg2igQOQo5JAYadoLSYXsEEUyBhBSjQcFpMeThAA==",
   "success": true,
   "projectFilePath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+=======
+  "dgSpecHash": "97mFWQvqi3JcNfKzkNU5brfIk5PJB+Ns9qer6JOYGDzKmiQQEIrPbs3Bu7khgmF1gUcTH65e72kNBOF8LFUvEA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+>>>>>>> e775090bc3eabec9121b0df4f5f487f097e4365a
   "expectedPackageFiles": [
     "C:\\Users\\eqspe\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\eqspe\\.nuget\\packages\\azure.identity\\1.11.3\\azure.identity.1.11.3.nupkg.sha512",

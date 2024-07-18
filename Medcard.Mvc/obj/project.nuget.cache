@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "zrK1pJ3bmqoXhv+LvzSZneqzglFcdv895sS54yKOGp4F0gmMZm+sIaJ+GohXx3xiulV9w6s4b1+HIVC3qJx07g==",
+=======
+  "dgSpecHash": "inBsdLrRJ40=",
+>>>>>>> e775090bc3eabec9121b0df4f5f487f097e4365a
   "success": true,
   "projectFilePath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.Mvc\\Medcard.Mvc.csproj",
   "expectedPackageFiles": [

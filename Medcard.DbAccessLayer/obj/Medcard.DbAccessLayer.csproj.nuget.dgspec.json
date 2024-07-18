@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
         "packagesPath": "C:\\Users\\eqspe\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.DbAccessLayer\\obj\\",
+=======
+    "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+        "projectName": "Medcard.DbAccessLayer",
+        "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\obj\\",
+>>>>>>> e775090bc3eabec9121b0df4f5f487f097e4365a
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\eqspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
