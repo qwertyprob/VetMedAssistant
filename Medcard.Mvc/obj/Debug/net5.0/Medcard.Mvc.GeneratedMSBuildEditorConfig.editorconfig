@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Medcard.Mvc
-build_property.ProjectDir = C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\
+build_property.ProjectDir = C:\Users\eqspe\source\repos\MedcardMvcApp\Medcard.Mvc\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
