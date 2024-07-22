@@ -1,5 +1,6 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     "",
     "\\Medcard.Mvc",
     "\\Medcard.Mvc\\Controllers",
@@ -10,5 +11,10 @@
     "\\Medcard.Mvc\\wwwroot\\css"
   ],
   "SelectedNode": "\\Medcard.Mvc\\Services\\MedcardSevice.cs",
+=======
+    ""
+  ],
+  "SelectedNode": "\\MedcardMvcApp.sln",
+>>>>>>> 7cec3802422d8c0ae51b373f2a08836cc03e23ed
   "PreviewInSolutionExplorer": false
 }

@@ -13,7 +13,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Medcard.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< HEAD
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e775090bc3eabec9121b0df4f5f487f097e4365a")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87c4136d9b19d81573e7f8fec3008eee0eed99f2")]
+>>>>>>> 7cec3802422d8c0ae51b373f2a08836cc03e23ed
 [assembly: System.Reflection.AssemblyProductAttribute("Medcard.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Medcard.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
