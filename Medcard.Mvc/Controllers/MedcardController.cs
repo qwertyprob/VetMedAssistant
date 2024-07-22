@@ -11,10 +11,19 @@ public class MedcardController : Controller
     private readonly IMedcardService _medcardService;
     private ILogger<MedcardController> _logger;
 
+
     public MedcardController(IMedcardService medcardService , ILogger<MedcardController> logger)
     {
         _medcardService = medcardService;
         _logger = logger;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateMedcardForm(MedcardUpdateModel model)
+    {
+
+        return View(model);
+
     }
     [HttpGet]
     [Route("Medcard/UpdateMedcard/{ownerId}")]

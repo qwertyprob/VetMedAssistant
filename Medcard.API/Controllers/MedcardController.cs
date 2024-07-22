@@ -33,7 +33,7 @@ namespace Medcard.API.Controllers
                 return NotFound(); 
             }
         }
-        [HttpGet("GetMedcardById")]
+        [HttpGet("GetMedcardById/{id}")]
         public async Task<IActionResult> GetMedcardById(Guid id)
         {
             var medcard = await _repository.GetByIdAsync(id);

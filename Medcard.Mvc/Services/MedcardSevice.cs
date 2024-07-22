@@ -72,14 +72,16 @@ public class MedcardService : IMedcardService
         return ownerModel;
     }
 
-    //public async Task<OwnerModel> UpdateMedcardAsync(string name, string phone,
-    //                                                   string petName, int chipNumber,
-    //                                                   int petAge, string petBreed,
-    //                                                   string petDrugs,
-    //                                                   string petTreatment)
-    //var ownerModel = await _re
+    public async Task<OwnerModel> UpdateMedcardAsync(Guid id,string name, string phone,
+                                                 string petName, int chipNumber,
+                                                 int petAge, string petBreed,
+                                                 string petDrugs,
+                                                 string petTreatment)
+    {
 
-    //}
+        return null;        
+    }
+
 
     public async Task<OwnerEntity> DeleteMedcardAsync(Guid id)
     {
@@ -158,8 +160,5 @@ public class MedcardService : IMedcardService
         return models;
     }
 
-    public Task<OwnerModel> UpdateMedcardAsync(Guid id, string name, string phone, string petName, int chipNumber, int petAge, string petBreed, string petDrugs, string petTreatment)
-    {
-        throw new NotImplementedException();
-    }
+    
 }
