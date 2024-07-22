@@ -22,7 +22,7 @@ public class MedcardController : Controller
     public async Task<IActionResult> UpdateMedcardForm(MedcardUpdateModel model)
     {
 
-        return View(model);
+        return View( model);
 
     }
     [HttpGet]

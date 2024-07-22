@@ -27,7 +27,7 @@ using Medcard.Mvc.Models
 #nullable disable
     ;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"08fbf613df4f74a599be0ee8c1baf30e27235feece9e471512767c12c6755a54", @"/Views/Medcard/More.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"96d7d48e5f934cf9446843c3325ce76f63fd5b9bc2e5324336736c9f53d85a48", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"23c2bb79ee232ec1a648e9cd240457c20f7417885a3ae83c4b65d02254453f0d", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Medcard_More : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<OwnerModel>
     #nullable disable
