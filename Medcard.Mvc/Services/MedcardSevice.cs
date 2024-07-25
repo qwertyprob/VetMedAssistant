@@ -64,7 +64,7 @@ public class MedcardService : IMedcardService
     }
 
 
-    public async Task<List<OwnerModel>> GetMedcardsAsync()
+    public async Task<IReadOnlyCollection<OwnerModel>> GetMedcardsAsync()
     {
         var medcards = await _repository.GetAsync();
         var ownerModel = MapToModels(medcards);

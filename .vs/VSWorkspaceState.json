@@ -1,20 +1,11 @@
 {
   "ExpandedNodes": [
-<<<<<<< HEAD
     "",
     "\\Medcard.Mvc",
     "\\Medcard.Mvc\\Controllers",
-    "\\Medcard.Mvc\\Services",
     "\\Medcard.Mvc\\Views",
-    "\\Medcard.Mvc\\Views\\Medcard",
-    "\\Medcard.Mvc\\wwwroot",
-    "\\Medcard.Mvc\\wwwroot\\css"
+    "\\Medcard.Mvc\\Views\\Medcard"
   ],
-  "SelectedNode": "\\Medcard.Mvc\\Services\\MedcardSevice.cs",
-=======
-    ""
-  ],
-  "SelectedNode": "\\MedcardMvcApp.sln",
->>>>>>> 7cec3802422d8c0ae51b373f2a08836cc03e23ed
+  "SelectedNode": "\\Medcard.Mvc\\Controllers\\MedcardController.cs",
   "PreviewInSolutionExplorer": false
 }

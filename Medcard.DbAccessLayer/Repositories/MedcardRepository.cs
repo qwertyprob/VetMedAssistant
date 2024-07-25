@@ -12,7 +12,7 @@ public class MedcardRepository : IRepository
     {
         _dbcontext = dbcontext;
     }
-    public async Task<List<OwnerEntity>> GetAsync()
+    public async Task<IReadOnlyCollection<OwnerEntity>> GetAsync()
     {
         var medcard = await _dbcontext.Owners
             .Include(owner => owner.Pets)

@@ -3943,27 +3943,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eqspe\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Medcard.API.csproj",
       "projectName": "Medcard.API",
       "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Medcard.API.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.API\\Medcard.API.csproj",
-      "projectName": "Medcard.API",
-      "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.API\\Medcard.API.csproj",
-      "packagesPath": "C:\\Users\\eqspe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.API\\obj\\",
->>>>>>> 7cec3802422d8c0ae51b373f2a08836cc03e23ed
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\eqspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3978,13 +3975,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-<<<<<<< HEAD
             "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
               "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj"
-=======
-            "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj"
->>>>>>> 7cec3802422d8c0ae51b373f2a08836cc03e23ed
             }
           }
         }
@@ -4041,5 +4033,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

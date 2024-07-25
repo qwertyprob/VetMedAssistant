@@ -1,6 +1,5 @@
 {
   "Version": 1,
-<<<<<<< HEAD
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\",
   "Documents": [
     {
@@ -16,15 +15,10 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Medcard.Mvc\\Medcard.Mvc.csproj.user||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     }
   ],
-=======
-  "WorkspaceRootPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvc\\",
-  "Documents": [],
->>>>>>> 7cec3802422d8c0ae51b373f2a08836cc03e23ed
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-<<<<<<< HEAD
       "DocumentGroups": [
         {
           "DockedWidth": 200,
@@ -38,7 +32,7 @@
               "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\Index.cshtml",
               "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\Index.cshtml",
               "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\Index.cshtml",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAAEsAAABSAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEsAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-07-17T13:18:30.77Z",
               "EditorCaption": ""
@@ -74,9 +68,6 @@
           ]
         }
       ]
-=======
-      "DocumentGroups": []
->>>>>>> 7cec3802422d8c0ae51b373f2a08836cc03e23ed
     }
   ]
 }
