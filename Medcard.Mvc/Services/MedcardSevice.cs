@@ -67,45 +67,10 @@ public class MedcardService : IMedcardService
     public async Task<IReadOnlyCollection<OwnerModel>> GetMedcardsAsync()
     {
         var medcards = await _repository.GetAsync();
-        var ownerModels = await MapToModelsAsync(medcards);
-        return ownerModels;
+        var ownerModel = MapToModels(medcards);
+
+        return ownerModel;
     }
-
-    private async Task<IReadOnlyCollection<OwnerModel>> MapToModelsAsync(IEnumerable<OwnerEntity> entities)
-    {
-        var models = new List<OwnerModel>();
-        foreach (var entity in entities)
-        {
-            var ownerModel = new OwnerModel
-            {
-                Id = entity.Id,
-                Name = entity.Name,
-                PhoneNumber = entity.PhoneNumber,
-                Pets = entity.Pets.Select(p => new PetModel
-                {
-                    Id = p.Id,
-                    Name = p.Name,
-                    ChipNumber = p.ChipNumber,
-                    Age = p.Age,
-                    Breed = p.Breed,
-                    Drugs = p.Drugs.Select(d => new DrugModel
-                    {
-                        Id = d.Id,
-                        Description = d.Description
-                    }).ToList(),
-                    Treatments = p.Treatments.Select(t => new TreatmentModel
-                    {
-                        Id = t.Id,
-                        Description = t.Description
-                    }).ToList()
-                }).ToList()
-            };
-            models.Add(ownerModel);
-        }
-        return await Task.FromResult(models);
-    }
-
-
 
     public async Task<OwnerModel> UpdateMedcardAsync(Guid id,string name, string phone,
                                                  string petName, int chipNumber,
@@ -160,6 +125,39 @@ public class MedcardService : IMedcardService
             }).ToList()
         };
         return ownerModel;
+    }
+    private List<OwnerModel> MapToModels(List<OwnerEntity> entities)
+    {
+        var models = new List<OwnerModel>();
+        foreach (var entity in entities)
+        {
+            var ownerModel = new OwnerModel
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+                PhoneNumber = entity.PhoneNumber,
+                Pets = entity.Pets.Select(p => new PetModel
+                {
+                    Id = p.Id,
+                    Name = p.Name,
+                    ChipNumber = p.ChipNumber,
+                    Age = p.Age,
+                    Breed = p.Breed,
+                    Drugs = p.Drugs.Select(d => new DrugModel
+                    {
+                        Id = d.Id,
+                        Description = d.Description
+                    }).ToList(),
+                    Treatments = p.Treatments.Select(t => new TreatmentModel
+                    {
+                        Id = t.Id,
+                        Description = t.Description
+                    }).ToList()
+                }).ToList()
+            };
+            models.Add(ownerModel);
+        }
+        return models;
     }
 
     
