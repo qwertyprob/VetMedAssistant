@@ -1,0 +1,14 @@
+# Игнорирование временных файлов Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Игнорирование сборок
+bin/
+obj/
+
+# Игнорирование временных файлов системы
+*.log
+*.tmp
