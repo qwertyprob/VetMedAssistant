@@ -19,29 +19,24 @@ namespace Medcard.API.Controllers
             _repository = repository;
         }
 
-        [HttpPost("DeleteMedcard")]
-        public async Task<IActionResult> DeleteMedcard(Guid id)
+        
+        [HttpGet("GET")]
+        public async Task<IActionResult> GET()
         {
-            var deletedMedcard = await _repository.DeleteAsync(id);
+            var medcard = await _repository.GetAsync();
 
-            if (deletedMedcard != null)
-            {
-                return Ok(); 
-            }
-            else
-            {
-                return NotFound(); 
-            }
+            return new JsonResult(medcard);
         }
-        [HttpGet("GetMedcardById/{id}")]
-        public async Task<IActionResult> GetMedcardById(Guid id)
+        [HttpGet("GET/{id}")]
+        public async Task<IActionResult> GETID(Guid id)
         {
             var medcard = await _repository.GetByIdAsync(id);
 
             return new JsonResult(medcard);
         }
-        [HttpPost("CreateMedcards")]
-        public async Task<IActionResult> CreateMedcards(
+
+        [HttpPost("CREATE")]
+        public async Task<IActionResult> CREATE(
                                                     string name, string phone,
                                                     string petName, int chipNumber,
                                                     int petAge, string petBreed,
@@ -59,8 +54,8 @@ namespace Medcard.API.Controllers
                 return BadRequest($"Failed to create medcards: {ex.Message}");
             }
         }
-        [HttpPost("UpdateMedcard")]
-        public async Task<IActionResult> UpdateMedcards(Guid id,
+        [HttpPost("UPDATE")]
+        public async Task<IActionResult> UPDATE(Guid id,
                                                     string name, string phone,
                                                     string petName, int chipNumber,
                                                     int petAge, string petBreed,
@@ -78,13 +73,21 @@ namespace Medcard.API.Controllers
                 return BadRequest($"Failed to create medcards: {ex.Message}");
             }
         }
-        [HttpGet]
-        public async Task<IActionResult> GetMedcards()
+        [HttpPost("DELETE")]
+        public async Task<IActionResult> DELETE(Guid id)
         {
-            var medcard = await _repository.GetAsync();
+            var deletedMedcard = await _repository.DeleteAsync(id);
 
-            return new JsonResult(medcard);
+            if (deletedMedcard != null)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
         }
+
 
     }
 }
