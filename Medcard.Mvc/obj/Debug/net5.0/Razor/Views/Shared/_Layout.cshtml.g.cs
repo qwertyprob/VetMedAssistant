@@ -19,15 +19,8 @@ using MedcardMvc;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 2 "C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.Mvc\Views\_ViewImports.cshtml"
-using Medcard.Mvc.Models;
-
-#line default
-#line hidden
-#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e19411", @"/Views/Shared/_Layout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"23c2bb79ee232ec1a648e9cd240457c20f7417885a3ae83c4b65d02254453f0d", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"a41a0e01c9a531188d7fa64cfb819f18f1367249efd932908707216012543c1d", @"/Views/_ViewImports.cshtml")]
     #nullable restore
     public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
@@ -63,9 +56,9 @@ using Medcard.Mvc.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"ru\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194115045", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194114847", async() => {
                 WriteLiteral("\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194115445", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194115247", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -79,7 +72,7 @@ using Medcard.Mvc.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194116568", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194116370", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -94,7 +87,7 @@ using Medcard.Mvc.Models;
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral("\r\n    ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194117771", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194117573", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -121,7 +114,7 @@ using Medcard.Mvc.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194119678", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fccac14c59be271225f070453d09f7f2e9bdba6bae22fd72a0f2e5ac26e194119480", async() => {
                 WriteLiteral("\r\n    ");
 #nullable restore
 #line 11 "C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.Mvc\Views\Shared\_Layout.cshtml"

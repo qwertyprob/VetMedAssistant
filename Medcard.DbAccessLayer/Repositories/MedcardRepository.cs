@@ -4,158 +4,58 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Medcard.Core.Models;
 
-public class MedcardRepository : IRepository
+namespace Medcard.DbAccessLayer
 {
-    private readonly AppDbContext _dbcontext;
-    public MedcardRepository(AppDbContext dbcontext)
+    public class MedcardRepository : IMedcardRepository
     {
-        _dbcontext = dbcontext;
-    }
-    public async Task<IReadOnlyCollection<OwnerEntity>> GetAsync()
-    {
-        var medcard = await _dbcontext.Owners
-            .Include(owner => owner.Pets)
-                .ThenInclude(pet => pet.Drugs)
-            .Include(pet => pet.Pets)
-                .ThenInclude(pet => pet.Treatments)
-            .AsNoTracking()
-            .ToListAsync();
-
-
-
-        return medcard;
-
-    }
-    public async Task<OwnerEntity> GetByIdAsync(Guid id)
-    {
-        var owner = await _dbcontext.Owners
-            .Include(o => o.Pets)
-                .ThenInclude(p => p.Drugs)
-            .Include(o => o.Pets)
-                .ThenInclude(p => p.Treatments)
-            .SingleOrDefaultAsync(x => x.Id == id);
-
-        return owner;
-    }
-
-
-    public async Task<OwnerEntity> CreateAsync(
-        string name, string phone,
-        string petName, int chipNumber,
-        int petAge, string petBreed,
-        string petDrugs,
-        string petTreatment)
-    {
-        Guid id = Guid.NewGuid();
-
-        var medcard = new OwnerEntity()
+        private readonly AppDbContext _dbcontext;
+        public MedcardRepository(AppDbContext dbcontext)
         {
-            Id = id,
-            Name = name,
-            PhoneNumber = phone,
-            Pets = new List<PetEntity>
+            _dbcontext = dbcontext;
+        }
+
+        public async Task<List<OwnerModel>> GetAll()
         {
-            new PetEntity
-            {
-                Id = Guid.NewGuid(),
-                OwnerId = id,
-                Name = petName,
-                ChipNumber = chipNumber,
-                Age = petAge,
-                Breed = petBreed,
-                Treatments = new List<TreatmentEntity>
-                {
-                    new TreatmentEntity
+            var medcardEntity = await _dbcontext.Owners
+                .Include(p => p.Pets)
+                    .ThenInclude(d => d.Drugs)
+                .Include(p => p.Pets)
+                    .ThenInclude(t => t.Treatments)
+                .AsNoTracking()
+                .ToListAsync();
+
+            //Преобразование
+            var medcard = medcardEntity
+                .Select(x => OwnerModel.Create(
+                    x.Id = Guid.NewGuid(),
+                    x.Name,
+                    x.PhoneNumber,
+                    x.Pets.Select(p => new PetModel
                     {
-                        Description = petTreatment,
-                        PetId = id // Использование id владельца
-                    }
-                },
-                Drugs = new List<DrugEntity>
-                {
-                    new DrugEntity
-                    {
-                        Description = petDrugs,
-                        PetId = id // Использование id владельца
-                    }
-                }
-            }
-        }
-        };
+                        Id = Guid.NewGuid(),
+                        Name = p.Name,
+                        ChipNumber = p.ChipNumber,
+                        Age = p.Age,
+                        Breed = p.Breed,
+                        Drugs = p.Drugs.Select(d => new DrugsModel
+                        {
+                            Description = d.Description,
+                            PetId = p.Id
+                        }).ToList(),
+                        Treatments = p.Treatments.Select(t => new TreatmentsModel
+                        {
+                            Description = t.Description,
+                            PetId = p.Id
+                        }).ToList()
+                    }).ToList()
+                )).ToList();
 
-        _dbcontext.Add(medcard);
-        await _dbcontext.SaveChangesAsync();
-
-        return medcard;
-    }
-
-
-    public async Task<OwnerEntity> UpdateAsync(Guid id,
-     string name, string phone,
-     string petName, int chipNumber,
-     int petAge, string petBreed,
-     string petDrugs,
-     string petTreatment)
-    {
-
-        var updateMedcard = await _dbcontext.Owners
-            .Include(o => o.Pets)
-            .Where(x => x.Id == id)
-            .SingleOrDefaultAsync();
-
-        if (updateMedcard != null)
-        {
-
-            updateMedcard.Name = name;
-            updateMedcard.PhoneNumber = phone;
-
-
-            var petToUpdate = updateMedcard.Pets.FirstOrDefault();
-            if (petToUpdate != null)
-            {
-                petToUpdate.Name = petName;
-                petToUpdate.ChipNumber = chipNumber;
-                petToUpdate.Age = petAge;
-                petToUpdate.Breed = petBreed;
-
-
-                petToUpdate.Drugs.Clear();
-                petToUpdate.Treatments.Clear();
-
-                petToUpdate.Drugs.Add(new DrugEntity { Description = petDrugs });
-                petToUpdate.Treatments.Add(new TreatmentEntity { Description = petTreatment });
-            }
-
-
-            await _dbcontext.SaveChangesAsync();
+            return medcard;
         }
 
-        return updateMedcard;
+
+
     }
-
-
-
-
-    public async Task<OwnerEntity> DeleteAsync(Guid id)
-    {
-        var deletedMedcard = await _dbcontext.Owners
-            .Include(o => o.Pets)
-            .Where(x => x.Id == id)
-            .SingleOrDefaultAsync();
-
-        if (deletedMedcard != null)
-        {
-            _dbcontext.Owners.Remove(deletedMedcard);
-            await _dbcontext.SaveChangesAsync();
-        }
-        return deletedMedcard;
-    }
-
-    public Task<OwnerEntity> UpdateAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    
 }

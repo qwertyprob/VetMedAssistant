@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using Medcard.Mvc.Models;
+using Medcard.Mvc;
 using System.Collections.Generic;
 using Microsoft.Extensions.Logging;
 

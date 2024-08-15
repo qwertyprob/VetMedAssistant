@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Medcard.DbAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240703144716_Initial")]
-    partial class Initial
+    [Migration("20240813192252_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,51 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.ToTable("Drugs");
                 });
 
+            modelBuilder.Entity("Medcard.DbAccessLayer.Entities.OwnerEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Owners");
+                });
+
+            modelBuilder.Entity("Medcard.DbAccessLayer.Entities.PetEntity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Age")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Breed")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ChipNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("OwnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
+
+                    b.ToTable("Pets");
+                });
+
             modelBuilder.Entity("Medcard.DbAccessLayer.Entities.TreatmentEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -59,54 +104,9 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.ToTable("Treatments");
                 });
 
-            modelBuilder.Entity("Medcard.DbAccessLayer.Entyties.OwnerEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Owners");
-                });
-
-            modelBuilder.Entity("Medcard.DbAccessLayer.Entyties.PetEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Age")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Breed")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ChipNumber")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("OwnerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OwnerId");
-
-                    b.ToTable("Pets");
-                });
-
             modelBuilder.Entity("Medcard.DbAccessLayer.Entities.DrugEntity", b =>
                 {
-                    b.HasOne("Medcard.DbAccessLayer.Entyties.PetEntity", "Pet")
+                    b.HasOne("Medcard.DbAccessLayer.Entities.PetEntity", "Pet")
                         .WithMany("Drugs")
                         .HasForeignKey("PetId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -115,20 +115,9 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.Navigation("Pet");
                 });
 
-            modelBuilder.Entity("Medcard.DbAccessLayer.Entities.TreatmentEntity", b =>
+            modelBuilder.Entity("Medcard.DbAccessLayer.Entities.PetEntity", b =>
                 {
-                    b.HasOne("Medcard.DbAccessLayer.Entyties.PetEntity", "Pet")
-                        .WithMany("Treatments")
-                        .HasForeignKey("PetId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pet");
-                });
-
-            modelBuilder.Entity("Medcard.DbAccessLayer.Entyties.PetEntity", b =>
-                {
-                    b.HasOne("Medcard.DbAccessLayer.Entyties.OwnerEntity", "Owner")
+                    b.HasOne("Medcard.DbAccessLayer.Entities.OwnerEntity", "Owner")
                         .WithMany("Pets")
                         .HasForeignKey("OwnerId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -137,12 +126,23 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.Navigation("Owner");
                 });
 
-            modelBuilder.Entity("Medcard.DbAccessLayer.Entyties.OwnerEntity", b =>
+            modelBuilder.Entity("Medcard.DbAccessLayer.Entities.TreatmentEntity", b =>
+                {
+                    b.HasOne("Medcard.DbAccessLayer.Entities.PetEntity", "Pet")
+                        .WithMany("Treatments")
+                        .HasForeignKey("PetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pet");
+                });
+
+            modelBuilder.Entity("Medcard.DbAccessLayer.Entities.OwnerEntity", b =>
                 {
                     b.Navigation("Pets");
                 });
 
-            modelBuilder.Entity("Medcard.DbAccessLayer.Entyties.PetEntity", b =>
+            modelBuilder.Entity("Medcard.DbAccessLayer.Entities.PetEntity", b =>
                 {
                     b.Navigation("Drugs");
 

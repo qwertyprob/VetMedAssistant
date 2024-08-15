@@ -455,3 +455,5 @@ C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\obj\Debug\net5.
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\obj\Debug\net5.0\Medcard.API.pdb
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\obj\Debug\net5.0\Medcard.API.genruntimeconfig.cache
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\obj\Debug\net5.0\ref\Medcard.API.dll
+C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\bin\Debug\net5.0\Medcard.Core.dll
+C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\bin\Debug\net5.0\Medcard.Core.pdb

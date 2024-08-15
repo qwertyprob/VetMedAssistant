@@ -1,4 +1,4 @@
-﻿@model OwnerModel
+﻿
 <header class="header">
     <div class="logo">
         <a href="@Url.Action("Index", "Medcard")">
@@ -17,20 +17,19 @@
     <div id="popup" class="popup enable">
         <div class="popup__box">
             <label>ФИО:</label>
-            <input placeholder="ФИО" type="text" id="name" name="name" value="@Model.Name" />
+            <input placeholder="ФИО" type="text" id="name" name="name" value="" />
             <label>Номер телефона:</label>
-            <input placeholder="Номер телефона" type="text" id="phonenumber" name="phone" value="@Model.PhoneNumber" />
-            @foreach (var pet in Model.Pets)
-            {
+            <input placeholder="Номер телефона" type="text" id="phonenumber" name="phone" value="" />
+            
                 <label>Кличка:</label>
-                <input placeholder="Кличка" type="text" id="nick" name="petName" value="@pet.Name" />
+                <input placeholder="Кличка" type="text" id="nick" name="petName" value="" />
                 <label>Номер чипа:</label>
-                <input placeholder="Номер чипа" type="text" id="chip" name="chipNumber" value="@pet.ChipNumber" />
+                <input placeholder="Номер чипа" type="text" id="chip" name="chipNumber" value="" />
                 <label>Возраст:</label>
-                <input placeholder="Возраст" type="text" id="age" name="petAge" value="@pet.Age" />
+                <input placeholder="Возраст" type="text" id="age" name="petAge" value="" />
                 <label>Порода:</label>
-                <input placeholder="Порода" type="text" id="breed" name="petBreed" value="@pet.Breed" />
-            }
+                <input placeholder="Порода" type="text" id="breed" name="petBreed" value="" />
+            
             <button class="list__more" type="submit" formaction="@Url.Action("UpdateMedcardForm", "Medcard")">Отправить</button>
         </div>
 

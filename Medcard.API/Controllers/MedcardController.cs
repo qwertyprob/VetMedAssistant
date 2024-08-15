@@ -5,6 +5,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Linq;
+using Medcard.DbAccessLayer;
 
 namespace Medcard.API.Controllers
 {
@@ -12,7 +13,7 @@ namespace Medcard.API.Controllers
     [Route("api/[controller]")]
     public class MedcardController : ControllerBase
     {
-        
+       
 
     }
 }

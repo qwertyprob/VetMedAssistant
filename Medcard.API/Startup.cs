@@ -1,3 +1,4 @@
+using Medcard.DbAccessLayer;
 using Medcard.DbAccessLayer.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Medcard.Core;
 namespace Medcard.API
 {
     public class Startup
@@ -28,19 +29,20 @@ namespace Medcard.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
-                options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("MedcardConnectionString"));
-                }
-            );
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("MedcardConnectionString"));
+            });
+
+            services.AddScoped<IMedcardRepository, MedcardRepository>();
+
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
-        
-        services.AddSwaggerGen(c =>
+
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Medcard.API", Version = "v1" });
             });
@@ -55,7 +57,7 @@ namespace Medcard.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Medcard.API v1"));
             }
-          
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

@@ -449,3 +449,5 @@ C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.Mvc\obj\Debug\net5.
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard..49DCFF90.Up2Date
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.genruntimeconfig.cache
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\ref\Medcard.Mvc.dll
+C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.Mvc\bin\Debug\net5.0\Medcard.Core.dll
+C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.Mvc\bin\Debug\net5.0\Medcard.Core.pdb

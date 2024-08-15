@@ -42,8 +42,8 @@
     </div>
 </div>
 
-@if (Model != null && Model.Count > 0)
-{
+
+
     <section class="list">
         <div class="list__wrapper shadow">
             <div class="list__line-title">
@@ -61,13 +61,13 @@
                 
                     <div class="list__lines">
                         <p class="number"> </p>
-                        <p class="name">@item.Name</p>
-                        <p class="phone">@item.PhoneNumber</p>
+                        <p class="name"></p>
+                        <p class="phone"></p>
                        
-                            <p class="nick">@pet.Name</p>
-                            <p class="chip">@pet.ChipNumber</p>
-                            <p class="age">@pet.Age</p>
-                            <p class="breed">@pet.Breed</p>
+                            <p class="nick"></p>
+                            <p class="chip"></p>
+                            <p class="age"></p>
+                            <p class="breed"></p>
                         
                         
                         <div class="list__param">
@@ -78,7 +78,7 @@
 
                             
                             <form asp-action="DeleteMedcard" method="post" class="list__remove">
-                                <input type="hidden" name="id" value="@item.Id" />
+                                <input type="hidden" name="id" value="" />
                                 <button type="submit" style="background: none; border: none; color: white; ">
                                     Удалить
                                 </button>
@@ -91,7 +91,4 @@
         </div>
     </section>
 }
-else
-{
-    <h1 style="text-align: center;">Медкард не найдено. Пожалуйста проверьте данные на наличие ошибок или начните ее вести!</h1>
-}
+
