@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Medcard.DbAccessLayer.Dto;
+using Medcard.DbAccessLayer.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +9,23 @@ using System.Threading.Tasks;
 
 namespace Medcard.DbAccessLayer.Services
 {
-    public class MedcardService
+    public class MedcardService : IMedcardService
     {
-        public readonly IMapper _mapper; 
 
-        public MedcardService(IMapper mapper)
+        private readonly IMedcardRepository _repository;
+        public MedcardService(IMedcardRepository repository)
         {
 
-        _mapper = mapper; 
+            _repository = repository;
+        }
+
+        public async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
+        {
+            return await _repository.GetAllAsync();
+        }
+        public async Task <OwnerDto> GetByIdAsync(Guid id)
+        {
+            return await _repository.GetByIdAsync(id);
         }
 
     }

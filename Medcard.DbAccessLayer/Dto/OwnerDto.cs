@@ -13,7 +13,7 @@ namespace Medcard.DbAccessLayer.Dto
         public string PhoneNumber { get; set; }
 
         //Связь 1:многие
-        public List<PetDto> Pets { get; set; } = new List<PetDto>();
+        public List<PetDto> PetsDtos { get; set; } = new List<PetDto>();
 
         public OwnerDto() { }
         public OwnerDto(Guid id,
@@ -26,7 +26,7 @@ namespace Medcard.DbAccessLayer.Dto
             Id = id;
             Name = name;
             PhoneNumber = phone;
-            Pets = new List<PetDto>()
+            PetsDtos = new List<PetDto>()
             {
                 new PetDto()
                 {
@@ -35,7 +35,7 @@ namespace Medcard.DbAccessLayer.Dto
                     ChipNumber= chipNumber,
                     Age=petAge,
                     Breed=petBreed,
-                    Drugs=new List<DrugsDto>()
+                    DrugDtos=new List<DrugsDto>()
                     {
                         new DrugsDto()
                         {
@@ -45,7 +45,7 @@ namespace Medcard.DbAccessLayer.Dto
 
 
                     },
-                    Treatments = new List<TreatmentsDto>()
+                    TreatmentDtos = new List<TreatmentsDto>()
                     {
                         new TreatmentsDto()
                         {

@@ -5,12 +5,9 @@ using System.Threading.Tasks;
 
 namespace Medcard.DbAccessLayer.Interfaces
 {
-
-    public interface IMedcardRepository
+    public interface IMedcardService
     {
-        
         Task<IReadOnlyCollection<OwnerDto>> GetAllAsync();
         Task<OwnerDto> GetByIdAsync(Guid id);
     }
-
 }

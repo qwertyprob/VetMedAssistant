@@ -29,7 +29,7 @@ namespace MedcardMvc
         {
 
 
-            services.AddScoped<IMedcardRepository<OwnerDto, PetDto, DrugsDto, TreatmentsDto>, MedcardRepository>();
+            
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(
                 options =>

@@ -1,9 +1,11 @@
-﻿using Medcard.DbAccessLayer.Dto;
+﻿using AutoMapper;
+using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -12,15 +14,18 @@ namespace Medcard.DbAccessLayer
 {
     
 
-    public class MedcardRepository : IMedcardRepository <OwnerDto, PetDto, DrugsDto, TreatmentsDto>
+    public class MedcardRepository : IMedcardRepository 
     {
         private readonly AppDbContext _dbcontext;
-        public MedcardRepository(AppDbContext dbcontext)
+        private readonly IMapper _mapper;
+
+        public MedcardRepository(AppDbContext dbcontext, IMapper mapper)
         {
             _dbcontext = dbcontext;
+            _mapper = mapper;
         }
 
-        public async Task<List<OwnerDto>> GetAllAsync()
+        public async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
         {
             var medcard = await _dbcontext.Owners
                 .Include(p => p.Pets)
@@ -28,12 +33,12 @@ namespace Medcard.DbAccessLayer
                 .Include(p => p.Pets)
                     .ThenInclude(t => t.Treatments)
                 .AsNoTracking()
-                .ToListAsync();
+            .ToListAsync();
 
 
-            return new List<OwnerDto>(); 
+            var mappedMedcard = _mapper.Map<List<OwnerDto>>(medcard);
 
-
+            return mappedMedcard;
         }
         public async Task<OwnerDto> GetByIdAsync(Guid id)
         {
@@ -46,7 +51,9 @@ namespace Medcard.DbAccessLayer
                 .SingleOrDefaultAsync(x => x.Id == id);
 
 
-            return new OwnerDto();
+            var mappedMedcard = _mapper.Map<OwnerDto>(medcard);
+
+            return mappedMedcard;
 
 
         }

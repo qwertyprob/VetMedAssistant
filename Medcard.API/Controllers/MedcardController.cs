@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
+using Medcard.DbAccessLayer.Dto;
 
 namespace Medcard.API.Controllers
 {
@@ -13,22 +14,34 @@ namespace Medcard.API.Controllers
     [Route("api/[controller]")]
     public class MedcardController : ControllerBase
     {
-        public readonly IMedcardRepository<OwnerEntity, PetEntity, DrugEntity, TreatmentEntity> medcardRepository;
-        public MedcardController(IMedcardRepository<OwnerEntity, PetEntity, DrugEntity, TreatmentEntity> medcardRepository)
+        public readonly IMedcardRepository medcardRepository;
+        private readonly IMedcardService medcardService;
+
+        public MedcardController(IMedcardRepository medcardRepository ,IMedcardService medcardService)
         { 
-            this.medcardRepository = medcardRepository; 
+            this.medcardRepository = medcardRepository;
+            this.medcardService = medcardService;
         }
 
 
         [HttpGet("GET")]
 
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAllAsync()
         {
-            var medcard = await medcardRepository.GetAllAsync();
+            var medcard = await medcardService.GetAllAsync();
             
             return new JsonResult(medcard);
         }
 
+        [HttpGet("GET/{id}")]
+        public async Task<IActionResult> GetByIdAsync(Guid id)
+        {
+            var medcard = await medcardService.GetByIdAsync(id);
+
+            
+
+            return Ok(medcard); 
+        }
 
 
     }

@@ -15,7 +15,7 @@ namespace Medcard.DbAccessLayer.Dto
         public string Breed { get; set; }
 
         //Связи 1:многие
-        public List<TreatmentsDto> Treatments { get; set; } = new List<TreatmentsDto>();
-        public List<DrugsDto> Drugs { get; set; } = new List<DrugsDto>();
+        public List<TreatmentsDto> TreatmentDtos { get; set; } = new List<TreatmentsDto>();
+        public List<DrugsDto> DrugDtos { get; set; } = new List<DrugsDto>();
     }
 }
