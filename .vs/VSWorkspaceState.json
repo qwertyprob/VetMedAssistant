@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Medcard.Dto",
-    "\\Medcard.Mvc\\Controllers",
-    "\\Medcard.Mvc\\Views",
-    "\\Medcard.Mvc\\Views\\Medcard"
+    ""
   ],
-  "SelectedNode": "\\Medcard.Dto\\Medcard.Core.csproj",
+  "SelectedNode": "\\MedcardMvcApp.sln",
   "PreviewInSolutionExplorer": false
 }
