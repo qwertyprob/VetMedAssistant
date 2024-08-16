@@ -1,3 +1,5 @@
+using Medcard.Core.Interfaces;
+using Medcard.DbAccessLayer;
 using Medcard.DbAccessLayer.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,9 +26,9 @@ namespace MedcardMvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
 
 
+            services.AddScoped<IMedcardRepository<OwnerEntity, PetEntity, DrugEntity, TreatmentEntity>, MedcardRepository>();
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(
                 options =>

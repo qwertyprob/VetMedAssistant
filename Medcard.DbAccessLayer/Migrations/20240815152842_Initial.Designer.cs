@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Medcard.DbAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240813192252_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240815152842_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

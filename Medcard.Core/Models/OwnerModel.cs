@@ -4,7 +4,6 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace Medcard.Core.Models
 {
     public class OwnerModel
@@ -17,24 +16,58 @@ namespace Medcard.Core.Models
         public List<PetModel> Pets { get; set; } = new List<PetModel>();
 
 
-        public OwnerModel(Guid id, string name, string phone, List<PetModel> pets)
+        public OwnerModel(Guid id,
+                         string name, string phone,
+                         string petName, string chipNumber,
+                         string petAge, string petBreed,
+                         string petDrugs,
+                         string petTreatment)
         {
             Id = id;
             Name = name;
             PhoneNumber = phone;
-            Pets = pets;
+            Pets = new List<PetModel>()
+            {
+                new PetModel()
+                {
+                    Id= id,
+                    Name= name,
+                    ChipNumber= chipNumber,
+                    Age=petAge,
+                    Breed=petBreed,
+                    Drugs=new List<DrugsModel>()
+                    {
+                        new DrugsModel()
+                        {
+                            PetId= id,
+                            Description= name,
+                        }
+
+
+                    },
+                    Treatments = new List<TreatmentsModel>()
+                    {
+                        new TreatmentsModel()
+                        {
+                            PetId = id,
+                            Description= name
+                        }
+                    }
+                }
+            };
+
+
+
         }
-
-
-
-
-
-        public static OwnerModel Create(Guid id, string name, string phone, List<PetModel> pets)
+        public static OwnerModel Create(Guid id,
+                         string name, string phone,
+                         string petName, string chipNumber,
+                         string petAge, string petBreed,
+                         string petDrugs,
+                         string petTreatment)
         {
-            return new OwnerModel(id, name, phone, pets);
+            return new OwnerModel(id, name, phone, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
         }
-
-
-
+       
     }
 }

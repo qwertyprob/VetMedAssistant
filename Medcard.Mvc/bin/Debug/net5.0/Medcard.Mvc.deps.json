@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "Medcard.Mvc/1.0.0": {
         "dependencies": {
+          "Medcard.Core": "1.0.0",
           "Medcard.DbAccessLayer": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore.Design": "5.0.0",
@@ -1069,6 +1070,9 @@
         }
       },
       "Medcard.Core/1.0.0": {
+        "dependencies": {
+          "Medcard.DbAccessLayer": "1.0.0"
+        },
         "runtime": {
           "Medcard.Core.dll": {}
         },
@@ -1078,7 +1082,6 @@
       },
       "Medcard.DbAccessLayer/1.0.0": {
         "dependencies": {
-          "Medcard.Core": "1.0.0",
           "Microsoft.Data.SqlClient": "5.2.1",
           "Microsoft.EntityFrameworkCore": "5.0.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.0"

@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj": {}
+    "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj": {
+    "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj",
         "projectName": "Medcard.Core",
-        "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj",
-        "packagesPath": "C:\\Users\\eqspe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Core\\obj\\",
+        "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Core\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\eqspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -60,21 +65,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
+    "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
         "projectName": "Medcard.DbAccessLayer",
-        "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\eqspe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.DbAccessLayer\\obj\\",
+        "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\eqspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -82,14 +91,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj": {
-                "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj"
+              "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj": {
+                "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj"
               }
             }
           }
@@ -144,21 +154,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj": {
+    "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj",
+        "projectUniqueName": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj",
         "projectName": "Medcard.Mvc",
-        "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj",
-        "packagesPath": "C:\\Users\\eqspe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Mvc\\obj\\",
+        "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\eqspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -166,17 +180,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj": {
-                "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj"
+              "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj": {
+                "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Core\\Medcard.Core.csproj"
               },
-              "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj"
+              "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj"
               }
             }
           }
@@ -230,7 +245,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

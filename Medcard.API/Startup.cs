@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Medcard.Core;
+using Medcard.Core.Interfaces;
 namespace Medcard.API
 {
     public class Startup
@@ -33,9 +34,7 @@ namespace Medcard.API
             {
                 options.UseSqlServer(Configuration.GetConnectionString("MedcardConnectionString"));
             });
-
-            services.AddScoped<IMedcardRepository, MedcardRepository>();
-
+            services.AddScoped<IMedcardRepository<OwnerEntity, PetEntity, DrugEntity, TreatmentEntity>, MedcardRepository>();
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {

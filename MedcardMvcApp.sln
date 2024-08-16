@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.DbAccessLayer", "Me
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.API", "Medcard.API\Medcard.API.csproj", "{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medcard.Core", "Medcard.Core\Medcard.Core.csproj", "{EF0D8529-851C-4C9A-AEC2-20317E9FBDCA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Core", "Medcard.Core\Medcard.Core.csproj", "{EF0D8529-851C-4C9A-AEC2-20317E9FBDCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
