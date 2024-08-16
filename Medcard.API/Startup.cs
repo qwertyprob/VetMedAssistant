@@ -1,5 +1,7 @@
 using Medcard.DbAccessLayer;
+using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
+using Medcard.DbAccessLayer.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,8 +16,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Medcard.Core;
-using Medcard.Core.Interfaces;
+
 namespace Medcard.API
 {
     public class Startup
@@ -34,7 +35,8 @@ namespace Medcard.API
             {
                 options.UseSqlServer(Configuration.GetConnectionString("MedcardConnectionString"));
             });
-            services.AddScoped<IMedcardRepository<OwnerEntity, PetEntity, DrugEntity, TreatmentEntity>, MedcardRepository>();
+            services.AddScoped<IMedcardRepository<OwnerDto, PetDto, DrugsDto, TreatmentsDto>, MedcardRepository>();
+            services.AddAutoMapper(typeof(Startup).Assembly); 
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {

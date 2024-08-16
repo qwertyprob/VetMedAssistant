@@ -79,6 +79,3 @@ C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.DbAccessLayer\obj\D
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard.DbAccessLayer.pdb
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard.DbAccessLayer.genruntimeconfig.cache
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\ref\Medcard.DbAccessLayer.dll
-C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\bin\Debug\net5.0\Medcard.Core.dll
-C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\bin\Debug\net5.0\Medcard.Core.pdb
-C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard..82F2BAA4.Up2Date

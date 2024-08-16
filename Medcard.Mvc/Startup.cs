@@ -1,6 +1,7 @@
-using Medcard.Core.Interfaces;
 using Medcard.DbAccessLayer;
+using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
+using Medcard.DbAccessLayer.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,7 +29,7 @@ namespace MedcardMvc
         {
 
 
-            services.AddScoped<IMedcardRepository<OwnerEntity, PetEntity, DrugEntity, TreatmentEntity>, MedcardRepository>();
+            services.AddScoped<IMedcardRepository<OwnerDto, PetDto, DrugsDto, TreatmentsDto>, MedcardRepository>();
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(
                 options =>

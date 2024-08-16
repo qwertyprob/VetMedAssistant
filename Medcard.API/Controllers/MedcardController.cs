@@ -4,8 +4,8 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Threading.Tasks;
 using System.Linq;
-using Medcard.Core.Interfaces;
 using Medcard.DbAccessLayer.Entities;
+using Medcard.DbAccessLayer.Interfaces;
 
 namespace Medcard.API.Controllers
 {

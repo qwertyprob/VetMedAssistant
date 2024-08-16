@@ -4,19 +4,19 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-namespace Medcard.Core.Models
+namespace Medcard.DbAccessLayer.Dto
 {
-    public class OwnerModel
+    public class OwnerDto
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
 
         //Связь 1:многие
-        public List<PetModel> Pets { get; set; } = new List<PetModel>();
+        public List<PetDto> Pets { get; set; } = new List<PetDto>();
 
-
-        public OwnerModel(Guid id,
+        public OwnerDto() { }
+        public OwnerDto(Guid id,
                          string name, string phone,
                          string petName, string chipNumber,
                          string petAge, string petBreed,
@@ -26,18 +26,18 @@ namespace Medcard.Core.Models
             Id = id;
             Name = name;
             PhoneNumber = phone;
-            Pets = new List<PetModel>()
+            Pets = new List<PetDto>()
             {
-                new PetModel()
+                new PetDto()
                 {
                     Id= id,
                     Name= name,
                     ChipNumber= chipNumber,
                     Age=petAge,
                     Breed=petBreed,
-                    Drugs=new List<DrugsModel>()
+                    Drugs=new List<DrugsDto>()
                     {
-                        new DrugsModel()
+                        new DrugsDto()
                         {
                             PetId= id,
                             Description= name,
@@ -45,9 +45,9 @@ namespace Medcard.Core.Models
 
 
                     },
-                    Treatments = new List<TreatmentsModel>()
+                    Treatments = new List<TreatmentsDto>()
                     {
-                        new TreatmentsModel()
+                        new TreatmentsDto()
                         {
                             PetId = id,
                             Description= name
@@ -56,17 +56,17 @@ namespace Medcard.Core.Models
                 }
             };
 
-
+            
 
         }
-        public static OwnerModel Create(Guid id,
+        public static OwnerDto Create(Guid id,
                          string name, string phone,
                          string petName, string chipNumber,
                          string petAge, string petBreed,
                          string petDrugs,
                          string petTreatment)
         {
-            return new OwnerModel(id, name, phone, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
+            return new OwnerDto(id, name, phone, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
         }
        
     }

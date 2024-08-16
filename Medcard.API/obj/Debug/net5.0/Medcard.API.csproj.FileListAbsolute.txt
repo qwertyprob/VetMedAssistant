@@ -457,5 +457,8 @@ C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\obj\Debug\net5.
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\obj\Debug\net5.0\ref\Medcard.API.dll
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\bin\Debug\net5.0\Medcard.Core.dll
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.API\bin\Debug\net5.0\Medcard.Core.pdb
-C:\Users\User\source\repos\MedcardMvc\Medcard.API\bin\Debug\net5.0\Medcard.Core.dll
-C:\Users\User\source\repos\MedcardMvc\Medcard.API\bin\Debug\net5.0\Medcard.Core.pdb
+C:\Users\User\source\repos\MedcardMvc\Medcard.API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\User\source\repos\MedcardMvc\Medcard.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\User\source\repos\MedcardMvc\Medcard.API\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\User\source\repos\MedcardMvc\Medcard.API\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
+C:\Users\User\source\repos\MedcardMvc\Medcard.API\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll

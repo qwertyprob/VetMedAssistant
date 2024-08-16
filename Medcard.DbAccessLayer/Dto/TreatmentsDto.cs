@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Medcard.Core.Models
+namespace Medcard.DbAccessLayer.Dto
 {
-    public class TreatmentsModel
+    public class TreatmentsDto
     {
         public Guid PetId { get; set; }
         public string Description { get; set; }
