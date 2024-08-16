@@ -12,8 +12,8 @@ namespace Medcard.DbAccessLayer.Entities
 
         public Guid Id { get; set; }
         public string Name { get; set; }
-        public int? ChipNumber { get; set; }
-        public int Age { get; set; }
+        public string ChipNumber { get; set; }
+        public string Age { get; set; }
         public string Breed { get; set; }
 
         // Внешний ключ для связи с владельцем

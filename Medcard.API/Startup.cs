@@ -1,4 +1,9 @@
+using Medcard.DbAccessLayer;
+using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
+using Medcard.DbAccessLayer.Interfaces;
+using Medcard.DbAccessLayer.Mapping;
+using Medcard.DbAccessLayer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,20 +33,20 @@ namespace Medcard.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IRepository, MedcardRepository>();
-            services.AddDbContext<AppDbContext>(
-                options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("MedcardConnectionString"));
-                }
-            );
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("MedcardConnectionString"));
+            });
+            services.AddScoped<IMedcardRepository,MedcardRepository>();
+            services.AddScoped<IMedcardService, MedcardService>();
+            services.AddAutoMapper(typeof(MappingProfile)); 
 
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
-        
-        services.AddSwaggerGen(c =>
+
+            services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Medcard.API", Version = "v1" });
             });
@@ -56,7 +61,7 @@ namespace Medcard.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Medcard.API v1"));
             }
-          
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

@@ -1,4 +1,4 @@
-﻿@model OwnerModel
+﻿
 
 @{
     ViewData["Title"] = "Medcard";
@@ -20,30 +20,23 @@
 <section class="card">
     <div id="main" class="main shadow">
         <div class="main__column1">
-            <div class="main__elem" id="client-name">Фио:<strong> @Model.Name</strong></div>
-            <div class="main__elem" id="phone-number">Телефон:<strong> @Model.PhoneNumber</strong></div>
-            @foreach (var pet in Model.Pets)
-            {
-                <div class="main__elem" id="pet-name">Кличка:<strong> @pet.Name</strong></div>
-                <div class="main__elem" id="chip-number">Чип:<strong> @pet.ChipNumber</strong></div>
-                <div class="main__elem" id="pet-age">Возраст:<strong> @pet.Age</strong></div>
-                <div class="main__elem" id="pet-breed">Порода:<strong> @pet.Breed</strong></div>
-            }
+            <div class="main__elem" id="client-name">Фио:<strong> </strong></div>
+            <div class="main__elem" id="phone-number">Телефон:<strong> </strong></div>
+          
+                <div class="main__elem" id="pet-name">Кличка:<strong> </strong></div>
+                <div class="main__elem" id="chip-number">Чип:<strong> </strong></div>
+                <div class="main__elem" id="pet-age">Возраст:<strong> </strong></div>
+                <div class="main__elem" id="pet-breed">Порода:<strong> </strong></div>
+            
         </div>
 
-        <div class="main__column2" ">
+        <div class="main__column2">
             <h2 style="background-color: azure;">Препараты</h2>
 
             <textarea class="main__elem-input disable" id="drug" type="text" style="font-size: 30px; "></textarea>
 
             <div class="main__elem" id="drugs" style="font-size: 30px">
-                @foreach (var pet in Model.Pets)
-                {
-                    @foreach (var drugs in pet.Drugs)
-                    {
-                        @drugs.Description
-                    }
-                }
+               
             </div>
 
             <h2 style="background-color: azure;">Лечение</h2>
@@ -51,13 +44,7 @@
             <textarea class="main__elem-input disable" id="treatments" type="text" style="font-size: 30px;"></textarea>
 
             <div class="main__elem" id="treatment" style="font-size: 30px">
-                @foreach (var pet in Model.Pets)
-                {
-                    @foreach (var treatmeants in pet.Treatments)
-                    {
-                        @treatmeants.Description
-                    }
-                }
+                
             </div>
         </div>
         

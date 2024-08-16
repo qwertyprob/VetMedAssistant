@@ -1,4 +1,7 @@
+using Medcard.DbAccessLayer;
+using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
+using Medcard.DbAccessLayer.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,10 +27,9 @@ namespace MedcardMvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IRepository, MedcardRepository>();
-            services.AddScoped<IMedcardService, MedcardService>();
 
 
+            
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(
                 options =>
@@ -50,7 +52,6 @@ namespace MedcardMvc
             else
             {
                 app.UseExceptionHandler("/Medcard/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 

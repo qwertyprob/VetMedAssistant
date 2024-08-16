@@ -1,4 +1,4 @@
-﻿@model List<OwnerModel>
+﻿
 
 @{
     ViewData["Title"] = "Card";
@@ -8,7 +8,7 @@
 
 }
 
-<form method="POST" action="@Url.Action("CreateMedcard", "Medcard")">
+<form method="POST" >
     <div id="popup" class="popup disable">
         <div class="popup__box">
             <input placeholder="ФИО" type="text" id="name" name="name">
@@ -42,8 +42,8 @@
     </div>
 </div>
 
-@if (Model != null && Model.Count > 0)
-{
+
+
     <section class="list">
         <div class="list__wrapper shadow">
             <div class="list__line-title">
@@ -58,29 +58,27 @@
             </div>
 
             <div class="list__container">
-                @foreach (var item in Model)
-                {
+                
                     <div class="list__lines">
                         <p class="number"> </p>
-                        <p class="name">@item.Name</p>
-                        <p class="phone">@item.PhoneNumber</p>
-                        @foreach (var pet in item.Pets)
-                        {
-                            <p class="nick">@pet.Name</p>
-                            <p class="chip">@pet.ChipNumber</p>
-                            <p class="age">@pet.Age</p>
-                            <p class="breed">@pet.Breed</p>
-                        }
+                        <p class="name"></p>
+                        <p class="phone"></p>
+                       
+                            <p class="nick"></p>
+                            <p class="chip"></p>
+                            <p class="age"></p>
+                            <p class="breed"></p>
+                        
                         
                         <div class="list__param">
                             
-                            <a href="@Url.Action("More", "Medcard", new { ownerId = item.Id })" class="list__more">Подробнее</a>
+                            <a class="list__more">Подробнее</a>
                             
-                            <a href="@Url.Action("UpdateMedcard", "Medcard", new { ownerId = item.Id })" class="list__more">Изменить</a>
+                            <a class="list__more">Изменить</a>
 
                             
                             <form asp-action="DeleteMedcard" method="post" class="list__remove">
-                                <input type="hidden" name="id" value="@item.Id" />
+                                <input type="hidden" name="id" value="" />
                                 <button type="submit" style="background: none; border: none; color: white; ">
                                     Удалить
                                 </button>
@@ -88,12 +86,9 @@
 
                         </div>
                     </div>
-                }
+                
             </div>
         </div>
     </section>
 }
-else
-{
-    <h1 style="text-align: center;">Медкард не найдено. Пожалуйста проверьте данные на наличие ошибок или начните ее вести!</h1>
-}
+

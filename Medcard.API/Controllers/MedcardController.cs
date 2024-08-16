@@ -3,8 +3,12 @@ using System;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Linq;
+using Medcard.DbAccessLayer.Entities;
+using Medcard.DbAccessLayer.Interfaces;
+using Medcard.DbAccessLayer.Dto;
+using Microsoft.AspNetCore.Diagnostics;
+using System.IO;
 
 namespace Medcard.API.Controllers
 {
@@ -12,80 +16,78 @@ namespace Medcard.API.Controllers
     [Route("api/[controller]")]
     public class MedcardController : ControllerBase
     {
-        private readonly IRepository _repository; 
+        public readonly IMedcardRepository medcardRepository;
+        private readonly IMedcardService medcardService;
 
-        public MedcardController(IRepository repository)
-        {
-            _repository = repository;
+        public MedcardController(IMedcardRepository medcardRepository ,IMedcardService medcardService)
+        { 
+            this.medcardRepository = medcardRepository;
+            this.medcardService = medcardService;
         }
 
-        
+
         [HttpGet("GET")]
-        public async Task<IActionResult> GET()
-        {
-            var medcard = await _repository.GetAsync();
 
-            return new JsonResult(medcard);
+        public async Task<IActionResult> GetAllAsync()
+        {
+
+            var medcard = await medcardService.GetAllAsync();
+
+            if(medcard is null)
+                return BadRequest("No Medcards!");
+
+            
+            return Ok(medcard);
         }
+
+
         [HttpGet("GET/{id}")]
-        public async Task<IActionResult> GETID(Guid id)
+        public async Task<IActionResult> GetByIdAsync(Guid id)
         {
-            var medcard = await _repository.GetByIdAsync(id);
+           
+            var medcard = await medcardService.GetByIdAsync(id);
 
-            return new JsonResult(medcard);
+            
+            if (medcard == null)
+            {
+                return NotFound(); 
+            }
+
+          
+            return Ok(medcard);
         }
-
         [HttpPost("CREATE")]
-        public async Task<IActionResult> CREATE(
-                                                    string name, string phone,
-                                                    string petName, int chipNumber,
-                                                    int petAge, string petBreed,
-                                                    string petDrugs = "Пока что здесь пусто!",
-                                                    string petTreatment = "Пока что здесь пусто!")
+        public async Task<IActionResult> CreateAsync(MedcardViewModel medcardViewModel)
         {
-            try
-            {
-                var medcard = await _repository.CreateAsync(name, phone, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
+            var medcard = await medcardService.CreateAsync(medcardViewModel);
 
-                return new JsonResult(medcard);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Failed to create medcards: {ex.Message}");
-            }
+            return Ok(medcard);
+
         }
-        [HttpPost("UPDATE")]
-        public async Task<IActionResult> UPDATE(Guid id,
-                                                    string name, string phone,
-                                                    string petName, int chipNumber,
-                                                    int petAge, string petBreed,
-                                                    string petDrugs ,
-                                                    string petTreatment)
+        [HttpPut("UPDATE/{id}")]
+        public async Task<IActionResult> UpdateAsync(Guid id, [FromBody] MedcardViewModel medcardViewModel)
         {
-            try
-            {
-                var medcard = await _repository.UpdateAsync(id,name,phone,petName,chipNumber,petAge,petBreed,petDrugs,petTreatment);
+            var medcard = await medcardService.UpdateAsync(id,medcardViewModel);
 
-                return new JsonResult(medcard);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Failed to create medcards: {ex.Message}");
-            }
-        }
-        [HttpPost("DELETE")]
-        public async Task<IActionResult> DELETE(Guid id)
-        {
-            var deletedMedcard = await _repository.DeleteAsync(id);
-
-            if (deletedMedcard != null)
-            {
-                return Ok();
-            }
-            else
+            if (medcard == null)
             {
                 return NotFound();
             }
+
+            return Ok(medcard);
+        }
+
+        [HttpDelete("DELETE/{id}")]
+        public async Task <IActionResult> DeleteAsync(Guid id)
+        {
+            var medcard = await medcardService.DeleteAsync(id);
+
+            if (medcard == null)
+            {
+                return NotFound();
+            }
+            return Ok(medcard);
+
         }
 
 
