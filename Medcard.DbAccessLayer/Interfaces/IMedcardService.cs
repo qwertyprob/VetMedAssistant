@@ -9,5 +9,8 @@ namespace Medcard.DbAccessLayer.Interfaces
     {
         Task<IReadOnlyCollection<OwnerDto>> GetAllAsync();
         Task<OwnerDto> GetByIdAsync(Guid id);
+        Task<OwnerDto> CreateAsync(MedcardViewModel medcardViewModel);
+        Task<OwnerDto> UpdateAsync(Guid id,MedcardViewModel medcardViewModel);
+        Task<OwnerDto> DeleteAsync(Guid id);
     }
 }

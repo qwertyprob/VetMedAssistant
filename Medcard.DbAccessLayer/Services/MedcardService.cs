@@ -2,6 +2,7 @@
 using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Interfaces;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,12 +22,43 @@ namespace Medcard.DbAccessLayer.Services
 
         public async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
         {
-            return await _repository.GetAllAsync();
+            var medcard = await _repository.GetAllAsync();
+
+            if(medcard is null)
+            {
+                return Array.Empty<OwnerDto>();
+            }
+
+            return medcard;
         }
+
         public async Task <OwnerDto> GetByIdAsync(Guid id)
         {
+            if (id.Equals(Guid.Empty))
+                return null;
+
             return await _repository.GetByIdAsync(id);
         }
 
+        public async Task<OwnerDto> CreateAsync(MedcardViewModel medcardViewModel)
+        {
+            var medcard = await _repository.CreateAsync(medcardViewModel);
+
+            return medcard;
+        }
+        public async Task<OwnerDto> UpdateAsync(Guid id,MedcardViewModel medcardViewModel)
+        {
+            var medcard = await _repository.UpdateAsync(id,medcardViewModel);
+
+
+            return medcard;
+        }
+        public async Task<OwnerDto> DeleteAsync(Guid id)
+        {
+            var medcard =await _repository.DeleteAsync(id);
+
+            return medcard;
+
+        }
     }
 }
