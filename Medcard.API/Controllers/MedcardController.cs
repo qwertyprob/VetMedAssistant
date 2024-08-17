@@ -1,14 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Text.Json.Serialization;
-using System.Text.Json;
 using System.Threading.Tasks;
-using System.Linq;
-using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Dto;
-using Microsoft.AspNetCore.Diagnostics;
-using System.IO;
+
 
 namespace Medcard.API.Controllers
 {
@@ -16,13 +11,15 @@ namespace Medcard.API.Controllers
     [Route("api/[controller]")]
     public class MedcardController : ControllerBase
     {
-        public readonly IMedcardRepository medcardRepository;
+        
+        
         private readonly IMedcardService medcardService;
 
-        public MedcardController(IMedcardRepository medcardRepository ,IMedcardService medcardService)
+        public MedcardController(IMedcardService medcardService)
         { 
-            this.medcardRepository = medcardRepository;
+            
             this.medcardService = medcardService;
+            
         }
 
 
@@ -37,6 +34,9 @@ namespace Medcard.API.Controllers
                 return BadRequest("No Medcards!");
 
             
+            
+
+
             return Ok(medcard);
         }
 
@@ -78,17 +78,17 @@ namespace Medcard.API.Controllers
         }
 
         [HttpDelete("DELETE/{id}")]
-        public async Task <IActionResult> DeleteAsync(Guid id)
+        public async Task<IActionResult> DeleteAsync(Guid id)
         {
-            var medcard = await medcardService.DeleteAsync(id);
-
-            if (medcard == null)
+            var result = await medcardService.DeleteAsync(id);
+            if (!result)
             {
                 return NotFound();
             }
-            return Ok(medcard);
 
+            return NoContent(); 
         }
+
 
 
     }

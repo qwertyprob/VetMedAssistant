@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Medcard.DbAccessLayer.Dto
 {
+    [Serializable]
     public class PetDto
     {
         public Guid Id { get; set; }

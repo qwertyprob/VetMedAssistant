@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Medcard.DbAccessLayer.Dto
 {
+    [Serializable]
     public class MedcardViewModel
     {
         public string OwnerName { get; set; }

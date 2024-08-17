@@ -147,8 +147,9 @@ namespace Medcard.DbAccessLayer
 
             return mappedMedcard;
         }
-        public async Task<OwnerDto> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
+
             var ownerEntity = await _dbcontext.Owners
             .Include(o => o.Pets)
                 .ThenInclude(p => p.Drugs)
@@ -156,12 +157,17 @@ namespace Medcard.DbAccessLayer
                 .ThenInclude(p => p.Treatments)
             .FirstOrDefaultAsync(o => o.Id == id);
 
-             _dbcontext.Remove(ownerEntity);
+            if (ownerEntity == null)
+            {
+                return false; 
+            }
+
+            _dbcontext.Remove(ownerEntity);
 
             await _dbcontext.SaveChangesAsync();
 
-            var medcard = _mapper.Map<OwnerDto> (ownerEntity);
-            return medcard;
+            
+            return true;
 
         }
 

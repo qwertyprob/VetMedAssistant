@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Medcard.DbAccessLayer.Dto
 {
-   
+    [Serializable]
     public class DrugsDto
     {
         public Guid PetId { get; set; }

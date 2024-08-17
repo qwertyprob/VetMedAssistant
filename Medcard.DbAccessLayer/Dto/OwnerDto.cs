@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Medcard.DbAccessLayer.Dto
 {
+    [Serializable]
     public class OwnerDto
     {
         public Guid Id { get; set; }

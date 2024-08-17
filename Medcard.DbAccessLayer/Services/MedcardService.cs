@@ -53,11 +53,11 @@ namespace Medcard.DbAccessLayer.Services
 
             return medcard;
         }
-        public async Task<OwnerDto> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            var medcard =await _repository.DeleteAsync(id);
 
-            return medcard;
+
+           return await _repository.DeleteAsync(id);
 
         }
     }
