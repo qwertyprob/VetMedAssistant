@@ -1,4 +1,4 @@
-﻿
+﻿@model OwnerModel
 
 @{
     ViewData["Title"] = "Medcard";
@@ -18,37 +18,39 @@
 </header>
 
 <section class="card">
-    <div id="main" class="main shadow">
-        <div class="main__column1">
-            <div class="main__elem" id="client-name">Фио:<strong> </strong></div>
-            <div class="main__elem" id="phone-number">Телефон:<strong> </strong></div>
-          
-                <div class="main__elem" id="pet-name">Кличка:<strong> </strong></div>
-                <div class="main__elem" id="chip-number">Чип:<strong> </strong></div>
-                <div class="main__elem" id="pet-age">Возраст:<strong> </strong></div>
-                <div class="main__elem" id="pet-breed">Порода:<strong> </strong></div>
-            
-        </div>
+    <form method="POST">
+        @foreach (var pet in Model.Pets)
+        {
+            <div id="main" class="main shadow">
+                <div class="main__column1">
+                    <div class="main__elem" id="client-name">Фио: <strong>@Model.Name</strong></div>
+                    <div class="main__elem" id="phone-number">Телефон: <strong>@Model.PhoneNumber</strong></div>
 
-        <div class="main__column2">
-            <h2 style="background-color: azure;">Препараты</h2>
+                    <div class="main__elem" id="pet-name">Кличка: <strong>@pet.Name</strong></div>
+                    <div class="main__elem" id="chip-number">Чип: <strong>@pet.ChipNumber</strong></div>
+                    <div class="main__elem" id="pet-age">Возраст: <strong>@pet.Age</strong></div>
+                    <div class="main__elem" id="pet-breed">Порода: <strong>@pet.Breed</strong></div>
+                </div>
 
-            <textarea class="main__elem-input disable" id="drug" type="text" style="font-size: 30px; "></textarea>
+                <div class="main__column2">
+                    <h2 style="background-color: azure;">Препараты</h2>
 
-            <div class="main__elem" id="drugs" style="font-size: 30px">
-               
+                    <textarea class="main__elem-input" name="Drugs_@pet.Id" style="font-size: 30px;">
+                        @string.Join("\n", pet.Drugs.Select(d => d.Description))
+                        </textarea>
+
+                    <h2 style="background-color: azure;">Лечение</h2>
+                    <textarea class="main__elem-input" name="Treatments_@pet.Id" style="font-size: 30px;">
+                        @string.Join("\n", pet.Treatments.Select(t => t.Description))
+                        </textarea>
+                </div>
+
+                <!-- Hidden field to pass the pet's ID -->
+                <input type="hidden" name="PetIds" value="@pet.Id" />
+
+                <button style="" class="disable" id="saveButton" type="submit">Сохранить</button>
             </div>
-
-            <h2 style="background-color: azure;">Лечение</h2>
-
-            <textarea class="main__elem-input disable" id="treatments" type="text" style="font-size: 30px;"></textarea>
-
-            <div class="main__elem" id="treatment" style="font-size: 30px">
-                
-            </div>
-        </div>
-        
-            <button style=""class="disable" id="saveButton">Сохранить</button>
-    </div>
-    </div>
+        }
+    </form>
 </section>
+

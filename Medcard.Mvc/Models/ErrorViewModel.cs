@@ -2,6 +2,7 @@
 
 namespace Medcard.Mvc.Models
 {
+    [Serializable]
     public class ErrorViewModel
     {
         public string RequestId { get; set; }

@@ -34,10 +34,10 @@ namespace Medcard.DbAccessLayer
                 .Include(p => p.Pets)
                     .ThenInclude(t => t.Treatments)
                 .AsNoTracking()
-            .ToListAsync();
+                .ToListAsync();
 
 
-            var mappedMedcard = _mapper.Map<List<OwnerDto>>(medcard);
+            var mappedMedcard = _mapper.Map<IReadOnlyCollection<OwnerDto>>(medcard);
 
             return mappedMedcard;
         }

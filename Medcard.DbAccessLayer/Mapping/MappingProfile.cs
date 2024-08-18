@@ -11,20 +11,25 @@ namespace Medcard.DbAccessLayer.Mapping
 {
     public class MappingProfile : Profile
     {
-        public MappingProfile()
-        {
-            CreateMap<OwnerEntity, OwnerDto>()
-                .ForMember( dest => dest.PetsDtos , opt=>opt.MapFrom(src => src.Pets));
+        
+            public MappingProfile()
+            {
+                //Dto
+                CreateMap<OwnerEntity, OwnerDto>()
+                    .ForMember(dest => dest.PetsDtos, opt => opt.MapFrom(src => src.Pets));
 
-            CreateMap<PetEntity, PetDto>()
-                .ForMember(dest => dest.DrugDtos, opt => opt.MapFrom(src => src.Drugs))
-                .ForMember(dest => dest.TreatmentDtos, opt => opt.MapFrom(src => src.Treatments));
+                CreateMap<PetEntity, PetDto>()
+                    .ForMember(dest => dest.DrugDtos, opt => opt.MapFrom(src => src.Drugs))
+                    .ForMember(dest => dest.TreatmentDtos, opt => opt.MapFrom(src => src.Treatments));
 
 
-            CreateMap<DrugEntity, DrugsDto>();
-            CreateMap<TreatmentEntity, TreatmentsDto>();
-            
-        }
+                CreateMap<DrugEntity, DrugsDto>();
+                CreateMap<TreatmentEntity, TreatmentsDto>();
+
+
+            }
+        
+
     }
 
 }

@@ -9,13 +9,13 @@ namespace Medcard.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class MedcardController : ControllerBase
+    public class APIController : ControllerBase
     {
         
         
         private readonly IMedcardService medcardService;
 
-        public MedcardController(IMedcardService medcardService)
+        public APIController(IMedcardService medcardService)
         { 
             
             this.medcardService = medcardService;

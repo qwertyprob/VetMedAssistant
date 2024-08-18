@@ -9,6 +9,7 @@ namespace Medcard.DbAccessLayer.Dto
     [Serializable]
     public class MedcardViewModel
     {
+        public Guid Id { get; set; }
         public string OwnerName { get; set; }
         public string PhoneNumber {  get; set; }
         public string PetName { get; set; }
@@ -18,8 +19,10 @@ namespace Medcard.DbAccessLayer.Dto
         public string Drugs { get; set; }
         public string Treatments { get; set; }
 
-        public MedcardViewModel(Guid Id,string OwnerName, string PhoneNumber, string PetName, string ChipNumber,
-                                string Age, string Breed, string Drugs, string Treatments)  
+        public MedcardViewModel() { }
+        public MedcardViewModel(string OwnerName, string PhoneNumber, string PetName, string ChipNumber,
+                                string Age, string Breed, string Drugs= "Здесь пока ничего не указано!",
+                                string Treatments= "Здесь пока ничего не указано!")  
         {
             Id=Guid.NewGuid();
             this.OwnerName=OwnerName;

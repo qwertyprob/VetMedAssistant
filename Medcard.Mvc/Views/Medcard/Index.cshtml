@@ -1,24 +1,26 @@
-﻿
+﻿@using Medcard.Mvc.Models
+@model IEnumerable<OwnerModel>
 
 @{
+
     ViewData["Title"] = "Card";
     Layout = "_Layout";
 
-
+    var counter = Model.Select(p => p.Pets).Count();
 
 }
 
-<form method="POST" >
+<form method="POST" asp-action="Create" >
     <div id="popup" class="popup disable">
         <div class="popup__box">
-            <input placeholder="ФИО" type="text" id="name" name="name">
-            <input placeholder="Номер телефона" type="text" id="phonenumber" name="phone">
-            <input placeholder="Кличка" type="text" id="nick" name="petName">
-            <input placeholder="Номер чипа" type="text" id="chip" name="chipNumber">
-            <input placeholder="Возраст" type="text" id="age" name="petAge">
-            <input placeholder="Порода" type="text" id="breed" name="petBreed">
+            <input placeholder="ФИО" type="text" id="name" name="OwnerName">
+            <input placeholder="Номер телефона" type="text" id="phonenumber" name="PhoneNumber">
+            <input placeholder="Кличка" type="text" id="nick" name="PetName">
+            <input placeholder="Номер чипа" type="text" id="chip" name="ChipNumber">
+            <input placeholder="Возраст" type="text" id="age" name="Age">
+            <input placeholder="Порода" type="text" id="breed" name="Breed">
 
-            <button class="list__more" type="submit">Отправить</button>
+            <button class="list__more" type="submit" @Url.Action("Index","Create")>Отправить</button>
             
         </div>
         <p></p>
@@ -44,51 +46,70 @@
 
 
 
-    <section class="list">
-        <div class="list__wrapper shadow">
-            <div class="list__line-title">
-                <p class="number"> </p>
-                <p class="name">ФИО</p>
-                <p class="phone">Номер телефона</p>
-                <p class="nick">Кличка</p>
-                <p class="chip">Номер чипа</p>
-                <p class="age">Возраст</p>
-                <p class="breed">Порода</p>
-                <p class="heal">Параметры</p>
-            </div>
-
-            <div class="list__container">
-                
+@if (Model != null && Model.Any())
+{
+   
+        <section class="list">
+            <div class="list__wrapper shadow">
+                <div class="list__line-title">
+                <p class="number">@counter</p>
+                    <p class="name">ФИО</p>
+                    <p class="phone">Номер телефона</p>
+                    <p class="nick">Кличка</p>
+                    <p class="chip">Номер чипа</p>
+                    <p class="age">Возраст</p>
+                    <p class="breed">Порода</p>
+                    <p class="heal">Параметры</p>
+                </div>
+            @foreach (var owner in Model)
+            {
+                <div class="list__container">
                     <div class="list__lines">
-                        <p class="number"> </p>
-                        <p class="name"></p>
-                        <p class="phone"></p>
-                       
-                            <p class="nick"></p>
-                            <p class="chip"></p>
-                            <p class="age"></p>
-                            <p class="breed"></p>
-                        
-                        
+                        <p class="number"></p>
+                        <p class="name"><br><br>@owner.Name</p>
+                        <p class="phone"><br><br>@owner.PhoneNumber</p>
+                        @foreach(var pet in owner.Pets)
+                        {
+                            <p class="nick"><br><br>@pet.Name</p>
+                            <p class="chip"><br><br>@pet.ChipNumber </p>
+                            <p class="age"><br><br>@pet.Age</p>
+                            <p class="breed"><br><br>@pet.Breed</p>
+                        }
                         <div class="list__param">
-                            
-                            <a class="list__more">Подробнее</a>
-                            
-                            <a class="list__more">Изменить</a>
+                            <a class="list__more" asp-action="GetById" asp-controller="Medcard" asp-route-id="@owner.Id">
+                                Подробнее
+                            </a>
+                            <a href="@Url.Action("UpdateMedcard", "Medcard", new { id = owner.Id })" class="list__more">Изменить</a>
 
-                            
-                            <form asp-action="DeleteMedcard" method="post" class="list__remove">
-                                <input type="hidden" name="id" value="" />
-                                <button type="submit" style="background: none; border: none; color: white; ">
+                            <form asp-action="Delete" asp-controller="Medcard" method="post" class="list__remove">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="id" value="@owner.Id" />
+                                <button type="submit" style="background: none; border: none; color: white;">
                                     Удалить
                                 </button>
                             </form>
 
                         </div>
                     </div>
-                
+                </div>
+                }
             </div>
-        </div>
-    </section>
+            
+        </section>
+    
 }
+else
+{   <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 style="text-align: center;">Похоже на то, что все ваши карточки пропали.. Или вы еще не начали их вести! Нажмите кнопку Добавить в левом углу верхнем углу! </h1>
+}
+
 

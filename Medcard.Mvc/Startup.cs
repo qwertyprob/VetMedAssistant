@@ -2,6 +2,10 @@ using Medcard.DbAccessLayer;
 using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
+using Medcard.DbAccessLayer.Mapping;
+using Medcard.DbAccessLayer.Services;
+using Medcard.Mvc.Mapping;
+using Medcard.Mvc.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -12,6 +16,7 @@ using Microsoft.Extensions.Hosting;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 
 namespace MedcardMvc
 {
@@ -27,21 +32,20 @@ namespace MedcardMvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IMedcardRepository, MedcardRepository>();
+            services.AddScoped<IMedcardServiceMvc, MedcardServiceMvc>();
 
+            services.AddAutoMapper(typeof(MappingProfileMvc));
 
-            
+           
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("MedcardConnectionString")));
+
             services.AddControllersWithViews();
-            services.AddDbContext<AppDbContext>(
-                options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("MedcardConnectionString"));
-                }
-
-
-            );
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -67,11 +71,11 @@ namespace MedcardMvc
 
                 endpoints.MapControllerRoute(
                     name: "medcardUpdateRoute",
-                    pattern: "Medcard/UpdateMedcard/{ownerId}",
+                    pattern: "Medcard/Update/{id}",
                     defaults: new
                     {
                         controller = "Medcard",
-                        action = "UpdateMedcard"
+                        action = "Update"
                     });
 
                 endpoints.MapControllerRoute(

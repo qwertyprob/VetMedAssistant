@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Medcard.Mvc.Models
 {
+    [Serializable]
     public class PetModel
     {
         public Guid Id { get; set; }
