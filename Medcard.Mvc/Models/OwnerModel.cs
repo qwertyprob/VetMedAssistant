@@ -35,7 +35,7 @@ namespace Medcard.Mvc.Models
                 new PetModel()
                 {
                     Id= id,
-                    Name= name,
+                    Name= petName,
                     ChipNumber= chipNumber,
                     Age=petAge,
                     Breed=petBreed,
@@ -44,7 +44,7 @@ namespace Medcard.Mvc.Models
                         new DrugsModel()
                         {
                             PetId= id,
-                            Description= name,
+                            Description= petDrugs,
                         }
 
 
@@ -54,7 +54,7 @@ namespace Medcard.Mvc.Models
                         new TreatmentsModel()
                         {
                             PetId = id,
-                            Description= name
+                            Description= petTreatment
                         }
                     }
                 }

@@ -35,7 +35,6 @@ namespace Medcard.Mvc.Mapping
             //Dto to ViewModel
 
             CreateMap<OwnerDto, MedcardViewModel>()
-            .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
             .ForMember(dest => dest.OwnerName, opt => opt.MapFrom(src => src.Name))
             .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.PhoneNumber))
             .ForMember(dest => dest.PetName, opt => opt.MapFrom(src => src.PetsDtos.FirstOrDefault().Name))

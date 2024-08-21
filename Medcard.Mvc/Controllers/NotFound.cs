@@ -4,12 +4,12 @@ using Microsoft.Extensions.Logging;
 
 namespace Medcard.Mvc.Controllers
 {
-    public class TemplateController : Controller
+    public class NotFound : Controller
     {
         private IMedcardServiceMvc _medcardService;
-        private ILogger<TemplateController> _logger;
+        private ILogger<NotFound> _logger;
 
-        public TemplateController(IMedcardServiceMvc medcardservice, ILogger<TemplateController> logger)
+        public NotFound(IMedcardServiceMvc medcardservice, ILogger<NotFound> logger)
         {
             _medcardService = medcardservice;
             _logger = logger;
@@ -18,7 +18,7 @@ namespace Medcard.Mvc.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
     }

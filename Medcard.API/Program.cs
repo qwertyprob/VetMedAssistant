@@ -22,5 +22,6 @@ namespace Medcard.API
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }

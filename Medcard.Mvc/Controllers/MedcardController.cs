@@ -44,7 +44,8 @@ namespace Medcard.Mvc.Controllers
         {
             if (ModelState.IsValid)
             {
-
+                model.Drugs = "Здесь пока ничего нет!";
+                model.Treatments = "Здесь пока ничего нет!";
 
                 var medcard = await _medcardService.CreateAsync(model);
 
@@ -53,7 +54,6 @@ namespace Medcard.Mvc.Controllers
 
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Guid id)
@@ -74,8 +74,18 @@ namespace Medcard.Mvc.Controllers
         {
             var medcard = await _medcardService.GetByIdAsync(id);
 
+            if(medcard is null)
+            {
+                return View("NotFound");
+            }
+
             return View("More", medcard);
         }
+        public IActionResult NotFound()
+        {
+            return View();
+        }
+
         [HttpGet]
         [Route("Medcard/Update/{id}")]
         public async Task<IActionResult> UpdateMedcard(Guid id)
@@ -107,7 +117,55 @@ namespace Medcard.Mvc.Controllers
             return RedirectToAction("Index", updatedMedcard);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments, string Action, Guid PetId)
+        {
+            if (!ModelState.IsValid)
+            {
+                
+                return View("More", await _medcardService.GetByIdAsync(id)); // Возвращаем на ту же страницу с ошибками
+            }
+
+            if (Action == "UpdateDrugs")
+            {
+                await _medcardService.UpdateDrugsAsync(PetId, Drugs);
+            }
+            else if (Action == "UpdateTreatments")
+            {
+                await _medcardService.UpdateTreatmentsAsync(PetId, Treatments);
+            }
+
+            return RedirectToAction(nameof(GetById), new { id });
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Search(string petName)
+        {
+            var owner = await _medcardService.SearchByPetName(petName);
+
+            if (owner == Guid.Empty)
+            {
+                
+                return RedirectToAction("Index", "Medcard");
+            }
+            if(petName == null)
+                return View("NotFound");
         
+            
+
+            return RedirectToAction("GetById", "Medcard", new { id = owner });
+        }
+
+        public IActionResult More(Guid id)
+        {
+            var model = _medcardService.GetByIdAsync(id); 
+            if (model == null)
+            {
+                return NotFound(); 
+            }
+            return View(model);
+        }
 
 
     }

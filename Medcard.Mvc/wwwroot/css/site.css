@@ -288,7 +288,7 @@ body {
 
 .main__column2 {
     flex: 4;
-    min-height: 400px;
+    min-height: 420px;
 }
 
     .main__column2 > h2 {
@@ -307,13 +307,18 @@ body {
 .main__elem-input {
     display: block;
     font-size: 1.5em;
-    text-align: center;
+    text-align: left; 
     border: none;
     padding: 20px;
     width: 100%;
     resize: none;
     height: 40%;
+    overflow: auto; 
+    white-space: pre-wrap; 
+    word-break: break-word;
 }
+
+
 
 .main__column2 #saveButton {
     background-color: #4CAF50;
@@ -344,7 +349,7 @@ body {
 
 .main__column2 .main__elem {
     text-align: left;
-    height: 50%;
+    height: 55%;
     font-size: 1.6em;
 }
 
@@ -398,3 +403,30 @@ body {
         background-color: rgb(32, 41, 74);
     }
 
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #87CEFA; /* Светло-синий цвет */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+    .button:hover {
+        background-color: #00BFFF; /* Ярко-синий цвет при наведении */
+    }
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+#searchForm {
+    display: none; /* Прячем форму */
+}

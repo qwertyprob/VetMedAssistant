@@ -9,7 +9,7 @@ namespace Medcard.DbAccessLayer.Dto
     [Serializable]
     public class MedcardViewModel
     {
-        public Guid Id { get; set; }
+        Guid Id { get; set; }
         public string OwnerName { get; set; }
         public string PhoneNumber {  get; set; }
         public string PetName { get; set; }

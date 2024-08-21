@@ -118,3 +118,14 @@ window.addEventListener('load', () => {
 
 
 });
+function submitForm() {
+    console.log('submitForm called'); // Проверка, вызывается ли функция
+    const searchQuery = document.getElementById('search').value;
+    const hiddenInput = document.getElementById('hiddenSearch');
+
+    // Устанавливаем значение в скрытое поле
+    hiddenInput.value = searchQuery;
+
+    // Отправляем форму
+    document.getElementById('searchForm').submit();
+}

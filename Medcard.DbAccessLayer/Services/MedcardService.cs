@@ -19,7 +19,6 @@ namespace Medcard.DbAccessLayer.Services
 
             _repository = repository;
         }
-
         public async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
         {
             var medcard = await _repository.GetAllAsync();
@@ -31,7 +30,6 @@ namespace Medcard.DbAccessLayer.Services
 
             return medcard;
         }
-
         public async Task <OwnerDto> GetByIdAsync(Guid id)
         {
             if (id.Equals(Guid.Empty))
@@ -39,7 +37,6 @@ namespace Medcard.DbAccessLayer.Services
 
             return await _repository.GetByIdAsync(id);
         }
-
         public async Task<OwnerDto> CreateAsync(MedcardViewModel medcardViewModel)
         {
             var medcard = await _repository.CreateAsync(medcardViewModel);
@@ -50,6 +47,11 @@ namespace Medcard.DbAccessLayer.Services
         {
             var medcard = await _repository.UpdateAsync(id,medcardViewModel);
 
+            return medcard;
+        }
+        public async Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments)
+        {
+            var medcard = await _repository.UpdateDrugsAndTreatments(id, Drugs, Treatments);
 
             return medcard;
         }

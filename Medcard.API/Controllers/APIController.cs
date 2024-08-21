@@ -8,7 +8,7 @@ using Medcard.DbAccessLayer.Dto;
 namespace Medcard.API.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("/[controller]")]
     public class APIController : ControllerBase
     {
         
@@ -32,9 +32,6 @@ namespace Medcard.API.Controllers
 
             if(medcard is null)
                 return BadRequest("No Medcards!");
-
-            
-            
 
 
             return Ok(medcard);
@@ -63,6 +60,17 @@ namespace Medcard.API.Controllers
 
             return Ok(medcard);
 
+        }
+        [HttpPut("UPDATE/Strings/{id}")]
+        public async Task <IActionResult> UpdateStringsAsync(Guid id, string Drugs, string Treatments)
+        {
+            var medcard = await medcardService.UpdateDrugsAndTreatments(id, Drugs, Treatments);
+
+            if (medcard == null)
+            {
+                return NotFound();
+            }
+            return Ok(medcard);
         }
         [HttpPut("UPDATE/{id}")]
         public async Task<IActionResult> UpdateAsync(Guid id, [FromBody] MedcardViewModel medcardViewModel)

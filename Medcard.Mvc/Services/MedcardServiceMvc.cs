@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using Medcard.DbAccessLayer.Dto;
+using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
 using Medcard.Mvc.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,28 +20,28 @@ namespace Medcard.Mvc.Services
 
         private readonly IMedcardRepository _repository;
         private readonly IMapper _mapper;
+        private readonly AppDbContext _dbContext;
 
-        public MedcardServiceMvc(IMedcardRepository repository, IMapper mapper)
+        public MedcardServiceMvc(IMedcardRepository repository, IMapper mapper, AppDbContext dbcontext)
         {
 
             _repository = repository;
             _mapper = mapper;
+            _dbContext = dbcontext;
         }
-
         public async Task<IReadOnlyCollection<OwnerModel>> GetAllAsync()
         {
             var medcard = await _repository.GetAllAsync();
 
-            if(medcard is null)
+            if (medcard is null)
             {
                 return Array.Empty<OwnerModel>();
             }
-            var mappedMedcard = _mapper.Map<IReadOnlyCollection<OwnerModel>> (medcard);
+            var mappedMedcard = _mapper.Map<IReadOnlyCollection<OwnerModel>>(medcard);
 
             return mappedMedcard;
         }
-
-        public async Task <OwnerModel> GetByIdAsync(Guid id)
+        public async Task<OwnerModel> GetByIdAsync(Guid id)
         {
             if (id.Equals(Guid.Empty))
                 return null;
@@ -54,7 +56,6 @@ namespace Medcard.Mvc.Services
 
 
         }
-
         public async Task<OwnerModel> CreateAsync(MedcardViewModel medcardViewModel)
         {
             var medcard = await _repository.CreateAsync(medcardViewModel);
@@ -64,54 +65,101 @@ namespace Medcard.Mvc.Services
         }
         public async Task<OwnerModel> UpdateAsync(Guid id, MedcardViewModel medcardViewModel)
         {
-            var medcard = await _repository.UpdateAsync(id,medcardViewModel);
+            var medcard = await _repository.UpdateAsync(id, medcardViewModel);
 
             var mappedMedcard = _mapper.Map<OwnerModel>(medcard);
 
             return mappedMedcard;
         }
 
-        public async Task<OwnerModel> UpdateNew(Guid id, string drugs, string treatments)
+        //Переписать логику в Irepository -> IMedcardMvcService  -> Controlller
+        public async Task UpdateDrugsAsync(Guid petId, string drugs)
         {
-            // Step 1: Fetch the existing data
-            var medcardSearch = await _repository.GetByIdAsync(id);
-            if (medcardSearch == null)
+            var pet = await _dbContext.Pets
+                .Include(p => p.Drugs)
+                .FirstOrDefaultAsync(p => p.Id == petId);
+
+            if (pet == null)
             {
-                throw new ArgumentException("Medcard not found.");
+                throw new Exception("Pet not found");
             }
 
-            // Step 2: Update Drugs and Treatments
-            foreach (var pet in medcardSearch.PetsDtos)
-            {
-                // Update Drugs
-                pet.DrugDtos = string.IsNullOrWhiteSpace(drugs)
-                    ? new List<DrugsDto>()
-                    : drugs.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)
-                           .Select(d => new DrugsDto { Description = d.Trim() })
-                           .ToList();
+            pet.Drugs.Clear();
 
-                // Update Treatments
-                pet.TreatmentDtos = string.IsNullOrWhiteSpace(treatments)
-                    ? new List<TreatmentsDto>()
-                    : treatments.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries)
-                                .Select(t => new TreatmentsDto { Description = t.Trim() })
-                                .ToList();
+            var drugDescriptions = drugs.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var description in drugDescriptions)
+            {
+                var drug = new DrugEntity { Description = description.Trim() };
+                pet.Drugs.Add(drug);
             }
 
-            var mappedMedcard = _mapper.Map<MedcardViewModel>(medcardSearch);
+            await _dbContext.SaveChangesAsync();
+        }
 
-            await _repository.UpdateAsync(id, mappedMedcard);
-            var returnModelMapper = _mapper.Map<OwnerModel>(medcardSearch);
 
-            return returnModelMapper;
+        public async Task UpdateTreatmentsAsync(Guid petId, string treatments)
+        {
+            // Найти питомца по ID
+            var pet = await _dbContext.Pets
+                .Include(p => p.Treatments)
+                .FirstOrDefaultAsync(p => p.Id == petId);
+
+            if (pet == null)
+            {
+                throw new Exception("Pet not found");
+            }
+
+            // Очистить существующее лечение
+            pet.Treatments.Clear();
+
+            // Добавить новое лечение
+            var treatmentDescriptions = treatments.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var description in treatmentDescriptions)
+            {
+                var treatment = new TreatmentEntity { Description = description.Trim() };
+                pet.Treatments.Add(treatment);
+            }
+
+            // Сохранить изменения в базе данных
+            await _dbContext.SaveChangesAsync();
         }
 
         public async Task<bool> DeleteAsync(Guid id)
         {
 
 
-           return await _repository.DeleteAsync(id);
+            return await _repository.DeleteAsync(id);
 
         }
+
+        public async Task<Guid> SearchByPetName(string petName)
+        {
+            if (string.IsNullOrWhiteSpace(petName))
+                return Guid.Empty;
+
+            var lowerCasePetName = petName.ToLower();
+
+            var medcard = await _dbContext.Owners
+               .Include(p => p.Pets)
+                   .ThenInclude(d => d.Drugs)
+               .Include(p => p.Pets)
+                   .ThenInclude(t => t.Treatments)
+               .AsNoTracking()
+               .Where(o => o.Pets.Any(p => p.Name.ToLower() == lowerCasePetName))
+               .Select(o => o.Id)
+               .FirstOrDefaultAsync();
+
+            return medcard;
+        }
+
+
+
+
+
+
+
+
     }
 }

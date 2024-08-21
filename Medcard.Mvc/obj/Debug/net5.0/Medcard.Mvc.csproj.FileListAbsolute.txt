@@ -456,3 +456,4 @@ C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\bin\Debug\net5.0\AutoMapper.Ex
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\bin\Debug\net5.0\Microsoft.Extensions.Options.dll
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Razor\Views\Medcard\NotFound.cshtml.g.cs

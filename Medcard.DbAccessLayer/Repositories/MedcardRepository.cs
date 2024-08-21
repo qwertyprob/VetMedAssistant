@@ -25,7 +25,6 @@ namespace Medcard.DbAccessLayer
             _dbcontext = dbcontext;
             _mapper = mapper;
         }
-
         public async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
         {
             var medcard = await _dbcontext.Owners
@@ -61,7 +60,6 @@ namespace Medcard.DbAccessLayer
 
 
         }
-
         public async Task<OwnerDto> CreateAsync(MedcardViewModel medcardViewModel)
         {
 
@@ -105,7 +103,6 @@ namespace Medcard.DbAccessLayer
 
             return medcard;
         }
-
         public async Task<OwnerDto> UpdateAsync(Guid id,MedcardViewModel medcardViewModel)
         {
             var ownerEntity = await _dbcontext.Owners
@@ -147,6 +144,35 @@ namespace Medcard.DbAccessLayer
 
             return mappedMedcard;
         }
+        public async Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments)
+        {
+            var ownerEntity = await _dbcontext.Owners
+            .Include(o => o.Pets)
+                .ThenInclude(p => p.Drugs)
+            .Include(o => o.Pets)
+                .ThenInclude(p => p.Treatments)
+            .FirstOrDefaultAsync(o => o.Id == id);
+
+            foreach (var pet in ownerEntity.Pets)
+            {
+
+                foreach (var drug in pet.Drugs)
+                {
+                    drug.Description = Drugs;
+                }
+
+                foreach (var treatment in pet.Treatments)
+                {
+                    treatment.Description = Treatments;
+                }
+
+            }
+
+            var mappedMedcard = _mapper.Map<OwnerDto>(ownerEntity);
+
+            return mappedMedcard;
+
+        }
         public async Task<bool> DeleteAsync(Guid id)
         {
 
@@ -170,6 +196,8 @@ namespace Medcard.DbAccessLayer
             return true;
 
         }
+
+        
 
 
     }

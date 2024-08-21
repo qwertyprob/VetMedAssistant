@@ -39,6 +39,7 @@ namespace Medcard.API
             });
             services.AddScoped<IMedcardRepository,MedcardRepository>();
             services.AddScoped<IMedcardService, MedcardService>();
+
             services.AddAutoMapper(typeof(MappingProfile));
 
 

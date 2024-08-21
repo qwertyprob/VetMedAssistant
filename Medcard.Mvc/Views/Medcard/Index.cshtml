@@ -36,13 +36,31 @@
     </div>
     <button id="Add" type="button" class="btn-input">Добавить</button>
 </header>
-
 <div class="search">
     <div class="search__box search-border">
         <input placeholder="Поиск" class="search__field__input search-border" type="search" id="search" name="search">
-        <button class="search__field__btn search-border" type="button">Найти</button>
+        <button class="search__field__btn search-border" type="button" onclick="submitForm()">Найти</button>
     </div>
+
+    <!-- Скрытая форма -->
+    <form id="searchForm" method="post" action="/Medcard/Search">
+        @Html.AntiForgeryToken()
+        <input type="hidden" id="hiddenSearch" name="petName" />
+    </form>
 </div>
+
+<script>
+    function submitForm() {
+        console.log('submitForm called'); 
+        const searchQuery = document.getElementById('search').value;
+        const hiddenInput = document.getElementById('hiddenSearch');
+
+
+        hiddenInput.value = searchQuery;
+
+        document.getElementById('searchForm').submit();
+    }
+</script>
 
 
 
@@ -84,7 +102,8 @@
                             <form asp-action="Delete" asp-controller="Medcard" method="post" class="list__remove">
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="id" value="@owner.Id" />
-                                <button type="submit" style="background: none; border: none; color: white;">
+                                <button type="submit" onclick="alert('Вы уверены?')"
+                                    style="background: none; border: none; color: white;">
                                     Удалить
                                 </button>
                             </form>
