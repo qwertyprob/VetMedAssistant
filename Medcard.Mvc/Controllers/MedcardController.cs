@@ -118,12 +118,13 @@ namespace Medcard.Mvc.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments, string Action, Guid PetId)
+        public async Task<IActionResult> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments, string Action, Guid PetId) 
         {
+            
             if (!ModelState.IsValid)
             {
                 
-                return View("More", await _medcardService.GetByIdAsync(id)); // Возвращаем на ту же страницу с ошибками
+                return View("More", await _medcardService.GetByIdAsync(id)); 
             }
 
             if (Action == "UpdateDrugs")
@@ -134,6 +135,13 @@ namespace Medcard.Mvc.Controllers
             {
                 await _medcardService.UpdateTreatmentsAsync(PetId, Treatments);
             }
+
+            if (Drugs is null || Treatments is null)
+            {
+                Drugs = "";
+                Treatments = "";
+            }
+
 
             return RedirectToAction(nameof(GetById), new { id });
         }

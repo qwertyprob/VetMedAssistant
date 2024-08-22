@@ -14,13 +14,13 @@
         <input type="checkbox" class="checkbox" id="checkbox">
     </div>
 </header>
-
 <section class="card">
     <form id="editForm" action="@Url.Action("UpdateDrugsAndTreatments", "Medcard")" method="post">
         <input type="hidden" name="Id" value="@Model.Id" />
 
         @foreach (var pet in Model.Pets)
         {
+            
             <div id="main" class="main shadow">
                 <div class="main__column1">
                     <div class="main__elem" id="client-name">Фио: <strong>@Model.Name</strong></div>
@@ -31,7 +31,7 @@
                     <div class="main__elem" id="pet-breed">Порода: <strong>@pet.Breed</strong></div>
                 </div>
                 <div class="main__column2">
-                    <h2 style="background-color: azure;">Препараты</h2>
+                    <h2>Препараты</h2>
                     <textarea class="main__elem-input" name="Drugs" style="font-size: 20px;">
                         @foreach (var drug in pet.Drugs)
                         {
@@ -44,7 +44,7 @@
                             &#9998;
                         </button>
                     </div>
-                    <h2 style="background-color: azure;">Лечение</h2>
+                    <h2>Лечение</h2>
                     <textarea class="main__elem-input" name="Treatments" style="font-size: 20px;">
                         @foreach (var treatment in pet.Treatments)
                         {
