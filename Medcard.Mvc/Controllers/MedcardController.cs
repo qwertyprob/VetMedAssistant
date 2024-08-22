@@ -126,6 +126,10 @@ namespace Medcard.Mvc.Controllers
                 
                 return View("More", await _medcardService.GetByIdAsync(id)); 
             }
+            if (Drugs is null || Treatments is null)
+            {
+                return RedirectToAction(nameof(GetById), new { id });
+            }
 
             if (Action == "UpdateDrugs")
             {
@@ -136,11 +140,7 @@ namespace Medcard.Mvc.Controllers
                 await _medcardService.UpdateTreatmentsAsync(PetId, Treatments);
             }
 
-            if (Drugs is null || Treatments is null)
-            {
-                Drugs = "";
-                Treatments = "";
-            }
+           
 
 
             return RedirectToAction(nameof(GetById), new { id });
