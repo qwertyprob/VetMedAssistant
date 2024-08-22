@@ -310,8 +310,8 @@ body {
     text-align: left; 
     border: none;
     padding: 20px;
-    width: 250px;
-    resize: vertical;
+    width: 100%;
+    resize: none;
     height: 40%;
     overflow: auto; 
     white-space: pre-wrap; 

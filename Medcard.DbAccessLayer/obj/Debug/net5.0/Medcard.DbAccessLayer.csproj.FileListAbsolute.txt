@@ -45,8 +45,6 @@ C:\Users\User\source\repos\MedcardMvcApp\Medcard.DbAccessLayer\bin\Debug\net5.0\
 C:\Users\User\source\repos\MedcardMvcApp\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard.DbAccessLayer.genruntimeconfig.cache
 C:\Users\User\source\repos\MedcardMvcApp\Medcard.DbAccessLayer\obj\Debug\net5.0\ref\Medcard.DbAccessLayer.dll
 C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\bin\Debug\net5.0\Medcard.DbAccessLayer.deps.json
-C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\bin\Debug\net5.0\Medcard.DbAccessLayer.runtimeconfig.json
-C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\bin\Debug\net5.0\Medcard.DbAccessLayer.runtimeconfig.dev.json
 C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\bin\Debug\net5.0\Medcard.DbAccessLayer.dll
 C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\bin\Debug\net5.0\Medcard.DbAccessLayer.pdb
 C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard.DbAccessLayer.csproj.AssemblyReference.cache
@@ -58,7 +56,6 @@ C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Med
 C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard.DbAccessLayer.dll
 C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\refint\Medcard.DbAccessLayer.dll
 C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard.DbAccessLayer.pdb
-C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard.DbAccessLayer.genruntimeconfig.cache
 C:\Users\User\source\repos\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\ref\Medcard.DbAccessLayer.dll
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard.DbAccessLayer.csproj.AssemblyReference.cache
 C:\Users\eqspe\source\repos\MedcardMvcApp\MedcardMvc\Medcard.DbAccessLayer\obj\Debug\net5.0\Medcard.DbAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
