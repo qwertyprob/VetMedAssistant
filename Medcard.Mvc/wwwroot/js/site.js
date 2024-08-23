@@ -129,3 +129,21 @@ function submitForm() {
     // Отправляем форму
     document.getElementById('searchForm').submit();
 }
+
+
+function saveText() {
+    var text = document.getElementById("textInput").value;
+    document.getElementById("textInput").value = text;  // Сохраняем текст как есть
+}
+
+//Форма поиска
+function submitForm() {
+    console.log('submitForm called'); 
+    const searchQuery = document.getElementById('search').value;
+    const hiddenInput = document.getElementById('hiddenSearch');
+
+
+    hiddenInput.value = searchQuery;
+
+    document.getElementById('searchForm').submit();
+}

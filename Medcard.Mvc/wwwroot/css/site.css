@@ -132,7 +132,7 @@ body {
 .logo, .logo img {
     width: 20em;
     height: 15em;
-    border-radius: 7px;
+    margin-bottom: 2px;
 }
 
 .search {
@@ -301,49 +301,22 @@ body {
     text-align: center;
     border-bottom: 1px grey solid;
     padding: 20px;
-    flex-grow: 1;
 }
 
 .main__elem-input {
-    display: block;
     font-size: 1.5em;
-    text-align: left; 
-    border: none;
-    padding: 20px;
+    text-align: left;
+    border-top: solid 1px;
+    border-block-color: #4e4e4e 1px;
+    border-left: none;
+    border-right: none;
+    padding-left: 50px;
+    padding-right: 50px;
+    resize:unset;
     width: 100%;
-    resize: none;
-    height: 40%;
-    overflow: auto; 
-    white-space: pre-wrap; 
-    word-break: break-word;
-}
-
-
-
-.main__column2 #saveButton {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: lightblue;
-    padding: 10px 20px;
-    font-size: 1.5em;
-    background-color: #20B2AA;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    height: 35%;
+    overflow: auto;
+    white-space: pre-line;
 }
 
 

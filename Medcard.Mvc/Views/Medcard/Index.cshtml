@@ -49,18 +49,7 @@
     </form>
 </div>
 
-<script>
-    function submitForm() {
-        console.log('submitForm called'); 
-        const searchQuery = document.getElementById('search').value;
-        const hiddenInput = document.getElementById('hiddenSearch');
 
-
-        hiddenInput.value = searchQuery;
-
-        document.getElementById('searchForm').submit();
-    }
-</script>
 
 
 @if (Model != null && Model.Any())
@@ -102,7 +91,7 @@
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="id" value="@owner.Id" />
                                 <button type="submit" onclick="alert('Вы уверены?')"
-                                    style="background: none; border: none; color: white;">
+                                    style="background: none; border: none; color: white; cursor:pointer">
                                     Удалить
                                 </button>
                             </form>

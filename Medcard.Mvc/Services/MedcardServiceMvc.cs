@@ -65,7 +65,7 @@ namespace Medcard.Mvc.Services
         }
         public async Task<OwnerModel> UpdateAsync(Guid id, MedcardViewModel medcardViewModel)
         {
-            var medcard = await _repository.UpdateAsync(id, medcardViewModel);
+            var medcard = await _repository.UpdateNoDrugsNoTreatmentsAsync(id, medcardViewModel);
 
             var mappedMedcard = _mapper.Map<OwnerModel>(medcard);
 
@@ -86,21 +86,17 @@ namespace Medcard.Mvc.Services
 
             pet.Drugs.Clear();
 
-            var drugDescriptions = drugs.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (var description in drugDescriptions)
-            {
-                var drug = new DrugEntity { Description = description.Trim() };
-                pet.Drugs.Add(drug);
-            }
+            // Добавляем один блок текста как описание препарата
+            var drug = new DrugEntity { Description = drugs.Trim() };
+            pet.Drugs.Add(drug);
 
             await _dbContext.SaveChangesAsync();
         }
 
 
+        //Переписать логику в Irepository -> IMedcardMvcService  -> Controlller или оставь :))
         public async Task UpdateTreatmentsAsync(Guid petId, string treatments)
         {
-            // Найти питомца по ID
             var pet = await _dbContext.Pets
                 .Include(p => p.Treatments)
                 .FirstOrDefaultAsync(p => p.Id == petId);
@@ -110,19 +106,12 @@ namespace Medcard.Mvc.Services
                 throw new Exception("Pet not found");
             }
 
-            // Очистить существующее лечение
             pet.Treatments.Clear();
 
-            // Добавить новое лечение
-            var treatmentDescriptions = treatments.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            var treatment = new TreatmentEntity { Description = treatments.Trim() };
 
-            foreach (var description in treatmentDescriptions)
-            {
-                var treatment = new TreatmentEntity { Description = description.Trim() };
-                pet.Treatments.Add(treatment);
-            }
+            pet.Treatments.Add(treatment);
 
-            // Сохранить изменения в базе данных
             await _dbContext.SaveChangesAsync();
         }
 
