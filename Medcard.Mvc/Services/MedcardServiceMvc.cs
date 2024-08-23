@@ -86,7 +86,6 @@ namespace Medcard.Mvc.Services
 
             pet.Drugs.Clear();
 
-            // Добавляем один блок текста как описание препарата
             var drug = new DrugEntity { Description = drugs.Trim() };
             pet.Drugs.Add(drug);
 
@@ -94,7 +93,6 @@ namespace Medcard.Mvc.Services
         }
 
 
-        //Переписать логику в Irepository -> IMedcardMvcService  -> Controlller или оставь :))
         public async Task UpdateTreatmentsAsync(Guid petId, string treatments)
         {
             var pet = await _dbContext.Pets
@@ -123,25 +121,35 @@ namespace Medcard.Mvc.Services
 
         }
 
-        public async Task<Guid> SearchByPetName(string petName)
+        public async Task<Guid> SearchByNameAsync(string name)
         {
-            if (string.IsNullOrWhiteSpace(petName))
+            if (string.IsNullOrWhiteSpace(name))
                 return Guid.Empty;
 
-            var lowerCasePetName = petName.ToLower();
+            var lowerCaseName = name.ToLower();
 
-            var medcard = await _dbContext.Owners
-               .Include(p => p.Pets)
-                   .ThenInclude(d => d.Drugs)
-               .Include(p => p.Pets)
-                   .ThenInclude(t => t.Treatments)
-               .AsNoTracking()
-               .Where(o => o.Pets.Any(p => p.Name.ToLower() == lowerCasePetName))
-               .Select(o => o.Id)
-               .FirstOrDefaultAsync();
+            var ownerId = await _dbContext.Owners
+                .AsNoTracking()
+                .Where(o => o.Name.ToLower() == lowerCaseName)
+                .Select(o => o.Id)
+                .FirstOrDefaultAsync();
 
-            return medcard;
+            if (ownerId != Guid.Empty)
+                return ownerId;
+
+            var petOwnerId = await _dbContext.Owners
+                .Include(o => o.Pets)
+                    .ThenInclude(p => p.Drugs)
+                .Include(o => o.Pets)
+                    .ThenInclude(p => p.Treatments)
+                .AsNoTracking()
+                .Where(o => o.Pets.Any(p => p.Name.ToLower() == lowerCaseName))
+                .Select(o => o.Id)
+                .FirstOrDefaultAsync();
+
+            return petOwnerId;
         }
+
 
 
 

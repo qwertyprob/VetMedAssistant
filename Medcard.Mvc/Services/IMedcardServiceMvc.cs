@@ -15,6 +15,6 @@ namespace Medcard.Mvc.Services
         Task UpdateDrugsAsync(Guid petId, string drugs);
         Task UpdateTreatmentsAsync(Guid petId, string treatments);
         Task<bool> DeleteAsync(Guid id);
-        Task<Guid> SearchByPetName(string petName);
+        Task<Guid> SearchByNameAsync(string name);
     }
 }

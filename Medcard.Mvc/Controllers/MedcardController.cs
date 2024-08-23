@@ -69,6 +69,7 @@ namespace Medcard.Mvc.Controllers
             return View("Error");
 
         }
+
         [HttpGet]
         public async Task<IActionResult> GetById(Guid id)
         {
@@ -80,11 +81,7 @@ namespace Medcard.Mvc.Controllers
             }
 
             return View("More", medcard);
-        }
-        public IActionResult NotFound()
-        {
-            return View();
-        }
+        }        
 
         [HttpGet]
         [Route("Medcard/Update/{id}")]
@@ -148,16 +145,16 @@ namespace Medcard.Mvc.Controllers
 
 
         [HttpPost]
-        public async Task<IActionResult> Search(string petName)
+        public async Task<IActionResult> Search(string name)
         {
-            var owner = await _medcardService.SearchByPetName(petName);
+            var owner = await _medcardService.SearchByNameAsync(name);
 
             if (owner == Guid.Empty)
             {
                 
                 return RedirectToAction("Index", "Medcard");
             }
-            if(petName == null)
+            if(name == null)
                 return View("NotFound");
         
             
