@@ -65,7 +65,7 @@ namespace Medcard.Mvc.Services
         }
         public async Task<OwnerModel> UpdateAsync(Guid id, MedcardViewModel medcardViewModel)
         {
-            var medcard = await _repository.UpdateAsync(id, medcardViewModel);
+            var medcard = await _repository.UpdateNoDrugsNoTreatmentsAsync(id, medcardViewModel);
 
             var mappedMedcard = _mapper.Map<OwnerModel>(medcard);
 
@@ -86,13 +86,8 @@ namespace Medcard.Mvc.Services
 
             pet.Drugs.Clear();
 
-            var drugDescriptions = drugs.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (var description in drugDescriptions)
-            {
-                var drug = new DrugEntity { Description = description.Trim() };
-                pet.Drugs.Add(drug);
-            }
+            var drug = new DrugEntity { Description = drugs.Trim() };
+            pet.Drugs.Add(drug);
 
             await _dbContext.SaveChangesAsync();
         }
@@ -100,7 +95,6 @@ namespace Medcard.Mvc.Services
 
         public async Task UpdateTreatmentsAsync(Guid petId, string treatments)
         {
-            // Найти питомца по ID
             var pet = await _dbContext.Pets
                 .Include(p => p.Treatments)
                 .FirstOrDefaultAsync(p => p.Id == petId);
@@ -110,19 +104,12 @@ namespace Medcard.Mvc.Services
                 throw new Exception("Pet not found");
             }
 
-            // Очистить существующее лечение
             pet.Treatments.Clear();
 
-            // Добавить новое лечение
-            var treatmentDescriptions = treatments.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            var treatment = new TreatmentEntity { Description = treatments.Trim() };
 
-            foreach (var description in treatmentDescriptions)
-            {
-                var treatment = new TreatmentEntity { Description = description.Trim() };
-                pet.Treatments.Add(treatment);
-            }
+            pet.Treatments.Add(treatment);
 
-            // Сохранить изменения в базе данных
             await _dbContext.SaveChangesAsync();
         }
 
@@ -134,25 +121,35 @@ namespace Medcard.Mvc.Services
 
         }
 
-        public async Task<Guid> SearchByPetName(string petName)
+        public async Task<Guid> SearchByNameAsync(string name)
         {
-            if (string.IsNullOrWhiteSpace(petName))
+            if (string.IsNullOrWhiteSpace(name))
                 return Guid.Empty;
 
-            var lowerCasePetName = petName.ToLower();
+            var lowerCaseName = name.ToLower();
 
-            var medcard = await _dbContext.Owners
-               .Include(p => p.Pets)
-                   .ThenInclude(d => d.Drugs)
-               .Include(p => p.Pets)
-                   .ThenInclude(t => t.Treatments)
-               .AsNoTracking()
-               .Where(o => o.Pets.Any(p => p.Name.ToLower() == lowerCasePetName))
-               .Select(o => o.Id)
-               .FirstOrDefaultAsync();
+            var ownerId = await _dbContext.Owners
+                .AsNoTracking()
+                .Where(o => o.Name.ToLower() == lowerCaseName)
+                .Select(o => o.Id)
+                .FirstOrDefaultAsync();
 
-            return medcard;
+            if (ownerId != Guid.Empty)
+                return ownerId;
+
+            var petOwnerId = await _dbContext.Owners
+                .Include(o => o.Pets)
+                    .ThenInclude(p => p.Drugs)
+                .Include(o => o.Pets)
+                    .ThenInclude(p => p.Treatments)
+                .AsNoTracking()
+                .Where(o => o.Pets.Any(p => p.Name.ToLower() == lowerCaseName))
+                .Select(o => o.Id)
+                .FirstOrDefaultAsync();
+
+            return petOwnerId;
         }
+
 
 
 

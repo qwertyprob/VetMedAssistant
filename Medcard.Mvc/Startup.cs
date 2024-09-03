@@ -29,7 +29,6 @@ namespace MedcardMvc
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMedcardRepository, MedcardRepository>();
@@ -37,9 +36,10 @@ namespace MedcardMvc
 
             services.AddAutoMapper(typeof(MappingProfileMvc));
 
-           
+
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("MedcardConnectionString")));
+        options.UseNpgsql(Configuration.GetConnectionString("GlobalMedcard")));
+
 
             services.AddControllersWithViews();
         }

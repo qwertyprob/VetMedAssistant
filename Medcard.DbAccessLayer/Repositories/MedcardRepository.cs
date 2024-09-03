@@ -144,6 +144,34 @@ namespace Medcard.DbAccessLayer
 
             return mappedMedcard;
         }
+        public async Task<OwnerDto> UpdateNoDrugsNoTreatmentsAsync(Guid id, MedcardViewModel medcardViewModel)
+        {
+            var ownerEntity = await _dbcontext.Owners
+            .Include(o => o.Pets)
+            .FirstOrDefaultAsync(o => o.Id == id);
+
+            if (ownerEntity == null)
+            {
+                return null;
+            }
+            ownerEntity.Id = id;
+            ownerEntity.Name = medcardViewModel.OwnerName;
+            ownerEntity.PhoneNumber = medcardViewModel.PhoneNumber;
+
+            foreach (var pet in ownerEntity.Pets)
+            {
+                pet.Name = medcardViewModel.PetName;
+                pet.ChipNumber = medcardViewModel.ChipNumber;
+                pet.Age = medcardViewModel.Age;
+                pet.Breed = medcardViewModel.Breed;
+            }
+
+            await _dbcontext.SaveChangesAsync();
+
+            var mappedMedcard = _mapper.Map<OwnerDto>(ownerEntity);
+
+            return mappedMedcard;
+        }
         public async Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments)
         {
             var ownerEntity = await _dbcontext.Owners

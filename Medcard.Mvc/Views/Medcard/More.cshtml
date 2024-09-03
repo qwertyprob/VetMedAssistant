@@ -14,6 +14,7 @@
         <input type="checkbox" class="checkbox" id="checkbox">
     </div>
 </header>
+
 <section class="card">
     <form id="editForm" action="@Url.Action("UpdateDrugsAndTreatments", "Medcard")" method="post">
         <input type="hidden" name="Id" value="@Model.Id" />
@@ -31,12 +32,11 @@
                     <div class="main__elem" id="pet-breed">Порода: <strong>@pet.Breed</strong></div>
                 </div>
                 <div class="main__column2">
+                    <br />
                     <h2>Препараты</h2>
-                    <textarea class="main__elem-input" name="Drugs" style="font-size: 20px;">
-                        @foreach (var drug in pet.Drugs)
-                        {
-                            @drug.Description
-                        }
+                    <br />
+                    <textarea  wrap="soft" class="main__elem-input" name="Drugs" style="font-size: 20px;" id="textInput">
+                        @Html.Raw(string.Join(Environment.NewLine, pet.Drugs.Select(t => t.Description)))
                         </textarea>
                     <input type="hidden" name="PetId" value="@pet.Id" />
                     <div class="container" style="display: flex;justify-content:flex-end;">
@@ -44,16 +44,16 @@
                             &#9998;
                         </button>
                     </div>
+                    
                     <h2>Лечение</h2>
-                    <textarea class="main__elem-input" name="Treatments" style="font-size: 20px;">
-                        @foreach (var treatment in pet.Treatments)
-                        {
-                            @treatment.Description
-                        }
-                        </textarea>
+                    <br /><br />
+                    <textarea  class="main__elem-input" name="Treatments" style="font-size: 20px;" id="textInput">
+                        @Html.Raw(string.Join(Environment.NewLine, pet.Treatments.Select(t => t.Description)))
+                    </textarea>
+
                     <input type="hidden" name="PetId" value="@pet.Id" />
                     <div class="container" style="display: flex;justify-content:flex-end;">
-                    <button type="submit" class="list__more__edit" style="width:45px; inset-block-end:auto;" name="Action" value="UpdateTreatments">
+                        <button onclick ="saveText()" type="submit" class="list__more__edit" style="width:45px; inset-block-end:auto;" name="Action" value="UpdateTreatments">
                             &#9998;
                     </button>
                         
