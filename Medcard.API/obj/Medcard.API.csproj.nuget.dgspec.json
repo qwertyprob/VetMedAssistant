@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Medcard.API.csproj": {}
+    "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Medcard.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Medcard.API.csproj": {
+    "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Medcard.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Medcard.API.csproj",
+        "projectUniqueName": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Medcard.API.csproj",
         "projectName": "Medcard.API",
-        "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Medcard.API.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\obj\\",
+        "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Medcard.API.csproj",
+        "packagesPath": "C:\\Users\\eqspe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\eqspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,15 +22,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj"
+              "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj"
               }
             }
           }
@@ -90,21 +89,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
+    "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
         "projectName": "Medcard.DbAccessLayer",
-        "projectPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\obj\\",
+        "projectPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\eqspe\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\eqspe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -112,7 +111,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -173,7 +171,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }
