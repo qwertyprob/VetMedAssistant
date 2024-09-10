@@ -86,7 +86,12 @@ namespace MedcardMvc
                         controller = "Medcard",
                         action = "More"
                     });
-                // Маршрут по умолчанию для контроллера Medcard
+                //Authorization route by default
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Authorization}/{action=Index}");
+
+                // Medcard route by default
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Medcard}/{action=Index}/{id?}");
