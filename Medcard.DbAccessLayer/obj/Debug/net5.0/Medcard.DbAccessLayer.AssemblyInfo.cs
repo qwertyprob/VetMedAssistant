@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Medcard.DbAccessLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f8def69bbfd723e17783070adfabae77594a0e66")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dcebabc93932d3e3ed9cb5824bd61ec60159d600")]
 [assembly: System.Reflection.AssemblyProductAttribute("Medcard.DbAccessLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Medcard.DbAccessLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

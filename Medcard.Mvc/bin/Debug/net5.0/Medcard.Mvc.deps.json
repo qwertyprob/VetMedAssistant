@@ -553,10 +553,7 @@
           "Npgsql.EntityFrameworkCore.PostgreSQL": "5.0.0"
         },
         "runtime": {
-          "Medcard.DbAccessLayer.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": "1.0.0.0"
-          }
+          "Medcard.DbAccessLayer.dll": {}
         },
         "compile": {
           "Medcard.DbAccessLayer.dll": {}
