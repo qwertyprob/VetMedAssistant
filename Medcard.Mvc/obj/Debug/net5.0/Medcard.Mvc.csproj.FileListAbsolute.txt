@@ -61,3 +61,4 @@ C:\Users\eqspe\source\repos\MedcardMvcApp\src\Medcard.Mvc\obj\Debug\net5.0\refin
 C:\Users\eqspe\source\repos\MedcardMvcApp\src\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.pdb
 C:\Users\eqspe\source\repos\MedcardMvcApp\src\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.genruntimeconfig.cache
 C:\Users\eqspe\source\repos\MedcardMvcApp\src\Medcard.Mvc\obj\Debug\net5.0\ref\Medcard.Mvc.dll
+C:\Users\eqspe\source\repos\MedcardMvcApp\src\Medcard.Mvc\obj\Debug\net5.0\Razor\Views\Shared\_AuthorizationLayout.cshtml.g.cs
