@@ -68,10 +68,7 @@ namespace MedcardMvc
 
             app.UseEndpoints(endpoints =>
             {
-
-               
-
-
+ 
                 endpoints.MapControllerRoute(
                     name: "medcardUpdateRoute",
                     pattern: "Medcard/Update/{id}",
@@ -80,7 +77,6 @@ namespace MedcardMvc
                         controller = "Medcard",
                         action = "Update"
                     });
-
                 endpoints.MapControllerRoute(
                     name: "medcardMoreRoute",
                     pattern: "Medcard/More/{ownerId}",
@@ -89,13 +85,6 @@ namespace MedcardMvc
                         controller = "Medcard",
                         action = "More"
                     });
-
-
-
-                //Authorization route by default
-                endpoints.MapControllerRoute(
-                    name: "Authorization",
-                    pattern: "{controller=Authorization}/{action=Authorize}");
 
                 // Medcard route by default
                 endpoints.MapControllerRoute(
@@ -106,6 +95,14 @@ namespace MedcardMvc
                         controller = "Medcard",
                         action = "Index"
                     });
+
+                //Authorization route by default
+                endpoints.MapControllerRoute(
+                    name: "Authorization",
+                    pattern: "{controller=Authorization}/{action=Authorize}");
+
+                
+
 
             });
 
