@@ -127,3 +127,6 @@ C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.p
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.genruntimeconfig.cache
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\ref\Medcard.Mvc.dll
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\bin\Debug\net5.0\Medcard.Mvc.StaticWebAssets.xml
+C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Razor\Views\Authorization\Authorize.cshtml.g.cs

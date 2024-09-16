@@ -1,0 +1,41 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Authorization";
+    Layout = "_AuthorizationLayout";
+}
+
+<!-- Создание контейнера -->
+<div class="container">
+    <div class="row">
+        <!-- Заголовок и описание -->
+        <div class="col-md-12">
+            <h2>Authorization</h2>
+
+            <!-- Форма авторизации -->
+            <form asp-action="Authorize" method="post">
+                <!-- Ввод e-mail -->
+                <div class="form-group">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- Поле ввода пароля -->
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <!-- Кнопка отправки на сервер -->
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary" value="Войти" />
+                </div>
+
+                <!-- Скрытое поле для возврата URL -->
+                <input type="hidden" asp-for="ReturnUrl" />
+            </form>
+        </div>
+    </div>
+</div>
