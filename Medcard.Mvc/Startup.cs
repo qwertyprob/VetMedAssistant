@@ -38,7 +38,7 @@ namespace MedcardMvc
 
 
             services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(Configuration.GetConnectionString("MedcardConnectionString")));
+        options.UseNpgsql(Configuration.GetConnectionString("GlobalMedcardConnectionString")));
 
 
             services.AddControllersWithViews();
@@ -100,10 +100,6 @@ namespace MedcardMvc
                 endpoints.MapControllerRoute(
                     name: "Authorization",
                     pattern: "{controller=Authorization}/{action=Authorize}");
-
-                
-
-
             });
 
 
