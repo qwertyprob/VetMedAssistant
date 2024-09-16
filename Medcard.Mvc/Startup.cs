@@ -38,7 +38,7 @@ namespace MedcardMvc
 
 
             services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(Configuration.GetConnectionString("GlobalMedcardConnectionString")));
+        options.UseNpgsql(Configuration.GetConnectionString("GlobalMedcard")));
 
 
             services.AddControllersWithViews();
