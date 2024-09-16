@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Medcard.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9fbbc4cd369442e7e1c54f94dfdc797fd5cd9b36")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06046b5ad6f96f7531ba57de0538ecb7aa0981b7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Medcard.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Medcard.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

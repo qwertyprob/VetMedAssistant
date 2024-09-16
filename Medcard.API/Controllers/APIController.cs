@@ -3,6 +3,7 @@ using System;
 using System.Threading.Tasks;
 using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Dto;
+using Microsoft.AspNetCore.Identity;
 
 
 namespace Medcard.API.Controllers
@@ -33,6 +34,7 @@ namespace Medcard.API.Controllers
             if(medcard is null)
                 return BadRequest("No Medcards!");
 
+           
 
             return Ok(medcard);
         }

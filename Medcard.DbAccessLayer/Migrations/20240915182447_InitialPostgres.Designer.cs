@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Medcard.DbAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240910150540_Initial")]
-    partial class Initial
+    [Migration("20240915182447_InitialPostgres")]
+    partial class InitialPostgres
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

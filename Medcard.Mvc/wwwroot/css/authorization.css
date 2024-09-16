@@ -23,7 +23,7 @@ label{
 }
 
 .form-group input {
-    border-radius: 25px;
+    border-radius: 6px;
     padding: 10px;
     border: 1px solid #ced4da;
     box-shadow: none;
@@ -36,6 +36,8 @@ label{
 }
 
 .btn-primary {
+    margin-top:1.2em;
+    width:20em;
     background-color: lightblue;
     border-color: lightblue;
     border-radius: 25px;

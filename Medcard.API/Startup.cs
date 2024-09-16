@@ -6,7 +6,7 @@ using Medcard.DbAccessLayer.Mapping;
 using Medcard.DbAccessLayer.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -34,6 +34,8 @@ namespace Medcard.API
 
             services.AddAutoMapper(typeof(MappingProfile));
 
+            services.AddDbContext<AppDbContext>(options =>
+            options.UseNpgsql(Configuration.GetConnectionString("MedcardConnectionString")));
 
 
             services.AddControllers().AddNewtonsoftJson(options =>
@@ -61,6 +63,7 @@ namespace Medcard.API
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
