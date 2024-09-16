@@ -99,7 +99,6 @@ C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.s
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.TagHelpers.input.cache
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.TagHelpers.output.cache
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Medcard.Mvc.RazorCoreGenerate.cache
-C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Razor\Views\Authorization\Index.cshtml.g.cs
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Razor\Views\Medcard\Index.cshtml.g.cs
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Razor\Views\Medcard\More.cshtml.g.cs
 C:\Users\User\source\repos\MedcardMvc\Medcard.Mvc\obj\Debug\net5.0\Razor\Views\Medcard\NotFound.cshtml.g.cs

@@ -4,7 +4,7 @@ namespace Medcard.Mvc.Controllers
 {
     public class AuthorizationController : Controller
     {        
-        public IActionResult Index()
+        public IActionResult Authorize()
         {
             return View();
         }
