@@ -10,27 +10,27 @@
     <div class="row">
         <!-- Заголовок и описание -->
         <div class="col-md-12">
-            <h2>Authorization</h2>
+            <h2></h2>
 
             <!-- Форма авторизации -->
             <form asp-action="Authorize" method="post">
                 <!-- Ввод e-mail -->
                 <div class="form-group">
-                    <label asp-for="Email"></label>
+                    <label asp-for="Email" style="opacity:70%"></label>
                     <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <span asp-validation-for="Email" class="text-danger" ></span>
                 </div>
 
                 <!-- Поле ввода пароля -->
                 <div class="form-group">
-                    <label asp-for="Password"></label>
+                    <label asp-for="Password" style="opacity:70%"></label>
                     <input asp-for="Password" type="password" class="form-control" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
 
                 <!-- Кнопка отправки на сервер -->
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Войти" />
+                    <input type="submit" class="btn btn-primary" value="Enter" />
                 </div>
 
                 <!-- Скрытое поле для возврата URL -->
