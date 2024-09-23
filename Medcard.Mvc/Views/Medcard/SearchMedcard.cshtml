@@ -10,7 +10,7 @@
 
 }
 
-<form method="POST" asp-action="Create" >
+<form method="POST" asp-action="Create">
     <div id="popup" class="popup disable">
         <div class="popup__box">
             <input placeholder="ФИО" type="text" id="name" name="OwnerName">
@@ -20,8 +20,8 @@
             <input placeholder="Возраст" type="text" id="age" name="Age">
             <input placeholder="Порода" type="text" id="breed" name="Breed">
 
-            <button class="list__more" type="submit" @Url.Action("Index","Create")>Отправить</button>
-            
+            <button class="list__more" type="submit" @Url.Action("Index", "Create")>Отправить</button>
+
         </div>
         <p></p>
     </div>
@@ -34,7 +34,7 @@
             <img src="~/img/logo.png" alt="VetAsist">
         </a>
     </div>
-    <button id="Add" type="button" class="btn-input">Добавить</button>
+
 </header>
 <div class="search">
     <div class="search__box search-border">
@@ -54,19 +54,19 @@
 
 @if (Model != null && Model.Any())
 {
-   
-        <section class="list">
-            <div class="list__wrapper shadow">
-                <div class="list__line-title">
+
+    <section class="list">
+        <div class="list__wrapper shadow">
+            <div class="list__line-title">
                 <p class="number">@counter</p>
-                    <p class="name">ФИО</p>
-                    <p class="phone">Номер телефона</p>
-                    <p class="nick">Кличка</p>
-                    <p class="chip">Номер чипа</p>
-                    <p class="age">Возраст</p>
-                    <p class="breed">Порода</p>
-                    <p class="heal">Параметры</p>
-                </div>
+                <p class="name">ФИО</p>
+                <p class="phone">Номер телефона</p>
+                <p class="nick">Кличка</p>
+                <p class="chip">Номер чипа</p>
+                <p class="age">Возраст</p>
+                <p class="breed">Порода</p>
+                <p class="heal">Параметры</p>
+            </div>
             @foreach (var owner in Model)
             {
                 <div class="list__container">
@@ -74,7 +74,7 @@
                         <p class="number"></p>
                         <p class="name"><br><br>@owner.Name</p>
                         <p class="phone"><br><br>@owner.PhoneNumber</p>
-                        @foreach(var pet in owner.Pets)
+                        @foreach (var pet in owner.Pets)
                         {
                             <p class="nick"><br><br>@pet.Name</p>
                             <p class="chip"><br><br>@pet.ChipNumber </p>
@@ -91,7 +91,7 @@
                                 @Html.AntiForgeryToken()
                                 <input type="hidden" name="id" value="@owner.Id" />
                                 <button type="submit" onclick="alert('Вы уверены?')"
-                                    style="background: none; border: none; color: white; cursor:pointer">
+                                        style="background: none; border: none; color: white; cursor:pointer">
                                     Удалить
                                 </button>
                             </form>
@@ -99,14 +99,14 @@
                         </div>
                     </div>
                 </div>
-                }
-            </div>
-            
-        </section>
-    
+            }
+        </div>
+
+    </section>
+
 }
 else
-{   <br />
+{
     <br />
     <br />
     <br />
@@ -116,7 +116,8 @@ else
     <br />
     <br />
     <br />
-    <h1 style="text-align: center;">Похоже на то, что все ваши карточки пропали.. Или вы еще не начали их вести! Нажмите кнопку Добавить в правом верхнем углу! </h1>
+    <br />
+    <h1 style="text-align: center;">Похоже на то, что все ваших карточек необнаружено!.и. Или вы еще не начали их вести! Нажмите кнопку Добавить в правом верхнем углу! </h1>
 }
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,8 @@ namespace Medcard.Mvc.Models
     public class PetModel
     {
         public Guid Id { get; set; }
+
+        [Required(ErrorMessage = "Кличка питомца обязательна для заполнения.")]
         public string Name { get; set; }
         public string ChipNumber { get; set; }
         public string Age { get; set; }

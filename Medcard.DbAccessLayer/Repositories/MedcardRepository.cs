@@ -25,6 +25,26 @@ namespace Medcard.DbAccessLayer
             _dbcontext = dbcontext;
             _mapper = mapper;
         }
+
+        public async Task<IReadOnlyCollection<OwnerDto>> GetAllFromSearchAsync(string clientName)
+        {
+            var medcardResult = await _dbcontext.Owners
+            .Include(p => p.Pets)
+                .ThenInclude(d => d.Drugs)
+            .Include(p => p.Pets)
+                .ThenInclude(t => t.Treatments)
+            .AsNoTracking()
+            .Where(p => p.Name == clientName || p.Pets.Any(pet => pet.Name == clientName))
+            .ToListAsync();
+
+            var mappedMedcard = _mapper.Map<IReadOnlyCollection<OwnerDto>>(medcardResult);
+
+            return mappedMedcard;
+
+        }
+
+
+
         public async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
         {
             var medcard = await _dbcontext.Owners

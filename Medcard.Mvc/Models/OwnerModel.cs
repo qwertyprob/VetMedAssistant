@@ -1,6 +1,7 @@
 ﻿using Medcard.DbAccessLayer.Dto;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Medcard.Mvc.Models
     public class OwnerModel
     {
         public Guid Id { get; set; }
+        [Required(ErrorMessage = "Имя клиента обязательно для заполнения.")]
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
 

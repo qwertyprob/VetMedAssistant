@@ -19,6 +19,13 @@ namespace Medcard.DbAccessLayer.Services
 
             _repository = repository;
         }
+
+        public async Task<IReadOnlyCollection<OwnerDto>> GetAllFromSearchAsync(string clientName)
+        {
+            return await _repository.GetAllFromSearchAsync(clientName);
+        }
+
+
         public async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
         {
             var medcard = await _repository.GetAllAsync();

@@ -29,6 +29,7 @@ namespace Medcard.Mvc.Services
             _mapper = mapper;
             _dbContext = dbcontext;
         }
+
         public async Task<IReadOnlyCollection<OwnerModel>> GetAllAsync()
         {
             var medcard = await _repository.GetAllAsync();
@@ -51,9 +52,6 @@ namespace Medcard.Mvc.Services
             var mappedMedcard = _mapper.Map<OwnerModel>(medcard);
 
             return mappedMedcard;
-
-
-
 
         }
         public async Task<OwnerModel> CreateAsync(MedcardViewModel medcardViewModel)
@@ -92,6 +90,15 @@ namespace Medcard.Mvc.Services
             await _dbContext.SaveChangesAsync();
         }
 
+        public async Task<IReadOnlyCollection<OwnerModel>> GetAllFromSearchAsync(string clientName)
+        {
+            var medcard =  await _repository.GetAllFromSearchAsync(clientName);
+
+            var mappedMedcard = _mapper.Map<IReadOnlyCollection<OwnerModel>>(medcard);
+
+            return mappedMedcard; 
+        }
+
 
         public async Task UpdateTreatmentsAsync(Guid petId, string treatments)
         {
@@ -115,10 +122,7 @@ namespace Medcard.Mvc.Services
 
         public async Task<bool> DeleteAsync(Guid id)
         {
-
-
             return await _repository.DeleteAsync(id);
-
         }
 
         public async Task<Guid> SearchByNameAsync(string name)

@@ -1,186 +1,240 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\MedcardMvc\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\medcard\\searchmedcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\medcard\\searchmedcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.dbaccesslayer\\medcard.dbaccesslayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\medcard.dbaccesslayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\mapping\\mappingprofilemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\mapping\\mappingprofilemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\medcard.mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\medcard.mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\wwwroot\\css\\authorization.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\wwwroot\\css\\authorization.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\views\\authorization\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\authorization\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\views\\medcard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\medcard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\wwwroot\\css\\normalize.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\wwwroot\\css\\normalize.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\views\\medcard\\more.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\medcard\\more.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\views\\medcard\\updatemedcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\medcard\\updatemedcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\views\\medcard\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\medcard\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\services\\imedcardservicemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\services\\imedcardservicemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\controllers\\medcardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\controllers\\medcardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\controllers\\medcardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\services\\medcardservicemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\controllers\\authorizationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\medcard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\medcard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\medcard.mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\medcard.mvc.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\authorization\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\authorization\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\models\\petmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\models\\petmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\models\\ownermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\models\\ownermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\services\\imedcardservicemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\services\\imedcardservicemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\services\\medcardservicemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\services\\medcardservicemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.dbaccesslayer\\interfaces\\imedcardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\medcard\\more.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\medcard\\more.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\services\\medcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\services\\medcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\interfaces\\imedcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\interfaces\\imedcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\interfaces\\imedcardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\interfaces\\imedcardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.dbaccesslayer\\repositories\\medcardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\repositories\\medcardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\repositories\\medcardrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\shared\\error.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.dbaccesslayer\\entities\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\shared\\_validationscriptspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\medcard\\updatemedcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\medcard\\updatemedcard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\views\\medcard\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\views\\medcard\\notfound.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\models\\treatmentsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\models\\treatmentsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\models\\drugsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\models\\drugsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\controllers\\notfound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\controllers\\notfound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\medcard.dbaccesslayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\medcard.dbaccesslayer.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\dto\\petdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\dto\\petdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\entities\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\entities\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.dbaccesslayer\\configurations\\petconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\configurations\\petconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.dbaccesslayer\\configurations\\ownerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\entities\\drugentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\entities\\drugentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\configurations\\ownerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\configurations\\ownerconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\configurations\\petconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\configurations\\petconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\entities\\ownerentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\entities\\ownerentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\entities\\petentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\entities\\petentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.dbaccesslayer\\entities\\treatmententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\entities\\treatmententity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\obj\\Debug\\net5.0\\Medcard.Mvc.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Medcard.Mvc\\obj\\Debug\\net5.0\\Medcard.Mvc.AssemblyInfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\wwwroot\\css\\authorization.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\wwwroot\\css\\authorization.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.api\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|solutionrelative:medcard.api\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.api\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|solutionrelative:medcard.api\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|solutionrelative:medcard.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.api\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|solutionrelative:medcard.api\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|solutionrelative:medcard.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|solutionrelative:medcard.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\mapping\\mappingprofilemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\mapping\\mappingprofilemvc.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\wwwroot\\css\\normalize.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\wwwroot\\css\\normalize.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.mvc\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.api\\medcard.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\user\\source\\repos\\medcardmvc\\medcard.api\\medcard.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|solutionrelative:medcard.api\\medcard.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.dbaccesslayer\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\mapping\\mappingprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.dbaccesslayer\\services\\medcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}|Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj|solutionrelative:medcard.dbaccesslayer\\services\\medcardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.api\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}|Medcard.API\\Medcard.API.csproj|solutionrelative:medcard.api\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\controllers\\notfound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\controllers\\notfound.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\AppData\\Local\\Temp\\MetadataAsSource\\9e044072dbfe4bd68ca68aae87e47098\\DecompilationMetadataAsSourceFileProvider\\77f5089a26e743538b3e1a599b878398\\MedcardViewModel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\SearchResult.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Medcard.Mvc\\Views\\Medcard\\SearchResult.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\models\\drugsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\models\\drugsmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\models\\ownermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\models\\ownermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|c:\\users\\eqspe\\source\\repos\\medcardmvcapp\\src\\medcard.mvc\\models\\petmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E20F16CC-DD52-4BF1-AF9E-04FC059139E0}|Medcard.Mvc\\Medcard.Mvc.csproj|solutionrelative:medcard.mvc\\models\\petmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\SearchResult.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\source\\repos\\MedcardMvc\\telebot\\Medcard.Bot\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\User\\source\\repos\\MedcardMvc\\telebot\\Medcard.Bot\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:telebot\\Medcard.Bot\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -190,566 +244,750 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 2,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SearchMedcard.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\SearchMedcard.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\SearchMedcard.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\SearchMedcard.cshtml*",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\SearchMedcard.cshtml*",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-23T21:27:38.639Z",
+              "EditorCaption": ""
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
-              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
-              "RelativeToolTip": "Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAwAwAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-09-10T14:55:37.577Z",
+              "Title": "MedcardController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Controllers\\MedcardController.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Controllers\\MedcardController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Controllers\\MedcardController.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Controllers\\MedcardController.cs",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowCcAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T15:32:16.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "IMedcardServiceMvc.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Services\\IMedcardServiceMvc.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Services\\IMedcardServiceMvc.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Services\\IMedcardServiceMvc.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Services\\IMedcardServiceMvc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBAAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T15:13:09.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthorizationController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Controllers\\AuthorizationController.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Controllers\\AuthorizationController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Controllers\\AuthorizationController.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Controllers\\AuthorizationController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T21:14:37.204Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MappingProfileMvc.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Mapping\\MappingProfileMvc.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Mapping\\MappingProfileMvc.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Mapping\\MappingProfileMvc.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Mapping\\MappingProfileMvc.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-10T14:55:30.55Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\wwwroot\\css\\site.css",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "Medcard.Mvc\\wwwroot\\css\\site.css",
-              "ViewState": "AQIAAH4AAAAAAAAAAIBJwBsAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-08-21T17:56:13.862Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Medcard\\Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\Index.cshtml",
               "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\Index.cshtml",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Medcard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\Index.cshtml",
               "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\Index.cshtml",
-              "ViewState": "AQIAAAYAAAAAAAAAAIBJwDkAAAAIAAAA",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-21T17:50:44.013Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Medcard.DbAccessLayer.csproj",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
-              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
-              "RelativeToolTip": "Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-22T04:26:50.434Z",
+              "WhenOpened": "2024-08-21T17:50:44.013Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "normalize.css",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\wwwroot\\css\\normalize.css",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\wwwroot\\css\\normalize.css",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\wwwroot\\css\\normalize.css",
-              "RelativeToolTip": "Medcard.Mvc\\wwwroot\\css\\normalize.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-08-22T03:43:13.726Z"
+              "DocumentIndex": 7,
+              "Title": "OwnerModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\OwnerModel.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Models\\OwnerModel.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\OwnerModel.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Models\\OwnerModel.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:45:10.697Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Startup.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Startup.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Startup.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Startup.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Startup.cs",
-              "ViewState": "AQIAAC8AAAAAAAAAAAAgwCgAAABUAAAA",
+              "DocumentIndex": 6,
+              "Title": "PetModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\PetModel.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Models\\PetModel.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\PetModel.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Models\\PetModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAkwA4AAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T19:12:45.755Z",
+              "WhenOpened": "2024-08-17T19:46:18.53Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\appsettings.Development.json",
-              "RelativeToolTip": "Medcard.Mvc\\appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAcAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-22T03:20:11.594Z"
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Authorization\\Index.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Authorization\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Authorization\\Index.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\Authorization\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-23T21:15:12.66Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Medcard.Mvc.csproj",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Medcard.Mvc.csproj",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj",
               "RelativeDocumentMoniker": "Medcard.Mvc\\Medcard.Mvc.csproj",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Medcard.Mvc.csproj",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Medcard.Mvc.csproj",
               "RelativeToolTip": "Medcard.Mvc\\Medcard.Mvc.csproj",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAQwBkAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-08-17T21:22:01.288Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Medcard.Mvc\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-22T22:17:54.356Z"
+              "DocumentIndex": 9,
+              "Title": "MedcardServiceMvc.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Services\\MedcardServiceMvc.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Services\\MedcardServiceMvc.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Services\\MedcardServiceMvc.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Services\\MedcardServiceMvc.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAqwBEAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T15:13:23.513Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Authorization\\Index.cshtml",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Authorization\\Index.cshtml",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Authorization\\Index.cshtml",
-              "RelativeToolTip": "Medcard.Mvc\\Views\\Authorization\\Index.cshtml",
-              "ViewState": "AQIAABIAAAAAAAAAAIBJwB8AAAAaAAAA",
+              "DocumentIndex": 10,
+              "Title": "More.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\More.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\More.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\More.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\More.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-09T19:48:45.991Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "authorization.css",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\wwwroot\\css\\authorization.css",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\wwwroot\\css\\authorization.css",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\wwwroot\\css\\authorization.css",
-              "RelativeToolTip": "Medcard.Mvc\\wwwroot\\css\\authorization.css",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-09-10T12:58:00.167Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "_ValidationScriptsPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "RelativeToolTip": "Medcard.Mvc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-10T12:51:47.022Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "_ViewImports.cshtml",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\_ViewImports.cshtml",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\_ViewImports.cshtml",
-              "RelativeToolTip": "Medcard.Mvc\\Views\\_ViewImports.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-17T21:24:35.347Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "UpdateMedcard.cshtml",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Medcard\\UpdateMedcard.cshtml",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\UpdateMedcard.cshtml",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Medcard\\UpdateMedcard.cshtml",
-              "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\UpdateMedcard.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-21T19:10:25.454Z"
+              "WhenOpened": "2024-08-21T17:34:12.897Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "More.cshtml",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Medcard\\More.cshtml",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\More.cshtml",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Medcard\\More.cshtml",
-              "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\More.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAEAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-21T17:34:12.897Z"
+              "Title": "MedcardService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Services\\MedcardService.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Services\\MedcardService.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Services\\MedcardService.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Services\\MedcardService.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAqwBYAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T04:32:48.749Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "NotFound.cshtml",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Medcard\\NotFound.cshtml",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\NotFound.cshtml",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\Medcard\\NotFound.cshtml",
-              "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\NotFound.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-21T19:10:20.032Z"
+              "DocumentIndex": 12,
+              "Title": "IMedcardService.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Interfaces\\IMedcardService.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Interfaces\\IMedcardService.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Interfaces\\IMedcardService.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Interfaces\\IMedcardService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAWwA4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T23:02:39.473Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "IMedcardRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Interfaces\\IMedcardRepository.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Interfaces\\IMedcardRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Interfaces\\IMedcardRepository.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Interfaces\\IMedcardRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T23:49:34.451Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MedcardRepository.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Repositories\\MedcardRepository.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Repositories\\MedcardRepository.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Repositories\\MedcardRepository.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Repositories\\MedcardRepository.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAowCUAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T04:32:11.026Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "_ViewStart.cshtml",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\_ViewStart.cshtml",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\_ViewStart.cshtml",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Views\\_ViewStart.cshtml",
-              "RelativeToolTip": "Medcard.Mvc\\Views\\_ViewStart.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Startup.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Startup.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Startup.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Startup.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAIwFsAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:12:45.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Error.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Shared\\Error.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Shared\\Error.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Shared\\Error.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\Shared\\Error.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-08-17T21:24:54.552Z"
+              "WhenOpened": "2024-09-23T21:15:41.277Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Program.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Program.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Program.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAwwBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T17:49:00.726Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "AuthorizationController.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Controllers\\AuthorizationController.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Controllers\\AuthorizationController.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Controllers\\AuthorizationController.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Controllers\\AuthorizationController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T19:49:45.68Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "MedcardRepository.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Repositories\\MedcardRepository.cs",
-              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Repositories\\MedcardRepository.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Repositories\\MedcardRepository.cs",
-              "RelativeToolTip": "Medcard.DbAccessLayer\\Repositories\\MedcardRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T04:32:11.026Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "site.js",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\wwwroot\\js\\site.js",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\wwwroot\\js\\site.js",
-              "RelativeToolTip": "Medcard.Mvc\\wwwroot\\js\\site.js",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-08-21T19:03:01.593Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "MedcardController.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Controllers\\MedcardController.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Controllers\\MedcardController.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Controllers\\MedcardController.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Controllers\\MedcardController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T15:32:16.06Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IMedcardRepository.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Interfaces\\IMedcardRepository.cs",
-              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Interfaces\\IMedcardRepository.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Interfaces\\IMedcardRepository.cs",
-              "RelativeToolTip": "Medcard.DbAccessLayer\\Interfaces\\IMedcardRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T23:49:34.451Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "MedcardServiceMvc.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Services\\MedcardServiceMvc.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Services\\MedcardServiceMvc.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Services\\MedcardServiceMvc.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Services\\MedcardServiceMvc.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T15:13:23.513Z"
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\appsettings.json",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\appsettings.json",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\appsettings.json",
+              "RelativeToolTip": "Medcard.Mvc\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-17T19:57:10.511Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "IMedcardServiceMvc.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Services\\IMedcardServiceMvc.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Services\\IMedcardServiceMvc.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Services\\IMedcardServiceMvc.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Services\\IMedcardServiceMvc.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T15:13:09.746Z"
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\appsettings.Development.json",
+              "RelativeToolTip": "Medcard.Mvc\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-22T03:20:11.594Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "OwnerConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Configurations\\OwnerConfiguration.cs",
-              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Configurations\\OwnerConfiguration.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Configurations\\OwnerConfiguration.cs",
-              "RelativeToolTip": "Medcard.DbAccessLayer\\Configurations\\OwnerConfiguration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T12:56:49.837Z"
+              "DocumentIndex": 20,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-17T21:24:54.552Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-17T21:24:35.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-22T22:17:54.356Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "UpdateMedcard.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\UpdateMedcard.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\UpdateMedcard.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\UpdateMedcard.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\UpdateMedcard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-21T19:10:25.454Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 25,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\appsettings.json",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\appsettings.json",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\appsettings.json",
-              "RelativeToolTip": "Medcard.Mvc\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-17T19:57:10.511Z"
+              "Title": "NotFound.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\NotFound.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\NotFound.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\NotFound.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\NotFound.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-21T19:10:20.032Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "PetConfiguration.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Configurations\\PetConfiguration.cs",
-              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Configurations\\PetConfiguration.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Configurations\\PetConfiguration.cs",
-              "RelativeToolTip": "Medcard.DbAccessLayer\\Configurations\\PetConfiguration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 22,
+              "Title": "_ValidationScriptsPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-10T12:51:47.022Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "TreatmentsModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\TreatmentsModel.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Models\\TreatmentsModel.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\TreatmentsModel.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Models\\TreatmentsModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T12:56:58.876Z"
+              "WhenOpened": "2024-09-23T21:14:55.438Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 27,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T20:24:54.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "DrugsModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\DrugsModel.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Models\\DrugsModel.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Models\\DrugsModel.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Models\\DrugsModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T20:24:54.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "NotFound.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Controllers\\NotFound.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Controllers\\NotFound.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Controllers\\NotFound.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Controllers\\NotFound.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-17T19:16:48.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "Medcard.DbAccessLayer.csproj",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Medcard.DbAccessLayer.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-22T04:26:50.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "PetDto.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Dto\\PetDto.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Dto\\PetDto.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Dto\\PetDto.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Dto\\PetDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-23T20:39:16.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "MappingProfile.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Mapping\\MappingProfile.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Mapping\\MappingProfile.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Mapping\\MappingProfile.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Mapping\\MappingProfile.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T04:30:33.851Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "DrugEntity.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\DrugEntity.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Entities\\DrugEntity.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\DrugEntity.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Entities\\DrugEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T21:04:12.657Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
               "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Entities\\AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Entities\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Entities\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\AppDbContext.cs",
               "RelativeToolTip": "Medcard.DbAccessLayer\\Entities\\AppDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwBgAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-22T12:57:02.852Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 35,
+              "Title": "OwnerConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Configurations\\OwnerConfiguration.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Configurations\\OwnerConfiguration.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Configurations\\OwnerConfiguration.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Configurations\\OwnerConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T12:56:49.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "OwnerEntity.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\OwnerEntity.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Entities\\OwnerEntity.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\OwnerEntity.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Entities\\OwnerEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T21:04:13.38Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "PetEntity.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\PetEntity.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Entities\\PetEntity.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\PetEntity.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Entities\\PetEntity.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAA9wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T21:04:13.881Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "TreatmentEntity.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\TreatmentEntity.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Entities\\TreatmentEntity.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Entities\\TreatmentEntity.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Entities\\TreatmentEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-21T21:04:14.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "PetConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Configurations\\PetConfiguration.cs",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Configurations\\PetConfiguration.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\Configurations\\PetConfiguration.cs",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\Configurations\\PetConfiguration.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-22T12:56:58.876Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
               "Title": "Dockerfile",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Dockerfile",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Dockerfile",
               "RelativeDocumentMoniker": "Medcard.Mvc\\Dockerfile",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Dockerfile",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Dockerfile",
               "RelativeToolTip": "Medcard.Mvc\\Dockerfile",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2024-08-22T14:59:47.705Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
-              "Title": "Microsoft.NET.EolTargetFrameworks.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-08-22T12:58:18.802Z"
+              "DocumentIndex": 41,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Medcard.Mvc\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABMAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-22T03:38:18.955Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 42,
+              "Title": "Medcard.Mvc.AssemblyInfo.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\obj\\Debug\\net5.0\\Medcard.Mvc.AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\obj\\Debug\\net5.0\\Medcard.Mvc.AssemblyInfo.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\obj\\Debug\\net5.0\\Medcard.Mvc.AssemblyInfo.cs",
+              "RelativeToolTip": "Medcard.Mvc\\obj\\Debug\\net5.0\\Medcard.Mvc.AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-16T17:05:09.781Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "APIController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Controllers\\APIController.cs",
+              "RelativeDocumentMoniker": "Medcard.API\\Controllers\\APIController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Controllers\\APIController.cs",
+              "RelativeToolTip": "Medcard.API\\Controllers\\APIController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAwCQAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T15:19:41.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
               "Title": "Startup.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Startup.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Startup.cs",
               "RelativeDocumentMoniker": "Medcard.API\\Startup.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Startup.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Startup.cs",
               "RelativeToolTip": "Medcard.API\\Startup.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAABQAAAAAAAAAAAAQwEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-22T03:07:05.1Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 47,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\appsettings.json",
+              "RelativeDocumentMoniker": "Medcard.API\\appsettings.json",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\appsettings.json",
+              "RelativeToolTip": "Medcard.API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-09-15T18:14:12.12Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "authorization.css",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\wwwroot\\css\\authorization.css",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\wwwroot\\css\\authorization.css",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\wwwroot\\css\\authorization.css",
+              "RelativeToolTip": "Medcard.Mvc\\wwwroot\\css\\authorization.css",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACgAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-09-10T12:58:00.167Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
+              "Title": "normalize.css",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\wwwroot\\css\\normalize.css",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\wwwroot\\css\\normalize.css",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\wwwroot\\css\\normalize.css",
+              "RelativeToolTip": "Medcard.Mvc\\wwwroot\\css\\normalize.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-22T03:43:13.726Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
               "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\appsettings.Development.json",
               "RelativeDocumentMoniker": "Medcard.API\\appsettings.Development.json",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\appsettings.Development.json",
               "RelativeToolTip": "Medcard.API\\appsettings.Development.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2024-08-22T03:08:06.786Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 48,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Program.cs",
+              "RelativeDocumentMoniker": "Medcard.API\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Program.cs",
+              "RelativeToolTip": "Medcard.API\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-15T18:06:34.564Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "Medcard.Mvc\\wwwroot\\css\\site.css",
+              "ViewState": "AgIAAHgAAAAAAAAAACBjwBsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-08-21T17:56:13.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "MappingProfileMvc.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Mapping\\MappingProfileMvc.cs",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Mapping\\MappingProfileMvc.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Mapping\\MappingProfileMvc.cs",
+              "RelativeToolTip": "Medcard.Mvc\\Mapping\\MappingProfileMvc.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-10T14:55:30.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
+              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
+              "RelativeToolTip": "Medcard.DbAccessLayer\\obj\\Medcard.DbAccessLayer.csproj.EntityFrameworkCore.targets",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAwAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-09-10T14:55:37.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 53,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "Medcard.Mvc\\wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-08-21T19:03:01.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 54,
+              "Title": "Microsoft.NET.EolTargetFrameworks.targets",
+              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets",
+              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\8.0.400\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.EolTargetFrameworks.targets",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2024-08-22T12:58:18.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 55,
               "Title": "Medcard.API.csproj",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Medcard.API.csproj",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Medcard.API.csproj",
               "RelativeDocumentMoniker": "Medcard.API\\Medcard.API.csproj",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Medcard.API.csproj",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.API\\Medcard.API.csproj",
               "RelativeToolTip": "Medcard.API\\Medcard.API.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-08-22T12:40:55.977Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "MappingProfile.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Mapping\\MappingProfile.cs",
-              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Mapping\\MappingProfile.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Mapping\\MappingProfile.cs",
-              "RelativeToolTip": "Medcard.DbAccessLayer\\Mapping\\MappingProfile.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T04:30:33.851Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "MedcardService.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Services\\MedcardService.cs",
-              "RelativeDocumentMoniker": "Medcard.DbAccessLayer\\Services\\MedcardService.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.DbAccessLayer\\Services\\MedcardService.cs",
-              "RelativeToolTip": "Medcard.DbAccessLayer\\Services\\MedcardService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-22T04:32:48.749Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Properties\\launchSettings.json",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Properties\\launchSettings.json",
-              "RelativeToolTip": "Medcard.Mvc\\Properties\\launchSettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-22T03:38:18.955Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "APIController.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Controllers\\APIController.cs",
-              "RelativeDocumentMoniker": "Medcard.API\\Controllers\\APIController.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.API\\Controllers\\APIController.cs",
-              "RelativeToolTip": "Medcard.API\\Controllers\\APIController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T15:19:41.956Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "NotFound.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Controllers\\NotFound.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Controllers\\NotFound.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Controllers\\NotFound.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Controllers\\NotFound.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T19:16:48.32Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 56,
               "Title": "MedcardViewModel.cs",
               "DocumentMoniker": "C:\\Users\\User\\AppData\\Local\\Temp\\MetadataAsSource\\9e044072dbfe4bd68ca68aae87e47098\\DecompilationMetadataAsSourceFileProvider\\77f5089a26e743538b3e1a599b878398\\MedcardViewModel.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\User\\AppData\\Local\\Temp\\MetadataAsSource\\9e044072dbfe4bd68ca68aae87e47098\\DecompilationMetadataAsSourceFileProvider\\77f5089a26e743538b3e1a599b878398\\MedcardViewModel.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\MetadataAsSource\\9e044072dbfe4bd68ca68aae87e47098\\DecompilationMetadataAsSourceFileProvider\\77f5089a26e743538b3e1a599b878398\\MedcardViewModel.cs",
               "ToolTip": "C:\\Users\\User\\AppData\\Local\\Temp\\MetadataAsSource\\9e044072dbfe4bd68ca68aae87e47098\\DecompilationMetadataAsSourceFileProvider\\77f5089a26e743538b3e1a599b878398\\MedcardViewModel.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\User\\AppData\\Local\\Temp\\MetadataAsSource\\9e044072dbfe4bd68ca68aae87e47098\\DecompilationMetadataAsSourceFileProvider\\77f5089a26e743538b3e1a599b878398\\MedcardViewModel.cs",
+              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\MetadataAsSource\\9e044072dbfe4bd68ca68aae87e47098\\DecompilationMetadataAsSourceFileProvider\\77f5089a26e743538b3e1a599b878398\\MedcardViewModel.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-21T18:34:03.771Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 45,
+              "DocumentIndex": 58,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\telebot\\Medcard.Bot\\Program.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\User\\source\\repos\\MedcardMvc\\telebot\\Medcard.Bot\\Program.cs",
+              "RelativeDocumentMoniker": "telebot\\Medcard.Bot\\Program.cs",
               "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\telebot\\Medcard.Bot\\Program.cs",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\User\\source\\repos\\MedcardMvc\\telebot\\Medcard.Bot\\Program.cs",
+              "RelativeToolTip": "telebot\\Medcard.Bot\\Program.cs",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-20T14:50:41.287Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
-              "Title": "DrugsModel.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Models\\DrugsModel.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Models\\DrugsModel.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Models\\DrugsModel.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Models\\DrugsModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T20:24:54.956Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 40,
-              "Title": "ErrorViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Models\\ErrorViewModel.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Models\\ErrorViewModel.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Models\\ErrorViewModel.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Models\\ErrorViewModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T20:24:54.454Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 42,
-              "Title": "OwnerModel.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Models\\OwnerModel.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Models\\OwnerModel.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Models\\OwnerModel.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Models\\OwnerModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T19:45:10.697Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 43,
-              "Title": "PetModel.cs",
-              "DocumentMoniker": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Models\\PetModel.cs",
-              "RelativeDocumentMoniker": "Medcard.Mvc\\Models\\PetModel.cs",
-              "ToolTip": "C:\\Users\\eqspe\\source\\repos\\MedcardMvcApp\\src\\Medcard.Mvc\\Models\\PetModel.cs",
-              "RelativeToolTip": "Medcard.Mvc\\Models\\PetModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T19:46:18.53Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 57,
               "Title": "SearchResult.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\SearchResult.cshtml",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\SearchResult.cshtml",
+              "RelativeDocumentMoniker": "Medcard.Mvc\\Views\\Medcard\\SearchResult.cshtml",
               "ToolTip": "C:\\Users\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\SearchResult.cshtml",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\User\\source\\repos\\MedcardMvc\\Medcard.Mvc\\Views\\Medcard\\SearchResult.cshtml",
+              "RelativeToolTip": "Medcard.Mvc\\Views\\Medcard\\SearchResult.cshtml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-23T17:13:33.231Z"
             }

@@ -27,7 +27,32 @@ namespace Medcard.Mvc.Controllers
 
         }
 
+     
+        
 
+
+        [HttpPost]
+        public async Task<IActionResult> SearchMedcardPost(string clientName)
+        {
+            if (string.IsNullOrEmpty(clientName))
+            {
+                return RedirectToAction("Index"); // или "SearchMedcard" если хотите показать всех
+            }
+
+            return RedirectToAction("SearchMedcard", new { clientName });
+        }
+
+        [HttpGet("SearchMedcard/{clientName}")]
+        public async Task<IActionResult> SearchMedcard(string clientName)
+        {
+            
+            
+
+            var medcards = await _medcardService.GetAllFromSearchAsync(clientName);
+            
+
+            return View(medcards);
+        }
 
         public async Task<IActionResult> Index()
         {
