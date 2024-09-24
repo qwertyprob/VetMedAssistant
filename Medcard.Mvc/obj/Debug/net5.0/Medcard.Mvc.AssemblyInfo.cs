@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Medcard.Mvc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92d130a30238b77fb0b0757a55dfcf085819f3d2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e74cd35919dd7da8747b51b36f5ca7dd1f4deb67")]
 [assembly: System.Reflection.AssemblyProductAttribute("Medcard.Mvc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Medcard.Mvc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
