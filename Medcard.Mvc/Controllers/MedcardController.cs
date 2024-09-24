@@ -65,19 +65,24 @@ namespace Medcard.Mvc.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(MedcardViewModel model)
+        public async Task<IActionResult> Create(MedcardViewModel medcardViewModel)
         {
             if (ModelState.IsValid)
             {
-                model.Drugs = "Здесь пока ничего нет!";
-                model.Treatments = "Здесь пока ничего нет!";
+                medcardViewModel.OwnerName = medcardViewModel.OwnerName?.Trim();
+                medcardViewModel.PhoneNumber = medcardViewModel.PhoneNumber?.Trim();
+                medcardViewModel.PetName = medcardViewModel.PetName?.Trim();
+                medcardViewModel.ChipNumber = medcardViewModel.ChipNumber?.Trim();
+                medcardViewModel.Breed = medcardViewModel.Breed?.Trim();
+                medcardViewModel.Drugs = "Здесь пока ничего нет!";
+                medcardViewModel.Treatments = "Здесь пока ничего нет!";
 
-                var medcard = await _medcardService.CreateAsync(model);
+                var medcard = await _medcardService.CreateAsync(medcardViewModel);
 
                 return RedirectToAction("Index");
             }
 
-            return View(model);
+            return View(medcardViewModel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -122,16 +127,20 @@ namespace Medcard.Mvc.Controllers
 
         [HttpPost]
         [Route("Medcard/Update/{id}")]
-        public async Task<IActionResult> UpdateMedcard(Guid id, MedcardViewModel model)
+        public async Task<IActionResult> UpdateMedcard(Guid id, MedcardViewModel medcardViewModel)
         {
-            if (!ModelState.IsValid)
-            {
-                model.Drugs = "Здесь пока ничего нет!";
-                model.Treatments = "Здесь пока ничего нет!";
-                return View("UpdateMedcard", model);
-            }
+            
+                medcardViewModel.OwnerName = medcardViewModel.OwnerName?.Trim();
+                medcardViewModel.PhoneNumber = medcardViewModel.PhoneNumber?.Trim();
+                medcardViewModel.PetName = medcardViewModel.PetName?.Trim();
+                medcardViewModel.ChipNumber = medcardViewModel.ChipNumber?.Trim();
+                medcardViewModel.Breed = medcardViewModel.Breed?.Trim();
+                medcardViewModel.Drugs = "Здесь пока ничего нет!";
+                medcardViewModel.Treatments = "Здесь пока ничего нет!";
+              
+            
 
-            var updatedMedcard = await _medcardService.UpdateAsync(id, model);
+            var updatedMedcard = await _medcardService.UpdateAsync(id, medcardViewModel);
             if (updatedMedcard == null)
             {
                 return NotFound();

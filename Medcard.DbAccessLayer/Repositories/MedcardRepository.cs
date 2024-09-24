@@ -34,7 +34,7 @@ namespace Medcard.DbAccessLayer
             .Include(p => p.Pets)
                 .ThenInclude(t => t.Treatments)
             .AsNoTracking()
-            .Where(p => p.Name == clientName || p.Pets.Any(pet => pet.Name == clientName))
+            .Where(p => p.Name.ToLower() == clientName.ToLower() || p.Pets.Any(pet => pet.Name.ToLower() == clientName.ToLower()))
             .ToListAsync();
 
             var mappedMedcard = _mapper.Map<IReadOnlyCollection<OwnerDto>>(medcardResult);
