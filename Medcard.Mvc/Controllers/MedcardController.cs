@@ -46,7 +46,7 @@ namespace Medcard.Mvc.Controllers
         public async Task<IActionResult> SearchMedcard(string clientName)
         {
             
-            
+            ViewBag.ClientName = clientName;
 
             var medcards = await _medcardService.GetAllFromSearchAsync(clientName);
             
