@@ -19,7 +19,6 @@ namespace Medcard.Mvc.Controllers
         private readonly IMedcardServiceMvc _medcardService;
         private readonly ILogger<MedcardController> _logger;
 
-
         public MedcardController(IMedcardServiceMvc medcardServiceMvc, ILogger<MedcardController> logger)
         {
             _medcardService = medcardServiceMvc;
@@ -27,12 +26,8 @@ namespace Medcard.Mvc.Controllers
 
         }
 
-     
-        
-
-
         [HttpPost]
-        public async Task<IActionResult> SearchMedcardPost(string clientName)
+        public  IActionResult SearchMedcardPost(string clientName)
         {
             if (string.IsNullOrEmpty(clientName))
             {
@@ -47,6 +42,7 @@ namespace Medcard.Mvc.Controllers
         {
             
             ViewBag.ClientName = clientName;
+            
 
             var medcards = await _medcardService.GetAllFromSearchAsync(clientName);
             
