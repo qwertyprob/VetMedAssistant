@@ -42,12 +42,11 @@ namespace Medcard.Mvc.Controllers
         public async Task<IActionResult> SearchMedcard(string clientName)
         {
             
-<<<<<<< HEAD
+
             ViewBag.ClientName = clientName;
-=======
+
             ViewBag.ClientName = clientName.Trim();
->>>>>>> refactoring
-            
+
 
             var medcards = await _medcardService.GetAllFromSearchAsync(clientName.Trim());
             
