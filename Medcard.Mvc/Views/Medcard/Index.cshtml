@@ -6,10 +6,7 @@
 
     ViewData["Title"] = "Card";
     Layout = "_Layout"; 
-    
     CultureInfo russianCulture = new CultureInfo("ru-RU");
-    
-
 }
 
 <form method="POST" asp-action="Create" >
@@ -27,7 +24,6 @@
         </div>
         <p></p>
     </div>
-
 </form>
 
 <header class="header">
@@ -50,9 +46,6 @@
         <input type="hidden" id="hiddenSearch" name="clientName" />
     </form>
 </div>
-
-
-
 
 @if (Model != null && Model.Any())
 {
@@ -97,15 +90,12 @@
                                     Удалить
                                 </button>
                             </form>
-
                         </div>
                     </div>
                 </div>
                 }
             </div>
-            
         </section>
-    
 }
 else
 {   <br />

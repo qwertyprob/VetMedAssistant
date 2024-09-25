@@ -136,6 +136,7 @@ namespace Medcard.Mvc.Controllers
         public async Task<IActionResult> UpdateMedcard(Guid id, MedcardViewModel medcardViewModel)
         {
             
+
                 medcardViewModel.OwnerName = medcardViewModel.OwnerName?.Trim();
                 medcardViewModel.PhoneNumber = medcardViewModel.PhoneNumber?.Trim();
                 medcardViewModel.DateCreate= DateTime.UtcNow.ToLocalTime();
