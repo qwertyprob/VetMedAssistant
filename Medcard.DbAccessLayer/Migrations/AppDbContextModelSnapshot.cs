@@ -25,6 +25,9 @@ namespace Medcard.DbAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("Description")
                         .HasColumnType("text");
 
@@ -43,6 +46,9 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<DateTime>("DateCreate")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");

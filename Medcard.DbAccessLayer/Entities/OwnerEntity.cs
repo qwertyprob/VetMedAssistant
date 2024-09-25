@@ -10,6 +10,7 @@ namespace Medcard.DbAccessLayer.Entities
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
+        public DateTime DateCreate { get; set; }
 
         // Связь один ко многим (один хозяин может иметь несколько питомцев)
         public List<PetEntity> Pets { get; set; } = new List<PetEntity>();

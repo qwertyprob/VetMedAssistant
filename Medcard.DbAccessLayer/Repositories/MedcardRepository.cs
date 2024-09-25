@@ -88,6 +88,7 @@ namespace Medcard.DbAccessLayer
                 Id = Guid.NewGuid(),
                 Name = medcardViewModel.OwnerName,
                 PhoneNumber = medcardViewModel.PhoneNumber,
+                DateCreate = medcardViewModel.DateCreate,
                 Pets = new List<PetEntity>
                 {
                     new PetEntity()
@@ -139,6 +140,7 @@ namespace Medcard.DbAccessLayer
             ownerEntity.Id = id;
             ownerEntity.Name = medcardViewModel.OwnerName;
             ownerEntity.PhoneNumber = medcardViewModel.PhoneNumber;
+            ownerEntity.DateCreate = medcardViewModel.DateCreate;
 
             foreach (var pet in ownerEntity.Pets)
             {
@@ -177,6 +179,7 @@ namespace Medcard.DbAccessLayer
             ownerEntity.Id = id;
             ownerEntity.Name = medcardViewModel.OwnerName;
             ownerEntity.PhoneNumber = medcardViewModel.PhoneNumber;
+            ownerEntity.DateCreate = medcardViewModel.DateCreate;
 
             foreach (var pet in ownerEntity.Pets)
             {

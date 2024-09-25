@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Medcard.DbAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240910150540_Initial")]
+    [Migration("20240925153332_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,6 +26,9 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -45,6 +48,9 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
+
+                    b.Property<DateTime>("DateCreate")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");

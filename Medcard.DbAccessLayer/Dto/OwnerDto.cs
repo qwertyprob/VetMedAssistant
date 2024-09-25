@@ -12,13 +12,14 @@ namespace Medcard.DbAccessLayer.Dto
         public Guid Id { get; set; }
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
+        public DateTime DateCreate { get; set; }
 
         //Связь 1:многие
         public List<PetDto> PetsDtos { get; set; } = new List<PetDto>();
 
         public OwnerDto() { }
         public OwnerDto(Guid id,
-                         string name, string phone,
+                         string name, string phone, DateTime dateCreate,
                          string petName, string chipNumber,
                          string petAge, string petBreed,
                          string petDrugs,
@@ -27,6 +28,7 @@ namespace Medcard.DbAccessLayer.Dto
             Id = id;
             Name = name;
             PhoneNumber = phone;
+            DateCreate = dateCreate;
             PetsDtos = new List<PetDto>()
             {
                 new PetDto()
@@ -61,13 +63,13 @@ namespace Medcard.DbAccessLayer.Dto
 
         }
         public static OwnerDto Create(Guid id,
-                         string name, string phone,
+                         string name, string phone, DateTime dateCreate,
                          string petName, string chipNumber,
                          string petAge, string petBreed,
                          string petDrugs,
                          string petTreatment)
         {
-            return new OwnerDto(id, name, phone, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
+            return new OwnerDto(id, name, phone, dateCreate, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
         }
        
     }

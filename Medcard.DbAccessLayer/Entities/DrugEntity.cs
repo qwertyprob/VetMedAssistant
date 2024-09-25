@@ -12,6 +12,8 @@ namespace Medcard.DbAccessLayer.Entities
         public Guid Id { get; set; }
         public string Description { get; set; }
 
+        public DateTime DateTime { get; set; }
+
         // Внешний ключ для связи с питомцем
         public Guid PetId { get; set; }
         public PetEntity Pet { get; set; }

@@ -13,7 +13,8 @@ namespace Medcard.DbAccessLayer.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: true)
+                    PhoneNumber = table.Column<string>(type: "text", nullable: true),
+                    DateCreate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -48,6 +49,7 @@ namespace Medcard.DbAccessLayer.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: true),
+                    DateTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     PetId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
