@@ -4,14 +4,31 @@
     ViewData["Title"] = "Authorization";
     Layout = "_AuthLayout";
 }
+<div class="mask">
+    <div class="loader">
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let mask = document.querySelector('.mask');
 
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (mask) {
+                    mask.classList.add('hide');
+                } else {
+                    console.error('Element with class "mask" not found');
+                }
+            }, 1000); 
+        });
+    });
+</script>
 <!--создание контейнера-->
 <div class="container">
     <div class="row">
         <!-- заголовок и описание -->
         <div class="col-md-12">
             <h2></h2>
-
             <!--форма авторизации-->
             <form method="post" action="Medcard/Index">
                 <!--ввод e-mail-->
@@ -30,7 +47,6 @@
                 <div class="form-group">
                     <input type="submit" name="submit" class="btn btn-primary" value="Войти">
                 </div>
-
             </form>
         </div>
     </div>

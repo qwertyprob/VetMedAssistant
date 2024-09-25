@@ -2,8 +2,27 @@
 
 @{
     ViewData["Title"] = "Medcard";
+    Layout = "_Layout";
 }
+<div class="mask">
+    <div class="loader">
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        let mask = document.querySelector('.mask');
 
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                if (mask) {
+                    mask.classList.add('hide');
+                } else {
+                    console.error('Element with class "mask" not found');
+                }
+            }, 1000); 
+        });
+    });
+</script>
 <header class="header">
     <div class="logo">
         <a href="@Url.Action("Index", "Medcard")">

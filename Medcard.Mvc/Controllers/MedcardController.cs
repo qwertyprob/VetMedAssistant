@@ -49,6 +49,8 @@ namespace Medcard.Mvc.Controllers
 
 
             var medcards = await _medcardService.GetAllFromSearchAsync(clientName.Trim());
+
+            
             
 
             return View(medcards);

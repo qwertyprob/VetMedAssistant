@@ -147,3 +147,22 @@ function submitForm() {
 
     document.getElementById('searchForm').submit();
 }
+
+function submitForm() {
+    // Копируем значение из поля ввода в скрытое поле
+    var searchValue = document.getElementById("search").value;
+    document.getElementById("hiddenSearch").value = searchValue;
+
+    // Отправляем форму
+    document.getElementById("searchForm").submit();
+}
+
+// Добавляем обработчик события нажатия клавиши
+document.getElementById("search").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Предотвращаем стандартное поведение
+        submitForm(); // Отправляем форму
+    }
+});
+
+

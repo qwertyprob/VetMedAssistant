@@ -234,10 +234,10 @@ body {
         }
 
     .list .list__line-title p:first-child, .list .list__lines p:first-child {
-        width: 12%;
+        width: 16%;
         text-align: center;
-        justify-content:center;
-        
+        justify-content: center;
+       
     }
 
 .list-dark > * {
@@ -252,9 +252,6 @@ body {
     border-top-color: #fff;
     border-left-color: #fff;
 }
-
-
-
 /* template-more */
 
 .card {
@@ -392,7 +389,7 @@ body {
 }
 
     .button:hover {
-        background-color: #00BFFF; /* Ярко-синий цвет при наведении */
+        background-color: #00BFFF; 
     }
 
 .container {
@@ -407,3 +404,34 @@ body {
     display: none; /* Прячем форму */
 }
 
+.mask{
+    height:100%;
+    width:100%;
+    background-color:white;
+    position:fixed;
+    top:0;
+    z-index:100;
+    transition:0.6s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.loader {
+    margin: auto;
+    width: 75px;
+    height: 75px;
+    border: 10px solid lightblue;
+    border-radius: 50%;
+    border-left-color: #20294a;
+    animation: loader 1.3s linear infinite;
+}
+
+@keyframes loader {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.hide{
+    display:none;
+}

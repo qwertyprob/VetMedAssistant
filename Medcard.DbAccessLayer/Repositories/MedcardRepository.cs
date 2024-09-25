@@ -40,7 +40,6 @@ namespace Medcard.DbAccessLayer
             var mappedMedcard = _mapper.Map<IReadOnlyCollection<OwnerDto>>(medcardResult);
 
             return mappedMedcard;
-
         }
         public async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
         {
@@ -241,9 +240,5 @@ namespace Medcard.DbAccessLayer
             return true;
 
         }
-
-        
-
-
     }
 }
