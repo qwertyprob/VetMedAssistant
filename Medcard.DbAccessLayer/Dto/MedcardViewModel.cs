@@ -12,6 +12,7 @@ namespace Medcard.DbAccessLayer.Dto
         Guid Id { get; set; }
         public string OwnerName { get; set; }
         public string PhoneNumber {  get; set; }
+        public DateTime DateCreate { get; set; }
         public string PetName { get; set; }
         public string ChipNumber { get; set; }
         public string Age { get; set; }

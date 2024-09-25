@@ -17,13 +17,14 @@ namespace Medcard.Mvc.Models
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
 
+        public DateTime DateCreate { get; set; }
         //Связь 1:многие
         public List<PetModel> Pets { get; set; } = new List<PetModel>();
 
 
         public OwnerModel() { }
         public OwnerModel(Guid id,
-                         string name, string phone,
+                         string name, string phone, DateTime date,
                          string petName, string chipNumber,
                          string petAge, string petBreed,
                          string petDrugs,
@@ -32,6 +33,7 @@ namespace Medcard.Mvc.Models
             Id = id;
             Name = name;
             PhoneNumber = phone;
+            DateCreate = date;
             Pets = new List<PetModel>()
             {
                 new PetModel()
@@ -66,13 +68,13 @@ namespace Medcard.Mvc.Models
 
         }
         public static OwnerModel Create(Guid id,
-                         string name, string phone,
+                         string name, string phone,DateTime date,
                          string petName, string chipNumber,
                          string petAge, string petBreed,
                          string petDrugs,
                          string petTreatment)
         {
-            return new OwnerModel(id, name, phone, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
+            return new OwnerModel(id, name, phone,date, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
         }
 
 

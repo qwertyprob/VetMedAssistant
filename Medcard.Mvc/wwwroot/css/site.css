@@ -224,7 +224,7 @@ body {
         flex-flow: column;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        gap: 12px;
     }
 
         .list .list__param div {
@@ -234,7 +234,10 @@ body {
         }
 
     .list .list__line-title p:first-child, .list .list__lines p:first-child {
-        width: 2%;
+        width: 12%;
+        text-align: center;
+        justify-content:center;
+        
     }
 
 .list-dark > * {

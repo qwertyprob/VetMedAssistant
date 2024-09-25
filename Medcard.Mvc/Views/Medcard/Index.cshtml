@@ -1,12 +1,14 @@
 ﻿@using Medcard.Mvc.Models
+@using System.Globalization
 @model IEnumerable<OwnerModel>
 
 @{
 
     ViewData["Title"] = "Card";
-    Layout = "_Layout";
-
-    var counter = Model.Select(p => p.Pets).Count();
+    Layout = "_Layout"; 
+    
+    CultureInfo russianCulture = new CultureInfo("ru-RU");
+    
 
 }
 
@@ -58,7 +60,7 @@
         <section class="list">
             <div class="list__wrapper shadow">
                 <div class="list__line-title">
-                <p class="number">@counter</p>
+                <p class="number">Дата</p>
                     <p class="name">ФИО</p>
                     <p class="phone">Номер телефона</p>
                     <p class="nick">Кличка</p>
@@ -71,7 +73,7 @@
             {
                 <div class="list__container">
                     <div class="list__lines">
-                        <p class="number"></p>
+                        <p class="number"><br />@owner.DateCreate.ToString("dd/MM/yyyy HH:mm dddd", russianCulture)</p>
                         <p class="name"><br><br>@owner.Name</p>
                         <p class="phone"><br><br>@owner.PhoneNumber</p>
                         @foreach(var pet in owner.Pets)

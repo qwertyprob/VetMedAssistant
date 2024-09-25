@@ -11,6 +11,7 @@ using Medcard.Mvc.Models;
 using Medcard.DbAccessLayer.Entities;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Globalization;
 
 namespace Medcard.Mvc.Controllers
 {
@@ -41,10 +42,14 @@ namespace Medcard.Mvc.Controllers
         public async Task<IActionResult> SearchMedcard(string clientName)
         {
             
+<<<<<<< HEAD
             ViewBag.ClientName = clientName;
+=======
+            ViewBag.ClientName = clientName.Trim();
+>>>>>>> refactoring
             
 
-            var medcards = await _medcardService.GetAllFromSearchAsync(clientName);
+            var medcards = await _medcardService.GetAllFromSearchAsync(clientName.Trim());
             
 
             return View(medcards);
@@ -63,10 +68,14 @@ namespace Medcard.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(MedcardViewModel medcardViewModel)
         {
+            
+            
+
             if (ModelState.IsValid)
             {
                 medcardViewModel.OwnerName = medcardViewModel.OwnerName?.Trim();
                 medcardViewModel.PhoneNumber = medcardViewModel.PhoneNumber?.Trim();
+                medcardViewModel.DateCreate = DateTime.UtcNow.ToLocalTime();
                 medcardViewModel.PetName = medcardViewModel.PetName?.Trim();
                 medcardViewModel.ChipNumber = medcardViewModel.ChipNumber?.Trim();
                 medcardViewModel.Breed = medcardViewModel.Breed?.Trim();
@@ -77,6 +86,8 @@ namespace Medcard.Mvc.Controllers
 
                 return RedirectToAction("Index");
             }
+
+            
 
             return View(medcardViewModel);
         }
@@ -128,6 +139,7 @@ namespace Medcard.Mvc.Controllers
             
                 medcardViewModel.OwnerName = medcardViewModel.OwnerName?.Trim();
                 medcardViewModel.PhoneNumber = medcardViewModel.PhoneNumber?.Trim();
+                medcardViewModel.DateCreate= DateTime.UtcNow.ToLocalTime();
                 medcardViewModel.PetName = medcardViewModel.PetName?.Trim();
                 medcardViewModel.ChipNumber = medcardViewModel.ChipNumber?.Trim();
                 medcardViewModel.Breed = medcardViewModel.Breed?.Trim();
