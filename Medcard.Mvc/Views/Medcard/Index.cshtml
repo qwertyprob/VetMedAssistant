@@ -8,6 +8,7 @@
     Layout = "_Layout"; 
     //for russian dd/mm//yy
     CultureInfo russianCulture = new CultureInfo("ru-RU");
+   
 }
 
 <div class="mask" id="mask">
@@ -60,7 +61,7 @@
     </div>
 
     <!-- Скрытая форма -->
-    <form id="searchForm" method="post" asp-action="SearchMedcardPost">
+    <form id="searchForm" method="post" asp-controller="Search" asp-action="SearchMedcardPost">
         @Html.AntiForgeryToken()
         <input type="hidden" id="hiddenSearch" name="clientName" />
     </form>

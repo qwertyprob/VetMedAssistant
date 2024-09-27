@@ -12,9 +12,11 @@ using Medcard.DbAccessLayer.Entities;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Globalization;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Medcard.Mvc.Controllers
 {
+    
     public class MedcardController : Controller
     {
         private readonly IMedcardServiceMvc _medcardService;
@@ -27,34 +29,7 @@ namespace Medcard.Mvc.Controllers
 
         }
 
-        [HttpPost]
-        public  IActionResult SearchMedcardPost(string clientName)
-        {
-            if (string.IsNullOrEmpty(clientName))
-            {
-                return RedirectToAction("Index"); // или "SearchMedcard" если хотите показать всех
-            }
-
-            return RedirectToAction("SearchMedcard", new { clientName });
-        }
-
-        [HttpGet("SearchMedcard/{clientName}")]
-        public async Task<IActionResult> SearchMedcard(string clientName)
-        {
-            
-
-            ViewBag.ClientName = clientName;
-
-            ViewBag.ClientName = clientName.Trim();
-
-
-            var medcards = await _medcardService.GetAllFromSearchAsync(clientName.Trim());
-
-            
-            
-
-            return View(medcards);
-        }
+        
 
         public async Task<IActionResult> Index()
         {
@@ -117,6 +92,8 @@ namespace Medcard.Mvc.Controllers
             {
                 return View("NotFound");
             }
+
+            
 
             return View("More", medcard);
         }        
@@ -188,23 +165,7 @@ namespace Medcard.Mvc.Controllers
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> Search(string name)
-        {
-            var owner = await _medcardService.SearchByNameAsync(name);
-
-            if (owner == Guid.Empty)
-            {
-                
-                return RedirectToAction("Index", "Medcard");
-            }
-            if(name == null)
-                return View("NotFound");
         
-            
-
-            return RedirectToAction("GetById", "Medcard", new { id = owner });
-        }
 
         public IActionResult More(Guid id)
         {

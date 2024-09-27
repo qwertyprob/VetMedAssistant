@@ -12,10 +12,16 @@ namespace Medcard.Mvc.Controllers
         {
             _authService = authService;
         }
-        public IActionResult Index()
+        public IActionResult Auth()
         {
-            return View();
+            return View("Auth");
         }
+        public IActionResult Medcard()
+        {
+            return RedirectToAction("Index", "Medcard");
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> CreateUser(string email, string password)
         {
@@ -23,7 +29,18 @@ namespace Medcard.Mvc.Controllers
             var user = await _authService.CreateUser(email, password);
               
             
-            return RedirectToAction("Index",user); 
+            return RedirectToAction("Auth",user); 
+
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(string email, string password)
+        {
+            if(!ModelState.IsValid) { return NotFound(); }
+            var user = _authService.Login(email, password);
+
+
+            return RedirectToAction("Medcard");
 
         }
     }

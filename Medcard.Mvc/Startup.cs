@@ -7,13 +7,16 @@ using Medcard.DbAccessLayer.Repositories;
 using Medcard.DbAccessLayer.Services;
 using Medcard.Mvc.Mapping;
 using Medcard.Mvc.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -37,10 +40,28 @@ namespace MedcardMvc
 
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IAuthServiceMvc, AuthServiceMvc>();
+            
 
             services.AddSingleton<IEncrypt, Encrypt>();
 
-            services.AddAutoMapper(typeof(MappingProfileMvc));
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options =>
+        {
+            options.LoginPath = "/Authorization/Auth"; 
+        });
+
+            services.AddHttpContextAccessor(); 
+        
+
+        services.AddAutoMapper(typeof(MappingProfileMvc));
 
 
             services.AddDbContext<AppDbContext>(options =>
@@ -70,8 +91,10 @@ namespace MedcardMvc
 
             app.UseRouting();
 
+            app.UseSession();
+            app.UseAuthentication();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
 
@@ -92,6 +115,12 @@ namespace MedcardMvc
                         controller = "Medcard",
                         action = "More"
                     });
+                // Search route by default
+                endpoints.MapControllerRoute(
+                     name: "default",
+                     pattern: "{controller=Search}/{action=SearchMedcard}/{clientName?}");
+
+
                 // Medcard route by default
                 endpoints.MapControllerRoute(
                     name: "default",
@@ -99,7 +128,7 @@ namespace MedcardMvc
                 //Authorization route by default
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Authorization}/{action=Index}");
+                    pattern: "{controller=Authorization}/{action=Auth}");
 
                 
 

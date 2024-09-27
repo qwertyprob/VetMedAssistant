@@ -17,5 +17,10 @@ namespace Medcard.Mvc.Services
             return await _authRepository.CreateUser(email, password);
 
         }
+
+        public string Login(string email, string password)
+        {
+            return _authRepository.Login(email, password);
+        }
     }
 }
