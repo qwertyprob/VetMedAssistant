@@ -3,6 +3,7 @@ using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Mapping;
+using Medcard.DbAccessLayer.Repositories;
 using Medcard.DbAccessLayer.Services;
 using Medcard.Mvc.Mapping;
 using Medcard.Mvc.Services;
@@ -33,6 +34,9 @@ namespace MedcardMvc
         {
             services.AddScoped<IMedcardRepository, MedcardRepository>();
             services.AddScoped<IMedcardServiceMvc, MedcardServiceMvc>();
+
+            services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddScoped<IAuthServiceMvc, AuthServiceMvc>();
 
             services.AddAutoMapper(typeof(MappingProfileMvc));
 
