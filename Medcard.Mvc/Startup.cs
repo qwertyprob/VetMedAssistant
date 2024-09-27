@@ -38,6 +38,8 @@ namespace MedcardMvc
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IAuthServiceMvc, AuthServiceMvc>();
 
+            services.AddSingleton<IEncrypt, Encrypt>();
+
             services.AddAutoMapper(typeof(MappingProfileMvc));
 
 

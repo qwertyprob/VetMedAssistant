@@ -19,9 +19,11 @@ namespace Medcard.Mvc.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateUser(string email, string password)
         {
+            
             var user = await _authService.CreateUser(email, password);
-
-            return View("Index",user); 
+              
+            
+            return RedirectToAction("Index",user); 
 
         }
     }
