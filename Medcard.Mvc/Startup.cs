@@ -62,8 +62,8 @@ namespace MedcardMvc
         
 
         services.AddAutoMapper(typeof(MappingProfileMvc));
-
-            var connectionString = Configuration.GetConnectionString("GlobalMedcard");
+            //Secret
+            var connectionString = Configuration.GetConnectionString("GlobalMedcardRender");
 
             services.AddDbContext<AppDbContext>(options =>
         options.UseNpgsql(connectionString));
