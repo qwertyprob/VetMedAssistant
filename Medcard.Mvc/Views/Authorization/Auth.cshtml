@@ -1,4 +1,5 @@
-﻿
+﻿@using Medcard.Mvc.Models
+@model LoginViewModel
 
 @{
     ViewData["Title"] = "Authorization";
@@ -30,24 +31,27 @@
         <div class="col-md-12">
             <h2></h2>
             <!--форма авторизации-->
-            <form method="post" action="Authorization/Login">
+            <form method="post" asp-action="Login" asp-controller="Authorization">
                 <!--ввод e-mail-->
                 <div class="form-group">
-                    <label>Электронная почта</label>
-                    <input type="email" name="email" class="form-control" required />
+                    <label asp-for="Email">Электронная почта</label>
+                    <input asp-for="Email" type="email" class="form-control" required />
+                    <span class="text-danger" asp-validation-for="Email"></span>
                 </div>
 
                 <!--поле ввода пароля-->
                 <div class="form-group">
-                    <label>Пароль</label>
-                    <input type="password" name="password" class="form-control" required>
+                    <label asp-for="Password">Пароль</label>
+                    <input asp-for="Password" type="password" class="form-control" required>
+                    <span class="text-danger" asp-validation-for="Password"></span>
                 </div>
 
                 <!--кнопка отправки на сервер-->
                 <div class="form-group">
-                    <input type="submit" name="submit" class="btn btn-primary" value="Войти">
+                    <input type="submit" class="btn btn-primary" value="Войти">
                 </div>
             </form>
+
         </div>
     </div>
 </div>

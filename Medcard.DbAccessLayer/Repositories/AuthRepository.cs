@@ -23,7 +23,7 @@ namespace Medcard.DbAccessLayer.Repositories
             _encryptor = ecryptor;
             _httpContext= httpContexter;
         }
-
+        //Need it to create a user for auth
         public async Task<Guid> CreateUser(string email, string password)
         {
             var user = new UserEntity()
@@ -38,13 +38,13 @@ namespace Medcard.DbAccessLayer.Repositories
 
             user.HashedPassword = _encryptor.HashPassword(user.HashedPassword, user.Salt);
 
-            // Проверка существующего email
+           
             var existingUser = await _dbcontext.Users
                 .FirstOrDefaultAsync(u => u.Email == user.Email);
 
             if (existingUser != null)
             {
-                // Обработка случая, когда email уже существует
+                
                 throw new InvalidOperationException("Пользователь с таким email уже существует.");
             }
 
@@ -56,25 +56,37 @@ namespace Medcard.DbAccessLayer.Repositories
 
         public string Login(string email, string password)
         {
-            // Поиск пользователя по email
+            
             var user = _dbcontext.Users.FirstOrDefault(u => u.Email == email);
 
             if (user == null)
             {
                 throw new InvalidOperationException("Пользователь не найден.");
             }
-
-            // Проверка пароля
+         
             var hashedPassword = _encryptor.HashPassword(password, user.Salt);
             if (hashedPassword != user.HashedPassword)
             {
                 throw new InvalidOperationException("Неправильный пароль.");
             }
-
-            // Установка UserId в сессию
+           
             _httpContext.HttpContext?.Session.Set("userid",user.UserId.ToByteArray());
 
             return user.UserId.ToString(); 
+        }
+
+        public bool IsLoggedIn()
+        {
+            
+            var session = _httpContext.HttpContext?.Session;
+
+            
+            if (session != null && session.TryGetValue("userid", out _))
+            {
+                return true; 
+            }
+
+            return false; 
         }
 
     }

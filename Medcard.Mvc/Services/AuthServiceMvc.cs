@@ -22,5 +22,9 @@ namespace Medcard.Mvc.Services
         {
             return _authRepository.Login(email, password);
         }
+        public bool IsLoggedIn()
+        {
+            return _authRepository.IsLoggedIn();
+        }
     }
 }
