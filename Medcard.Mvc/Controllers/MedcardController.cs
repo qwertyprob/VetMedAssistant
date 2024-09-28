@@ -169,8 +169,7 @@ namespace Medcard.Mvc.Controllers
         }
 
 
-        
-
+              
         public IActionResult More(Guid id)
         {
             var model = _medcardService.GetByIdAsync(id); 

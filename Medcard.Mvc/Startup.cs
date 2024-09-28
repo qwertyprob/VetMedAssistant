@@ -107,13 +107,9 @@ namespace MedcardMvc
                     });
 
                 endpoints.MapControllerRoute(
-                    name: "medcardRoute",
-                    pattern: "Medcard/More/{ownerId}",
-                    defaults: new
-                    {
-                        controller = "Medcard",
-                        action = "More"
-                    });
+                    name: "default",
+                    pattern: "{controller=Medcard}/{action=More}/{id}");
+                    
                 // Search route by default
                 endpoints.MapControllerRoute(
                      name: "default",
