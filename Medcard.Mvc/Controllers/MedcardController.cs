@@ -13,10 +13,12 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Globalization;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Medcard.Mvc.Filters;
 
 namespace Medcard.Mvc.Controllers
 {
-    
+    [AuthorizeRole("Admin")]
     public class MedcardController : Controller
     {
         private readonly IMedcardServiceMvc _medcardService;
@@ -33,9 +35,11 @@ namespace Medcard.Mvc.Controllers
 
         public async Task<IActionResult> Index()
         {
+
+            var userRole = HttpContext.Session.GetString("UserRole");
+
+
             var medcard = await _medcardService.GetAllAsync();
-
-
 
             return View("Index", medcard);
         }
@@ -176,7 +180,11 @@ namespace Medcard.Mvc.Controllers
             }
             return View(model);
         }
-
+        public IActionResult NotFound()
+        {
+            
+            return View();
+        }
 
     }
 }

@@ -70,9 +70,6 @@ namespace MedcardMvc
 
             services.AddControllersWithViews();
         }
-
-
-
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -92,6 +89,7 @@ namespace MedcardMvc
             app.UseRouting();
 
             app.UseSession();
+
             app.UseAuthentication();
             app.UseAuthorization();
             

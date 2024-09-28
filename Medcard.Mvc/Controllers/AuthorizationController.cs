@@ -1,5 +1,6 @@
 ﻿using Medcard.Mvc.Models;
 using Medcard.Mvc.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -17,10 +18,7 @@ namespace Medcard.Mvc.Controllers
         {
             return View("Auth");
         }
-        public IActionResult Medcard()
-        {
-            return RedirectToAction("Index", "Medcard");
-        }
+       
 
 
         [HttpPost]
@@ -35,23 +33,23 @@ namespace Medcard.Mvc.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Login([FromForm] LoginViewModel model)
+        public IActionResult Login([FromForm] LoginViewModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View("Auth", model); // Возвращаем обратно с моделью, если есть ошибки валидации
+                return View("Auth", model); 
             }
 
             var user = _authService.Login(model.Email, model.Password);
-
+            HttpContext.Session.SetString("userRole", "Admin");
             if (user == null)
             {
                 ModelState.AddModelError("", "Invalid login attempt.");
-                return View("Auth", model); // Возвращаем обратно с ошибкой
+                return View("Auth", model); 
             }
 
-            // Если пользователь успешно вошел в систему
-            return RedirectToAction("Medcard");
+            
+            return Redirect("/");
         }
 
     }

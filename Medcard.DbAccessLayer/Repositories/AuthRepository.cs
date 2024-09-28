@@ -71,6 +71,9 @@ namespace Medcard.DbAccessLayer.Repositories
             }
            
             _httpContext.HttpContext?.Session.Set("userid",user.UserId.ToByteArray());
+             
+
+
 
             return user.UserId.ToString(); 
         }
