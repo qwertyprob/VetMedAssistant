@@ -12,7 +12,7 @@ namespace Medcard.Mvc.Controllers
         {
             _configuration = configuration;
         }
-
+        //Финт ушами
         [HttpGet]
         public string GetEnvironmentVariable()
         {
