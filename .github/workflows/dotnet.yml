@@ -21,7 +21,9 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Set secret
-      run: dotnet user-secrets set "GlobalMedcardRender" "$GLOBALMEDCARDRENDER"
+      run: dotnet user-secrets set "GlobalMedcardRender" "$GLOBALMEDCARDRENDER" --project ./Medcard.Mvc
+      env:
+        "GLOBALMEDCARDRENDER" : ${{secrets.GLOBALMEDCARDRENDER}}
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
