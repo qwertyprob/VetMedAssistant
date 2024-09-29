@@ -1,12 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using System;
 
 namespace Medcard.Mvc.Controllers
 {
     public class HostingController : Controller
     {
-        public IActionResult Index()
+        private readonly IConfiguration _configuration;
+
+        public HostingController(IConfiguration configuration)
         {
-            return View();
+            _configuration = configuration;
         }
+
+        [HttpGet]
+        public string GetEnvironmentVariable()
+        {
+            return Environment.GetEnvironmentVariable("GlobalMedcardRender") ?? _configuration["GlobalMedcardRender"];
+        }
+
     }
 }

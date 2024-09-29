@@ -24,13 +24,13 @@ namespace Medcard.Mvc.Controllers
     {
         private readonly IMedcardServiceMvc _medcardService;
         private readonly ILogger<MedcardController> _logger;
-        private readonly IConfiguration _configuration;
+        
 
-        public MedcardController(IMedcardServiceMvc medcardServiceMvc, ILogger<MedcardController> logger, IConfiguration configuration)
+        public MedcardController(IMedcardServiceMvc medcardServiceMvc, ILogger<MedcardController> logger)
         {
             _medcardService = medcardServiceMvc;
             _logger = logger;
-            _configuration= configuration;
+           
 
         }
 
@@ -186,11 +186,7 @@ namespace Medcard.Mvc.Controllers
             
             return View();
         }
-        [HttpGet]
-        public string GetEnvironmentVariable()
-        {
-            return Environment.GetEnvironmentVariable("GlobalMedcardRender") ?? 
-        }
+       
 
     }
 }
