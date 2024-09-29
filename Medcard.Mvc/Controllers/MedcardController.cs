@@ -15,6 +15,7 @@ using System.Globalization;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Medcard.Mvc.Filters;
+using Microsoft.Extensions.Configuration;
 
 namespace Medcard.Mvc.Controllers
 {
@@ -23,15 +24,16 @@ namespace Medcard.Mvc.Controllers
     {
         private readonly IMedcardServiceMvc _medcardService;
         private readonly ILogger<MedcardController> _logger;
+        private readonly IConfiguration _configuration;
 
-        public MedcardController(IMedcardServiceMvc medcardServiceMvc, ILogger<MedcardController> logger)
+        public MedcardController(IMedcardServiceMvc medcardServiceMvc, ILogger<MedcardController> logger, IConfiguration configuration)
         {
             _medcardService = medcardServiceMvc;
             _logger = logger;
+            _configuration= configuration;
 
         }
 
-        
 
         public async Task<IActionResult> Index()
         {
@@ -183,6 +185,11 @@ namespace Medcard.Mvc.Controllers
         {
             
             return View();
+        }
+        [HttpGet]
+        public string GetEnvironmentVariable()
+        {
+            return Environment.GetEnvironmentVariable("GlobalMedcardRender") ?? 
         }
 
     }
