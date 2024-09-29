@@ -337,6 +337,7 @@ body {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    text-align: center;
 }
 
     .list__more:hover {
@@ -354,6 +355,7 @@ body {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    text-align: center;
 }
 
     .list__remove:hover {
@@ -370,6 +372,7 @@ body {
     display: inline-block;
     font-size: 16px;
     cursor: pointer;
+    
 }
 
     .list__more__edit:hover {
