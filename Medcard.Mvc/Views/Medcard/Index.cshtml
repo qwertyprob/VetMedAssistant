@@ -8,7 +8,7 @@
     Layout = "_Layout"; 
     //for russian dd/mm//yy
     CultureInfo russianCulture = new CultureInfo("ru-RU");
-   
+  
 }
 
 <div class="mask" id="mask">
@@ -85,7 +85,13 @@
             {
                 <div class="list__container">
                     <div class="list__lines">
-                        <p class="number"><br />@owner.DateCreate.ToString("dd/MM/yyyy HH:mm  dddd", russianCulture)</p>
+                        @{
+                            string dayOfWeek = owner.DateCreate.ToString("dddd", russianCulture);
+                            dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
+
+                            string formattedDate = owner.DateCreate.ToString("dd/MM/yyyy HH:mm", russianCulture);
+                        }
+                        <p class="number"><br />@dayOfWeek<br />@formattedDate</p>
                         <p class="name"><br><br>@owner.Name</p>
                         <p class="phone"><br><br>@owner.PhoneNumber</p>
                         @foreach(var pet in owner.Pets)
