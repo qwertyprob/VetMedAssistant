@@ -66,20 +66,16 @@ namespace MedcardMvc
         
 
         services.AddAutoMapper(typeof(MappingProfileMvc));
-            //Secret
-            var connectionString = Configuration.GetConnectionString("MedcardConnectionString");
-            
-
 
             services.AddDbContext<AppDbContext>(options =>
         options.UseNpgsql(ConnectionDb));
 
-
+            
             services.AddControllersWithViews();
         }
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env , IHostingServiceMvc service)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env , IHostingServiceMvc _service)
         {
-             ConnectionDb = service.GetEnvironmentVariable();
+             ConnectionDb = _service.GetEnvironmentVariable();
 
             if (env.IsDevelopment())
             {
@@ -104,7 +100,6 @@ namespace MedcardMvc
             
             app.UseEndpoints(endpoints =>
             {
-
                 endpoints.MapControllerRoute(
                     name: "medcardUpdateRoute",
                     pattern: "Medcard/Update/{id}",
@@ -123,11 +118,11 @@ namespace MedcardMvc
                      name: "default",
                      pattern: "{controller=Search}/{action=SearchMedcard}/{clientName?}");
 
-
                 // Medcard route by default
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Medcard}/{action=Index}/{id?}");
+
                 //Authorization route by default
                 endpoints.MapControllerRoute(
                     name: "default",

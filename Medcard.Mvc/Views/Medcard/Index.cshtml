@@ -6,8 +6,6 @@
 
     ViewData["Title"] = "Главная";
     Layout = "_Layout"; 
-    //for russian dd/mm//yy
-    CultureInfo russianCulture = new CultureInfo("ru-RU");
   
 }
 
@@ -86,13 +84,14 @@
                 <div class="list__container">
                     <div class="list__lines">
                         @{
+                            CultureInfo russianCulture = new CultureInfo("ru-RU");
                             string dayOfWeek = owner.DateCreate.ToString("dddd", russianCulture);
                             string time = owner.DateCreate.ToString("HH:mm", russianCulture);
                             dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
                             string formattedDate = owner.DateCreate.ToString("dd/MM/yyyy", russianCulture);
                         }
                         <p class="number"><br />@dayOfWeek<br />@formattedDate<br />@time</p>
-                        <p class="name"><br><br>@owner.Name</p>
+                        <p class="name"><br>@owner.Name</p>
                         <p class="phone"><br><br>@owner.PhoneNumber</p>
                         @foreach(var pet in owner.Pets)
                         {

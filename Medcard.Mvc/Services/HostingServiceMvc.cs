@@ -6,6 +6,7 @@ using System;
 
 namespace Medcard.Mvc.Services
 {
+    
     public class HostingServiceMvc : IHostingServiceMvc
     {
         private readonly IConfiguration _configuration;
@@ -16,6 +17,7 @@ namespace Medcard.Mvc.Services
             _configuration = configuration;
             
         }
+        //При nullable он берет основные данные из user-secrets "GlobalMedcardRender" (нужно это для деплоя сайта, не засветив БД)
         //Финт ушами
         [HttpGet]
         public string GetEnvironmentVariable()
