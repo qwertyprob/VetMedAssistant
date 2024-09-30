@@ -90,8 +90,8 @@
                             dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
                             string formattedDate = owner.DateCreate.ToString("dd/MM/yyyy", russianCulture);
                         }
-                        <p class="number"><br />@dayOfWeek<br />@formattedDate<br />@time</p>
-                        <p class="name"><br>@owner.Name</p>
+                        <p class="number"><br />@dayOfWeek<br /><br />@formattedDate<br />@* @time  пока что забудем о времени*@</p>
+                        <p class="name"><br><br />@owner.Name</p>
                         <p class="phone"><br><br>@owner.PhoneNumber</p>
                         @foreach(var pet in owner.Pets)
                         {
