@@ -5,6 +5,7 @@ using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Mapping;
 using Medcard.DbAccessLayer.Repositories;
 using Medcard.DbAccessLayer.Services;
+using Medcard.Mvc.Controllers;
 using Medcard.Mvc.Mapping;
 using Medcard.Mvc.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -32,6 +33,7 @@ namespace MedcardMvc
         }
 
         public IConfiguration Configuration { get; }
+        private string ConnectionDb { get; set; }
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -40,6 +42,8 @@ namespace MedcardMvc
 
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddScoped<IAuthServiceMvc, AuthServiceMvc>();
+
+            services.AddSingleton<IHostingServiceMvc , HostingServiceMvc>();
             
 
             services.AddSingleton<IEncrypt, Encrypt>();
@@ -64,15 +68,19 @@ namespace MedcardMvc
         services.AddAutoMapper(typeof(MappingProfileMvc));
             //Secret
             var connectionString = Configuration.GetConnectionString("MedcardConnectionString");
+            
+
 
             services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(connectionString));
+        options.UseNpgsql(ConnectionDb));
 
 
             services.AddControllersWithViews();
         }
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env , IHostingServiceMvc service)
         {
+             ConnectionDb = service.GetEnvironmentVariable();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
