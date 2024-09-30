@@ -34,7 +34,7 @@ namespace Medcard.Mvc.Controllers
 
         }
 
-
+        [Route("/")]
         public async Task<IActionResult> Index()
         {
 
@@ -47,7 +47,6 @@ namespace Medcard.Mvc.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(MedcardViewModel medcardViewModel)
         {
             
@@ -66,7 +65,7 @@ namespace Medcard.Mvc.Controllers
 
                 var medcard = await _medcardService.CreateAsync(medcardViewModel);
 
-                return RedirectToAction("Index");
+                return Redirect("/");
             }
 
             
@@ -74,7 +73,6 @@ namespace Medcard.Mvc.Controllers
             return View(medcardViewModel);
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(Guid id)
         {
             var isDeleted = await _medcardService.DeleteAsync(id);
@@ -90,6 +88,7 @@ namespace Medcard.Mvc.Controllers
         }
 
         [HttpGet]
+        [Route("/Get/{id?}")]
         public async Task<IActionResult> GetById(Guid id)
         {
             var medcard = await _medcardService.GetByIdAsync(id);
@@ -105,7 +104,7 @@ namespace Medcard.Mvc.Controllers
         }        
 
         [HttpGet]
-        [Route("Medcard/Update/{id}")]
+        [Route("/Update/{id}")]
         public async Task<IActionResult> UpdateMedcard(Guid id)
         {
             var medcard = await _medcardService.GetByIdAsync(id);
@@ -117,7 +116,7 @@ namespace Medcard.Mvc.Controllers
         }
 
         [HttpPost]
-        [Route("Medcard/Update/{id}")]
+        [Route("/Update/{id}")]
         public async Task<IActionResult> UpdateMedcard(Guid id, MedcardViewModel medcardViewModel)
         {
             
@@ -138,7 +137,7 @@ namespace Medcard.Mvc.Controllers
             {
                 return NotFound();
             }
-            return RedirectToAction("Index", updatedMedcard);
+            return Redirect("/");
         }
 
         [HttpPost]

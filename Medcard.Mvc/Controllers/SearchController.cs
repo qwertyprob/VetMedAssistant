@@ -27,7 +27,7 @@ namespace Medcard.Mvc.Controllers
             return RedirectToAction("SearchMedcard", new { clientName });
         }
 
-        [HttpGet("SearchMedcard/{clientName}")]
+        [HttpGet("Search/{clientName}")]
         public async Task<IActionResult> SearchMedcard(string clientName)
         {
 

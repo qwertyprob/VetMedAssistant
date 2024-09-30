@@ -14,6 +14,7 @@ namespace Medcard.Mvc.Controllers
         {
             _authService = authService;
         }
+        [Route("/Authorization")]
         public IActionResult Auth()
         {
             return View("Auth");
