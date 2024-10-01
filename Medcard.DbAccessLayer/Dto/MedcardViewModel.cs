@@ -23,7 +23,7 @@ namespace Medcard.DbAccessLayer.Dto
 
         public MedcardViewModel() { }
         public MedcardViewModel(string OwnerName, string PhoneNumber, string PetName, string ChipNumber,
-                                string Age, string Breed, string Drugs= "Здесь пока ничего не указано!",
+                                string Age, string Breed, string Drugs= "Препараты:\n",
                                 string Treatments= "Здесь пока ничего не указано!")  
         {
             Id=Guid.NewGuid();

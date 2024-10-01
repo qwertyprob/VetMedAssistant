@@ -51,8 +51,8 @@ public class Startup
         services.AddAutoMapper(typeof(MappingProfileMvc));
 
         // Получение строки подключения после регистрации IHostingServiceMvc
-        //var hostingService = services.BuildServiceProvider().GetService<IHostingServiceMvc>();
-        //ConnectionDb = hostingService.GetEnvironmentVariable();
+        var hostingService = services.BuildServiceProvider().GetService<IHostingServiceMvc>();
+        ConnectionDb = hostingService.GetEnvironmentVariable();
         
 
         // Использование строки подключения для DbContext

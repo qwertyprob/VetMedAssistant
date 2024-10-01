@@ -14,6 +14,7 @@ namespace Medcard.Mvc.Services
         Task<OwnerModel> UpdateAsync(Guid id, MedcardViewModel medcardViewModel);
         Task UpdateDrugsAsync(Guid petId, string drugs);
         Task UpdateTreatmentsAsync(Guid petId, string treatments);
+        Task UpdateRecomendAsync(Guid petId, string recomendations);
         Task<IReadOnlyCollection<OwnerModel>> GetAllFromSearchAsync(string clientName);
         Task<bool> DeleteAsync(Guid id);
         Task<Guid> SearchByNameAsync(string name);

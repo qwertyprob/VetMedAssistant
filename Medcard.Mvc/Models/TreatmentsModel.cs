@@ -10,6 +10,6 @@ namespace Medcard.Mvc.Models
     public class TreatmentsModel
     {
         public Guid PetId { get; set; }
-        public string Description { get; set; } = "Здесь пока ничего нет!";
+        public string Description { get; set; } = "\"Лечение:\\n-\\n-\\n-\\n-\\n-\"";
     }
 }

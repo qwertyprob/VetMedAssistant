@@ -89,6 +89,25 @@ namespace Medcard.Mvc.Services
 
             await _dbContext.SaveChangesAsync();
         }
+        public async Task UpdateRecomendAsync(Guid petId, string recomendations)
+        {
+            var pet = await _dbContext.Pets
+                .Include(p => p.Recomendations)
+                .FirstOrDefaultAsync(p => p.Id == petId);
+
+            if (pet == null)
+            {
+                throw new Exception("Pet not found");
+            }
+
+            pet.Recomendations.Clear();
+
+            var recomendation = new DrugEntity { Description = recomendations.Trim() };
+            pet.Drugs.Add(recomendation);
+
+            await _dbContext.SaveChangesAsync();
+        }
+
 
         public async Task<IReadOnlyCollection<OwnerModel>> GetAllFromSearchAsync(string clientName)
         {

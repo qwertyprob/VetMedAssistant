@@ -11,6 +11,6 @@ namespace Medcard.DbAccessLayer.Dto
     public class RecomendationsDto
     {
         public Guid PetId { get; set; }
-        public string Description { get; set; } = "Здесь пока ничего не указано!";
+        public string Description { get; set; } = "Рекомендации:\n-\n-\n-\n-\n-";
     }
 }

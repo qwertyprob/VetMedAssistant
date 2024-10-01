@@ -60,8 +60,9 @@ namespace Medcard.Mvc.Controllers
                 medcardViewModel.PetName = medcardViewModel.PetName?.Trim();
                 medcardViewModel.ChipNumber = medcardViewModel.ChipNumber?.Trim();
                 medcardViewModel.Breed = medcardViewModel.Breed?.Trim();
-                medcardViewModel.Drugs = "Здесь пока ничего нет!";
-                medcardViewModel.Treatments = "Здесь пока ничего нет!";
+                medcardViewModel.Drugs = "Препараты:\n-\n-\n-\n-\n-".Trim();
+                medcardViewModel.Treatments = "Лечение:\n-\n-\n-\n-\n-".Trim();
+                medcardViewModel.Recomendations = "Рекомендации:\n-\n-\n-\n-\n-".Trim();
 
                 var medcard = await _medcardService.CreateAsync(medcardViewModel);
 
@@ -93,15 +94,14 @@ namespace Medcard.Mvc.Controllers
         {
             var medcard = await _medcardService.GetByIdAsync(id);
 
-            if(medcard is null)
+            if (medcard is null)
             {
-                return View("NotFound");
+                return View("NotFound"); 
             }
 
-            
-
             return View("More", medcard);
-        }        
+        }
+
 
         [HttpGet]
         [Route("/Update/{id}")]
@@ -127,10 +127,9 @@ namespace Medcard.Mvc.Controllers
                 medcardViewModel.PetName = medcardViewModel.PetName?.Trim();
                 medcardViewModel.ChipNumber = medcardViewModel.ChipNumber?.Trim();
                 medcardViewModel.Breed = medcardViewModel.Breed?.Trim();
-                medcardViewModel.Drugs = "Здесь пока ничего нет!";
-                medcardViewModel.Treatments = "Здесь пока ничего нет!";
-              
-            
+
+
+
 
             var updatedMedcard = await _medcardService.UpdateAsync(id, medcardViewModel);
             if (updatedMedcard == null)
@@ -141,36 +140,45 @@ namespace Medcard.Mvc.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments, string Action, Guid PetId) 
+        public async Task<IActionResult> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments, string Recomendations, string Action, Guid PetId)
         {
-            
+            // Проверка на валидность модели
             if (!ModelState.IsValid)
             {
-                
-                return View("More", await _medcardService.GetByIdAsync(id)); 
+                return View("More", await _medcardService.GetByIdAsync(id));
             }
-            if (Drugs is null || Treatments is null)
+
+            // Проверка на null
+            if (string.IsNullOrWhiteSpace(Drugs) && string.IsNullOrWhiteSpace(Treatments))
             {
-                return RedirectToAction(nameof(GetById), new { id });
+                ModelState.AddModelError(string.Empty, "Необходимо ввести хотя бы одно из значений: препараты или лечения.");
+                return View("More", await _medcardService.GetByIdAsync(id));
             }
 
-            if (Action == "UpdateDrugs")
+            // Обработка действий
+            switch (Action)
             {
-                await _medcardService.UpdateDrugsAsync(PetId, Drugs);
+                case "UpdateDrugs":
+                    await _medcardService.UpdateDrugsAsync(PetId, Drugs.Trim());
+                    break;
+                case "UpdateTreatments":
+                    await _medcardService.UpdateTreatmentsAsync(PetId, Treatments);
+                    break;
+                case "UpdateRecomendations":
+                    await _medcardService.UpdateRecomendAsync(PetId, Recomendations);
+                    break;
+                default:
+                    ModelState.AddModelError(string.Empty, "Неизвестное действие.");
+                    return View("More", await _medcardService.GetByIdAsync(id));
             }
-            else if (Action == "UpdateTreatments")
-            {
-                await _medcardService.UpdateTreatmentsAsync(PetId, Treatments);
-            }
 
-           
-
-
+            // Перенаправление после успешного обновления
             return RedirectToAction(nameof(GetById), new { id });
         }
 
 
-              
+
+
         public IActionResult More(Guid id)
         {
             var model = _medcardService.GetByIdAsync(id); 

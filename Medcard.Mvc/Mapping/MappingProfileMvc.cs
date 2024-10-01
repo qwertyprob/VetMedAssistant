@@ -16,7 +16,8 @@ namespace Medcard.Mvc.Mapping
 
             CreateMap<PetEntity, PetDto>()
                 .ForMember(dest => dest.DrugDtos, opt => opt.MapFrom(src => src.Drugs))
-                .ForMember(dest => dest.TreatmentDtos, opt => opt.MapFrom(src => src.Treatments));
+                .ForMember(dest => dest.TreatmentDtos, opt => opt.MapFrom(src => src.Treatments))
+                .ForMember(dest => dest.RecomendationsDtos, opt => opt.MapFrom(src => src.Recomendations));
 
             CreateMap<DrugEntity, DrugsDto>();
             CreateMap<TreatmentEntity, TreatmentsDto>();
