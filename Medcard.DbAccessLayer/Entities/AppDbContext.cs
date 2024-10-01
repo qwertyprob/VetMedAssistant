@@ -13,6 +13,7 @@ namespace Medcard.DbAccessLayer.Entities
         public DbSet<PetEntity> Pets { get; set; }
         public DbSet<DrugEntity> Drugs { get; set; }
         public DbSet<TreatmentEntity> Treatments { get; set; }
+        public DbSet<RecomendationEntity> Recomendations { get; set; }
         public DbSet<UserEntity> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

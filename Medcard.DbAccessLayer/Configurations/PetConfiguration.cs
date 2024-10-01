@@ -26,6 +26,11 @@ namespace Medcard.DbAccessLayer.Configurations
                 .HasMany(p => p.Drugs)
                 .WithOne(d => d.Pet)
                 .HasForeignKey(d => d.PetId);
+            // Настройка связи один ко многим между Pet и Recomendation
+            builder
+                .HasMany(p => p.Recomendations)
+                .WithOne(t => t.Pet)
+                .HasForeignKey(t => t.PetId);
         }
     }
 }

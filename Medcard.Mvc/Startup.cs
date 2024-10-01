@@ -1,138 +1,106 @@
-using Medcard.DbAccessLayer;
-using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
-using Medcard.DbAccessLayer.Mapping;
 using Medcard.DbAccessLayer.Repositories;
-using Medcard.DbAccessLayer.Services;
-using Medcard.Mvc.Controllers;
+using Medcard.DbAccessLayer;
 using Medcard.Mvc.Mapping;
 using Medcard.Mvc.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
-
-namespace MedcardMvc
+public class Startup
 {
-    public class Startup
+    public Startup(IConfiguration configuration)
     {
-        public Startup(IConfiguration configuration)
+        Configuration = configuration;
+    }
+
+    public IConfiguration Configuration { get; }
+    private string ConnectionDb { get; set; }
+
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddScoped<IMedcardRepository, MedcardRepository>();
+        services.AddScoped<IMedcardServiceMvc, MedcardServiceMvc>();
+
+        services.AddScoped<IAuthRepository, AuthRepository>();
+        services.AddScoped<IAuthServiceMvc, AuthServiceMvc>();
+
+        services.AddSingleton<IHostingServiceMvc, HostingServiceMvc>();
+        services.AddSingleton<IEncrypt, Encrypt>();
+
+        services.AddSession(options =>
         {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-        private string ConnectionDb { get; set; }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddScoped<IMedcardRepository, MedcardRepository>();
-            services.AddScoped<IMedcardServiceMvc, MedcardServiceMvc>();
-
-            services.AddScoped<IAuthRepository, AuthRepository>();
-            services.AddScoped<IAuthServiceMvc, AuthServiceMvc>();
-
-            services.AddSingleton<IHostingServiceMvc , HostingServiceMvc>();
-            
-
-            services.AddSingleton<IEncrypt, Encrypt>();
-
-
-            services.AddSession(options =>
-            {
-                options.IdleTimeout = TimeSpan.FromMinutes(30);
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
-            });
-
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-        .AddCookie(options =>
-        {
-            options.LoginPath = "/Authorization/Auth"; 
+            options.IdleTimeout = TimeSpan.FromMinutes(30);
+            options.Cookie.HttpOnly = true;
+            options.Cookie.IsEssential = true;
         });
 
-            services.AddHttpContextAccessor(); 
-        
-
-        services.AddAutoMapper(typeof(MappingProfileMvc));
-
-            services.AddDbContext<AppDbContext>(options =>
-        options.UseNpgsql(ConnectionDb));
-
-            
-            services.AddControllersWithViews();
-        }
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env , IHostingServiceMvc _service)
-        {
-             ConnectionDb = _service.GetEnvironmentVariable();
-
-            if (env.IsDevelopment())
+        services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>
             {
-                app.UseDeveloperExceptionPage();
-
-            }
-            else
-            {
-                app.UseExceptionHandler("/Medcard/Error");
-                app.UseHsts();
-            }
-
-            app.UseHttpsRedirection();
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseSession();
-
-            app.UseAuthentication();
-            app.UseAuthorization();
-            
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "medcardUpdateRoute",
-                    pattern: "Medcard/Update/{id}",
-                    defaults: new
-                    {
-                        controller = "Medcard",
-                        action = "Update"
-                    });
-
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Medcard}/{action=More}/{id}");
-                    
-                // Search route by default
-                endpoints.MapControllerRoute(
-                     name: "default",
-                     pattern: "{controller=Search}/{action=SearchMedcard}/{clientName?}");
-
-                // Medcard route by default
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Medcard}/{action=Index}/{id?}");
-
-                //Authorization route by default
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Authorization}/{action=Auth}");
-
-                
-
-               
+                options.LoginPath = "/Authorization/Auth";
             });
 
+        services.AddHttpContextAccessor();
+        services.AddAutoMapper(typeof(MappingProfileMvc));
+
+        // Получение строки подключения после регистрации IHostingServiceMvc
+        //var hostingService = services.BuildServiceProvider().GetService<IHostingServiceMvc>();
+        //ConnectionDb = hostingService.GetEnvironmentVariable();
+        
+
+        // Использование строки подключения для DbContext
+        services.AddDbContext<AppDbContext>(options =>
+            options.UseNpgsql(ConnectionDb));
+
+        services.AddControllersWithViews();
+    }
+
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
         }
+        else
+        {
+            app.UseExceptionHandler("/Medcard/Error");
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+        app.UseStaticFiles();
+        app.UseRouting();
+        app.UseSession();
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        app.UseEndpoints(endpoints =>
+        {
+            // Маршруты
+            endpoints.MapControllerRoute(
+                name: "medcardUpdateRoute",
+                pattern: "Medcard/Update/{id}",
+                defaults: new { controller = "Medcard", action = "Update" });
+
+            endpoints.MapControllerRoute(
+                name: "searchRoute",
+                pattern: "Search/SearchMedcard/{clientName?}",
+                defaults: new { controller = "Search", action = "SearchMedcard" });
+
+            endpoints.MapControllerRoute(
+                name: "medcardDefaultRoute",
+                pattern: "{controller=Medcard}/{action=Index}/{id?}");
+
+            endpoints.MapControllerRoute(
+                name: "authRoute",
+                pattern: "{controller=Authorization}/{action=Auth}");
+        });
     }
 }

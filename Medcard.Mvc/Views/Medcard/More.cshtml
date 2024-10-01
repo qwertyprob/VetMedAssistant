@@ -7,6 +7,7 @@
 
      
 }
+
 <div class="mask">
     <div class="loader">
     </div>
@@ -26,63 +27,71 @@
         });
     });
 </script>
-
 <header class="header">
     <div class="logo">
         <a href="@Url.Action("Index", "Medcard")">
             <img src="~/img/logo-removebg-preview.png" alt="VetAsist">
         </a>
     </div>
-    <div class="dark-mode">
-        <input type="checkbox" class="checkbox" id="checkbox">
-    </div>
+    
 </header>
+@* <section class="list">
+    <div class="list__wrapper shadow">
+ *@
+@foreach (var pet in Model.Pets)
+{
+    <div class="list-more">
+        <div class="table-container">
+            <table>
+                <tr>
+                    <td class="info-section">ФИО:</td>
+                    <td class="info-value editable">@Model.Name</td>
+                    <td class="info-section">Телефон:</td>
+                    <td class="info-value editable">@Model.PhoneNumber</td>
+                </tr>
+                <tr>
+                    <td class="info-section">Кличка:</td>
+                    <td class="info-value editable">@pet.Name</td>
+                    <td class="info-section">Чип:</td>
+                    <td class="info-value editable">@pet.ChipNumber</td>
+                </tr>
+                <tr>
+                    <td class="info-section">Возраст:</td>
+                    <td class="info-value editable">@pet.Age</td>
+                    <td class="info-section">Порода:</td>
+                    <td class="info-value editable">@pet.Breed</td>
+                </tr>
+            </table>
 
-<section class="card">
-    <form id="editForm" action="@Url.Action("UpdateDrugsAndTreatments", "Medcard")" method="post">
-        <input type="hidden" name="Id" value="@Model.Id" />
-
-        @foreach (var pet in Model.Pets)
-        {
-            
-            <div id="main" class="main shadow">
-                <div class="main__column1">
-                    <div class="main__elem" id="client-name">Фио: <strong>@Model.Name</strong></div>
-                    <div class="main__elem" id="phone-number">Телефон: <strong>@Model.PhoneNumber</strong></div>
-                    <div class="main__elem" id="pet-name">Кличка: <strong>@pet.Name</strong></div>
-                    <div class="main__elem" id="chip-number">Чип: <strong>@pet.ChipNumber</strong></div>
-                    <div class="main__elem" id="pet-age">Возраст: <strong>@pet.Age</strong></div>
-                    <div class="main__elem" id="pet-breed">Порода: <strong>@pet.Breed</strong></div>
-                </div>
-                <div class="main__column2">
-                    <br />
-                    <h2>Препараты</h2>
-                    <br />
-                    <textarea  wrap="soft" class="main__elem-input" name="Drugs" style="font-size: 20px;" id="textInput">
-                        @Html.Raw(string.Join(Environment.NewLine, pet.Drugs.Select(t => t.Description)))
-                        </textarea>
-                    <input type="hidden" name="PetId" value="@pet.Id" />
-                    <div class="container" style="display: flex;justify-content:flex-end;">
-                        <button type="submit" class="list__more__edit" style="width:45px; inset-block-end:auto;" name="Action" value="UpdateDrugs">
-                            &#9998;
-                        </button>
-                    </div>
-                    
-                    <h2>Лечение</h2>
-                    <br /><br />
-                    <textarea  class="main__elem-input" name="Treatments" style="font-size: 20px;" id="textInput">
-                        @Html.Raw(string.Join(Environment.NewLine, pet.Treatments.Select(t => t.Description)))
-                    </textarea>
-
-                    <input type="hidden" name="PetId" value="@pet.Id" />
-                    <div class="container" style="display: flex;justify-content:flex-end;">
-                        <button onclick ="saveText()" type="submit" class="list__more__edit" style="width:45px; inset-block-end:auto;" name="Action" value="UpdateTreatments">
-                            &#9998;
-                    </button>
-                        
-                    </div>
-                </div>
+            <div class="section-title">Препараты</div>
+            <div class="editable" contenteditable="true" id="editableBigInput">
+                Препараты:
+                <br>adsasdasdasd
+                <br>asdasdasdASDAD
+                <br>asdasdasdASDADads
+                <br> asdasdasdasdasdas
             </div>
-        }
-    </form>
-</section>
+            <div class="section-footer-button" style="cursor: pointer;">Изменить</div>
+            <div class="section-title">Лечение</div>
+            <div class="editable" contenteditable="true" id="editableBigInput">
+                Лечение:
+                <br>adsasdasdasd
+                <br>asdasdasdASDAD
+                <br>asdasdasdASDADads
+                <br> asdasdasdasdasdas
+            </div>
+            <div class="section-footer-button" style="cursor: pointer;">Изменить</div>
+            <div class="section-title">Рекомендации</div>
+            <div class="editable" contenteditable="true" id="editableBigInput">
+                Рекомендации:
+                <br>adsasdasdasd
+                <br>asdasdasdASDAD
+                <br>asdasdasdASDADads
+                <br> asdasdasdasdasdas
+            </div>
+            <div class="section-footer-button" style="cursor: pointer;">Изменить</div>
+        </div>
+    </div>
+}
+@* </div>
+</section> *@ 

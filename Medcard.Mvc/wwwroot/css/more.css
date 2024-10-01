@@ -1,0 +1,99 @@
+﻿.table-container {
+    width: 80%;
+    margin: 20px auto;
+    margin-top: 100px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px 0px 70px grey;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px 15px;
+    border-left-width: 10px;
+    border-radius:20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); 
+    margin-top:15px;
+}
+
+th,
+td {
+    border-radius: 20px;
+    border-top-right-radius: 0%;
+    border-bottom-right-radius: 0%;
+    padding: 10px;
+    text-align: left;
+    font-size: 19px;
+    
+    /* Увеличиваем шрифт в таблице */
+}
+
+.info-section {
+    text-align: center;
+    width: 3%;
+    margin-left: 20px;
+    margin-right: 30px; /* Добавляем отступ справа */
+    background-color: lightblue;
+}
+
+.info-value {
+    width: 10%;
+    /* Убедитесь, что ширины суммарно не превышают 100%, чтобы не было переполнения */
+    background-color: #fff;
+}
+
+
+.editable {
+    text-align: center;
+    min-height: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    border-top-left-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border: 1px solid #ccc;
+    border-left: 0px;
+    background-color: #fff;
+    outline: none;
+    font-size: 20px;
+}
+
+#editableBigInput {
+    text-align: left;
+    min-height: 50px;
+    padding: 10px;
+    border-radius: 20px;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    outline: none;
+    font-size: 25px;
+}
+
+.editable:focus {
+    background-color: #fbfbfb;
+}
+
+.section-title {
+    border-radius: 20px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    padding: 6px;
+    background-color: lightblue;
+    margin: 60px 0 0px;
+    font-size: 25px;
+    text-align: center;
+}
+.section-footer-button {
+    border-radius: 20px;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    padding: 6px;
+    background-color: lightblue;
+    font-size: 25px;
+    text-align: center;
+}

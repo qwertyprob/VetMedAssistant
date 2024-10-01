@@ -20,6 +20,7 @@ namespace Medcard.Mvc.Mapping
 
             CreateMap<DrugEntity, DrugsDto>();
             CreateMap<TreatmentEntity, TreatmentsDto>();
+            CreateMap<RecomendationEntity, RecomendationsDto>();
 
             // DTO to Model
             CreateMap<OwnerDto, OwnerModel>()
@@ -27,10 +28,12 @@ namespace Medcard.Mvc.Mapping
 
             CreateMap<PetDto, PetModel>()
                 .ForMember(dest => dest.Treatments, opt => opt.MapFrom(src => src.TreatmentDtos))
-                .ForMember(dest => dest.Drugs, opt => opt.MapFrom(src => src.DrugDtos));
+                .ForMember(dest => dest.Drugs, opt => opt.MapFrom(src => src.DrugDtos))
+                .ForMember(dest => dest.Recomendations, opt => opt.MapFrom(src => src.RecomendationsDtos));
 
             CreateMap<DrugsDto, DrugsModel>();
             CreateMap<TreatmentsDto, TreatmentsModel>();
+            CreateMap<RecomendationsDto, RecomendationsModel>();
 
             //Dto to ViewModel
 
@@ -44,7 +47,9 @@ namespace Medcard.Mvc.Mapping
             .ForMember(dest => dest.Drugs, opt => opt.MapFrom(src =>
                 string.Join("\n", src.PetsDtos.SelectMany(p => p.DrugDtos.Select(d => d.Description)))))
             .ForMember(dest => dest.Treatments, opt => opt.MapFrom(src =>
-                string.Join("\n", src.PetsDtos.SelectMany(p => p.TreatmentDtos.Select(t => t.Description)))));
+                string.Join("\n", src.PetsDtos.SelectMany(p => p.TreatmentDtos.Select(t => t.Description)))))
+            .ForMember(dest => dest.Treatments, opt => opt.MapFrom(src =>
+                string.Join("\n", src.PetsDtos.SelectMany(p => p.RecomendationsDtos.Select(t => t.Description)))));
         }
 
 

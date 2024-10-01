@@ -43,6 +43,7 @@ namespace Medcard.Mvc.Controllers
 
             var user = _authService.Login(model.Email, model.Password);
             //SetRoleInSession();
+             
             if (user == null)
             {
                 ModelState.AddModelError("", "Invalid login attempt.");
@@ -53,11 +54,11 @@ namespace Medcard.Mvc.Controllers
             return Redirect("/");
         }
         //Перенес в AuthService
-        //[HttpGet]
-        //public void SetRoleInSession()
-        //{
-        //    HttpContext?.Session.SetString("userRole", "Admin"); 
-        //}
+        [HttpGet]
+        public void SetRoleInSession()
+        {
+            HttpContext?.Session.SetString("userRole", "Admin");
+        }
 
     }
 }

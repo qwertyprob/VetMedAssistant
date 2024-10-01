@@ -62,9 +62,9 @@ namespace Medcard.API.Controllers
 
         }
         [HttpPut("UPDATE/Strings/{id}")]
-        public async Task <IActionResult> UpdateStringsAsync(Guid id, string Drugs, string Treatments)
+        public async Task <IActionResult> UpdateStringsAsync(Guid id, string Drugs, string Treatments,string Recomendations)
         {
-            var medcard = await medcardService.UpdateDrugsAndTreatments(id, Drugs, Treatments);
+            var medcard = await medcardService.UpdateDrugsAndTreatments(id, Drugs, Treatments, Recomendations);
 
             if (medcard == null)
             {

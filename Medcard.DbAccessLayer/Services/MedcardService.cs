@@ -56,9 +56,9 @@ namespace Medcard.DbAccessLayer.Services
 
             return medcard;
         }
-        public async Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments)
+        public async Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments,string Recomendations)
         {
-            var medcard = await _repository.UpdateDrugsAndTreatments(id, Drugs, Treatments);
+            var medcard = await _repository.UpdateDrugsAndTreatments(id, Drugs, Treatments, Recomendations);
 
             return medcard;
         }

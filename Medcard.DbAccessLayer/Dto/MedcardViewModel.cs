@@ -19,6 +19,7 @@ namespace Medcard.DbAccessLayer.Dto
         public string Breed { get; set; }
         public string Drugs { get; set; }
         public string Treatments { get; set; }
+        public string Recomendations {  get; set; }
 
         public MedcardViewModel() { }
         public MedcardViewModel(string OwnerName, string PhoneNumber, string PetName, string ChipNumber,

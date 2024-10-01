@@ -15,7 +15,7 @@ namespace Medcard.DbAccessLayer.Interfaces
         Task<OwnerDto> UpdateAsync(Guid id,MedcardViewModel medcardViewModel);
         Task<IReadOnlyCollection<OwnerDto>> GetAllFromSearchAsync(string clientName);
         Task<OwnerDto> UpdateNoDrugsNoTreatmentsAsync(Guid id, MedcardViewModel medcardViewModel);
-        Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments);
+        Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments,string Recomendations);
         Task<bool> DeleteAsync(Guid id);
     }
 

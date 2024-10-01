@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 
@@ -32,6 +33,8 @@ namespace Medcard.DbAccessLayer
                 .ThenInclude(d => d.Drugs)
             .Include(p => p.Pets)
                 .ThenInclude(t => t.Treatments)
+            .Include(p => p.Pets)
+                    .ThenInclude(r => r.Recomendations)
             .AsNoTracking()
             .Where(p => p.Name.ToLower() == clientName.ToLower() || p.Pets.Any(pet => pet.Name.ToLower() == clientName.ToLower()))
             .OrderByDescending(p => p.DateCreate)
@@ -48,6 +51,8 @@ namespace Medcard.DbAccessLayer
                     .ThenInclude(d => d.Drugs)
                 .Include(p => p.Pets)
                     .ThenInclude(t => t.Treatments)
+                .Include(p=> p.Pets)
+                    .ThenInclude(r => r.Recomendations)
                 .OrderByDescending(p => p.DateCreate)
                 .AsNoTracking()
                 .ToListAsync();
@@ -67,6 +72,8 @@ namespace Medcard.DbAccessLayer
                     .ThenInclude(d => d.Drugs)
                 .Include(p => p.Pets)
                     .ThenInclude(t => t.Treatments)
+                .Include(p => p.Pets)
+                    .ThenInclude(r=>r.Recomendations)
                 .AsNoTracking()
                 .SingleOrDefaultAsync(x => x.Id == id);
 
@@ -106,7 +113,15 @@ namespace Medcard.DbAccessLayer
                         {
                             Description = medcardViewModel.Treatments
                         }
+                    },
+                    Recomendations = new List<RecomendationEntity>()
+                    {
+                        new RecomendationEntity()
+                        {
+                            Descriptions = medcardViewModel.Recomendations
+                        }
                     }
+                    
                     }
                 }
 
@@ -124,6 +139,8 @@ namespace Medcard.DbAccessLayer
                 .ThenInclude(p => p.Drugs)
             .Include(o => o.Pets)
                 .ThenInclude(p => p.Treatments)
+            .Include(p => p.Pets)
+                    .ThenInclude(r => r.Recomendations)
             .FirstOrDefaultAsync(o => o.Id == id);
 
             if (ownerEntity == null)
@@ -150,6 +167,11 @@ namespace Medcard.DbAccessLayer
                 foreach (var treatment in pet.Treatments)
                 {
                     treatment.Description = medcardViewModel.Treatments;
+                }
+
+                foreach(var recomend in pet.Recomendations)
+                {
+                    recomend.Descriptions = medcardViewModel.Recomendations;
                 }
             }
 
@@ -188,13 +210,15 @@ namespace Medcard.DbAccessLayer
 
             return mappedMedcard;
         }
-        public async Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments)
+        public async Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments , string Recomendations)
         {
             var ownerEntity = await _dbcontext.Owners
             .Include(o => o.Pets)
                 .ThenInclude(p => p.Drugs)
             .Include(o => o.Pets)
                 .ThenInclude(p => p.Treatments)
+            .Include(p => p.Pets)
+                    .ThenInclude(r => r.Recomendations)
             .FirstOrDefaultAsync(o => o.Id == id);
 
             foreach (var pet in ownerEntity.Pets)
@@ -208,6 +232,11 @@ namespace Medcard.DbAccessLayer
                 foreach (var treatment in pet.Treatments)
                 {
                     treatment.Description = Treatments;
+                }
+
+                foreach( var recomend in pet.Recomendations)
+                {
+                    recomend.Descriptions = Recomendations; 
                 }
 
             }
@@ -225,6 +254,8 @@ namespace Medcard.DbAccessLayer
                 .ThenInclude(p => p.Drugs)
             .Include(o => o.Pets)
                 .ThenInclude(p => p.Treatments)
+            .Include(p => p.Pets)
+                    .ThenInclude(r => r.Recomendations)
             .FirstOrDefaultAsync(o => o.Id == id);
 
             if (ownerEntity == null)

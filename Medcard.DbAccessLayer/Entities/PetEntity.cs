@@ -23,5 +23,7 @@ namespace Medcard.DbAccessLayer.Entities
         // Связь один ко многим (один питомец может иметь несколько записей о лечении и препаратах)
         public List<TreatmentEntity> Treatments { get; set; } = new List<TreatmentEntity>();
         public List<DrugEntity> Drugs { get; set; } = new List<DrugEntity>();
+
+        public List<RecomendationEntity> Recomendations { get; set; } = new List<RecomendationEntity>();
     }
 }
