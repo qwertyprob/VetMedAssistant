@@ -78,19 +78,7 @@ namespace Medcard.DbAccessLayer.Repositories
             return user.UserId.ToString(); 
         }
 
-        public bool IsLoggedIn()
-        {
-            
-            var session = _httpContext.HttpContext?.Session;
-
-            
-            if (session != null && session.TryGetValue("userid", out _))
-            {
-                return true; 
-            }
-
-            return false; 
-        }
+        
 
     }
 }

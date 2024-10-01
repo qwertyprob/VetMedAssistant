@@ -27,9 +27,9 @@ namespace Medcard.Mvc.Controllers
         {
             
             var user = await _authService.CreateUser(email, password);
-              
-            
-            return RedirectToAction("Auth",user); 
+
+
+            return Redirect("/");
 
         }
 
@@ -42,16 +42,22 @@ namespace Medcard.Mvc.Controllers
             }
 
             var user = _authService.Login(model.Email, model.Password);
-            HttpContext.Session.SetString("userRole", "Admin");
+            //SetRoleInSession();
             if (user == null)
             {
                 ModelState.AddModelError("", "Invalid login attempt.");
-                return View("Auth", model); 
+                return View("Auth", model);
             }
 
-            
+
             return Redirect("/");
         }
+        //Перенес в AuthService
+        //[HttpGet]
+        //public void SetRoleInSession()
+        //{
+        //    HttpContext?.Session.SetString("userRole", "Admin"); 
+        //}
 
     }
 }

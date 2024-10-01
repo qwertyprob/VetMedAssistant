@@ -1,10 +1,13 @@
-﻿using Medcard.Mvc.Services;
+﻿using Medcard.Mvc.Filters;
+using Medcard.Mvc.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
 namespace Medcard.Mvc.Controllers
 {
+    [AuthorizeRole("Admin")]
     public class SearchController : Controller
     {
         private readonly IMedcardServiceMvc _medcardService;
@@ -31,16 +34,9 @@ namespace Medcard.Mvc.Controllers
         public async Task<IActionResult> SearchMedcard(string clientName)
         {
 
-
-            ViewBag.ClientName = clientName;
-
             ViewBag.ClientName = clientName.Trim();
 
-
             var medcards = await _medcardService.GetAllFromSearchAsync(clientName.Trim());
-
-
-
 
             return View("SearchMedcard", medcards);
         }

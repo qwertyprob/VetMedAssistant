@@ -7,6 +7,5 @@ namespace Medcard.DbAccessLayer.Interfaces
     {
         Task<Guid> CreateUser(string email, string password);
         string Login(string email, string password);
-        bool IsLoggedIn();
     }
 }
