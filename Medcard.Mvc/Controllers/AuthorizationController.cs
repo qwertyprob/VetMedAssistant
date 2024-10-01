@@ -42,7 +42,7 @@ namespace Medcard.Mvc.Controllers
             }
 
             var user = _authService.Login(model.Email, model.Password);
-            //SetRoleInSession();
+            SetRoleInSession();
              
             if (user == null)
             {
@@ -57,7 +57,7 @@ namespace Medcard.Mvc.Controllers
         [HttpGet]
         public void SetRoleInSession()
         {
-            HttpContext?.Session.SetString("userRole", "Admin");
+            _authService.SetRoleSession();
         }
 
     }

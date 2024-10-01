@@ -19,7 +19,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Medcard.Mvc.Controllers
 {
-    
+    [AuthorizeRole("Admin")]
     public class MedcardController : Controller
     {
         private readonly IMedcardServiceMvc _medcardService;

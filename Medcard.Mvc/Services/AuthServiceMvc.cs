@@ -26,14 +26,10 @@ namespace Medcard.Mvc.Services
         public string Login(string email, string password)
         {
             //Set role for authorization
-            if (IsLoggedIn())
-            {
-                _httpContext.HttpContext!.Session.SetString("userRole", Role);
-            }
 
             return _authRepository.Login(email, password);
         }
-        public bool IsLoggedIn()
+        private bool IsLoggedIn()
         {
 
             var session = _httpContext.HttpContext?.Session;
@@ -45,6 +41,16 @@ namespace Medcard.Mvc.Services
             }
 
             return false;
+        }
+
+        public void SetRoleSession()
+        {
+            if (IsLoggedIn())
+            {
+                _httpContext.HttpContext!.Session.SetString("userRole", Role);
+            }
+
+
         }
     }
 }
