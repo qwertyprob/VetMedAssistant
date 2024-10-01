@@ -1,4 +1,4 @@
-                                 # VetMedAssist
+# VetMedAssist
 
 [![Website](https://vetmedassist.onrender.com/)](https://vetmedassist.onrender.com/)
 
@@ -31,9 +31,8 @@
    ```bash
    git clone (https://github.com/qwertyprob/MedcardMvc.git)
    cd ваш-репозиторий
-
    dotnet restore
-   dotnet ef database update
+   dotnet ef database update(если ставите свою постгря)
    dotnet run
 
 
