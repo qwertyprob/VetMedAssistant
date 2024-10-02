@@ -4,7 +4,8 @@
   <img src="Medcard.Mvc/wwwroot/img/new-logo.png" alt="VetMedAssist Logo" width="200"/>
 </p>
 
-[![Website][(https://vetmedassist.onrender.com/)](https://medvetplus.onrender.com/)
+[![Website](https://medvetplus.onrender.com/)](https://medvetplus.onrender.com/)
+
 
 ## Описание
 
