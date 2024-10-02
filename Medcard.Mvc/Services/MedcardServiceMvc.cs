@@ -81,11 +81,39 @@ namespace Medcard.Mvc.Services
             {
                 throw new Exception("Pet not found");
             }
+            if (drugs == " ")
+            {
+                drugs = "\nПрепараты:\n-\n-\n-\n-\n-";
+            }
 
             pet.Drugs.Clear();
 
             var drug = new DrugEntity { Description = drugs.Trim() };
             pet.Drugs.Add(drug);
+
+            await _dbContext.SaveChangesAsync();
+        }
+        public async Task UpdateTreatmentsAsync(Guid petId, string treatments)
+        {
+            var pet = await _dbContext.Pets
+                .Include(p => p.Treatments)
+                .FirstOrDefaultAsync(p => p.Id == petId);
+
+            if (pet == null)
+            {
+                throw new Exception("Pet not found");
+            }
+
+            if (treatments == " ")
+            {
+                treatments = "\nЛечение:\n-\n-\n-\n-\n-";
+            }
+
+            pet.Treatments.Clear();
+
+            var treatment = new TreatmentEntity { Description = treatments.Trim() };
+
+            pet.Treatments.Add(treatment);
 
             await _dbContext.SaveChangesAsync();
         }
@@ -99,11 +127,15 @@ namespace Medcard.Mvc.Services
             {
                 throw new Exception("Pet not found");
             }
-
+            if (recomendations == " ")
+            {
+                recomendations = "\nРекомендации:\n-\n-\n-\n-\n-\n-";
+            }
             pet.Recomendations.Clear();
 
-            var recomendation = new DrugEntity { Description = recomendations.Trim() };
-            pet.Drugs.Add(recomendation);
+            var recomendation = new RecomendationEntity { Description = recomendations.Trim() };
+
+            pet.Recomendations.Add(recomendation);
 
             await _dbContext.SaveChangesAsync();
         }
@@ -119,25 +151,7 @@ namespace Medcard.Mvc.Services
         }
 
 
-        public async Task UpdateTreatmentsAsync(Guid petId, string treatments)
-        {
-            var pet = await _dbContext.Pets
-                .Include(p => p.Treatments)
-                .FirstOrDefaultAsync(p => p.Id == petId);
-
-            if (pet == null)
-            {
-                throw new Exception("Pet not found");
-            }
-
-            pet.Treatments.Clear();
-
-            var treatment = new TreatmentEntity { Description = treatments.Trim() };
-
-            pet.Treatments.Add(treatment);
-
-            await _dbContext.SaveChangesAsync();
-        }
+       
 
         public async Task<bool> DeleteAsync(Guid id)
         {

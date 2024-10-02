@@ -118,7 +118,7 @@ namespace Medcard.DbAccessLayer
                     {
                         new RecomendationEntity()
                         {
-                            Descriptions = medcardViewModel.Recomendations
+                            Description = medcardViewModel.Recomendations
                         }
                     }
                     
@@ -171,7 +171,7 @@ namespace Medcard.DbAccessLayer
 
                 foreach(var recomend in pet.Recomendations)
                 {
-                    recomend.Descriptions = medcardViewModel.Recomendations;
+                    recomend.Description = medcardViewModel.Recomendations;
                 }
             }
 
@@ -236,7 +236,7 @@ namespace Medcard.DbAccessLayer
 
                 foreach( var recomend in pet.Recomendations)
                 {
-                    recomend.Descriptions = Recomendations; 
+                    recomend.Description = Recomendations; 
                 }
 
             }

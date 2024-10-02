@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Mvc", "Medcard.Mvc\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.DbAccessLayer", "Medcard.DbAccessLayer\Medcard.DbAccessLayer.csproj", "{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.API", "Medcard.API\Medcard.API.csproj", "{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F7F8E2F8-7858-4E70-A1AA-D8B5145D6073}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{398C0A8B-54FB-4C98-9D6F-E6C5BF8ED50C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

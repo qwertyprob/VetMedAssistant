@@ -113,7 +113,7 @@ body {
 }
 
 .header {
-    background-color: #20294a;
+    background-color: lightblue;
 }
 
     .header .btn-input {
@@ -130,8 +130,8 @@ body {
         }
 
 .logo, .logo img {
-    width: 20em;
-    height: 15em;
+    width: 24em;
+    height: 18em;
     margin-bottom: 2px;
 }
 

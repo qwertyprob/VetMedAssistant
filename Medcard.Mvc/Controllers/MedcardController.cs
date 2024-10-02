@@ -60,9 +60,9 @@ namespace Medcard.Mvc.Controllers
                 medcardViewModel.PetName = medcardViewModel.PetName?.Trim();
                 medcardViewModel.ChipNumber = medcardViewModel.ChipNumber?.Trim();
                 medcardViewModel.Breed = medcardViewModel.Breed?.Trim();
-                medcardViewModel.Drugs = "Препараты:\n-\n-\n-\n-\n-".Trim();
-                medcardViewModel.Treatments = "Лечение:\n-\n-\n-\n-\n-".Trim();
-                medcardViewModel.Recomendations = "Рекомендации:\n-\n-\n-\n-\n-".Trim();
+                medcardViewModel.Drugs = "\n-\n-\n-\n-\n-\n-";
+                medcardViewModel.Treatments = "\n-\n-\n-\n-\n-\n-";
+                medcardViewModel.Recomendations = "\n-\n-\n-\n-\n-\n-";
 
                 var medcard = await _medcardService.CreateAsync(medcardViewModel);
 
@@ -148,18 +148,17 @@ namespace Medcard.Mvc.Controllers
                 return View("More", await _medcardService.GetByIdAsync(id));
             }
 
-            // Проверка на null
-            if (string.IsNullOrWhiteSpace(Drugs) && string.IsNullOrWhiteSpace(Treatments))
-            {
-                ModelState.AddModelError(string.Empty, "Необходимо ввести хотя бы одно из значений: препараты или лечения.");
-                return View("More", await _medcardService.GetByIdAsync(id));
-            }
+            Drugs = Drugs ?? " ";
+            Treatments = Treatments ?? " ";
+            Recomendations = Recomendations ?? " ";
+
+
 
             // Обработка действий
             switch (Action)
             {
                 case "UpdateDrugs":
-                    await _medcardService.UpdateDrugsAsync(PetId, Drugs.Trim());
+                    await _medcardService.UpdateDrugsAsync(PetId, Drugs);
                     break;
                 case "UpdateTreatments":
                     await _medcardService.UpdateTreatmentsAsync(PetId, Treatments);
