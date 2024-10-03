@@ -31,7 +31,7 @@
 
 ## Установка и запуск
 
-1. Клонируйте репозиторий:
+1. Пример минимального запуска:
 
    ```bash
    git clone (https://github.com/qwertyprob/MedcardMvc.git)
