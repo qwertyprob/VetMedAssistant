@@ -1,7 +1,7 @@
 # VetMedAssist
 
 <p align="center">
-  <img src="Medcard.Mvc/wwwroot/img/new-logo.png" alt="VetMedAssist Logo" width="200"/>
+  <img src="Medcard.Mvc/wwwroot/img/new-logo-invert-preview.png" alt="VetMedAssist Logo" width="200"/>
 </p>
 
 [![Website](https://medvetplus.onrender.com/)](https://medvetplus.onrender.com/)
