@@ -1,6 +1,11 @@
 # VetMedAssist
 
-[![Website](https://vetmedassist.onrender.com/)](https://vetmedassist.onrender.com/)
+<p align="center">
+  <img src="Medcard.Mvc/wwwroot/img/new-logo-invert-preview.png" alt="VetMedAssist Logo" width="300"/>
+</p>
+
+[![Website](https://medvetplus.onrender.com/)](https://medvetplus.onrender.com/)
+
 
 ## Описание
 
@@ -26,7 +31,7 @@
 
 ## Установка и запуск
 
-1. Клонируйте репозиторий:
+1. Пример минимального запуска:
 
    ```bash
    git clone (https://github.com/qwertyprob/MedcardMvc.git)
