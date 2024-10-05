@@ -50,6 +50,11 @@
             <img src="~/img/new-logo.png" alt="VetAsist">
         </a>
     </div>
+    <div class="list-more">
+        <div class="table-container" style="margin-bottom:30px; height:10em; width:10em; margin-top:30px; background-color:ghostwhite">
+                    <img class="qrcode" src="~/img/newqr.png" alt="VetAsist">
+        </div>
+    </div>
     <button id="Add" type="button" class="btn-input">Добавить</button>
 </header>
 <div class="search">
@@ -91,15 +96,15 @@
                             dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
                             string formattedDate = owner.DateCreate.ToString("dd/MM/yyyy", russianCulture);
                         }
-                        <p class="number"><br />@dayOfWeek<br /><br />@formattedDate<br />@* @time  пока что забудем о времени*@</p>
-                        <p class="name"><br><br />@owner.Name</p>
-                        <p class="phone"><br><br>@owner.PhoneNumber</p>
+                        <p class="number">@dayOfWeek<br /><br />@formattedDate<br />@* @time  пока что забудем о времени*@</p>
+                        <p class="name">@owner.Name</p>
+                        <p class="phone">@owner.PhoneNumber</p>
                         @foreach(var pet in owner.Pets)
                         {
-                            <p class="nick"><br><br>@pet.Name</p>
-                            <p class="chip"><br><br>@pet.ChipNumber </p>
-                            <p class="age"><br><br>@pet.Age</p>
-                            <p class="breed"><br><br>@pet.Breed</p>
+                            <p class="nick">@pet.Name</p>
+                            <p class="chip">@pet.ChipNumber </p>
+                            <p class="age">@pet.Age</p>
+                            <p class="breed">@pet.Breed</p>
                         }
                         <div class="list__param">
                             <a class="list__more" asp-action="GetById" asp-controller="Medcard" asp-route-id="@owner.Id">

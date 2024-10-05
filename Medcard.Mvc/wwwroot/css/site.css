@@ -114,9 +114,12 @@ body {
 
 .header {
     background-color: lightblue;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius:30px;
 }
 
     .header .btn-input {
+        background-color:ghostwhite;
         width: 15rem;
         height: 3rem;
         border-radius: 10px;
@@ -126,13 +129,14 @@ body {
     }
 
         .header .btn-input:hover {
-            background: lightblue;
+            background-color:whitesmoke;
         }
 
 .logo, .logo img {
     width: 24em;
     height: 18em;
     margin-bottom: 2px;
+    
 }
 
 .search {
@@ -165,7 +169,7 @@ body {
 }
 
     .search .search__field__btn:hover {
-        background: lightblue;
+        background-color: whitesmoke;
     }
 
 .search .search__field__input {
@@ -180,7 +184,7 @@ body {
 }
 
     .search .search__field__input:hover {
-        background: lightblue;
+        background-color: whitesmoke;
     }
 
 
@@ -207,19 +211,21 @@ body {
     .list .list__lines, .list__line-title {
         display: flex;
         width: 100%;
-        padding: 10px;
+        padding: 12px;
         justify-content: space-between;
         border-bottom: 1px solid grey;
     }
 
         .list .list__line-title p, .list .list__lines p {
             width: 20%;
+            padding: 10px;
             text-align: center;
             border-right: 1px solid black;
         }
 
     .list .list__param {
         width: 20%;
+
         display: flex;
         flex-flow: column;
         align-items: center;
@@ -235,9 +241,9 @@ body {
 
     .list .list__line-title p:first-child, .list .list__lines p:first-child {
         width: 23%;
+        height: 30%;
         text-align: center;
         justify-content: center;
-       
     }
 
 .list-dark > * {
@@ -439,4 +445,11 @@ body {
 .hide{
     display:none;
     
+}
+
+.qrcode {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: contain
 }
