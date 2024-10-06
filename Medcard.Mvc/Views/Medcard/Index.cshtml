@@ -91,16 +91,17 @@
                         @{
                             CultureInfo russianCulture = new CultureInfo("ru-RU");
 
-                            // Преобразуем в локальное время
+                            
                             DateTime localDateCreate = owner.DateCreate.ToLocalTime();
 
-                            // Форматируем день недели, время и дату
                             string dayOfWeek = localDateCreate.ToString("dddd", russianCulture);
                             string time = localDateCreate.ToString("HH:mm", russianCulture);
                             dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
                             string formattedDate = localDateCreate.ToString("dd/MM/yyyy", russianCulture);
                         }
+
                         <p class="number">@dayOfWeek<br /><br />@formattedDate<br />@* @time пока что забудем о времени*@</p>
+
                         <p class="name">@owner.Name</p>
                         <p class="phone">@owner.PhoneNumber</p>
                         @foreach(var pet in owner.Pets)
