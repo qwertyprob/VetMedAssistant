@@ -23,22 +23,28 @@ namespace Medcard.DbAccessLayer.Repositories
         }
         public async Task<IReadOnlyCollection<OwnerDto>> GetAllFromSearchAsync(string searchItem)
         {
+            // Приводим searchItem к нижнему регистру один раз для улучшения производительности
+            var lowerSearchItem = searchItem.ToLower();
+
+
             var medcardResult = await _dbcontext.Owners
-            .Include(p => p.Pets)
-                .ThenInclude(d => d.Drugs)
-            .Include(p => p.Pets)
-                .ThenInclude(t => t.Treatments)
-            .Include(p => p.Pets)
-                    .ThenInclude(r => r.Recomendations)
-            .AsNoTracking()
-            .Where(p => p.Name.ToLower() == searchItem.ToLower() || p.Pets.Any(pet => pet.Name.ToLower() == searchItem.ToLower()))
-            .OrderByDescending(p => p.DateCreate)
-            .ToListAsync();
+                .Include(o => o.Pets)
+                    .ThenInclude(p => p.Drugs)
+                .Include(o => o.Pets)
+                    .ThenInclude(p => p.Treatments)
+                .Include(o => o.Pets)
+                    .ThenInclude(p => p.Recomendations)
+                .AsNoTracking()
+                .Where(o => o.Name.ToLower().StartsWith(lowerSearchItem) ||
+                            o.Pets.Any(pet => pet.Name.ToLower().StartsWith(lowerSearchItem)))
+                .OrderByDescending(o => o.DateCreate)
+                .ToListAsync();
 
             var mappedMedcard = _mapper.Map<IReadOnlyCollection<OwnerDto>>(medcardResult);
 
             return mappedMedcard;
         }
+
 
     }
 }
