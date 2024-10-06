@@ -241,9 +241,10 @@ body {
 
     .list .list__line-title p:first-child, .list .list__lines p:first-child {
         width: 23%;
-        height: 30%;
+
         text-align: center;
         justify-content: center;
+       
     }
 
 .list-dark > * {
