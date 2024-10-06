@@ -1,18 +1,17 @@
+using Medcard.DbAccessLayer;
 using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Repositories;
+using Medcard.Mvc.Abstractions;
 using Medcard.Mvc.Mapping;
 using Medcard.Mvc.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Medcard.Mvc.Abstractions;
-using Medcard.DbAccessLayer;
+using System;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,8 +19,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Регистрация сервисов
 builder.Services.AddScoped<IMedcardRepository, MedcardRepository>();
 builder.Services.AddScoped<IMedcardServiceMvc, MedcardServiceMvc>();
+
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IAuthServiceMvc, AuthServiceMvc>();
+
 builder.Services.AddScoped<ISearchRepository, SearchRepository>();
 builder.Services.AddScoped<ISearchServiceMvc, SearchServiceMvc>();
 
@@ -44,19 +45,19 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(MappingProfileMvc));
 
-// Получение строки подключения
-var hostingService = builder.Services.BuildServiceProvider().GetService<IHostingServiceMvc>();
-var connectionDb = hostingService.GetEnvironmentVariable();
+builder.Services.AddDbContext<AppDbContext>((serviceProvider, options) =>
+{
+    var hostingService = serviceProvider.GetRequiredService<IHostingServiceMvc>();
+    var connectionDb = hostingService.GetEnvironmentVariable();
+    options.UseNpgsql(connectionDb);
+});
 
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseNpgsql(connectionDb));
 
-// Добавление поддержки MVC
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Конфигурация pipeline приложения
+
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -74,7 +75,7 @@ app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Определение маршрутов
+
 app.MapControllerRoute(
     name: "medcardUpdateRoute",
     pattern: "Medcard/Update/{id}",
