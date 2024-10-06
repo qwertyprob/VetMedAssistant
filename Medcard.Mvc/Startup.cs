@@ -1,7 +1,6 @@
 using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Repositories;
-using Medcard.DbAccessLayer;
 using Medcard.Mvc.Mapping;
 using Medcard.Mvc.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -13,6 +12,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Medcard.Mvc.Abstractions;
+using Medcard.DbAccessLayer;
 
 public class Startup
 {
@@ -28,13 +28,10 @@ public class Startup
     {
         services.AddScoped<IMedcardRepository, MedcardRepository>();
         services.AddScoped<IMedcardServiceMvc, MedcardServiceMvc>();
-
         services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthServiceMvc, AuthServiceMvc>();
-
         services.AddScoped<ISearchRepository, SearchRepository>();
         services.AddScoped<ISearchServiceMvc, SearchServiceMvc>();
-
 
         services.AddSingleton<IHostingServiceMvc, HostingServiceMvc>();
         services.AddSingleton<IEncrypt, Encrypt>();
@@ -55,13 +52,8 @@ public class Startup
         services.AddHttpContextAccessor();
         services.AddAutoMapper(typeof(MappingProfileMvc));
 
-        //ConnectionDb from Environment
-        var hostingService = services.BuildServiceProvider().GetService<IHostingServiceMvc>();
+        ConnectionDb = services.BuildServiceProvider().GetService<IHostingServiceMvc>().GetEnvironmentVariable();
 
-        ConnectionDb = hostingService.GetEnvironmentVariable();
-        
-
-        // Использование строки подключения для DbContext
         services.AddDbContext<AppDbContext>(options =>
             options.UseNpgsql(ConnectionDb));
 
@@ -89,7 +81,7 @@ public class Startup
 
         app.UseEndpoints(endpoints =>
         {
-            // Маршруты
+            // Определение маршрутов
             endpoints.MapControllerRoute(
                 name: "medcardUpdateRoute",
                 pattern: "Medcard/Update/{id}",

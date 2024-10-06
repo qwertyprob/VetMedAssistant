@@ -1,30 +1,43 @@
-# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-# This stage is used when running from VS in fast mode (Default for Debug configuration)
-FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS base
+# Base image for the runtime environment (for production)
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-
-# This stage is used to build the service project
-FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+# Build stage: used to compile the service project
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
+
+# Copy project files to the build context
 COPY ["Medcard.Mvc/Medcard.Mvc.csproj", "Medcard.Mvc/"]
 COPY ["Medcard.DbAccessLayer/Medcard.DbAccessLayer.csproj", "Medcard.DbAccessLayer/"]
+
+# Restore dependencies for the service project
 RUN dotnet restore "./Medcard.Mvc/Medcard.Mvc.csproj"
+
+# Copy all files to the build context
 COPY . .
+
+# Set the working directory for the service project
 WORKDIR "/src/Medcard.Mvc"
+
+# Build the service project in the specified configuration
 RUN dotnet build "./Medcard.Mvc.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# This stage is used to publish the service project to be copied to the final stage
+# Publish stage: create the final output for deployment
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
+
+# Publish the service project to the output directory
 RUN dotnet publish "./Medcard.Mvc.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+# Final stage: used for running the application in production
 FROM base AS final
 WORKDIR /app
+
+# Copy the published output from the previous stage
 COPY --from=publish /app/publish .
+
+# Set the command to run the application
 ENTRYPOINT ["dotnet", "Medcard.Mvc.dll"]

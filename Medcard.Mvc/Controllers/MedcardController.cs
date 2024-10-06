@@ -188,11 +188,7 @@ namespace Medcard.Mvc.Controllers
             }
             return View(model);
         }
-        public IActionResult NotFound()
-        {
-            
-            return View();
-        }
+        
        
 
     }
