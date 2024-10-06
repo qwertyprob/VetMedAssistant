@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Medcard.Mvc.Services
+namespace Medcard.Mvc.Abstractions
 {
     public interface IAuthServiceMvc
     {

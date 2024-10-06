@@ -2,6 +2,7 @@
 using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
+using Medcard.Mvc.Abstractions;
 using Medcard.Mvc.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -19,15 +20,17 @@ namespace Medcard.Mvc.Services
     {
 
         private readonly IMedcardRepository _repository;
+        private readonly ISearchRepository _searchRepository;
         private readonly IMapper _mapper;
         private readonly AppDbContext _dbContext;
 
-        public MedcardServiceMvc(IMedcardRepository repository, IMapper mapper, AppDbContext dbcontext)
+        public MedcardServiceMvc(IMedcardRepository repository, IMapper mapper, AppDbContext dbcontext, ISearchRepository searchRepository)
         {
 
             _repository = repository;
             _mapper = mapper;
             _dbContext = dbcontext;
+            _searchRepository = searchRepository;
         }
 
         public async Task<IReadOnlyCollection<OwnerModel>> GetAllAsync()
@@ -141,14 +144,7 @@ namespace Medcard.Mvc.Services
         }
 
 
-        public async Task<IReadOnlyCollection<OwnerModel>> GetAllFromSearchAsync(string clientName)
-        {
-            var medcard =  await _repository.GetAllFromSearchAsync(clientName);
-
-            var mappedMedcard = _mapper.Map<IReadOnlyCollection<OwnerModel>>(medcard);
-
-            return mappedMedcard; 
-        }
+        
 
 
        

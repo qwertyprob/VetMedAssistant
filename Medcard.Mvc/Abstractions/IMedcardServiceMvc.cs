@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Medcard.Mvc.Services
+namespace Medcard.Mvc.Abstractions
 {
     public interface IMedcardServiceMvc
     {
@@ -15,7 +15,6 @@ namespace Medcard.Mvc.Services
         Task UpdateDrugsAsync(Guid petId, string drugs);
         Task UpdateTreatmentsAsync(Guid petId, string treatments);
         Task UpdateRecomendAsync(Guid petId, string recomendations);
-        Task<IReadOnlyCollection<OwnerModel>> GetAllFromSearchAsync(string clientName);
         Task<bool> DeleteAsync(Guid id);
         Task<Guid> SearchByNameAsync(string name);
     }

@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using Medcard.DbAccessLayer.Interfaces;
-using Medcard.Mvc.Services;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 using Medcard.DbAccessLayer.Dto;
@@ -16,6 +15,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Medcard.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
+using Medcard.Mvc.Abstractions;
 
 namespace Medcard.Mvc.Controllers
 {
@@ -23,6 +23,7 @@ namespace Medcard.Mvc.Controllers
     public class MedcardController : Controller
     {
         private readonly IMedcardServiceMvc _medcardService;
+
         private readonly ILogger<MedcardController> _logger;
         
 

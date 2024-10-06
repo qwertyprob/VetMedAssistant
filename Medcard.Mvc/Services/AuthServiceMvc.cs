@@ -2,11 +2,13 @@
 using System.Threading.Tasks;
 using System;
 using Microsoft.AspNetCore.Http;
+using Medcard.Mvc.Abstractions;
 
 namespace Medcard.Mvc.Services
 {
     public class AuthServiceMvc : IAuthServiceMvc
-    {   private const string Role = "Admin";
+    {
+        private const string Role = "Admin";
         private readonly IAuthRepository _authRepository;
         private readonly IHttpContextAccessor _httpContext;
         public AuthServiceMvc(IAuthRepository authRepository, IHttpContextAccessor httpContext)
@@ -17,7 +19,7 @@ namespace Medcard.Mvc.Services
 
         public async Task<Guid> CreateUser(string email, string password)
         {
-            
+
 
             return await _authRepository.CreateUser(email, password);
 

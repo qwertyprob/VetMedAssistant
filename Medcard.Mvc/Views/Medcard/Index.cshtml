@@ -59,14 +59,14 @@
 </header>
 <div class="search">
     <div class="search__box search-border">
-        <input placeholder="Поиск" class="search__field__input search-border" type="search" id="search" name="clientName" />
+        <input placeholder="Поиск" class="search__field__input search-border" type="search" id="search" name="searchItem" />
         <button class="search__field__btn search-border" type="button" onclick="submitForm()" >Найти</button>
     </div>
 
     <!-- Скрытая форма -->
     <form id="searchForm" method="post" asp-controller="Search" asp-action="SearchMedcardPost">
         @Html.AntiForgeryToken()
-        <input type="hidden" id="hiddenSearch" name="clientName" />
+        <input type="hidden" id="hiddenSearch" name="searchItem" />
         <span 
     </form>
 </div>
@@ -96,7 +96,7 @@
                             dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
                             string formattedDate = owner.DateCreate.ToString("dd/MM/yyyy", russianCulture);
                         }
-                        <p class="number">@dayOfWeek<br /><br />@formattedDate<br />@* @time  пока что забудем о времени*@</p>
+                        <p class="number">@dayOfWeek<br/><br />@formattedDate<br />@* @time  пока что забудем о времени*@</p>
                         <p class="name">@owner.Name</p>
                         <p class="phone">@owner.PhoneNumber</p>
                         @foreach(var pet in owner.Pets)

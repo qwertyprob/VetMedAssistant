@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
+using Medcard.Mvc.Abstractions;
 
 public class Startup
 {
@@ -30,6 +31,10 @@ public class Startup
 
         services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthServiceMvc, AuthServiceMvc>();
+
+        services.AddScoped<ISearchRepository, SearchRepository>();
+        services.AddScoped<ISearchServiceMvc, SearchServiceMvc>();
+
 
         services.AddSingleton<IHostingServiceMvc, HostingServiceMvc>();
         services.AddSingleton<IEncrypt, Encrypt>();
@@ -91,7 +96,7 @@ public class Startup
 
             endpoints.MapControllerRoute(
                 name: "searchRoute",
-                pattern: "Search/SearchMedcard/{clientName?}",
+                pattern: "Search/SearchMedcard/{searchItem?}",
                 defaults: new { controller = "Search", action = "SearchMedcard" });
 
             endpoints.MapControllerRoute(

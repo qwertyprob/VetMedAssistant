@@ -1,4 +1,6 @@
-﻿namespace Medcard.Mvc.Services
+﻿
+
+namespace Medcard.Mvc.Abstractions
 {
     public interface IHostingServiceMvc
     {
