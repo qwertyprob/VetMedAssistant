@@ -1,10 +1,14 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace Medcard.DbAccessLayer.Migrations
 {
-    public partial class InitialUser : Migration
+    /// <inheritdoc />
+    public partial class InitialPostgresNumbers : Migration
     {
+        /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -14,7 +18,7 @@ namespace Medcard.DbAccessLayer.Migrations
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Name = table.Column<string>(type: "text", nullable: true),
                     PhoneNumber = table.Column<string>(type: "text", nullable: true),
-                    DateCreate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false)
+                    DateCreate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -63,7 +67,7 @@ namespace Medcard.DbAccessLayer.Migrations
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    DateTime = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    DateTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     PetId = table.Column<Guid>(type: "uuid", nullable: false)
                 },
                 constraints: table =>
@@ -71,6 +75,25 @@ namespace Medcard.DbAccessLayer.Migrations
                     table.PrimaryKey("PK_Drugs", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Drugs_Pets_PetId",
+                        column: x => x.PetId,
+                        principalTable: "Pets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Recomendations",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    PetId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Recomendations", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Recomendations_Pets_PetId",
                         column: x => x.PetId,
                         principalTable: "Pets",
                         principalColumn: "Id",
@@ -107,6 +130,11 @@ namespace Medcard.DbAccessLayer.Migrations
                 column: "OwnerId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Recomendations_PetId",
+                table: "Recomendations",
+                column: "PetId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Treatments_PetId",
                 table: "Treatments",
                 column: "PetId");
@@ -118,10 +146,14 @@ namespace Medcard.DbAccessLayer.Migrations
                 unique: true);
         }
 
+        /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "Drugs");
+
+            migrationBuilder.DropTable(
+                name: "Recomendations");
 
             migrationBuilder.DropTable(
                 name: "Treatments");

@@ -9,14 +9,17 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Configuration;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Регистрация сервисов
+// ??????? 
+
 builder.Services.AddScoped<IMedcardRepository, MedcardRepository>();
 builder.Services.AddScoped<IMedcardServiceMvc, MedcardServiceMvc>();
 
@@ -45,12 +48,17 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAutoMapper(typeof(MappingProfileMvc));
 
-builder.Services.AddDbContext<AppDbContext>((serviceProvider, options) =>
-{
-    var hostingService = serviceProvider.GetRequiredService<IHostingServiceMvc>();
-    var connectionDb = hostingService.GetEnvironmentVariable();
-    options.UseNpgsql(connectionDb);
-});
+//builder.Services.AddDbContext<AppDbContext>((serviceProvider, options) =>
+//{
+//    var hostingService = serviceProvider.GetRequiredService<IHostingServiceMvc>();
+//    var connectionDb = hostingService.GetEnvironmentVariable();
+//    options.UseNpgsql(connectionDb);
+//});
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseNpgsql(builder.Configuration.GetConnectionString("MedcardConnectionString")));
+
+
 
 
 builder.Services.AddControllersWithViews();

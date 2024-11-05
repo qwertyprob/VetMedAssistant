@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Medcard.Mvc.Controllers
 {
-    [AuthorizeRole("Admin")]
+    //[AuthorizeRole("Admin")]
     public class SearchController : Controller
     {
         private readonly IMedcardServiceMvc _medcardService;

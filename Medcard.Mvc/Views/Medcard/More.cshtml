@@ -7,12 +7,17 @@
 
      
 }
-
+<head>
+    <link rel="stylesheet" href="~/css/more.css">
+</head>
 <div class="mask">
     <div class="loader">
     </div>
 </div>
 <script>
+    
+
+
     document.addEventListener('DOMContentLoaded', () => {
         let mask = document.querySelector('.mask');
 
@@ -27,21 +32,40 @@
         });
     });
 
+    const emailButton = document.getElementById("emailButton");
+    const popup = document.getElementById("popup");
+
+
+    emailButton.addEventListener("click", function () {
+        popup.classList.toggle("disable");
+    });
 </script>
+
 <header class="header">
     <div class="logo">
         <a href="@Url.Action("Index", "Medcard")">
             <img src="~/img/new-logo.png" alt="VetAsist">
         </a>
     </div>
-    <div class="list-more">
-        <div class="table-container" style="margin-bottom:30px; height:10em; width:10em; margin-top:30px; background-color:ghostwhite">
-            <img class="qrcode" src="~/img/newqr.png" alt="VetAsist">
-        </div>
+   
+    <div class="buttons">
+        <a id="printButton" type="button" class="btn-input-print" href="/Print" target="_blank">Распечатать</a>
 
+        <button id="emailButton" type="button" class="btn-input-email">Отправить на email</button>
+
+        <form method="POST">
+            <div id="popup" class="popup disable">
+                <div class="popup__box">
+                    <input placeholder="Email" type="text" id="emailButton" name="OwnerEmail">
+                    <button class="list__more" type="submit">Отправить</button>
+                </div>
+            </div>
+        </form>
     </div>
+
     
 </header>
+
 @* <section class="list">
     <div class="list__wrapper shadow">
  *@

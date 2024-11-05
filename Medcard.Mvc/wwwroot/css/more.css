@@ -1,5 +1,5 @@
 ﻿.table-container {
-    width: 80%;
+    width: 60%;
     margin: 20px auto;
     margin-top: 100px;
     background-color: #ffffff;
@@ -145,4 +145,35 @@ td {
         cursor: pointer;
     }
 
-       
+.header .btn-input-print {
+    background-color: ghostwhite;
+    width: 15rem;
+    height: 3rem;
+    border-radius: 10px;
+    border: solid grey 1px;
+    font-size: 1.2rem;
+    transition: all ease .3s;
+}
+    .header .btn-input-print:hover {
+        background-color: whitesmoke;
+    }
+
+
+
+.header .btn-input-email {
+    background-color: ghostwhite;
+    width: 15rem;
+    height: 3rem;
+    border-radius: 10px;
+    border: solid grey 1px;
+    font-size: 1.2rem;
+    transition: all ease .3s;
+}
+
+    .header .btn-input-email:hover {
+        background-color: whitesmoke;
+    }
+
+
+
+

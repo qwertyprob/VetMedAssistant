@@ -19,23 +19,29 @@ using Medcard.Mvc.Abstractions;
 
 namespace Medcard.Mvc.Controllers
 {
-    [AuthorizeRole("Admin")]
+    //[AuthorizeRole("Admin")]
     public class MedcardController : Controller
     {
         private readonly IMedcardServiceMvc _medcardService;
 
         private readonly ILogger<MedcardController> _logger;
-        
+
 
         public MedcardController(IMedcardServiceMvc medcardServiceMvc, ILogger<MedcardController> logger)
         {
             _medcardService = medcardServiceMvc;
             _logger = logger;
-           
+
+
 
         }
+        [Route("/Print")]
+        public IActionResult Print()
+        {
+            return View();
+        }
 
-        [Route("/")]
+            [Route("/")]
         public async Task<IActionResult> Index()
         {
 

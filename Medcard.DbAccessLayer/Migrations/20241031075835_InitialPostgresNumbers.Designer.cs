@@ -7,19 +7,23 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
+#nullable disable
+
 namespace Medcard.DbAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241001152044_AddRecomendations")]
-    partial class AddRecomendations
+    [Migration("20241031075835_InitialPostgresNumbers")]
+    partial class InitialPostgresNumbers
     {
+        /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityByDefaultColumns()
-                .HasAnnotation("Relational:MaxIdentifierLength", 63)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "8.0.8")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
+
+            NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
             modelBuilder.Entity("Medcard.DbAccessLayer.Entities.DrugEntity", b =>
                 {
@@ -28,7 +32,7 @@ namespace Medcard.DbAccessLayer.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("DateTime")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -50,7 +54,7 @@ namespace Medcard.DbAccessLayer.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<DateTime>("DateCreate")
-                        .HasColumnType("timestamp without time zone");
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
                         .HasColumnType("text");
@@ -97,7 +101,7 @@ namespace Medcard.DbAccessLayer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Descriptions")
+                    b.Property<string>("Description")
                         .HasColumnType("text");
 
                     b.Property<Guid>("PetId")
@@ -153,7 +157,7 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.HasIndex("Email")
                         .IsUnique();
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Medcard.DbAccessLayer.Entities.DrugEntity", b =>
