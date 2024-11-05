@@ -1,0 +1,48 @@
+﻿@page "/Medcard"
+@page "/"
+@layout Layout.MainLayout
+@rendermode InteractiveServer
+
+@using System
+
+
+
+<header class="header">
+    <div class="logo">
+        <a href="/">
+            <img src="img/new-logo.png" alt="VetAsist">
+        </a>
+    </div>
+    <button id="Add" type="button" class="btn-input">Добавить</button>
+</header>
+
+<div class="search">
+    <div class="search__box search-border">
+        <input placeholder="Поиск" class="search__field__input search-border" type="search" id="search" name="searchItem" />
+        <button class="search__field__btn search-border" type="button" onclick="submitForm()">Найти</button>
+    </div>
+</div>
+
+<h1 style="text-align: center; font-size: 3.4em; padding: 125px;">
+    Похоже на то, что все ваши карточки пропали.. Или вы еще не начали их вести! Нажмите кнопку Добавить в правом верхнем углу!
+</h1>
+
+<button @onclick="IncrementParam">Increment</button>
+
+
+<p>Value of Param: @Param</p>
+
+
+@code {
+
+
+    public int Param { get; set; }
+    private void IncrementParam()
+    {
+        Random FuckIncrement = new Random();
+
+         Param = FuckIncrement.Next(1, 100); 
+
+       
+    }
+}
