@@ -86,9 +86,9 @@ body {
         }
 
 .logo, .logo img {
-    width: 24em;
+    width: 16em;
     height: 18em;
-    margin-bottom: 2px;
+    margin-bottom: 15px;
     
 }
 
@@ -302,6 +302,7 @@ body {
 
     .list__more:hover {
         background-color: rgb(32, 41, 74);
+        color:white;
     }
 
 .list__remove {
@@ -407,3 +408,19 @@ body {
     display: block;
     object-fit: contain
 }
+
+.arrow {
+    display: block;
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    width: 4em;
+    height: 2em;
+    height: 2em;
+}
+
+    .arrow img {
+        width: 1em;
+        height: 1em;
+        
+    }

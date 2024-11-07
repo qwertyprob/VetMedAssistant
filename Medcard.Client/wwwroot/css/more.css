@@ -84,7 +84,7 @@ td {
     .textarea-editable:focus  {
         background-color: aliceblue;
     }
-    #editableBigInput {
+#editableBigInput {
     text-align: left;
     min-height: 50px;
     padding: 10px;
@@ -93,8 +93,7 @@ td {
     border-top-right-radius: 0%;
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
-    border: 1px solid #ccc;
-    background-color: #fff;
+    
     outline: none;
     font-size: 25px;
 }
@@ -127,6 +126,7 @@ td {
     height: 100%;
     border: 0px solid grey;
     transition: background-color 0.3s ease, border-radius 0.3s ease; 
+    
 }
 
     .section-footer-button:hover {

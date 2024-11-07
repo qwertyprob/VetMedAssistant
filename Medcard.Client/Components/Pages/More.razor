@@ -1,0 +1,64 @@
+﻿@page "/Client"
+<Medcard.Client.Components.Layout.MoreLayout></Medcard.Client.Components.Layout.MoreLayout>
+
+<form method="POST" action="/update-drugs-and-treatments">
+    <input type="hidden" name="Id" value="1" />
+
+    <div class="list-more">
+        <div class="table-container">
+            <table>
+                <tr>
+                    <td class="info-section">ФИО:</td>
+                    <td class="info-value editable">Иван Иванов</td>
+                    <td class="info-section">Телефон:</td>
+                    <td class="info-value editable">+1234567890</td>
+                </tr>
+                <tr>
+                    <td class="info-section">Кличка:</td>
+                    <td class="info-value editable">Барсик</td>
+                    <td class="info-section">Чип:</td>
+                    <td class="info-value editable">123456789012345</td>
+                </tr>
+                <tr>
+                    <td class="info-section">Возраст:</td>
+                    <td class="info-value editable">3 года</td>
+                    <td class="info-section">Порода:</td>
+                    <td class="info-value editable">Мейн-кун</td>
+                </tr>
+            </table>
+
+            <!-- Препараты -->
+            <div class="section-title">Препараты</div>
+            <textarea class="textarea-editable" contenteditable="true" name="Drugs" id="editableBigInput-1">
+                    Лечение: антибактериальные препараты, витамины
+                </textarea>
+            <input type="hidden" name="Drugs" value="Лечение: антибактериальные препараты, витамины" />
+            <input type="hidden" name="PetId" value="1" />
+            <button type="submit" class="section-footer-button" name="Action" value="UpdateDrugs">Изменить</button>
+
+            <!-- Лечение -->
+            <div class="section-title">Лечение</div>
+            <textarea class="textarea-editable" contenteditable="true" name="Treatments" id="editableBigInput-2">
+                    Операция по удалению опухоли
+                </textarea>
+            <input type="hidden" name="Treatments" value="Операция по удалению опухоли" />
+            <input type="hidden" name="PetId" value="1" />
+            <button type="submit" class="section-footer-button" name="Action" value="UpdateTreatments">Изменить</button>
+
+            <!-- Рекомендации -->
+            <div class="section-title">Рекомендации</div>
+            <textarea class="textarea-editable" contenteditable="true" name="Recomendations" id="editableBigInput-3">
+                    Снизить физическую активность на 2 недели
+                </textarea>
+            <input type="hidden" name="Recomendations" value="Снизить физическую активность на 2 недели" />
+            <input type="hidden" name="PetId" value="1" />
+            <button type="submit" class="section-footer-button" name="Action" value="UpdateRecomendations">Изменить</button>
+        </div>
+    </div>
+
+</form>
+
+
+@code {
+
+}
