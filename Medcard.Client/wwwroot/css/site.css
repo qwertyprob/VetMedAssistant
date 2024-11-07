@@ -178,7 +178,6 @@ body {
 
     .list .list__param {
         width: 20%;
-
         display: flex;
         flex-flow: column;
         align-items: center;
@@ -194,7 +193,6 @@ body {
 
     .list .list__line-title p:first-child, .list .list__lines p:first-child {
         width: 23%;
-
         text-align: center;
         justify-content: center;
        
@@ -302,6 +300,7 @@ body {
 
     .list__more:hover {
         background-color: rgb(32, 41, 74);
+        color:white;
     }
 
 .list__remove {

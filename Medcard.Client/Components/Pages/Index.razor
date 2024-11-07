@@ -1,0 +1,78 @@
+﻿@page "/"
+@layout Layout.MainLayout
+
+<header class="header">
+    <div class="logo">
+        <a href="/">
+            <img src="~/img/new-logo.png" alt="VetAsist">
+        </a>
+    </div>
+
+    <button id="Add" type="button" class="btn-input">Добавить</button>
+</header>
+
+<form method="POST" asp-action="Create">
+    <div id="popup" class="popup disable">
+        <div class="popup__box">
+            <input placeholder="ФИО" type="text" id="name" name="OwnerName">
+            <input placeholder="Номер телефона" type="text" id="phonenumber" name="PhoneNumber">
+            <input placeholder="Кличка" type="text" id="nick" name="PetName">
+            <input placeholder="Номер чипа" type="text" id="chip" name="ChipNumber">
+            <input placeholder="Возраст" type="text" id="age" name="Age">
+            <input placeholder="Порода" type="text" id="breed" name="Breed">
+            <button class="list__more" type="submit">Отправить</button>
+        </div>
+        <p></p>
+    </div>
+</form>
+
+<div class="search">
+    <div class="search__box search-border">
+        <input placeholder="Поиск" class="search__field__input search-border" type="search" id="search" />
+        <button class="search__field__btn search-border" type="button">Найти</button>
+    </div>
+</div>
+
+<section class="list">
+    <div class="list__wrapper shadow">
+        <div class="list__line-title">
+            <p class="number">Дата</p>
+            <p class="name">ФИО</p>
+            <p class="phone">Телефон</p>
+            <p class="nick">Кличка</p>
+            <p class="chip">Номер чипа</p>
+            <p class="age">Возраст</p>
+            <p class="breed">Порода</p>
+            <p class="heal">Параметры</p>
+        </div>
+        <div class="list__container">
+            <div class="list__lines">
+                <p class="number">1<br /><br /><br />@* @time пока что забудем о времени*@</p>
+                <p class="name">Name</p>
+                <p class="phone">PhoneNumber</p>
+                <p class="nick">Name</p>
+                <p class="chip">ChipNumber </p>
+                <p class="age">Age</p>
+                <p class="breed">Breed</p>
+                <div class="list__param">
+                    <a class="list__more">
+                        Подробнее
+                    </a>
+                    <a href="/" class="list__more">Изменить</a>
+
+                    <form asp-action="Delete" asp-controller="Medcard" method="post" class="list__remove">
+                        <input type="hidden" name="id"  />
+                        <button type="submit" onclick="alert('Вы уверены?')"
+                                style="background: none; border: none; color: white; cursor:pointer">
+                            Удалить
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
