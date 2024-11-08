@@ -22,7 +22,7 @@ html {
 
 body {
     margin: 0;
-    font-family: Consolas, monospace; /* Setting Consolas font */
+    font-family: 'Cascadia Mono', monospace; /* Setting Consolas font */
 }
 
 /**

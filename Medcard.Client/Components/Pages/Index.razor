@@ -1,17 +1,20 @@
 ﻿@page "/"
 @layout Layout.MainLayout
 
-<header class="header">
+
+<header class="header" id="header">
     <div class="logo">
         <a href="/">
-            <img src="~/img/new-logo.png" alt="VetAsist">
+            <img src="/img/big-logo.png" alt="VetAsist">
         </a>
     </div>
 
     <button id="Add" type="button" class="btn-input">Добавить</button>
 </header>
 
-<form method="POST" asp-action="Create">
+
+<form method="POST">
+
     <div id="popup" class="popup disable">
         <div class="popup__box">
             <input placeholder="ФИО" type="text" id="name" name="OwnerName">
@@ -33,6 +36,9 @@
     </div>
 </div>
 
+
+
+<!-- Main header of my table-->
 <section class="list">
     <div class="list__wrapper shadow">
         <div class="list__line-title">
@@ -45,34 +51,36 @@
             <p class="breed">Порода</p>
             <p class="heal">Параметры</p>
         </div>
-        <div class="list__container">
-            <div class="list__lines">
-                <p class="number">1<br /><br /><br />@* @time пока что забудем о времени*@</p>
-                <p class="name">Name</p>
-                <p class="phone">PhoneNumber</p>
-                <p class="nick">Name</p>
-                <p class="chip">ChipNumber </p>
-                <p class="age">Age</p>
-                <p class="breed">Breed</p>
-                <div class="list__param">
-                    <a class="list__more">
-                        Подробнее
-                    </a>
-                    <a href="/" class="list__more">Изменить</a>
-
-                    <form asp-action="Delete" asp-controller="Medcard" method="post" class="list__remove">
-                        <input type="hidden" name="id"  />
-                        <button type="submit" onclick="alert('Вы уверены?')"
-                                style="background: none; border: none; color: white; cursor:pointer">
-                            Удалить
-                        </button>
-                    </form>
+        @for (int i = 0; i < 330; i++)
+        {
+            <!-- Elastic data -->
+            <div class="list__container">
+                <div class="list__lines">
+                    <p class="number">1</p>
+                    <p class="name">Name</p>
+                    <p class="phone">PhoneNumber</p>
+                    <p class="nick">Name</p>
+                    <p class="chip">ChipNumber</p>
+                    <p class="age">Age</p>
+                    <p class="breed">Breed</p>
+                    <div class="list__param">
+                        <a class="list__more" href="/Client">Подробнее</a>
+                        <a class="list__more" href="/">Изменить</a>
+                        <form method="post" class="list__remove">
+                            <input type="hidden" name="id" />
+                            <button type="submit"
+                                    style="background: none; border: none; color: white; cursor: pointer;">
+                                Удалить
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
+        }
+       <a class="arrow" href="#header">
+        <img src="/img/arrow.png" />
+    </a>
     </div>
 </section>
-
-
 
 

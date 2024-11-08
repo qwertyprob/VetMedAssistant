@@ -86,9 +86,9 @@ body {
         }
 
 .logo, .logo img {
-    width: 24em;
-    height: 18em;
-    margin-bottom: 2px;
+    width: 12em;
+    height: 15em;
+    margin-bottom: 15px;
     
 }
 
@@ -153,6 +153,7 @@ body {
         background-color: lightblue;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
+        
     }
 
     .list .list__wrapper {
@@ -406,3 +407,19 @@ body {
     display: block;
     object-fit: contain
 }
+
+.arrow {
+    display: block;
+    position: fixed;
+    bottom: 20px; 
+    right: 20px; 
+    width: 4em;
+    height: 2em;
+    height: 2em;
+}
+
+    .arrow img {
+        width: 1em;
+        height: 1em;
+        
+    }
