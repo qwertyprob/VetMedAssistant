@@ -1,5 +1,6 @@
 ﻿body {
     font-weight: revert;
+    font-family:'Cascadia Code', monospace;
 }
 .table-container {
     width: 60%;
@@ -180,4 +181,17 @@ td {
 
     .header .btn-input-email:hover {
         background-color: whitesmoke;
+    }
+
+
+.buttons{
+    display:flex;
+    width:100%;
+    height:auto;
+    justify-content:end;
+    margin-right:24px;
+}
+
+    .buttons button {
+        margin-right: 24px;
     }

@@ -84,12 +84,15 @@ body {
         .header .btn-input:hover {
             background-color:whitesmoke;
         }
+.logo{
+    display:flex;
+}
 
+.logo-
 .logo, .logo img {
     width: 24em;
     height: 18em;
     margin-bottom: 2px;
-    
 }
 
 .search {
@@ -402,10 +405,3 @@ body {
     
 }
 
-.qrcode {
-    height: 100%;
-    width: 100%;
-    display: block;
-    object-fit: contain
-
-}

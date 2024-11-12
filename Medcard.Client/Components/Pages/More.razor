@@ -1,6 +1,25 @@
 ﻿@page "/Client"
-<Medcard.Client.Components.Layout.MoreLayout></Medcard.Client.Components.Layout.MoreLayout>
+@layout Layout.MoreLayout
 
+
+
+<header class="header" id="header">
+    <a href="/">
+    <div class="logo">
+        
+            <img src="/img/logo.png" alt="VetAsist">
+        
+        <div class="logo-string" style="margin-left:40px;margin-top:1.4em; align-items:center;">
+            <img src="/img/string.png" alt="VetAsist">
+        </div>
+        
+    </div>
+    </a>
+    <div class="buttons">
+        <button class="btn-input" id="emailButton" type="button" style="font-size:22px;">Распечатать</button>
+        <button class="btn-input" id="emailButton" type="button" style="font-size:20px;">Email</button>
+    </div>
+</header>
 <form method="POST">
     <input type="hidden" name="Id" value="1" />
 

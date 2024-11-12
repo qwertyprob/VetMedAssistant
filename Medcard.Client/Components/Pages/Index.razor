@@ -2,30 +2,22 @@
 @using Medcard.DbAccessLayer.Interfaces
 @layout Layout.MainLayout
 @inject IMedcardRepository<OwnerDto> repo
+@inject IJSRuntime JSRuntime
+@attribute [StreamRendering(true)]
 
 <header class="header" id="header">
     <div class="logo">
         <a href="/">
-            <img src="/img/big-logo.png" alt="VetAsist">
+            <img src="/img/logo.png" alt="VetAsist">
         </a>
     </div>
-
-    <button id="Add" type="button" class="btn-input">Добавить</button>
+    <div class="logo-string">
+        <img src="/img/string.png" alt="VetAsist">
+    </div>
+    <button id="Add" type="button" class="btn-input" onclick="submitForm()">Добавить</button>
 </header>
 
-<form method="POST">
-    <div id="popup" class="popup disable">
-        <div class="popup__box">
-            <input placeholder="ФИО" type="text" id="name" name="OwnerName">
-            <input placeholder="Номер телефона" type="text" id="phonenumber" name="PhoneNumber">
-            <input placeholder="Кличка" type="text" id="nick" name="PetName">
-            <input placeholder="Номер чипа" type="text" id="chip" name="ChipNumber">
-            <input placeholder="Возраст" type="text" id="age" name="Age">
-            <input placeholder="Порода" type="text" id="breed" name="Breed">
-            <button class="list__more" type="submit">Отправить</button>
-        </div>
-    </div>
-</form>
+<PopupComponent></PopupComponent>
 
 <div class="search">
     <div class="search__box search-border">
@@ -34,7 +26,19 @@
     </div>
 </div>
 
-@if (medcardList != null && medcardList.Any())
+@if (medcardList == null)
+{
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+}
+else if (medcardList.Count == 0)
+{
+    <h1 style="text-align: center; font-size: 8em; padding: 125px;">
+        Карточек не найдено..
+    </h1>
+}
+else
 {
     <section class="list">
         <div class="list__wrapper shadow">
@@ -61,23 +65,19 @@
                             string formattedDate = localDateCreate.ToString("dd/MM/yyyy", russianCulture);
                         }
 
-                        <p class="number">@dayOfWeek<br /><br />@formattedDate<br />@* @time пока что забудем о времени*@</p>
-
+                        <p class="number">@dayOfWeek<br /><br />@formattedDate</p>
                         <p class="name">@owner.Name</p>
                         <p class="phone">@owner.PhoneNumber</p>
                         @foreach (var pet in owner.PetsDtos)
                         {
                             <p class="nick">@pet.Name</p>
-                            <p class="chip">@pet.ChipNumber </p>
+                            <p class="chip">@pet.ChipNumber</p>
                             <p class="age">@pet.Age</p>
                             <p class="breed">@pet.Breed</p>
                         }
                         <div class="list__param">
-                            <a class="list__more" href="/Client">
-                                Подробнее
-                            </a>
+                            <a class="list__more" href="/Client">Подробнее</a>
                             <a href="" class="list__more">Изменить</a>
-
                             <form asp-action="Delete" asp-controller="Medcard" method="post" class="list__remove">
                                 <input type="hidden" name="id" value="@owner.Id" />
                                 <button type="submit" onclick="alert('Вы уверены?')"
@@ -92,34 +92,14 @@
         </div>
     </section>
 }
-else
-{
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <h1 style="text-align: center;
-                font-size: 3.4em;
-                padding: 125px;">
-        Похоже на то, что все ваши карточки пропали.. Или вы еще не начали их вести! Нажмите кнопку Добавить в правом верхнем углу!
-    </h1>
-}
-
-
-
 @code {
-    private IReadOnlyCollection<OwnerDto> medcardList { get; set; } = new List<OwnerDto>();
+    private IReadOnlyCollection<OwnerDto> medcardList { get; set; } = null;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
+            await Task.Delay(1000);
             medcardList = await GetAllAsync();
         }
         catch (Exception ex)
@@ -132,4 +112,6 @@ else
     {
         return await repo.GetAllAsync();
     }
+
+    
 }
