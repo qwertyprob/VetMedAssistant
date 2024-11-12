@@ -1,7 +1,7 @@
 ﻿@page "/Client"
 <Medcard.Client.Components.Layout.MoreLayout></Medcard.Client.Components.Layout.MoreLayout>
 
-<form method="POST" action="/update-drugs-and-treatments">
+<form method="POST">
     <input type="hidden" name="Id" value="1" />
 
     <div class="list-more">
@@ -34,7 +34,7 @@
                 </textarea>
             <input type="hidden" name="Drugs" value="Лечение: антибактериальные препараты, витамины" />
             <input type="hidden" name="PetId" value="1" />
-            <button type="submit" class="section-footer-button" name="Action" value="UpdateDrugs">Изменить</button>
+            <button type="submit" class="section-footer-button">Изменить</button>
 
             <!-- Лечение -->
             <div class="section-title">Лечение</div>
@@ -43,7 +43,7 @@
                 </textarea>
             <input type="hidden" name="Treatments" value="Операция по удалению опухоли" />
             <input type="hidden" name="PetId" value="1" />
-            <button type="submit" class="section-footer-button" name="Action" value="UpdateTreatments">Изменить</button>
+            <button type="submit" class="section-footer-button">Изменить</button>
 
             <!-- Рекомендации -->
             <div class="section-title">Рекомендации</div>
@@ -52,7 +52,7 @@
                 </textarea>
             <input type="hidden" name="Recomendations" value="Снизить физическую активность на 2 недели" />
             <input type="hidden" name="PetId" value="1" />
-            <button type="submit" class="section-footer-button" name="Action" value="UpdateRecomendations">Изменить</button>
+            <button type="submit" class="section-footer-button" >Изменить</button>
         </div>
     </div>
 

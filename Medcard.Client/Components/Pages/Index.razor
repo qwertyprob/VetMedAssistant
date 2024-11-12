@@ -1,6 +1,7 @@
 ﻿@page "/"
+@using Medcard.DbAccessLayer.Interfaces
 @layout Layout.MainLayout
-
+@inject IMedcardRepository<OwnerDto> repo
 
 <header class="header" id="header">
     <div class="logo">
@@ -12,9 +13,7 @@
     <button id="Add" type="button" class="btn-input">Добавить</button>
 </header>
 
-
 <form method="POST">
-
     <div id="popup" class="popup disable">
         <div class="popup__box">
             <input placeholder="ФИО" type="text" id="name" name="OwnerName">
@@ -25,7 +24,6 @@
             <input placeholder="Порода" type="text" id="breed" name="Breed">
             <button class="list__more" type="submit">Отправить</button>
         </div>
-        <p></p>
     </div>
 </form>
 
@@ -36,51 +34,102 @@
     </div>
 </div>
 
+@if (medcardList != null && medcardList.Any())
+{
+    <section class="list">
+        <div class="list__wrapper shadow">
+            <div class="list__line-title">
+                <p class="number">Дата</p>
+                <p class="name">ФИО</p>
+                <p class="phone">Телефон</p>
+                <p class="nick">Кличка</p>
+                <p class="chip">Номер чипа</p>
+                <p class="age">Возраст</p>
+                <p class="breed">Порода</p>
+                <p class="heal" id="no-border">Параметры</p>
+            </div>
+            @foreach (var owner in medcardList)
+            {
+                <div class="list__container">
+                    <div class="list__lines">
+                        @{
+                            System.Globalization.CultureInfo russianCulture = new System.Globalization.CultureInfo("ru-RU");
+                            DateTime localDateCreate = owner.DateCreate.ToLocalTime();
+                            string dayOfWeek = localDateCreate.ToString("dddd", russianCulture);
+                            string time = localDateCreate.ToString("HH:mm", russianCulture);
+                            dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
+                            string formattedDate = localDateCreate.ToString("dd/MM/yyyy", russianCulture);
+                        }
 
+                        <p class="number">@dayOfWeek<br /><br />@formattedDate<br />@* @time пока что забудем о времени*@</p>
 
-<!-- Main header of my table-->
-<section class="list">
-    <div class="list__wrapper shadow">
-        <div class="list__line-title">
-            <p class="number">Дата</p>
-            <p class="name">ФИО</p>
-            <p class="phone">Телефон</p>
-            <p class="nick">Кличка</p>
-            <p class="chip">Номер чипа</p>
-            <p class="age">Возраст</p>
-            <p class="breed">Порода</p>
-            <p class="heal">Параметры</p>
-        </div>
-        @for (int i = 0; i < 330; i++)
-        {
-            <!-- Elastic data -->
-            <div class="list__container">
-                <div class="list__lines">
-                    <p class="number">1</p>
-                    <p class="name">Name</p>
-                    <p class="phone">PhoneNumber</p>
-                    <p class="nick">Name</p>
-                    <p class="chip">ChipNumber</p>
-                    <p class="age">Age</p>
-                    <p class="breed">Breed</p>
-                    <div class="list__param">
-                        <a class="list__more" href="/Client">Подробнее</a>
-                        <a class="list__more" href="/">Изменить</a>
-                        <form method="post" class="list__remove">
-                            <input type="hidden" name="id" />
-                            <button type="submit"
-                                    style="background: none; border: none; color: white; cursor: pointer;">
-                                Удалить
-                            </button>
-                        </form>
+                        <p class="name">@owner.Name</p>
+                        <p class="phone">@owner.PhoneNumber</p>
+                        @foreach (var pet in owner.PetsDtos)
+                        {
+                            <p class="nick">@pet.Name</p>
+                            <p class="chip">@pet.ChipNumber </p>
+                            <p class="age">@pet.Age</p>
+                            <p class="breed">@pet.Breed</p>
+                        }
+                        <div class="list__param">
+                            <a class="list__more" href="/Client">
+                                Подробнее
+                            </a>
+                            <a href="" class="list__more">Изменить</a>
+
+                            <form asp-action="Delete" asp-controller="Medcard" method="post" class="list__remove">
+                                <input type="hidden" name="id" value="@owner.Id" />
+                                <button type="submit" onclick="alert('Вы уверены?')"
+                                        style="background: none; border: none; color: white; cursor:pointer">
+                                    Удалить
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+            }
+        </div>
+    </section>
+}
+else
+{
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 style="text-align: center;
+                font-size: 3.4em;
+                padding: 125px;">
+        Похоже на то, что все ваши карточки пропали.. Или вы еще не начали их вести! Нажмите кнопку Добавить в правом верхнем углу!
+    </h1>
+}
+
+
+
+@code {
+    private IReadOnlyCollection<OwnerDto> medcardList { get; set; } = new List<OwnerDto>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            medcardList = await GetAllAsync();
         }
-       <a class="arrow" href="#header">
-        <img src="/img/arrow.png" />
-    </a>
-    </div>
-</section>
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error fetching data: {ex.Message}");
+        }
+    }
 
-
+    private async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
+    {
+        return await repo.GetAllAsync();
+    }
+}

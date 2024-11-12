@@ -12,6 +12,7 @@ body {
     height: auto;
     font-size: 10px;
     transition: all ease-in-out .3s;
+    
 }
 
 .header {
@@ -82,7 +83,7 @@ body {
     }
 
         .header .btn-input:hover {
-            background-color:whitesmoke;
+            background-color:lightcyan;
         }
 
 .logo, .logo img {
@@ -146,18 +147,24 @@ body {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 1.4rem;
+    height:80%;
+    
 }
 
     .list .list__line-title {
         background-color: lightblue;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
+        color: darkslategrey;
+        font-size: 1.6rem;
         
     }
+    
 
     .list .list__wrapper {
-        width: 80%;
+        width: 90%;
         min-height: 750px;
         border-radius: 10px;
     }
@@ -165,17 +172,23 @@ body {
     .list .list__lines, .list__line-title {
         display: flex;
         width: 100%;
-        padding: 12px;
+        padding: 10px;
         justify-content: space-between;
-        border-bottom: 1px solid grey;
+        border-bottom: 1px solid lightblue;
     }
-
+    
         .list .list__line-title p, .list .list__lines p {
             width: 20%;
             padding: 10px;
             text-align: center;
-            border-right: 1px solid black;
+            border-right: 1px solid lightblue;
         }
+        
+
+            .list__line-title #no-border {
+                border-right: none;
+            }
+
 
     .list .list__param {
         width: 20%;
@@ -183,7 +196,8 @@ body {
         flex-flow: column;
         align-items: center;
         justify-content: center;
-        gap: 12px;
+        gap: 15px;
+        
     }
 
         .list .list__param div {
@@ -193,24 +207,13 @@ body {
         }
 
     .list .list__line-title p:first-child, .list .list__lines p:first-child {
-        width: 23%;
+        width: 20%;
         text-align: center;
         justify-content: center;
        
     }
 
-.list-dark > * {
-    color: rgb(0, 0, 0);
-    background-color: #aacacf;
-    transition: all ease-in-out .3s;
-}
 
-.list-dark .list__line-title > p, .list-dark .list__lines > p {
-    border-bottom-color: #fff;
-    border-right-color: #fff;
-    border-top-color: #fff;
-    border-left-color: #fff;
-}
 /* template-more */
 
 .card {
@@ -294,14 +297,16 @@ body {
     padding: 10px;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     text-align: center;
+    text-decoration: none;
 }
 
     .list__more:hover {
         background-color: rgb(32, 41, 74);
-        color:white;
+        text-decoration: none;
+        color: white;
     }
 
 .list__remove {
@@ -313,7 +318,7 @@ body {
     padding: 10px;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     text-align: center;
 }
@@ -409,14 +414,18 @@ body {
 }
 
 .arrow {
-    display: block;
+    display: flex;
     position: fixed;
-    bottom: 20px; 
-    right: 20px; 
+    bottom: 20px;
+    right: 0px;
     width: 4em;
     height: 2em;
     height: 2em;
+    justify-content: center;
+    align-items:center;
 }
+
+
 
     .arrow img {
         width: 1em;

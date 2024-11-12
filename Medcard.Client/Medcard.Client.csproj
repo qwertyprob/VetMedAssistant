@@ -10,4 +10,9 @@
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Medcard.DbAccessLayer\Medcard.DbAccessLayer.csproj" />
+    <ProjectReference Include="..\Medcard.Mvc\Medcard.Mvc.csproj" />
+  </ItemGroup>
+
 </Project>

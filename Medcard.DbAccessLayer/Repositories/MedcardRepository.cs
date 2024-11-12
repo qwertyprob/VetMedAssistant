@@ -16,7 +16,7 @@ namespace Medcard.DbAccessLayer
 {
 
 
-    public class MedcardRepository : IMedcardRepository
+    public class MedcardRepository : IMedcardRepository<OwnerDto>
     {
         private readonly AppDbContext _dbcontext;
         private readonly IMapper _mapper;
