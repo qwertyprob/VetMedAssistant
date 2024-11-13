@@ -362,3 +362,44 @@ body {
         height: 1em;
         
     }
+
+
+/* Основные стили остаются такими, как есть */
+
+/* Медиа-запросы для мобильных устройств */
+@media (max-width: 768px) {
+    /* Измените стили для телефона здесь */
+
+    .header {
+        flex-direction: column; /* Сделать элементы в столбик */
+        align-items: center; /* Центрировать элементы */
+        padding: 10px;
+    }
+
+    .btn-input {
+        width: 100%; /* Занять всю ширину */
+        font-size: 1.4rem; /* Уменьшить размер шрифта */
+        height: 3rem; /* Уменьшить высоту */
+    }
+
+    .popup .popup__box {
+        width: 90%; /* Сделать popup шире */
+        padding: 20px; /* Уменьшить внутренние отступы */
+    }
+
+    .logo img {
+        width: 7em; /* Уменьшить размер логотипа */
+        height: 7em;
+    }
+
+    .list__more,
+    .list__remove,
+    .list__more__edit {
+        width: 100%; /* Сделать кнопки шире */
+        font-size: 16px; /* Уменьшить размер шрифта */
+    }
+
+    .list .list__wrapper {
+        min-height: 500px; /* Уменьшить минимальную высоту списка */
+    }
+}

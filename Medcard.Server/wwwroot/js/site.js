@@ -79,21 +79,7 @@ window.addEventListener('load', () => {
     }
 
 
-    const checkbox = document.getElementById("checkbox")
-    checkbox.addEventListener("change", () => {
-        const l = document.querySelector('.list');
-        const mTitle = document.querySelector('.main__title');
-        const m = document.querySelector('.main');
-        if (popup) {
-            const p = popup.querySelector(".popup__box");
-            p?.classList.toggle('dark-popup');
-        }
-        l?.classList.toggle('list-dark');
-        list?.classList.toggle('shadow');
-        document.body.classList.toggle("dark");
-        m?.classList.toggle('shadow');
-        mTitle?.classList.toggle('dark_white');
-    })
+    
 
 
     // кнопка изменения

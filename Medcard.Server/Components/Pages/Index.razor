@@ -3,6 +3,7 @@
 @layout Layout.MainLayout
 @inject IMedcardRepository<OwnerDto> repo
 @inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
 @attribute [StreamRendering(true)]
 
 <header class="header" id="header">
@@ -14,10 +15,11 @@
     <div class="logo-string">
         <img src="/img/string.png" alt="VetAsist">
     </div>
-    <button id="Add" type="button" class="btn-input" onclick="submitForm()">Добавить</button>
+   
+    <button id="Add" type="button" class="btn-input" @onclick="OpenPopup">Добавить</button>
 </header>
 
-<PopupComponent></PopupComponent>
+<PopupComponent OnPopupClosed="UpdateMedcardList"></PopupComponent>
 
 <div class="search">
     <div class="search__box search-border">
@@ -92,15 +94,20 @@ else
         </div>
     </section>
 }
+
 @code {
     private IReadOnlyCollection<OwnerDto> medcardList { get; set; } = null;
+    private OwnerDto medcardAdd { get; set; } = new();
+
+
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
             await Task.Delay(1000);
-            medcardList = await GetAllAsync();
+            medcardList = await repo.GetAllAsync();
+            StateHasChanged();
         }
         catch (Exception ex)
         {
@@ -108,10 +115,24 @@ else
         }
     }
 
-    private async Task<IReadOnlyCollection<OwnerDto>> GetAllAsync()
+
+    async Task UpdateMedcardList()
     {
-        return await repo.GetAllAsync();
+        medcardList = await repo.GetAllAsync();
+        StateHasChanged();
     }
 
-    
+
+    void OpenPopup()
+    {
+        JSRuntime.InvokeVoidAsync("openPopup");
+        StateHasChanged();
+    }
+
+    async Task ReloadPage()
+    {
+        await JSRuntime.InvokeVoidAsync("location.reload");
+    }
+
+
 }

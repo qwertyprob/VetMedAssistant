@@ -1,0 +1,54 @@
+﻿@using Medcard.DbAccessLayer.Interfaces
+
+@attribute [StreamRendering(true)]
+
+<EditForm Model="@medcardFormModel" OnValidSubmit="HandleSubmit" FormName="CreateForm">
+    <ValidationSummary />
+
+    <div id="popup" class="popup disable">
+        <div class="popup__box">
+            <input placeholder="ФИО" type="text" id="name" @bind="medcardFormModel.OwnerName" />
+            <input placeholder="Номер телефона" type="text" id="phonenumber" @bind="medcardFormModel.PhoneNumber" />
+            <input placeholder="Кличка" type="text" id="nick" @bind="medcardFormModel.PetName" />
+            <input placeholder="Номер чипа" type="text" id="chip" @bind="medcardFormModel.ChipNumber" />
+            <input placeholder="Возраст" type="text" id="age" @bind="medcardFormModel.Age" />
+            <input placeholder="Порода" type="text" id="breed" @bind="medcardFormModel.Breed" />
+
+            <button class="list__more" type="submit">Отправить</button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public EventCallback OnPopupClosed { get; set; }
+    [Inject]
+    private IMedcardRepository<OwnerDto> repo { get; set; }
+   
+    private MedcardViewModel medcardFormModel { get; set; } = new();
+
+    private async Task HandleSubmit()
+    { 
+        try
+        {
+            // Map the simpler model to your complex view model
+            var medcardViewModel = new MedcardViewModel
+                {
+                    OwnerName = medcardFormModel.OwnerName,
+                    PhoneNumber = medcardFormModel.PhoneNumber,
+                    PetName = medcardFormModel.PetName,
+                    ChipNumber = medcardFormModel.ChipNumber,
+                    Age = medcardFormModel.Age,
+                    Breed = medcardFormModel.Breed
+                };
+
+            // Call the repository method
+            await repo.CreateAsync(medcardViewModel);
+
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions, log errors, etc.
+            Console.WriteLine(ex.Message);
+        }
+    }
+}
