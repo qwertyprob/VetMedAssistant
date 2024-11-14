@@ -80,6 +80,7 @@ body {
         border: solid lightblue 1px;
         font-size: 1.6rem;
         transition: all ease .3s;
+
         
     }
 
@@ -377,6 +378,7 @@ body {
     }
 
     .btn-input {
+        z-index: 100;
         width: 100%; /* Занять всю ширину */
         font-size: 1.4rem; /* Уменьшить размер шрифта */
         height: 3rem; /* Уменьшить высоту */

@@ -2,32 +2,48 @@
 
 @attribute [StreamRendering(true)]
 
-<EditForm Model="@medcardFormModel" OnValidSubmit="HandleSubmit" FormName="CreateForm">
-    <ValidationSummary />
+@if (ShowPopup)
+{
+    <EditForm Model="@medcardFormModel" OnValidSubmit="HandleSubmit" FormName="CreateForm">
+        <ValidationSummary />
 
-    <div id="popup" class="popup disable">
-        <div class="popup__box">
-            <input placeholder="ФИО" type="text" id="name" @bind="medcardFormModel.OwnerName" />
-            <input placeholder="Номер телефона" type="text" id="phonenumber" @bind="medcardFormModel.PhoneNumber" />
-            <input placeholder="Кличка" type="text" id="nick" @bind="medcardFormModel.PetName" />
-            <input placeholder="Номер чипа" type="text" id="chip" @bind="medcardFormModel.ChipNumber" />
-            <input placeholder="Возраст" type="text" id="age" @bind="medcardFormModel.Age" />
-            <input placeholder="Порода" type="text" id="breed" @bind="medcardFormModel.Breed" />
+        <div id="popup" class="popup">
+            <div class="popup__box">
+                <input placeholder="ФИО" type="text" id="name" @bind="medcardFormModel.OwnerName" />
+                <input placeholder="Номер телефона" type="text" id="phonenumber" @bind="medcardFormModel.PhoneNumber" />
+                <input placeholder="Кличка" type="text" id="nick" @bind="medcardFormModel.PetName" />
+                <input placeholder="Номер чипа" type="text" id="chip" @bind="medcardFormModel.ChipNumber" />
+                <input placeholder="Возраст" type="text" id="age" @bind="medcardFormModel.Age" />
+                <input placeholder="Порода" type="text" id="breed" @bind="medcardFormModel.Breed" />
 
-            <button class="list__more" type="submit">Отправить</button>
+                <button class="list__more" type="submit" @onclick="HandleSubmit">Отправить</button>
+            </div>
         </div>
-    </div>
-</EditForm>
-
+    </EditForm>
+}
 @code {
-    [Parameter] public EventCallback OnPopupClosed { get; set; }
+
     [Inject]
     private IMedcardRepository<OwnerDto> repo { get; set; }
-   
+
+    [Parameter] public EventCallback OnCreateOwner { get; set; }
+
     private MedcardViewModel medcardFormModel { get; set; } = new();
 
+    //Popup
+
+    bool ShowPopup = false;
+
+
+    void ClosePopup()
+    {
+        ShowPopup = false;
+    }
+
+
     private async Task HandleSubmit()
-    { 
+    {
+        ShowPopup = true;
         try
         {
             // Map the simpler model to your complex view model
@@ -43,12 +59,17 @@
 
             // Call the repository method
             await repo.CreateAsync(medcardViewModel);
+            StateHasChanged();
+            ClosePopup();
 
+            
         }
         catch (Exception ex)
         {
             // Handle exceptions, log errors, etc.
             Console.WriteLine(ex.Message);
         }
+
+
     }
 }

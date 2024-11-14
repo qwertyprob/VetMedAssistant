@@ -4,7 +4,9 @@
 @inject IMedcardRepository<OwnerDto> repo
 @inject IJSRuntime JSRuntime
 @inject NavigationManager NavigationManager
-@attribute [StreamRendering(true)]
+
+
+@rendermode InteractiveServer
 
 <header class="header" id="header">
     <div class="logo">
@@ -19,12 +21,27 @@
     <button id="Add" type="button" class="btn-input" @onclick="OpenPopup">Добавить</button>
 </header>
 
-<PopupComponent OnPopupClosed="UpdateMedcardList"></PopupComponent>
+@if(ShowPopup){
+    <form>
+        <div id="popup" class="popup">
+            <div class="popup__box">
+                <input placeholder="ФИО" type="text" id="name"  />
+                <input placeholder="Номер телефона" type="text" id="phonenumber"  />
+                <input placeholder="Кличка" type="text" id="nick" />
+                <input placeholder="Номер чипа" type="text" id="chip"  />
+                <input placeholder="Возраст" type="text" id="age"  />
+                <input placeholder="Порода" type="text" id="breed" />
+
+                <button class="list__more" @onclick="HandleSubmit">Отправить</button>
+            </div>
+        </div>
+    </form>
+}
 
 <div class="search">
     <div class="search__box search-border">
         <input placeholder="Поиск" class="search__field__input search-border" type="search" id="search" />
-        <button class="search__field__btn search-border" type="button">Найти</button>
+        <button class="search__field__btn search-border" type="button" >Найти</button>
     </div>
 </div>
 
@@ -40,7 +57,7 @@ else if (medcardList.Count == 0)
         Карточек не найдено..
     </h1>
 }
-else
+ else
 {
     <section class="list">
         <div class="list__wrapper shadow">
@@ -95,9 +112,11 @@ else
     </section>
 }
 
+
 @code {
     private IReadOnlyCollection<OwnerDto> medcardList { get; set; } = null;
     private OwnerDto medcardAdd { get; set; } = new();
+    private MedcardViewModel medcardFormModel { get; set; } = new();
 
 
 
@@ -116,23 +135,55 @@ else
     }
 
 
-    async Task UpdateMedcardList()
+    //Popup 
+
+    bool ShowPopup = false; 
+
+
+    void ClosePopup()
     {
-        medcardList = await repo.GetAllAsync();
-        StateHasChanged();
+        ShowPopup = false;
     }
 
 
     void OpenPopup()
     {
-        JSRuntime.InvokeVoidAsync("openPopup");
-        StateHasChanged();
+        
+        ShowPopup = true;
+        
     }
 
-    async Task ReloadPage()
+    private async Task HandleSubmit()
     {
-        await JSRuntime.InvokeVoidAsync("location.reload");
+        
+        try
+        {
+            // Map the simpler model to your complex view model
+            var medcardViewModel = new MedcardViewModel
+                {
+                    OwnerName = medcardFormModel.OwnerName,
+                    PhoneNumber = medcardFormModel.PhoneNumber,
+                    PetName = medcardFormModel.PetName,
+                    ChipNumber = medcardFormModel.ChipNumber,
+                    Age = medcardFormModel.Age,
+                    Breed = medcardFormModel.Breed
+                };
+
+            // Call the repository method
+            await repo.CreateAsync(medcardViewModel);
+            ClosePopup();
+
+
+        }
+        catch (Exception ex)
+        {
+            // Handle exceptions, log errors, etc.
+            Console.WriteLine(ex.Message);
+        }
+
+
     }
+   
 
 
 }
