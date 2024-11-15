@@ -7,13 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.DbAccessLayer", "Me
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F7F8E2F8-7858-4E70-A1AA-D8B5145D6073}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Client", "Medcard.Client\Medcard.Client.csproj", "{52D7467D-3FB5-4CC1-BBDF-9653C2F66C5A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Server", "Medcard.Server\Medcard.Server.csproj", "{2667F800-DCBE-4936-A38C-1C3CA772B5EF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Bl", "Medcard.Bl\Medcard.Bl.csproj", "{9548F37A-5F21-460A-83E5-06B5FE0D0CF5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Mvc", "Medcard.Mvc\Medcard.Mvc.csproj", "{0343B010-67C7-408E-892A-2A9B123A627B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Client", "Medcard.Client\Medcard.Client.csproj", "{D2567B03-C49B-4AD9-B974-56B1E72DC033}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,10 +23,6 @@ Global
 		{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7706FA7A-E1C7-4D9D-B68F-AA59BA63BFD8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52D7467D-3FB5-4CC1-BBDF-9653C2F66C5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52D7467D-3FB5-4CC1-BBDF-9653C2F66C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52D7467D-3FB5-4CC1-BBDF-9653C2F66C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52D7467D-3FB5-4CC1-BBDF-9653C2F66C5A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2667F800-DCBE-4936-A38C-1C3CA772B5EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2667F800-DCBE-4936-A38C-1C3CA772B5EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2667F800-DCBE-4936-A38C-1C3CA772B5EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,10 +31,10 @@ Global
 		{9548F37A-5F21-460A-83E5-06B5FE0D0CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9548F37A-5F21-460A-83E5-06B5FE0D0CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9548F37A-5F21-460A-83E5-06B5FE0D0CF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0343B010-67C7-408E-892A-2A9B123A627B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0343B010-67C7-408E-892A-2A9B123A627B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0343B010-67C7-408E-892A-2A9B123A627B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0343B010-67C7-408E-892A-2A9B123A627B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2567B03-C49B-4AD9-B974-56B1E72DC033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2567B03-C49B-4AD9-B974-56B1E72DC033}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2567B03-C49B-4AD9-B974-56B1E72DC033}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2567B03-C49B-4AD9-B974-56B1E72DC033}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

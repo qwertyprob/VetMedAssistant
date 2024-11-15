@@ -1,20 +1,21 @@
-﻿@page "/Client"
-@attribute [StreamRendering(true)]
+﻿@page "/Client/{Id:guid}"
+@inject IMedcardService medcardContext
+
 @rendermode InteractiveAuto
 
 <MoreLayout></MoreLayout>
 
 <header class="header" id="header">
     <a href="/">
-    <div class="logo">
-        
+        <div class="logo">
+
             <img src="/img/logo.png" alt="VetAsist">
-        
-        <div class="logo-string" style="margin-left:40px;margin-top:1.4em; align-items:center;">
-            <img src="/img/string.png" alt="VetAsist">
+
+            <div class="logo-string" style="margin-left:40px;margin-top:1.4em; align-items:center;">
+                <img src="/img/string.png" alt="VetAsist">
+            </div>
+
         </div>
-        
-    </div>
     </a>
     <div class="buttons">
         <button class="btn-input" id="emailButton" type="button" style="font-size:22px;">Распечатать</button>
@@ -22,64 +23,111 @@
     </div>
 </header>
 
-<form method="POST">
-    <input type="hidden" name="Id" value="1" />
 
-    <div class="list-more">
-        <div class="table-container">
-            <table>
-                <tr>
-                    <td class="info-section">ФИО:</td>
-                    <td class="info-value editable">Иван Иванов</td>
-                    <td class="info-section">Телефон:</td>
-                    <td class="info-value editable">+1234567890</td>
-                </tr>
-                <tr>
-                    <td class="info-section">Кличка:</td>
-                    <td class="info-value editable">Барсик</td>
-                    <td class="info-section">Чип:</td>
-                    <td class="info-value editable">123456789012345</td>
-                </tr>
-                <tr>
-                    <td class="info-section">Возраст:</td>
-                    <td class="info-value editable">3 года</td>
-                    <td class="info-section">Порода:</td>
-                    <td class="info-value editable">Мейн-кун</td>
-                </tr>
-            </table>
+@if (medcardModel is null)
+{
 
-            <!-- Препараты -->
-            <div class="section-title">Препараты</div>
-            <textarea class="textarea-editable" contenteditable="true" name="Drugs" id="editableBigInput-1">
-                    Лечение: антибактериальные препараты, витамины
-                </textarea>
-            <input type="hidden" name="Drugs" value="Лечение: антибактериальные препараты, витамины" />
-            <input type="hidden" name="PetId" value="1" />
-            <button type="submit" class="section-footer-button">Изменить</button>
-
-            <!-- Лечение -->
-            <div class="section-title">Лечение</div>
-            <textarea class="textarea-editable" contenteditable="true" name="Treatments" id="editableBigInput-2">
-                    Операция по удалению опухоли
-                </textarea>
-            <input type="hidden" name="Treatments" value="Операция по удалению опухоли" />
-            <input type="hidden" name="PetId" value="1" />
-            <button type="submit" class="section-footer-button">Изменить</button>
-
-            <!-- Рекомендации -->
-            <div class="section-title">Рекомендации</div>
-            <textarea class="textarea-editable" contenteditable="true" name="Recomendations" id="editableBigInput-3">
-                    Снизить физическую активность на 2 недели
-                </textarea>
-            <input type="hidden" name="Recomendations" value="Снизить физическую активность на 2 недели" />
-            <input type="hidden" name="PetId" value="1" />
-            <button type="submit" class="section-footer-button" >Изменить</button>
-        </div>
+    <div class="loader-container">
+        <div class="loader"></div>
     </div>
 
-</form>
+}
+else
+{
+    <div class="list-more">
+        <div class="table-container">
+            @foreach (var pet in medcardModel.Pets)
+            {
+                <table>
+                    <tr>
+                        <td class="info-section">ФИО:</td>
+                        <td class="info-value editable">@medcardModel.Name</td>
+                        <td class="info-section">Телефон:</td>
+                        <td class="info-value editable">@medcardModel.PhoneNumber</td>
+                    </tr>
+                    <tr>
+                        <td class="info-section">Кличка:</td>
+                        <td class="info-value editable">@pet.Name</td>
+                        <td class="info-section">Чип:</td>
+                        <td class="info-value editable">@pet.ChipNumber</td>
+                    </tr>
+                    <tr>
+                        <td class="info-section">Возраст:</td>
+                        <td class="info-value editable">@pet.Age</td>
+                        <td class="info-section">Порода:</td>
+                        <td class="info-value editable">@pet.Breed</td>
+                    </tr>
+                </table>
+                @foreach (var drugs in pet.Drugs)
+                {
 
+                    <!-- Препараты -->
+                    <div class="section-title">Препараты</div>
+                    <textarea class="textarea-editable" contenteditable="true" @bind="drugs.Description" id="editableBigInput-1">
+
+                                                        </textarea>
+                    <button class="section-footer-button" @onclick="() => DrugsAdd(pet.Id,drugs.Description)">Изменить</button>
+                }
+
+                <!-- Лечение -->
+                <div class="section-title">Лечение</div>
+                <textarea class="textarea-editable" contenteditable="true" name="Treatments" id="editableBigInput-2">
+                    @foreach (var treatment in pet.Treatments)
+                    {
+                        @treatment.Description
+                    } 
+                                            </textarea>
+                <button class="section-footer-button">Изменить</button>
+
+                <!-- Рекомендации -->
+                <div class="section-title">Рекомендации</div>
+                <textarea class="textarea-editable" contenteditable="true" name="Recomendations" id="editableBigInput-3">
+                    @foreach (var rec in pet.Recomendations)
+                    {
+                        @rec.Description
+                    } 
+                                            </textarea>
+                <button class="section-footer-button">Изменить</button>
+            }
+        </div>
+    </div>
+    
+}
+@if (showSuccessAlert)
+{
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+}
 
 @code {
+    [Parameter]
+    public Guid Id { get; set; }
+
+    bool showSuccessAlert = false;
+    OwnerModel medcardModel { get; set; } = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1000);
+        await GetClientById();
+
+
+
+    }
+
+    private async Task GetClientById()
+    {
+        medcardModel = await medcardContext.GetByIdAsync(Id);
+        StateHasChanged();
+    }
+
+    private async Task DrugsAdd(Guid id, string drugs)
+    {
+        await medcardContext.UpdateDrugsAsync(id, drugs);
+        showSuccessAlert = true;
+        StateHasChanged();
+    }
+    
 
 }
