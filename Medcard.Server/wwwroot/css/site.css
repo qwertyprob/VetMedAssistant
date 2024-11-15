@@ -46,6 +46,7 @@ body {
     margin: 0 auto;
     min-height: 400px;
     width: 30%;
+    height: 46%;
     background: white;
     border-radius: 10px;
     display: flex;
@@ -262,6 +263,26 @@ body {
     cursor: pointer;
     text-align: center;
     text-decoration: none;
+}
+
+.list__send {
+    display: flex;
+    border-radius: 6px;
+    width: auto;
+    height: auto;
+    background-color: lightblue;
+    color: white;
+    border: none;
+    padding: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    align-items: center;
+    justify-content:center;
+}
+.list__send:hover {
+    background-color: rgb(32, 41, 74);
+    text-decoration: none;
+    color: white;
 }
 
     #submit {

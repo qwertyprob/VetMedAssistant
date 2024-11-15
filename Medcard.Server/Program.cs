@@ -5,9 +5,9 @@ using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Mapping;
 using Medcard.DbAccessLayer.Repositories;
-using Medcard.Mvc.Abstractions;
-using Medcard.Mvc.Mapping;
-using Medcard.Mvc.Services;
+using Medcard.Bl.Abstraction;
+using Medcard.Bl.Mapping;
+using Medcard.Bl.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -21,11 +21,12 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();// Server-side components
 
 
-builder.Services.AddScoped<IMedcardRepository<OwnerDto>, MedcardRepository>();
-builder.Services.AddScoped<IAuthRepository, AuthRepository>();
+builder.Services.AddScoped<IMedcardRepository, MedcardRepository>();
+builder.Services.AddScoped<IMedcardService, MedcardService>();
+
 builder.Services.AddScoped<ISearchRepository, SearchRepository>();
-builder.Services.AddSingleton<IHostingServiceMvc, HostingServiceMvc>();
-builder.Services.AddSingleton<IEncrypt, Encrypt>();
+builder.Services.AddScoped<ISearchService, SearchService>();
+
 
 // Add distributed memory cache
 builder.Services.AddDistributedMemoryCache();
@@ -45,7 +46,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     });
 
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddAutoMapper(typeof(Medcard.Bl.Mapping.MappingProfileBlazor));
 
 // Connect to the database
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -60,6 +61,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     app.UseHsts();
 }
+
 
 app.UseSession();
 app.UseHttpsRedirection();

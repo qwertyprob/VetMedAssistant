@@ -5,7 +5,6 @@
 @if (ShowPopup)
 {
     <EditForm Model="@medcardFormModel" OnValidSubmit="HandleSubmit" FormName="CreateForm">
-        <ValidationSummary />
 
         <div id="popup" class="popup">
             <div class="popup__box">
@@ -24,7 +23,7 @@
 @code {
 
     [Inject]
-    private IMedcardRepository<OwnerDto> repo { get; set; }
+    private IMedcardRepository repo { get; set; }
 
     [Parameter] public EventCallback OnCreateOwner { get; set; }
 
