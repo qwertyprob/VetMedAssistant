@@ -1,10 +1,14 @@
 ﻿@page "/"
+@using Newtonsoft.Json
 @layout Layout.MainLayout
-@inject IMedcardService medcardContextService
+@inject IMedcardService MedcardContextService
+
 @inject NavigationManager NavigationManager
 
 
 @rendermode InteractiveServer
+
+
 
 <header class="header" id="header">
     <div class="logo">
@@ -21,7 +25,7 @@
 
 @if(ShowPopup){
 
-    <EditForm Model="@medcardFormModel" OnValidSubmit="@HandleSubmit">
+    <EditForm Model="@medcardFormModel" OnValidSubmit="HandleSubmit">
         <div id="popup" class="popup">
             <div class="popup__box">
                 <div class="d-flex position-absolute top-0 end-0 p-3 ">
@@ -35,7 +39,7 @@
                 <input placeholder="Возраст" type="text" id="age" @bind="@medcardFormModel.Age" />
                 <input placeholder="Порода" type="text" id="breed" @bind="@medcardFormModel.Breed" />
 
-                <button class="list__send" type="submit">Отправить</button>
+                <button class="list__send" type="submit">@(isEdit ? "Изменить" :"Отправить")</button>
             </div>
         </div>
     </EditForm>
@@ -56,6 +60,7 @@
 }
 else if (medcardList.Count == 0)
 {
+
     <h1 style="text-align: center; font-size: 8em; padding: 125px;">
         Карточек не найдено..
     </h1>
@@ -64,7 +69,7 @@ else if (medcardList.Count == 0)
 {
     <section class="list">
         <div class="list__wrapper shadow">
-            <div class="list__line-title">
+            <div class="list__line-title" >
                 <p class="number">Дата</p>
                 <p class="name">ФИО</p>
                 <p class="phone">Телефон</p>
@@ -76,6 +81,7 @@ else if (medcardList.Count == 0)
             </div>
             @foreach (var owner in medcardList)
             {
+
                 <div class="list__container">
                     <div class="list__lines">
                         @{
@@ -99,7 +105,7 @@ else if (medcardList.Count == 0)
                         }
                         <div class="list__param">
                             <button class="list__more" @onclick="()=>GetClientById(owner.Id)">Подробнее </button>
-                            <a href="" class="list__more">Изменить</a>
+                            <button class="list__more" @onclick="() => UpdateMedcard(owner.Id)">Изменить</button>
                             <button type="submit" class="list__remove" @onclick="() => DeleteMedcard(owner.Id)">Удалить</button>
                         </div>
                     </div>
@@ -110,80 +116,89 @@ else if (medcardList.Count == 0)
 }
 
 
-@code {
-
-    //Medcard 
+@code{
     private IReadOnlyCollection<OwnerModel> medcardList { get; set; } = null;
 
-    [SupplyParameterFromForm]
     private MedcardViewModel medcardFormModel { get; set; } = new();
 
-
-
     protected override async Task OnInitializedAsync()
-    {        
+    {
         await Task.Delay(1000);
         await LoadMedcardList();
-
     }
+
     private async Task DeleteMedcard(Guid Id)
     {
-        await medcardContextService.DeleteAsync(Id);
+        await MedcardContextService.DeleteAsync(Id);
 
-        if(Id == Guid.Empty)
+        if (Id != Guid.Empty)
         {
-            Id = medcardList.Select(x => x.Id).FirstOrDefault();
+            await LoadMedcardList();
         }
-        await LoadMedcardList();
-        StateHasChanged();
     }
 
     private void GetClientById(Guid Id)
     {
-
-         NavigationManager.NavigateTo($"/Client/{Id}"); 
+        NavigationManager.NavigateTo($"/Client/{Id}");
     }
 
     private async Task LoadMedcardList()
     {
-        medcardList = await medcardContextService.GetAllAsync();
-        StateHasChanged(); 
+        medcardList = await MedcardContextService.GetAllAsync();
+        StateHasChanged();
     }
 
+    private async Task UpdateMedcard(Guid id)
+    {
+        isEdit = true;
+        OpenPopup();
+
+        var existingOwner = await MedcardContextService.GetByIdAsync(id);
+
+        medcardFormModel.Id = existingOwner.Id;
+        medcardFormModel.OwnerName = existingOwner.Name;
+        medcardFormModel.PhoneNumber = existingOwner.PhoneNumber;
+
+        var pet = existingOwner.Pets.First();
+        medcardFormModel.PetName = pet.Name;
+        medcardFormModel.ChipNumber = pet.ChipNumber;
+        medcardFormModel.Age = pet.Age;
+        medcardFormModel.Breed = pet.Breed;
+
+         
+    }
 
     //Popup 
-
-    bool ShowPopup = false; 
-
+    bool ShowPopup = false;
+    bool isEdit = false;
 
     void ClosePopup()
     {
         ShowPopup = false;
+        isEdit = false;
+        medcardFormModel = new();
         StateHasChanged();
     }
 
-
     void OpenPopup()
     {
-
         ShowPopup = true;
         StateHasChanged();
     }
 
     private async Task HandleSubmit()
     {
-
-        await medcardContextService.CreateAsync(medcardFormModel);
+       
+        if (isEdit)
+        {
+            await MedcardContextService.UpdateAsync(medcardFormModel.Id, medcardFormModel);
+        }
+        else
+        {
+            await MedcardContextService.CreateAsync(medcardFormModel);
+        }
         await LoadMedcardList();
-
-        medcardFormModel = new MedcardViewModel();
-
         ClosePopup();
-
     }
-
-    
-
-
 
 }

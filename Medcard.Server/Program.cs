@@ -27,6 +27,7 @@ builder.Services.AddScoped<IMedcardService, MedcardService>();
 builder.Services.AddScoped<ISearchRepository, SearchRepository>();
 builder.Services.AddScoped<ISearchService, SearchService>();
 
+builder.Services.AddScoped<AppDbContext>();
 
 // Add distributed memory cache
 builder.Services.AddDistributedMemoryCache();

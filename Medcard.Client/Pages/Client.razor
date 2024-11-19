@@ -1,5 +1,8 @@
 ﻿@page "/Client/{Id:guid}"
+
 @inject IMedcardService medcardContext
+@inject NavigationManager Navigation 
+
 
 @rendermode InteractiveAuto
 
@@ -18,7 +21,7 @@
         </div>
     </a>
     <div class="buttons">
-        <button class="btn-input" id="emailButton" type="button" style="font-size:22px;">Распечатать</button>
+        <button class="btn-input" id="emailButton" type="button" style="font-size:22px;" @onclick="PrintPage" target="_blank">Распечатать</button>
         <button class="btn-input" id="emailButton" type="button" style="font-size:20px;">Email</button>
     </div>
 </header>
@@ -58,36 +61,39 @@ else
                         <td class="info-value editable">@pet.Breed</td>
                     </tr>
                 </table>
-                @foreach (var drugs in pet.Drugs)
+                @foreach (var drug in pet.Drugs)
                 {
-
-                    <!-- Препараты -->
                     <div class="section-title">Препараты</div>
-                    <textarea class="textarea-editable" contenteditable="true" @bind="drugs.Description" id="editableBigInput-1">
-
-                                                        </textarea>
-                    <button class="section-footer-button" @onclick="() => DrugsAdd(pet.Id,drugs.Description)">Изменить</button>
+                    <textarea class="textarea-editable" contenteditable="true"
+                              id="editableBigInput-@pet.Id"
+                              @bind="drug.Description">
+                </textarea>
+                    <button class="section-footer-button" @onclick="() => UpdateDrugs(pet.Id, drug.Description)">Изменить</button>
                 }
-
+                @foreach (var treatment in pet.Treatments)
+                {
                 <!-- Лечение -->
                 <div class="section-title">Лечение</div>
-                <textarea class="textarea-editable" contenteditable="true" name="Treatments" id="editableBigInput-2">
-                    @foreach (var treatment in pet.Treatments)
-                    {
-                        @treatment.Description
-                    } 
-                                            </textarea>
-                <button class="section-footer-button">Изменить</button>
-
+                <textarea class="textarea-editable" contenteditable="true" 
+                id="editableBigInput=@pet.Id" @bind="treatment.Description">
+                  
+                    @treatment.Description
+                 
+                </textarea>
+                <button class="section-footer-button" @onclick="() => UpdateTreat(pet.Id, treatment.Description)">Изменить</button>
+                }
+                @foreach (var rec in pet.Recomendations)
+                {
                 <!-- Рекомендации -->
                 <div class="section-title">Рекомендации</div>
-                <textarea class="textarea-editable" contenteditable="true" name="Recomendations" id="editableBigInput-3">
-                    @foreach (var rec in pet.Recomendations)
-                    {
-                        @rec.Description
-                    } 
-                                            </textarea>
-                <button class="section-footer-button">Изменить</button>
+                <textarea class="textarea-editable" contenteditable="true"
+                id="editableBigInput-@pet.Id" @bind="rec.Description">
+                   
+                    @rec.Description
+                 
+                    </textarea>
+                    <button class="section-footer-button" @onclick="() => UpdateRec(pet.Id, rec.Description)">Изменить</button>
+                }
             }
         </div>
     </div>
@@ -103,6 +109,8 @@ else
 @code {
     [Parameter]
     public Guid Id { get; set; }
+
+
 
     bool showSuccessAlert = false;
     OwnerModel medcardModel { get; set; } = null;
@@ -122,12 +130,30 @@ else
         StateHasChanged();
     }
 
-    private async Task DrugsAdd(Guid id, string drugs)
+    private async Task UpdateDrugs(Guid guid, string drugs )
     {
-        await medcardContext.UpdateDrugsAsync(id, drugs);
-        showSuccessAlert = true;
+        await medcardContext.UpdateDrugsAsync(guid, drugs);
         StateHasChanged();
+
     }
-    
+    private async Task UpdateTreat(Guid guid, string treatments)
+    {
+        await medcardContext.UpdateTreatAsync(guid, treatments);
+        StateHasChanged();
+
+    }
+    private async Task UpdateRec(Guid guid, string recomendations)
+    {
+        await medcardContext.UpdateRecAsync(guid, recomendations);
+        StateHasChanged();
+
+    }
+
+
+    //Page
+    void PrintPage()
+    {
+        Navigation.NavigateTo($"/Print/{Id}");
+    }
 
 }

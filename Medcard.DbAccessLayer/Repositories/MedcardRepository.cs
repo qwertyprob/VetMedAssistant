@@ -114,70 +114,16 @@ namespace Medcard.DbAccessLayer
 
             return medcard;
         }
-        public async Task<OwnerDto> UpdateAsync(Guid id,MedcardViewModel medcardViewModel)
-        {
-            var ownerEntity = await _dbcontext.Owners
-            .Include(o => o.Pets)
-                .ThenInclude(p => p.Drugs)
-            .Include(o => o.Pets)
-                .ThenInclude(p => p.Treatments)
-            .Include(p => p.Pets)
-                    .ThenInclude(r => r.Recomendations)
-            .FirstOrDefaultAsync(o => o.Id == id);
 
-            if (ownerEntity == null)
-            {
-                return null;
-            }
-            ownerEntity.Id = id;
-            ownerEntity.Name = medcardViewModel.OwnerName;
-            ownerEntity.PhoneNumber = medcardViewModel.PhoneNumber;
-            ownerEntity.DateCreate = medcardViewModel.DateCreate;
-
-            foreach (var pet in ownerEntity.Pets)
-            {
-                pet.Name = medcardViewModel.PetName;
-                pet.ChipNumber = medcardViewModel.ChipNumber;
-                pet.Age = medcardViewModel.Age;
-                pet.Breed = medcardViewModel.Breed;
-
-                foreach (var drug in pet.Drugs)
-                {
-                    drug.Description = medcardViewModel.Drugs;
-                }
-
-                foreach (var treatment in pet.Treatments)
-                {
-                    treatment.Description = medcardViewModel.Treatments;
-                }
-
-                foreach(var recomend in pet.Recomendations)
-                {
-                    recomend.Description = medcardViewModel.Recomendations;
-                }
-            }
-
-            await _dbcontext.SaveChangesAsync();
-
-            var mappedMedcard = _mapper.Map<OwnerDto>(ownerEntity);
-
-            return mappedMedcard;
-        }
-        public async Task<OwnerDto> UpdateNoDrugsNoTreatmentsAsync(Guid id, MedcardViewModel medcardViewModel)
+        public async Task <OwnerDto> UpdateAsync(Guid id, MedcardViewModel medcardViewModel)
         {
             var ownerEntity = await _dbcontext.Owners
             .Include(o => o.Pets)
             .FirstOrDefaultAsync(o => o.Id == id);
 
-            if (ownerEntity == null)
-            {
-                return null;
-            }
-            ownerEntity.Id = id;
             ownerEntity.Name = medcardViewModel.OwnerName;
             ownerEntity.PhoneNumber = medcardViewModel.PhoneNumber;
             ownerEntity.DateCreate = medcardViewModel.DateCreate;
-
             foreach (var pet in ownerEntity.Pets)
             {
                 pet.Name = medcardViewModel.PetName;
@@ -186,48 +132,62 @@ namespace Medcard.DbAccessLayer
                 pet.Breed = medcardViewModel.Breed;
             }
 
+             _dbcontext.Owners.Update(ownerEntity);
             await _dbcontext.SaveChangesAsync();
-
+            
             var mappedMedcard = _mapper.Map<OwnerDto>(ownerEntity);
 
             return mappedMedcard;
         }
-        public async Task<OwnerDto> UpdateDrugsAndTreatments(Guid id, string Drugs, string Treatments , string Recomendations)
+        public async Task<string> UpdateDrugsAsync(Guid id, string Drugs)
         {
-            var ownerEntity = await _dbcontext.Owners
-            .Include(o => o.Pets)
-                .ThenInclude(p => p.Drugs)
-            .Include(o => o.Pets)
-                .ThenInclude(p => p.Treatments)
-            .Include(p => p.Pets)
-                    .ThenInclude(r => r.Recomendations)
+            var ownerEntity = await _dbcontext.Pets
+            .Include(o => o.Drugs)
             .FirstOrDefaultAsync(o => o.Id == id);
 
-            foreach (var pet in ownerEntity.Pets)
+            foreach(var drug in ownerEntity.Drugs)
             {
 
-                foreach (var drug in pet.Drugs)
-                {
-                    drug.Description = Drugs;
-                }
-
-                foreach (var treatment in pet.Treatments)
-                {
-                    treatment.Description = Treatments;
-                }
-
-                foreach( var recomend in pet.Recomendations)
-                {
-                    recomend.Description = Recomendations; 
-                }
-
+                drug.Description = Drugs;
+                
             }
+            await _dbcontext.SaveChangesAsync();
+           
 
-            var mappedMedcard = _mapper.Map<OwnerDto>(ownerEntity);
-
-            return mappedMedcard;
+            return Drugs; 
 
         }
+        public async Task<string> UpdateTreatAsync(Guid id, string Treatments)
+        {
+            var ownerEntity = await _dbcontext.Pets
+            .Include(o => o.Treatments)
+            .FirstOrDefaultAsync(o => o.Id == id);
+
+            foreach (var treatment in ownerEntity.Treatments)
+            {
+
+                treatment.Description = Treatments;
+
+            }
+            await _dbcontext.SaveChangesAsync();
+            return Treatments;
+        }
+        public async Task<string> UpdateRecAsync(Guid id, string Recomendations)
+        {
+            var ownerEntity = await _dbcontext.Pets
+            .Include(o => o.Recomendations)
+            .FirstOrDefaultAsync(o => o.Id == id);
+
+            foreach (var recomendation in ownerEntity.Recomendations)
+            {
+
+                recomendation.Description = Recomendations;
+
+            }
+            await _dbcontext.SaveChangesAsync();
+            return Recomendations;
+        }
+
         public async Task<bool> DeleteAsync(Guid id)
         {
 
