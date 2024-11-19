@@ -60,10 +60,18 @@
 }
 else if (medcardList.Count == 0)
 {
-
-    <h1 style="text-align: center; font-size: 8em; padding: 125px;">
-        @ErrorInput
-    </h1>
+    @if (string.IsNullOrEmpty(ErrorInput) || ErrorInput == "Карточек")
+    {
+        <h1 style="text-align: center; font-size: 8em; padding: 125px;">
+            <span>@(string.IsNullOrEmpty(ErrorInput) ? "Карточек" : ErrorInput)</span> не найдено..
+        </h1>
+    }
+    else
+    {
+        <h1 style="text-align: center; font-size: 8em; padding: 125px;">
+            <span style="color:lightblue;">@(string.IsNullOrEmpty(ErrorInput) ? "Карточек" : ErrorInput)</span> не найдено..
+        </h1>
+    }
 }
  else
 {
@@ -123,7 +131,7 @@ else if (medcardList.Count == 0)
 
     private string Search { get; set; }
 
-    private string ErrorInput { get; set; } = "Карточек не найдено..";
+    private string ErrorInput { get; set; } = "Карточек";
 
     protected override async Task OnInitializedAsync()
     {
@@ -222,7 +230,7 @@ else if (medcardList.Count == 0)
 
         }
 
-        ErrorInput = $"{search} не найдено..";
+        ErrorInput = $"{search}";
 
 
         StateHasChanged();
