@@ -28,6 +28,7 @@
 - PostgreSQL
 - HTML/CSS/JavaScript
 - Bootstrap
+- Blazor Server/WASM
 
 ## Установка и запуск
 
