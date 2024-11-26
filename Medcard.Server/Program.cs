@@ -12,43 +12,14 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using System.Diagnostics.Metrics;
+using Medcard.Server.Dependency;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents()
-    .AddInteractiveWebAssemblyComponents();// Server-side components
-
-
-builder.Services.AddScoped<IMedcardRepository, MedcardRepository>();
-builder.Services.AddScoped<IMedcardService, MedcardService>();
-
-builder.Services.AddScoped<ISearchRepository, SearchRepository>();
-builder.Services.AddScoped<ISearchService, SearchService>();
+//All services without db
+builder.Services.AddServices();
 
 builder.Services.AddScoped<AppDbContext>();
-
-// Add distributed memory cache
-builder.Services.AddDistributedMemoryCache();
-
-// Configure session settings
-builder.Services.AddSession(options =>
-{
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
-});
-
-builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(options =>
-    {
-        options.LoginPath = "/Authorization/Auth";
-    });
-
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddAutoMapper(typeof(Medcard.Bl.Mapping.MappingProfileBlazor));
-
 // Connect to the database
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("MedcardConnectionString"))

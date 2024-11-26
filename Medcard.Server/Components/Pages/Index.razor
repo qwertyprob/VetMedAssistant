@@ -1,5 +1,4 @@
 ﻿@page "/"
-@using Newtonsoft.Json
 @layout Layout.MainLayout
 @inject IMedcardService MedcardContextService
 @inject ISearchService MedcardSearch
@@ -62,14 +61,14 @@ else if (medcardList.Count == 0)
 {
     @if (string.IsNullOrEmpty(ErrorInput) || ErrorInput == "Карточек")
     {
-        <h1 style="text-align: center; font-size: 8em; padding: 125px;">
+        <h1 style="text-align: center; font-size: 4em; padding: 125px;">
             <span>@(string.IsNullOrEmpty(ErrorInput) ? "Карточек" : ErrorInput)</span> не найдено..
         </h1>
     }
     else
     {
-        <h1 style="text-align: center; font-size: 8em; padding: 125px;">
-            <span style="color:lightblue;">@(string.IsNullOrEmpty(ErrorInput) ? "Карточек" : ErrorInput)</span> не найдено..
+        <h1 style="text-align: center; font-size: 4em; padding-top: 125px;">
+            <span style="color:lightblue;font-size: 6rem">@(string.IsNullOrEmpty(ErrorInput) ? "Карточек" : ErrorInput)</span> не найдено..
         </h1>
     }
 }
@@ -100,7 +99,6 @@ else if (medcardList.Count == 0)
                             dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
                             string formattedDate = localDateCreate.ToString("dd/MM/yyyy", russianCulture);
                         }
-
                         <p class="number">@dayOfWeek<br /><br />@formattedDate</p>
                         <p class="name">@owner.Name</p>
                         <p class="phone">@owner.PhoneNumber</p>
@@ -125,6 +123,7 @@ else if (medcardList.Count == 0)
 
 
 @code{
+
     private IReadOnlyCollection<OwnerModel> medcardList { get; set; } = null;
 
     private MedcardViewModel medcardFormModel { get; set; } = new();
@@ -135,10 +134,13 @@ else if (medcardList.Count == 0)
 
     protected override async Task OnInitializedAsync()
     {
-
+        if (isSearch)
+        {
+            medcardList = await MedcardSearch.GetAllFromSearchAsync(Search);
+        }
         await Task.Delay(1000);
         await LoadMedcardList();
-
+      
 
     }
 
