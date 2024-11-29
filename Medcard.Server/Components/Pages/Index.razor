@@ -25,10 +25,12 @@
 @if(ShowPopup){
 
     <EditForm Model="@medcardFormModel" OnValidSubmit="HandleSubmit">
-        <div id="popup" class="popup">
+        <div id="popup" class="popup" >
             <div class="popup__box">
-                <div class="d-flex position-absolute top-0 end-0 p-3 ">
-                    <button type="button" class="btn-close ms-auto w-50 h-auto" aria-label="Close" style="transform: scale(1.5);" @onclick="ClosePopup" ></button>
+                <div class="d-flex position-absolute top-0 end-0 p-3 " style="width: 15%;
+  height: 12%;">
+                    <button type="button" class="btn-close ms-auto w-50 h-auto" aria-label="Close" style="transform: scale(1.5); width: 20%;
+  height: 12%;" @onclick="ClosePopup"></button>
                 </div>
                 <br />
                 <input placeholder="ФИО" type="text" id="name" @bind="@medcardFormModel.OwnerName"/>
@@ -38,7 +40,7 @@
                 <input placeholder="Возраст" type="text" id="age" @bind="@medcardFormModel.Age" />
                 <input placeholder="Порода" type="text" id="breed" @bind="@medcardFormModel.Breed" />
 
-                <button class="list__send" type="submit">@(isEdit ? "Изменить" :"Отправить")</button>
+                <button class="list__send" type="submit" style="margin-bottom:20px;">@(isEdit ? "Изменить" :"Отправить")</button>
             </div>
         </div>
     </EditForm>
@@ -110,7 +112,7 @@ else if (medcardList.Count == 0)
                             <p class="breed">@pet.Breed</p>
                         }
                         <div class="list__param">
-                            <button class="list__more" @onclick="()=>GetClientById(owner.Id)">Подробнее </button>
+                            <button class="list__more" @onclick="()=>GetClientById(owner.Id)">Клиент</button>
                             <button class="list__more" @onclick="() => UpdateMedcard(owner.Id)">Изменить</button>
                             <button type="submit" class="list__remove" @onclick="() => DeleteMedcard(owner.Id)">Удалить</button>
                         </div>
