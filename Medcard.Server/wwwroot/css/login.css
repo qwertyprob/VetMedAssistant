@@ -25,7 +25,7 @@ body {
 .btn.btn-sign {
     color: #5db6c8; 
     background-color: white; 
-    margin: 90px 0 40px; 
+    margin: 30px 0 40px; 
     border-radius: 30px; 
     border: 1px solid #eee; 
     width: 100%; 
@@ -36,9 +36,10 @@ body {
 }
 
     .btn.btn-sign:hover {
-        color: #5db6e1; 
-        background-color: #f5f5f5; 
-        border-color: #5db6e1; 
+        background-image: url("../img/back-white.jpg");
+        color: #5db6c8;
+        background-color: #f5f5f5;
+        border-color: #5db6e1;
     }
 
     .btn.btn-sign:focus {
@@ -115,12 +116,14 @@ body {
         box-shadow: none;
         background-color: transparent;
         color: whitesmoke;
-
+        background-image: url("../img/back.jpg");
+        background-size: cover;
     }
 
 
     .form-control.custom-input::placeholder {
         color: ghostwhite;
+        
     }
 
 
