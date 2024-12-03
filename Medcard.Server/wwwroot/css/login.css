@@ -1,6 +1,6 @@
 ﻿@font-face {
     font-family: 'CFont';
-    src: url('../font/font.otf') format('opentype');
+    src: url('../fonts/font.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -93,7 +93,7 @@ body {
         padding-left: 20px;
         margin-right: 20px;
         font-size: 24px;
-        color: white;
+        color: #5db6c8;
     }
 
 
@@ -125,5 +125,18 @@ body {
         color: ghostwhite;
         
     }
+
+    /* Стилизация инпута и иконок для автозаполнения */
+    .form-control.custom-input:-webkit-autofill {
+        background-image: url("../img/back.jpg") !important; /* Изображение на фоне инпута */
+        background-size: cover !important; /* Растягиваем изображение */
+        background-position: center !important; /* Центрируем изображение */
+        -webkit-box-shadow: 0 0 0 1000px white inset !important; /* Перекрываем цвет автозаполнения */
+        -webkit-text-fill-color: #5db6c8 !important; /* Цвет текста */
+    }
+
+
+
+    
 
 

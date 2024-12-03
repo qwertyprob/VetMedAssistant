@@ -4,9 +4,9 @@ using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Repositories;
 using Medcard.DbAccessLayer;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Medcard.Server.Jwt;
+using Medcard.Api.Jwt;
 
-namespace Medcard.Server.Dependency
+namespace Medcard.Api.Dependency
 {
     public  static class Dependency
     { 

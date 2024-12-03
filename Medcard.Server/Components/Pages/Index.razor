@@ -1,11 +1,14 @@
-﻿@page "/"
+﻿@page "/"  
 @layout Layout.MainLayout
 @inject IMedcardService MedcardContextService
 @inject ISearchService MedcardSearch
 @inject NavigationManager NavigationManager
-
+@inject ILocalStorageService localStorage
+@inject IHttpContextAccessor http
+@inject HttpClient httpClient
 
 @rendermode InteractiveServer
+
 
 
 
@@ -70,7 +73,7 @@ else if (medcardList.Count == 0)
     else
     {
         <h1 style="text-align: center; font-size: 4em; padding-top: 125px;">
-            <span style="color:lightblue;font-size: 6rem">@(string.IsNullOrEmpty(ErrorInput) ? "Карточек" : ErrorInput)</span> не найдено..
+            <span style="color:#62c1d5;font-size: 6rem">@(string.IsNullOrEmpty(ErrorInput) ? "Карточек" : ErrorInput)</span> не найдено..
         </h1>
     }
 }
@@ -123,6 +126,7 @@ else if (medcardList.Count == 0)
     </section>
 }
 
+<footer><br /></footer>
 
 @code{
 
@@ -136,6 +140,7 @@ else if (medcardList.Count == 0)
 
     protected override async Task OnInitializedAsync()
     {
+        
         if (isSearch)
         {
             medcardList = await MedcardSearch.GetAllFromSearchAsync(Search);
@@ -164,7 +169,7 @@ else if (medcardList.Count == 0)
     private async Task LoadMedcardList()
     {
         isSearch = false;
-        medcardList = await MedcardContextService.GetAllAsync();
+        medcardList = await httpClient.GetFromJsonAsync<IReadOnlyCollection<OwnerModel>>("https://localhost:7211/api/get");
         StateHasChanged();
     }
 
@@ -173,20 +178,35 @@ else if (medcardList.Count == 0)
         isEdit = true;
         OpenPopup();
 
-        var existingOwner = await MedcardContextService.GetByIdAsync(id);
+        // Получаем данные через GET, а не POST
+        var existingOwners = await httpClient.GetFromJsonAsync<IReadOnlyCollection<OwnerModel>>("https://localhost:7211/api/get");
 
-        medcardFormModel.Id = existingOwner.Id;
-        medcardFormModel.OwnerName = existingOwner.Name;
-        medcardFormModel.PhoneNumber = existingOwner.PhoneNumber;
+        // Находим владельца с нужным ID
+        var existingOwner = existingOwners?.FirstOrDefault(o => o.Id == id);
 
-        var pet = existingOwner.Pets.First();
-        medcardFormModel.PetName = pet.Name;
-        medcardFormModel.ChipNumber = pet.ChipNumber;
-        medcardFormModel.Age = pet.Age;
-        medcardFormModel.Breed = pet.Breed;
+        if (existingOwner != null)
+        {
+            medcardFormModel.Id = existingOwner.Id;
+            medcardFormModel.OwnerName = existingOwner.Name;
+            medcardFormModel.PhoneNumber = existingOwner.PhoneNumber;
 
-
+            // Допустим, вы хотите взять первого питомца (если их несколько)
+            var pet = existingOwner.Pets.FirstOrDefault();
+            if (pet != null)
+            {
+                medcardFormModel.PetName = pet.Name;
+                medcardFormModel.ChipNumber = pet.ChipNumber;
+                medcardFormModel.Age = pet.Age;
+                medcardFormModel.Breed = pet.Breed;
+            }
+        }
+        else
+        {
+            // Обработка случая, если владелец не найден
+            Console.WriteLine($"Owner with ID {id} not found.");
+        }
     }
+
 
     //Popup 
     bool ShowPopup = false;
