@@ -1,4 +1,6 @@
 using Medcard.Api.Dependency;
+using Medcard.Bl.Abstraction;
+using Medcard.Bl.Services;
 using Medcard.DbAccessLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +16,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("MedcardConnectionString")));
 
 builder.Services.AddServices();
-
+builder.Services.AddScoped<ISearchService, SearchService>();
 
 var app = builder.Build();
 

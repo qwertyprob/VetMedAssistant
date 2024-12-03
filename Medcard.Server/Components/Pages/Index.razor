@@ -140,14 +140,14 @@ else if (medcardList.Count == 0)
 
     protected override async Task OnInitializedAsync()
     {
-        
+
         if (isSearch)
         {
             medcardList = await MedcardSearch.GetAllFromSearchAsync(Search);
         }
         await Task.Delay(1000);
         await LoadMedcardList();
-      
+
 
     }
 
@@ -246,13 +246,15 @@ else if (medcardList.Count == 0)
     private async Task SearchMedcardsAsync(string search)
     {
         isSearch = true;
-        medcardList = await MedcardSearch.GetAllFromSearchAsync(search);
+        medcardList = await httpClient.GetFromJsonAsync<IReadOnlyCollection<OwnerModel>>($"https://localhost:7211/api/{search}");
         if (medcardList.Count == 0)
         {
+            medcardList = await MedcardContextService.GetAllAsync();
             isSearch = false;
             NavigationManager.NavigateTo("/");
 
         }
+        
 
         ErrorInput = $"{search}";
 
