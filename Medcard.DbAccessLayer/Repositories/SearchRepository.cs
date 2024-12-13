@@ -23,7 +23,7 @@ namespace Medcard.DbAccessLayer.Repositories
         }
         public async Task<IReadOnlyCollection<OwnerDto>> GetAllFromSearchAsync(string searchItem)
         {
-            // Приводим searchItem к нижнему регистру один раз для улучшения производительности
+            
             var lowerSearchItem = searchItem.ToLower();
 
 

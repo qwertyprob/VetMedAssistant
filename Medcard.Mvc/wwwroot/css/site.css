@@ -84,12 +84,15 @@ body {
         .header .btn-input:hover {
             background-color:whitesmoke;
         }
+.logo{
+    display:flex;
+}
 
+.logo-
 .logo, .logo img {
     width: 24em;
     height: 18em;
     margin-bottom: 2px;
-    
 }
 
 .search {
@@ -167,6 +170,7 @@ body {
         padding: 12px;
         justify-content: space-between;
         border-bottom: 1px solid grey;
+        
     }
 
         .list .list__line-title p, .list .list__lines p {
@@ -174,11 +178,11 @@ body {
             padding: 10px;
             text-align: center;
             border-right: 1px solid black;
+            font-size: 1.4rem;
         }
 
     .list .list__param {
         width: 20%;
-
         display: flex;
         flex-flow: column;
         align-items: center;
@@ -194,7 +198,6 @@ body {
 
     .list .list__line-title p:first-child, .list .list__lines p:first-child {
         width: 23%;
-
         text-align: center;
         justify-content: center;
        
@@ -321,6 +324,7 @@ body {
     .list__remove:hover {
         background-color: #ab0237;
     }
+
 .list__more__edit {
     border-radius: 6px;
     width: 50%;
@@ -343,7 +347,7 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #87CEFA; /* Светло-синий цвет */
+    background-color: #87CEFA; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -364,7 +368,7 @@ body {
 
 
 #searchForm {
-    display: none; /* Прячем форму */
+    display: none; 
 }
 
 .mask {
@@ -401,9 +405,3 @@ body {
     
 }
 
-.qrcode {
-    height: 100%;
-    width: 100%;
-    display: block;
-    object-fit: contain
-}

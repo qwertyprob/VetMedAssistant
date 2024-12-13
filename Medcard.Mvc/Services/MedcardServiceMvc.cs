@@ -19,12 +19,12 @@ namespace Medcard.Mvc.Services
     public class MedcardServiceMvc : IMedcardServiceMvc
     {
 
-        private readonly IMedcardRepository _repository;
+        private readonly IMedcardRepository<OwnerDto> _repository;
         private readonly ISearchRepository _searchRepository;
         private readonly IMapper _mapper;
         private readonly AppDbContext _dbContext;
 
-        public MedcardServiceMvc(IMedcardRepository repository, IMapper mapper, AppDbContext dbcontext, ISearchRepository searchRepository)
+        public MedcardServiceMvc(IMedcardRepository<OwnerDto> repository, IMapper mapper, AppDbContext dbcontext, ISearchRepository searchRepository)
         {
 
             _repository = repository;
