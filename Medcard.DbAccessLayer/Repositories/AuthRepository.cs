@@ -1,7 +1,9 @@
-﻿using Medcard.DbAccessLayer.Entities;
+﻿using Medcard.DbAccessLayer.Dto;
+using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +16,12 @@ namespace Medcard.DbAccessLayer.Repositories
     {
         private readonly IEncrypt _encryptor;
         private readonly AppDbContext _dbcontext;
-        public AuthRepository(AppDbContext dbContext, IEncrypt ecryptor)
+        private readonly IHttpContextAccessor  _httpContext;
+        public AuthRepository(AppDbContext dbContext, IEncrypt ecryptor, IHttpContextAccessor httpContexter)
         {
             _dbcontext = dbContext;
             _encryptor = ecryptor;
+            _httpContext= httpContexter;
         }
         //Need it to create a user for auth
         public async Task<Guid> CreateUser(string email, string password)
@@ -34,13 +38,13 @@ namespace Medcard.DbAccessLayer.Repositories
 
             user.HashedPassword = _encryptor.HashPassword(user.HashedPassword, user.Salt);
 
-
+           
             var existingUser = await _dbcontext.Users
                 .FirstOrDefaultAsync(u => u.Email == user.Email);
 
             if (existingUser != null)
             {
-
+                
                 throw new InvalidOperationException("Пользователь с таким email уже существует.");
             }
 
@@ -50,26 +54,31 @@ namespace Medcard.DbAccessLayer.Repositories
             return user.UserId;
         }
 
-        public Guid GetByEmail(string email, string password)
+        public string Login(string email, string password)
         {
-
+            
             var user = _dbcontext.Users.FirstOrDefault(u => u.Email == email);
 
             if (user == null)
             {
                 throw new InvalidOperationException("Пользователь не найден.");
             }
-
+         
             var hashedPassword = _encryptor.HashPassword(password, user.Salt);
             if (hashedPassword != user.HashedPassword)
             {
                 throw new InvalidOperationException("Неправильный пароль.");
             }
+           
+            _httpContext.HttpContext?.Session.Set("userid",user.UserId.ToByteArray());
+             
 
-            return user.UserId;
+
+
+            return user.UserId.ToString(); 
         }
 
-
+        
 
     }
 }

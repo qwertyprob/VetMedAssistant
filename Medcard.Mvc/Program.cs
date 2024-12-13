@@ -1,5 +1,4 @@
 using Medcard.DbAccessLayer;
-using Medcard.DbAccessLayer.Dto;
 using Medcard.DbAccessLayer.Entities;
 using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Repositories;
@@ -21,7 +20,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // ??????? 
 
-builder.Services.AddScoped<IMedcardRepository<OwnerDto>, MedcardRepository>();
+builder.Services.AddScoped<IMedcardRepository, MedcardRepository>();
 builder.Services.AddScoped<IMedcardServiceMvc, MedcardServiceMvc>();
 
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();

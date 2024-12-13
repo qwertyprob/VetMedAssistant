@@ -1,7 +1,7 @@
 # VetMedAssist
 
 <p align="center">
-  <img src="Medcard.Server/wwwroot/img/big_logo_negate.png" alt="VetMedAssist Logo" width="300"/>
+  <img src="Medcard.Mvc/wwwroot/img/new-logo-invert-preview.png" alt="VetMedAssist Logo" width="300"/>
 </p>
 
 [![Website](https://medvetplus.onrender.com/)](https://medvetplus.onrender.com/)
@@ -28,7 +28,6 @@
 - PostgreSQL
 - HTML/CSS/JavaScript
 - Bootstrap
-- Blazor Server/WASM
 
 ## Установка и запуск
 
