@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Medcard.Api.Controllers
 {
     [ApiController]
-    [Route("/api/{searchItem}")]
+    [Route("/api/search/{searchItem}")]
     public class SearchController : ControllerBase
     {
         private readonly ISearchService _searchService;

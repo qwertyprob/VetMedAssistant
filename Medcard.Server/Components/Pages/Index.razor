@@ -52,7 +52,7 @@
 <div class="search">
     <div class="search__box search-border">
         <input placeholder="Поиск" class="search__field__input search-border" type="search" id="search" @bind=Search @oninput="OnSearchChanged" />
-        <button class="search__field__btn search-border" type="button" @onclick=" ()=> SearchMedcardsAsync(Search) ">Найти</button>
+        <button class="search__field__btn search-border" type="button" @onclick="()=> SearchMedcardsAsync(Search)">Найти</button>
     </div>
 </div>
 
@@ -246,7 +246,8 @@ else if (medcardList.Count == 0)
     private async Task SearchMedcardsAsync(string search)
     {
         isSearch = true;
-        medcardList = await httpClient.GetFromJsonAsync<IReadOnlyCollection<OwnerModel>>($"https://localhost:7211/api/{search}");
+        // medcardList = await httpClient.GetFromJsonAsync<IReadOnlyCollection<OwnerModel>>($"https://localhost:7211/api/{search}");
+        medcardList = await MedcardSearch.GetAllFromSearchAsync(search);
         if (medcardList.Count == 0)
         {
             medcardList = await MedcardContextService.GetAllAsync();
