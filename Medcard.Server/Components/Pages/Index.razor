@@ -9,9 +9,6 @@
 
 @rendermode InteractiveServer
 
-
-
-
 <header class="header" id="header">
     <div class="logo">
         <a href="/">
@@ -52,7 +49,8 @@
 <div class="search">
     <div class="search__box search-border">
         <input placeholder="Поиск" class="search__field__input search-border" type="search" id="search" @bind=Search @oninput="OnSearchChanged" />
-        <button class="search__field__btn search-border" type="button" @onclick="()=> SearchMedcardsAsync(Search)">Найти</button>
+        <button type="button" class="search__field__btn search-border" @onclick="ClearSearch">Показать все карточки</button>
+        
     </div>
 </div>
 
@@ -245,30 +243,51 @@ else if (medcardList.Count == 0)
 
     private async Task SearchMedcardsAsync(string search)
     {
-        isSearch = true;
-        // medcardList = await httpClient.GetFromJsonAsync<IReadOnlyCollection<OwnerModel>>($"https://localhost:7211/api/{search}");
-        medcardList = await MedcardSearch.GetAllFromSearchAsync(search);
-        if (medcardList.Count == 0)
+        try
         {
-            medcardList = await MedcardContextService.GetAllAsync();
-            isSearch = false;
-            NavigationManager.NavigateTo("/");
+            isSearch = true;
+            medcardList = await httpClient.GetFromJsonAsync<IReadOnlyCollection<OwnerModel>>($"https://localhost:7211/api/search/{search}");
 
+            if (medcardList == null || medcardList.Count == 0)
+            {
+                ErrorInput = $"{search}";
+                medcardList = new List<OwnerModel>();
+            }
+            StateHasChanged();
         }
-        
-
-        ErrorInput = $"{search}";
-
-
-        StateHasChanged();
-
+        catch (ObjectDisposedException ex)
+        {
+            // Логирование ошибки или вывод сообщения
+            ErrorInput = "Произошла ошибка при выполнении запроса.";
+            Console.Error.WriteLine($"Disposed HttpClient: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            // Логирование других ошибок
+            Console.Error.WriteLine($"Error occurred: {ex.Message}");
+        }
     }
 
-    private void OnSearchChanged(ChangeEventArgs e)
+    private async Task OnSearchChanged(ChangeEventArgs e)
     {
-        Search= e.Value.ToString();
-        SearchMedcardsAsync(Search);
+        Search = e.Value.ToString();
+
+        
+        await Task.Delay(500);  
+
+        await SearchMedcardsAsync(Search);
     }
+
+    private void ClearSearch()
+    {
+        Search = string.Empty; 
+        medcardList = null;    
+        ErrorInput = "Карточек"; 
+        StateHasChanged();      
+        LoadMedcardList();     
+    }
+
+
 
 
 }

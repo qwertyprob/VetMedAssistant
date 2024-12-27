@@ -10,7 +10,6 @@ using Medcard.Bl.Mapping;
 using Medcard.Bl.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using System.Diagnostics.Metrics;
 using System.Text;
 using Medcard.Server.Dependency;
@@ -30,8 +29,8 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();// Server-side components
 
+builder.Services.AddScoped<HttpClient>();
 
-builder.Services.AddHttpContextAccessor();
 
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
 
@@ -116,12 +115,10 @@ app.UseAuthorization();
 
 app.UseAntiforgery(); 
 
-app.UseSession(); 
+app.UseSession();
 
 
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode()
-    .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Medcard.Client._Imports).Assembly);
+    .AddInteractiveServerRenderMode();
 
 app.Run();

@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Server", "Medcard.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Bl", "Medcard.Bl\Medcard.Bl.csproj", "{9548F37A-5F21-460A-83E5-06B5FE0D0CF5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Client", "Medcard.Client\Medcard.Client.csproj", "{D2567B03-C49B-4AD9-B974-56B1E72DC033}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Api", "Medcard.Api\Medcard.Api.csproj", "{50C5EB9E-5B4C-431C-AB9F-782F75CA7E86}"
 EndProject
 Global
@@ -33,10 +31,6 @@ Global
 		{9548F37A-5F21-460A-83E5-06B5FE0D0CF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9548F37A-5F21-460A-83E5-06B5FE0D0CF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9548F37A-5F21-460A-83E5-06B5FE0D0CF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2567B03-C49B-4AD9-B974-56B1E72DC033}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2567B03-C49B-4AD9-B974-56B1E72DC033}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2567B03-C49B-4AD9-B974-56B1E72DC033}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2567B03-C49B-4AD9-B974-56B1E72DC033}.Release|Any CPU.Build.0 = Release|Any CPU
 		{50C5EB9E-5B4C-431C-AB9F-782F75CA7E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{50C5EB9E-5B4C-431C-AB9F-782F75CA7E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50C5EB9E-5B4C-431C-AB9F-782F75CA7E86}.Release|Any CPU.ActiveCfg = Release|Any CPU

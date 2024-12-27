@@ -15,8 +15,9 @@ namespace Medcard.Api.Controllers
             _searchService  = searchService;
         }
         [HttpGet]
-        public async Task<IActionResult> SearchAsync( string searchItem)
+        public async Task<IActionResult> SearchAsync(string searchItem)
         {
+            
             var results = await _searchService.GetAllFromSearchAsync(searchItem);
             return Ok(results);
         }
