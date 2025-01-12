@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Medcard.Api.Controllers
 {
     [ApiController]
-    [Route("/api/{searchItem}")]
+    [Route("/api/search/{searchItem}")]
     public class SearchController : ControllerBase
     {
         private readonly ISearchService _searchService;
@@ -15,14 +15,10 @@ namespace Medcard.Api.Controllers
             _searchService  = searchService;
         }
         [HttpGet]
-        public async Task<IActionResult> SearchAsync( string searchItem)
+        public async Task<IActionResult> Search(string searchItem)
         {
-            var results = await _searchService.GetAllFromSearchAsync(searchItem);
-            if (!results.Any())
-            {
-                return Ok(new List<OwnerModel>()); 
-            }
 
+            var results = await _searchService.GetAllFromSearchAsync(searchItem);
             return Ok(results);
         }
     }

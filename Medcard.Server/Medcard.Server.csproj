@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Medcard.Bl\Medcard.Bl.csproj" />
-    <ProjectReference Include="..\Medcard.Client\Medcard.Client.csproj" />
     <ProjectReference Include="..\Medcard.DbAccessLayer\Medcard.DbAccessLayer.csproj" />
   </ItemGroup>
 

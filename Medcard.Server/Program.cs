@@ -10,14 +10,12 @@ using Medcard.Bl.Mapping;
 using Medcard.Bl.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using System.Diagnostics.Metrics;
 using System.Text;
 using Medcard.Server.Dependency;
 using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using Medcard.Server.Jwt;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,10 +28,10 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();// Server-side components
 
+builder.Services.AddScoped<HttpClient>();
 
-builder.Services.AddHttpContextAccessor();
 
-builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
+//builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
 
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();
@@ -45,46 +43,16 @@ builder.Services.AddSession(options =>
 
 });
 
-var jwtOptions = builder.Services.BuildServiceProvider().GetRequiredService<IOptions<JwtOptions>>().Value;
+//var jwtOptions = builder.Services.BuildServiceProvider().GetRequiredService<IOptions<JwtOptions>>().Value;
 
 
-var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecretKey));
+//var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecretKey));
 
 builder.Services.AddAntiforgery();
 
 
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;  // Добавляем cookie для перенаправления
-})
-.AddJwtBearer(options =>
-{
-    options.TokenValidationParameters = new TokenValidationParameters
-    {
-        ValidateIssuer = true,
-        ValidateAudience = false,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        IssuerSigningKey = key
-    };
+builder.Services.AddAuthentication();
 
-    options.Events = new JwtBearerEvents
-    {
-        OnChallenge = context =>
-        {
-            context.Response.Redirect("/login");
-            context.HandleResponse(); 
-            return Task.CompletedTask;
-        }
-    };
-})
-.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, options =>
-{
-    options.LoginPath = "/login";  
-    options.AccessDeniedPath = "/access-denied"; 
-});
 
 builder.Services.AddHttpClient();
 
@@ -116,12 +84,10 @@ app.UseAuthorization();
 
 app.UseAntiforgery(); 
 
-app.UseSession(); 
+app.UseSession();
 
 
 app.MapRazorComponents<App>()
-    .AddInteractiveServerRenderMode()
-    .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Medcard.Client._Imports).Assembly);
+    .AddInteractiveServerRenderMode();
 
 app.Run();

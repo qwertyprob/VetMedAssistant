@@ -35,7 +35,7 @@ namespace Medcard.Api.Controllers
         }
 
         [HttpGet]
-        [Route("getById/{id}")]
+        [Route("get/{id}")]
         public async Task<IActionResult> GetMedcardById(Guid id)
         {
             var medcard = await _service.GetByIdAsync(id);

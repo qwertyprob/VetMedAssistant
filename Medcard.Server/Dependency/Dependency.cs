@@ -4,8 +4,6 @@ using Medcard.DbAccessLayer.Interfaces;
 using Medcard.DbAccessLayer.Repositories;
 using Medcard.DbAccessLayer;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Medcard.Server.Jwt;
-
 namespace Medcard.Server.Dependency
 {
     public  static class Dependency
@@ -23,7 +21,7 @@ namespace Medcard.Server.Dependency
             services.AddScoped<ISearchService, SearchService>();
 
 
-            services.AddScoped<IJwtProvider, JwtProvider>();
+            //services.AddScoped<IJwtProvider, JwtProvider>();
             
 
             services.AddSingleton<IEncrypt, Encrypt>();

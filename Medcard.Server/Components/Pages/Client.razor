@@ -1,8 +1,9 @@
 ﻿@page "/Client/{Id:guid}"
+@inject IMedcardService medcardContext
 @inject NavigationManager Navigation 
 
 
-@rendermode InteractiveAuto
+@rendermode InteractiveServer
 
 
 <MoreLayout></MoreLayout>
@@ -125,21 +126,25 @@ else
 
     private async Task GetClientById()
     {
+        medcardModel = await medcardContext.GetByIdAsync(Id);
         StateHasChanged();
     }
 
     private async Task UpdateDrugs(Guid guid, string drugs )
     {
+        await medcardContext.UpdateDrugsAsync(guid, drugs);
         StateHasChanged();
 
     }
     private async Task UpdateTreat(Guid guid, string treatments)
     {
+        await medcardContext.UpdateTreatAsync(guid, treatments);
         StateHasChanged();
 
     }
     private async Task UpdateRec(Guid guid, string recomendations)
     {
+        await medcardContext.UpdateRecAsync(guid, recomendations);
         StateHasChanged();
 
     }
