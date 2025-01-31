@@ -1,0 +1,93 @@
+﻿@* @attribute [StreamRendering(true)]
+
+@inject IHttpClientFactory HttpClientFactory
+
+@if (ShowPopup)
+{
+    <EditForm Model="@medcardFormModel" OnValidSubmit="CreateMedcard" FormName="CreateForm">
+
+        <div id="popup" class="popup">
+            <div class="popup__box">
+                <input placeholder="ФИО" type="text" id="name" @bind="medcardFormModel.OwnerName" />
+                <input placeholder="Номер телефона" type="text" id="phonenumber" @bind="medcardFormModel.PhoneNumber" />
+                <input placeholder="Кличка" type="text" id="nick" @bind="medcardFormModel.PetName" />
+                <input placeholder="Номер чипа" type="text" id="chip" @bind="medcardFormModel.ChipNumber" />
+                <input placeholder="Возраст" type="text" id="age" @bind="medcardFormModel.Age" />
+                <input placeholder="Порода" type="text" id="breed" @bind="medcardFormModel.Breed" />
+
+                <button class="list__more" type="submit" @onclick="CreateMedcard">Отправить</button>
+            </div>
+        </div>
+    </EditForm> 
+}
+@code {
+
+    [Parameter] public EventCallback OnCreateOwner { get; set; }
+
+    private MedcardViewModel medcardFormModel { get; set; } = new();
+
+    //Popup
+
+    bool ShowPopup = false;
+
+
+    void ClosePopup()
+    {
+        ShowPopup = false;
+    }
+
+    private async void CreateMedcard()
+    {
+
+        try
+        {
+            var ownerModel = new OwnerModel
+                {
+                    Name = medcardFormModel.OwnerName,
+                    PhoneNumber = medcardFormModel.PhoneNumber,
+                    Pets = new List<PetModel>
+                    {
+                        new PetModel
+                        {
+                           Name = medcardFormModel.PetName,
+                           ChipNumber = medcardFormModel.ChipNumber,
+                           Age = medcardFormModel.Age,
+                           Breed = medcardFormModel.Breed,
+                           Drugs = new List<DrugsModel>
+                           {
+                               new DrugsModel
+                               {
+                                  Description = medcardFormModel.Drugs
+                               }
+                           },
+                           Treatments = new List<TreatmentsModel>
+                           {
+                               new TreatmentsModel
+                               {
+                                  Description = medcardFormModel.Drugs
+                               }
+                           },
+                           Recomendations = new List<RecomendationsModel>
+                           {
+                               new RecomendationsModel
+                               {
+                                  Description = medcardFormModel.Drugs
+                               }
+                           }
+
+
+                        }
+
+                    }
+                };
+            var ownClient = HttpClientFactory.CreateClient("Medcard");
+
+            var CreateMedcard = await ownClient.PostAsJsonAsync<OwnerModel>($"{ownClient.BaseAddress}/create", ownerModel);
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+    }
+} *@

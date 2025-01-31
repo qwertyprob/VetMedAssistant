@@ -1,6 +1,7 @@
 ﻿using Medcard.Bl.Abstraction;
 using Medcard.Bl.Models;
 using Medcard.DbAccessLayer.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -8,6 +9,7 @@ namespace Medcard.Api.Controllers
 {
     [ApiController]
     [Route("/api/")]
+    //[authorize]
     public class MedcardController : ControllerBase
     {
         private readonly IMedcardService _service;

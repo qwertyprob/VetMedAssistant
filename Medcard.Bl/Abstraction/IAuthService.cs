@@ -2,7 +2,7 @@
 {
     public interface IAuthService
     {
-        Task<Guid> Register(string email, string password);
+        Task<string> Register(string email, string password);
         string Login(string email, string password);
     }
 }

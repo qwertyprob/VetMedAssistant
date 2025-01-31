@@ -22,6 +22,17 @@ namespace Medcard.DbAccessLayer.Repositories
         //Need it to create a user for auth
         public async Task<Guid> CreateUser(string email, string password)
         {
+            var existinguser = await _dbcontext.Users
+                .AsNoTracking()
+                .FirstOrDefaultAsync(u => u.Email == email);
+
+            if (existinguser != null)
+            {
+
+                throw new InvalidOperationException("пользователь с таким email уже существует.");
+            };
+            
+
             var user = new UserEntity()
             {
                 UserId = Guid.NewGuid(),
@@ -32,17 +43,9 @@ namespace Medcard.DbAccessLayer.Repositories
 
             };
 
+            
+
             user.HashedPassword = _encryptor.HashPassword(user.HashedPassword, user.Salt);
-
-
-            var existingUser = await _dbcontext.Users
-                .FirstOrDefaultAsync(u => u.Email == user.Email);
-
-            if (existingUser != null)
-            {
-
-                throw new InvalidOperationException("Пользователь с таким email уже существует.");
-            }
 
             _dbcontext.Users.Add(user);
             await _dbcontext.SaveChangesAsync();
@@ -53,7 +56,7 @@ namespace Medcard.DbAccessLayer.Repositories
         public Guid GetByEmail(string email, string password)
         {
 
-            var user = _dbcontext.Users.FirstOrDefault(u => u.Email == email);
+            var user =  _dbcontext.Users.FirstOrDefault(u => u.Email == email);
 
             if (user == null)
             {
@@ -65,6 +68,8 @@ namespace Medcard.DbAccessLayer.Repositories
             {
                 throw new InvalidOperationException("Неправильный пароль.");
             }
+
+            
 
             return user.UserId;
         }

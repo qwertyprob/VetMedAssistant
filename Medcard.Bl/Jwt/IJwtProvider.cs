@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Medcard.Bl.Jwt
 {
-    public class IJwtProvider
+    public interface IJwtProvider
     {
         public string GenerateToken(string id);
     }

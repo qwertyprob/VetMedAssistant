@@ -1,4 +1,5 @@
 ﻿using Medcard.Bl.Abstraction;
+using Medcard.Bl.Jwt;
 using Medcard.DbAccessLayer.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -14,26 +15,33 @@ namespace Medcard.Bl.Services
     {
 
         private readonly IAuthRepository _authRepository;
+        private readonly IJwtProvider _jwt;
         
 
-        public AuthService(IAuthRepository authRepository)
+        public AuthService(IAuthRepository authRepository, IJwtProvider jwt)
         {
             _authRepository = authRepository;
-            
+            _jwt = jwt;
+
+
         }
 
-        public async Task<Guid> Register(string email, string password)
+        public async Task<string> Register(string email, string password)
         {
 
-            return await _authRepository.CreateUser(email, password);
+            var userId =  await _authRepository.CreateUser(email, password);
+
+            return userId.ToString();
 
         }
 
         public string Login(string email, string password)
         {
             var userId = _authRepository.GetByEmail(email, password);
+
+            var token = _jwt.GenerateToken(userId.ToString());
             
-            return userId.ToString();
+            return token;
         }
         
 

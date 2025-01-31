@@ -1,0 +1,115 @@
+﻿@* @page "/client/{id:guid}"
+
+
+@inject navigationmanager navigation
+@inject ihttpclientfactory httpclientfactory
+
+@rendermode interactiveserver
+
+
+<morelayout></morelayout>
+
+<header class="header" id="header">
+    <a href="/">
+        <div class="logo">
+
+            <img src="/img/logo.png" alt="vetasist">
+
+            <div class="logo-string" style="margin-left:40px;margin-top:1.4em; align-items:center;">
+                <img src="/img/string.png" alt="vetasist">
+            </div>
+
+        </div>
+    </a>
+    <div class="buttons">
+        <button class="btn-input" id="emailbutton" type="button" style="font-size:22px;"  target="_blank">распечатать</button>
+        <button class="btn-input" id="emailbutton" type="button" style="font-size:20px;">email</button>
+    </div>
+</header>
+
+
+@if (!flag)
+{
+
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+}
+else
+{
+    <div class="list-more">
+        <div class="table-container">
+            @foreach (var pet in medcardmodel.pets)
+            {
+                <table>
+                    <tr>
+                        <td class="info-section">фио:</td>
+                        <td class="info-value editable">@medcardmodel.name</td>
+                        <td class="info-section">телефон:</td>
+                        <td class="info-value editable">@medcardmodel.phonenumber</td>
+                    </tr>
+                    <tr>
+                        <td class="info-section">кличка:</td>
+                        <td class="info-value editable">@pet.name</td>
+                        <td class="info-section">чип:</td>
+                        <td class="info-value editable">@pet.chipnumber</td>
+                    </tr>
+                    <tr>
+                        <td class="info-section">возраст:</td>
+                        <td class="info-value editable">@pet.age</td>
+                        <td class="info-section">порода:</td>
+                        <td class="info-value editable">@pet.breed</td>
+                    </tr>
+                </table>
+                @foreach (var drug in pet.drugs)
+                {
+                    <div class="section-title">препараты</div>
+                    <textarea class="textarea-editable" contenteditable="true"
+                              id="editablebiginput-@pet.id"
+                              @bind="drug.description">
+                </textarea>
+                    <button class="section-footer-button" @onclick="() => updatedrugs(pet.id, drug.description)">изменить</button>
+                }
+                @foreach (var treatment in pet.treatments)
+                {
+                <!-- лечение -->
+                <div class="section-title">лечение</div>
+                <textarea class="textarea-editable" contenteditable="true" 
+                id="editablebiginput=@pet.id" @bind="treatment.description">
+                  
+                    @treatment.description
+                 
+                </textarea>
+                <button class="section-footer-button" @onclick="() => updatetreat(pet.id, treatment.description)">изменить</button>
+                }
+                @foreach (var rec in pet.recomendations)
+                {
+                <!-- рекомендации -->
+                <div class="section-title">рекомендации</div>
+                <textarea class="textarea-editable" contenteditable="true"
+                id="editablebiginput-@pet.id" @bind="rec.description">
+                   
+                    @rec.description
+                 
+                    </textarea>
+                    <button class="section-footer-button" @onclick="() => updaterec(pet.id, rec.description)">изменить</button>
+                }
+            }
+        </div>
+    </div>
+    
+}
+@if (flag)
+{
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+}
+
+@code {
+    bool flag = false;
+
+
+}
+ *@
