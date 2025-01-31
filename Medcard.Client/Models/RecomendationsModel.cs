@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Medcard.Server.Models
+namespace Medcard.Client.Models
 {
     public class RecomendationsModel
     {

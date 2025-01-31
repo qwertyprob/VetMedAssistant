@@ -1,4 +1,4 @@
-﻿namespace Medcard.Server.Abstractions
+﻿namespace Medcard.Client.Abstractions
 {
     public static class RegistrationServices
     {

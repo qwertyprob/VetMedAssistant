@@ -1,4 +1,4 @@
-﻿namespace Medcard.Server.Services
+﻿namespace Medcard.Client.Services
 {
     public class MedcardService
     {

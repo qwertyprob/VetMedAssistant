@@ -6,13 +6,23 @@
     box-sizing: border-box;
 }
 
-body {
+@keyframes moving-background {
+    0% {
+        background-position: 0 0;
+    }
 
+    100% {
+        background-position: 100% 0;
+    }
+}
+body {
     width: 100%;
     height: auto;
     font-size: 10px;
     transition: all ease-in-out .3s;
-    background-image: url("../img/back-white.jpg");
+    background-position: 0 -30px;
+    background-image: url("../img/back-new.jpg");
+
 }
 
 .header {
@@ -22,10 +32,16 @@ body {
     width: 100%;
     padding: 0 40px;
     align-items: center;
-    padding-top: 15px;
+    background-size: auto;
+    background-position: 10px 30px;
+    background-attachment: fixed;
+    background-image: url("../img/back.jpg");
+    background-repeat: repeat-x;
+    animation: moving-background 40s linear infinite;
 }
 
 .popup {
+    
     z-index: 99;
     display: flex;
     align-items: center;
@@ -43,7 +59,6 @@ body {
 }
 
 .popup .popup__box {
-
     position: relative;
     margin: 0 auto;
     min-height: 400px;
@@ -56,6 +71,7 @@ body {
     align-items: center;
     gap: 20px;
     padding-top: 30px;
+    
 }
 
     .popup .popup__box input, .popup .popup__box button {
@@ -63,9 +79,8 @@ body {
         height: 2rem;
         font-size: 1em;
         border-radius: 8px;
-        background-image: url(../img/back-new.jpg);
+        background-image: url(../img/back-new-gray.jpg);
         background-size: cover;
-
     }
     .popup .popup__box input {
         background-image: url(../img/back.jpg);
@@ -78,11 +93,11 @@ body {
     }
 
 .popup .popup__box input::placeholder {
-    background-image: url(../img/back-new.jpg);
+    background-image: url(../img/back-new-gray.jpg);
     border-color: lightblue;
 }
 .popup .popup__box button {
-    background-image: url(../img/back-new.jpg);
+    background-image: url(../img/back-new-gray.jpg);
 }
 .popup .popup__box button:hover {
     background-image: url(../img/back.jpg);
@@ -115,32 +130,37 @@ body {
            
             
         }
-.logo{
-    display:flex;
-    
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e4f3f8;
+    border-radius: 50%;
+    margin-bottom:7px;
+    margin-top:7px;
 }
 
 
-.logo, .logo img {
-    width: 10em;
-    height: 10em;
-    margin-bottom: 15px;
-    
-}
+    .logo, .logo img {
+        width: 10em;
+        height: 10em;
+        
+        padding: 14px;
+        object-fit: contain;
+    }
 .logo-string {
     display: flex;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     width: 100%;
-    height: 10em;
-    margin:0;
+    margin-bottom: 15px;
 }
 
     .logo-string img {
         display: block;
-        width: 40em; 
-        height: 20em;
-        justify-content:center;
+        width: auto;
+        height: 6em;
+        justify-content: center;
     }
 
 
@@ -367,7 +387,7 @@ body {
     display: flex;
     width: 100%;
     height: 100%;
-    margin-top: 15em;
+    margin-top: 10em;
     justify-content:center;
     align-items:center;
     

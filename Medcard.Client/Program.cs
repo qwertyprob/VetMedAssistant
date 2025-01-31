@@ -1,4 +1,4 @@
-using Medcard.Server.Components;
+using Medcard.Client.Components;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics.Metrics;

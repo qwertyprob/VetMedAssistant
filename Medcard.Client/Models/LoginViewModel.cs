@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Medcard.Server.Models
+namespace Medcard.Client.Models
 {
     public class LoginViewModel
     {

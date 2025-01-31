@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Medcard.DbAccessLayer": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\Users\\User\\source\\repos\\Medcard"
+    }
+  }
+}
