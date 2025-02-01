@@ -156,12 +156,24 @@ body {
     margin-bottom: 15px;
 }
 
+
     .logo-string img {
+        margin-right: 45em;
         display: block;
         width: auto;
         height: 6em;
         justify-content: center;
     }
+    @media (max-width: 1600px) {
+        .logo-string{
+            
+            justify-content: start;
+        }
+
+        .logo-string img {
+            margin-right: 0em;
+            margin-left:2em;
+        }
 
 
 .search {
