@@ -1,4 +1,5 @@
 ﻿@page "/"  
+@using Medcard.Client.Abstraction
 @layout Layout.MainLayout
 @inject NavigationManager nav
 @rendermode InteractiveServer
@@ -17,7 +18,7 @@
 </header>
 
 @if (ShowPopup)
-{    <EditForm Model="@medcardFormModel" OnValidSubmit="HandleSubmit">
+{    <EditForm Model="@medcardFormModel">
         <div id="popup" class="popup" >
             <div class="popup__box">
                 <div class="d-flex position-absolute top-0 end-0 p-3 " style="width: 15%;height: 12%;">
@@ -115,6 +116,9 @@
 @code{
     [Inject]
     IHttpClientFactory HttpClientFactory{ get; set; } = null;
+    [Inject]
+    IMedcardHttpService medcardService { get; set; } = null;
+
     public HttpClient ownClient { get; set; } = null;
     public List<OwnerModel> medcardlist { get; set; } = null;
 
@@ -137,91 +141,26 @@
     {
         try
         {
-
-
-            var medcardlist = await ownClient.GetFromJsonAsync<List<OwnerModel>>($"{ownClient.BaseAddress}/get");
-
-            await Task.Delay(1000);
-            StateHasChanged();
-
-
-            return medcardlist;
+            var medcard = await medcardService.GetAllFromApi();
+            return medcard;
         }
         catch(Exception ex)
         {
             ErrorMessage = ex.Message;
-            return null;
         }
+
+
+        return null; 
+
+        
     }
 
-    private async void HandleSubmit()
-    {
-        if (!isEdit)
-        {
-            try
-            {
-                var ownerModel = new OwnerModel
-                    {
-                        Id = Guid.NewGuid(),
-                        Name = medcardFormModel.OwnerName,
-                        PhoneNumber = medcardFormModel.PhoneNumber,
-                        Pets = new List<PetModel>
-                    {
-                        new PetModel
-                        {   
-                             Id= Guid.NewGuid(),
-
-                            Name = medcardFormModel.PetName,
-                            ChipNumber = medcardFormModel.ChipNumber,
-                            Age = medcardFormModel.Age,
-                            Breed = medcardFormModel.Breed,
-                            Drugs = new List<DrugsModel>
-                            {
-                                new DrugsModel
-                                {
-                                    Description = medcardFormModel.Drugs
-                                }
-                            },
-                            Treatments = new List<TreatmentsModel>
-                            {
-                                new TreatmentsModel
-                                {
-                                    Description = medcardFormModel.Drugs
-                                }
-                            },
-                            Recomendations = new List<RecomendationsModel>
-                            {
-                                new RecomendationsModel
-                                {
-                                    Description = medcardFormModel.Drugs
-                                }
-                            }
-
-
-                        }
-
-                    }
-                    };
-
-                var CreateMedcard = await ownClient.PostAsJsonAsync($"{ownClient.BaseAddress}/create", ownerModel);
-                await GetFromApi();
-                StateHasChanged();
-                ClosePopup();
-                
-             
-                
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+   
 
             
             
 
 
-        }
-    }
 
     
 

@@ -1,4 +1,4 @@
-﻿@* @attribute [StreamRendering(true)]
+﻿@attribute [StreamRendering(true)]
 
 @inject IHttpClientFactory HttpClientFactory
 
@@ -83,11 +83,13 @@
             var ownClient = HttpClientFactory.CreateClient("Medcard");
 
             var CreateMedcard = await ownClient.PostAsJsonAsync<OwnerModel>($"{ownClient.BaseAddress}/create", ownerModel);
-
+        
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
     }
-} *@
+}
+
+

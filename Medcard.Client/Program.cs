@@ -7,6 +7,8 @@ using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Options;
+using Medcard.Client.Abstraction;
+using Medcard.Client.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +31,7 @@ builder.Services.AddHttpClient("Medcard", client =>
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 
+builder.Services.AddScoped<IMedcardHttpService, MedcardHttpService>();
 
 var app = builder.Build();
 
