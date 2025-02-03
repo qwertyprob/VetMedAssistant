@@ -17,60 +17,6 @@ namespace Medcard.DbAccessLayer.Dto
         //Связь 1:многие
         public List<PetDto> PetsDtos { get; set; } = new List<PetDto>();
 
-        public OwnerDto() { }
-        public OwnerDto(Guid id,
-                         string name, string phone, DateTime dateCreate,
-                         string petName, string chipNumber,
-                         string petAge, string petBreed,
-                         string petDrugs,
-                         string petTreatment)
-        {
-            Id = id;
-            Name = name;
-            PhoneNumber = phone;
-            DateCreate = dateCreate;
-            PetsDtos = new List<PetDto>()
-            {
-                new PetDto()
-                {
-                    Id= id,
-                    Name= name,
-                    ChipNumber= chipNumber,
-                    Age=petAge,
-                    Breed=petBreed,
-                    DrugDtos=new List<DrugsDto>()
-                    {
-                        new DrugsDto()
-                        {
-                            PetId= id,
-                            Description= name,
-                        }
-
-
-                    },
-                    TreatmentDtos = new List<TreatmentsDto>()
-                    {
-                        new TreatmentsDto()
-                        {
-                            PetId = id,
-                            Description= name
-                        }
-                    }
-                }
-            };
-
-            
-
-        }
-        public static OwnerDto Create(Guid id,
-                         string name, string phone, DateTime dateCreate,
-                         string petName, string chipNumber,
-                         string petAge, string petBreed,
-                         string petDrugs,
-                         string petTreatment)
-        {
-            return new OwnerDto(id, name, phone, dateCreate, petName, chipNumber, petAge, petBreed, petDrugs, petTreatment);
-        }
-       
+        
     }
 }

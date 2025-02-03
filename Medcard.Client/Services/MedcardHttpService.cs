@@ -32,10 +32,10 @@ namespace Medcard.Client.Services
         public async Task<OwnerModel> CreateMedcardAsync(MedcardViewModel medcardViewModel)
         {
             var client = _httpClientFactory.CreateClient("Medcard");
-
-            var MappedOwner = new OwnerModel
+            Guid ownerId = Guid.NewGuid();
+            var mappedOwner = new OwnerModel
             {
-                Id = Guid.NewGuid(),
+                Id = ownerId,
                 Name = medcardViewModel.OwnerName,
                 PhoneNumber = medcardViewModel.PhoneNumber,
                 DateCreate = medcardViewModel.DateCreate,
@@ -43,7 +43,7 @@ namespace Medcard.Client.Services
                 {
                     new PetModel()
                     {
-                        Id= medcardViewModel.Id,
+                        Id= ownerId,
                         Name = medcardViewModel.PetName,
                         ChipNumber = medcardViewModel.ChipNumber,
                         Age = medcardViewModel.Age,
@@ -52,7 +52,7 @@ namespace Medcard.Client.Services
                         {
                             new DrugsModel()
                             {
-                                PetId = medcardViewModel.Id,
+                                PetId = ownerId,
                                 Description = medcardViewModel.Drugs
                             }
                         },
@@ -60,7 +60,7 @@ namespace Medcard.Client.Services
                         {
                             new TreatmentsModel()
                             {
-                                PetId = medcardViewModel.Id,
+                                PetId = ownerId,
                                 Description = medcardViewModel.Treatments
                             }
                         },
@@ -68,7 +68,7 @@ namespace Medcard.Client.Services
                         {
                             new RecomendationsModel()
                             {
-                                PetId = medcardViewModel.Id,
+                                PetId = ownerId,
                                 Description = medcardViewModel.Recomendations
                             }
                         }
@@ -76,9 +76,11 @@ namespace Medcard.Client.Services
                     }
                 }
             };
+
+
             try
             {
-                var response = await client.PostAsJsonAsync<OwnerModel>($"{client.BaseAddress}/create", MappedOwner);
+                var response = await client.PostAsJsonAsync<OwnerModel>($"{client.BaseAddress}/create", mappedOwner);
 
                 if (response.IsSuccessStatusCode)
                 {
