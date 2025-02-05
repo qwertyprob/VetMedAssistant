@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using System.Net.Http.Headers;
 
 namespace Medcard.Api.Controllers
 {
@@ -14,6 +15,7 @@ namespace Medcard.Api.Controllers
     {
         private readonly IAuthService _service;
         private readonly AppDbContext _context;
+
 
         public UserController(IAuthService service, AppDbContext context)
         {
@@ -29,10 +31,9 @@ namespace Medcard.Api.Controllers
             {
                 var token = _service.Login(user.Email, user.Password);
 
-
                 Response.Cookies.Append("Jwt", token);
 
-                return Ok("Успешный Логин!");
+                return Ok(token);
             }
             catch(Exception ex)
             {
@@ -40,6 +41,7 @@ namespace Medcard.Api.Controllers
             }
 
         }
+
         [HttpPost]
         [Route("register")]
         public async Task<IActionResult> Register(LoginViewModel user)

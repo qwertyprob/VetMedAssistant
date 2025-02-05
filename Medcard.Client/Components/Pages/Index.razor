@@ -1,8 +1,9 @@
 ﻿@page "/"  
-@using Medcard.Client.Abstraction
+
 @layout Layout.MainLayout
 @inject NavigationManager nav
 @rendermode InteractiveServer
+@inject ILocalStorageService localStorageService;
 
 <header class="header" id="header">
     <div class="logo">
@@ -54,10 +55,7 @@
     <div class="loader-container">
         <div class="loader"></div>
     </div>
-    <div class="container">
-        <br />
-        <p class="text-center fw-bold fs-1">@ErrorMessage</p>
-    </div>
+    
    
 }
 
@@ -110,8 +108,8 @@
         </div>
     </section>
 }
-
 <footer><br /></footer>
+
 
 @code{
     [Inject]
@@ -142,6 +140,7 @@
         try
         {
             var medcard = await medcardService.GetAllFromApi();
+            
             return medcard;
         }
         catch(Exception ex)
@@ -155,14 +154,7 @@
         
     }
 
-   
-
-            
-            
-
-
-
-    
+  
 
     private bool isEdit = false;
     private bool ShowPopup = false;

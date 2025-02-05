@@ -33,15 +33,14 @@ namespace Medcard.Api.Dependency
                         OnAuthenticationFailed = context =>
                         {
                             
-                            context.Response.Redirect("user/login");
+                            context.Response.Redirect("/login");
                             return Task.CompletedTask;
                         },
 
                         // Обработчик на случай ошибки авторизации (например, пользователь не авторизован)
                         OnChallenge = context =>
                         {
-                            
-                            context.Response.Redirect("user/login");
+                            context.Response.Redirect("/login");
                             return Task.CompletedTask;
                         },
                     };

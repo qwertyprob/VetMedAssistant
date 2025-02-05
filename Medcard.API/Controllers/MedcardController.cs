@@ -9,7 +9,6 @@ namespace Medcard.Api.Controllers
 {
     [ApiController]
     [Route("/api/")]
-    //[authorize]
     public class MedcardController : ControllerBase
     {
         private readonly IMedcardService _service;
