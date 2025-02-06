@@ -1,6 +1,6 @@
 ﻿@page "/login"
 
-@inject ILocalStorageService localStorageService
+@inject ILocalStorageService _localStorageService
 @inject IHttpClientFactory HttpClientFactory
 @inject NavigationManager Navigation
 
@@ -66,12 +66,8 @@
             {
                 var token = await response.Content.ReadAsStringAsync();
 
-                await localStorageService.SetItemAsync("authToken", token);
-
+                await _localStorageService.SetItemAsync("authToken", token);
                 
-
-                
-
                 Navigation.NavigateTo("/");
             }
             else

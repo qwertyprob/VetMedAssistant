@@ -10,6 +10,8 @@ using Microsoft.Extensions.Options;
 using Medcard.Client.Abstraction;
 using Medcard.Client.Services;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Components.Server;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,15 +23,22 @@ builder.Services.AddRazorComponents()
 
 
 builder.Services.AddAntiforgery();
+builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthenticateProvider>();
 
+builder.Services.AddAuthenticationCore();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/login"; 
+        options.LoginPath = "/login";
     });
-builder.Services.AddAuthenticationCore();
+
+
 
 builder.Services.AddAuthorization();
+builder.Services.AddScoped<AuthenticationStateProvider, ServerAuthenticationStateProvider>();
+
+builder.Services.AddAuthorization();
+
 builder.Services.AddBlazoredLocalStorage();
 
 //HttpClientFactory 

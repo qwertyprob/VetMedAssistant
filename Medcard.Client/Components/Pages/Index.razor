@@ -1,11 +1,11 @@
 ﻿@page "/"  
 
 @layout Layout.MainLayout
-
 @inject IMedcardHttpService _medcardService; 
 @inject NavigationManager nav
 @rendermode InteractiveServer
 @inject ILocalStorageService localStorageService;
+
 
 <header class="header" id="header">
     <div class="logo">
@@ -120,12 +120,8 @@
         </div>
     </section>
 }
-<<<<<<< HEAD
 
-<footer><br/></footer>
-=======
 <footer><br /></footer>
->>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
 
 
 @code{
@@ -141,7 +137,7 @@
 
         try
         {
-<<<<<<< HEAD
+
             await Task.Delay(1000);
             medcardlist = await _medcardService.GetAllFromApiAsync();
             StateHasChanged();
@@ -154,11 +150,8 @@
             {
                 throw new Exception("Count is 0!");
             }
-=======
-            var medcard = await medcardService.GetAllFromApi();
+
             
-            return medcard;
->>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
         }
         catch (Exception ex)
         {
@@ -187,7 +180,6 @@
         }
     }
 
-<<<<<<< HEAD
     async Task<OwnerModel> CreateAsync()
     {
         try
@@ -214,10 +206,7 @@
         nav.NavigateTo("/Client");
     }
     
-=======
-  
 
->>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
     private bool isEdit = false;
     private bool ShowPopup = false;
 

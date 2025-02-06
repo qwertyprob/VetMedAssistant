@@ -3,24 +3,11 @@ using Medcard.Client.Models;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
-<<<<<<< HEAD
-using System.Net.Http.Json;
-=======
-using System.Net.Http.Headers;
->>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
 
 namespace Medcard.Client.Services
 {
     public class MedcardHttpService : IMedcardHttpService
     {
-<<<<<<< HEAD
-        private readonly IHttpClientFactory _httpClientFactory;
-
-        public MedcardHttpService(IHttpClientFactory httpClientFactory)
-        {
-            _httpClientFactory = httpClientFactory;
-        }
-=======
         private readonly IHttpClientFactory _httpClient;
         private readonly NavigationManager _navigationManager;
 
@@ -29,19 +16,17 @@ namespace Medcard.Client.Services
             _httpClient = httpClient;
             _navigationManager = navigationManager;
 
-    }
->>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
+        }
 
         public async Task<List<OwnerModel>> GetAllFromApiAsync()
         {
-            var client = _httpClientFactory.CreateClient("Medcard"); 
+
 
             try
             {
-<<<<<<< HEAD
-                var response = await client.GetFromJsonAsync<List<OwnerModel>>(client.BaseAddress+"/get");
-=======
                 var client = _httpClient.CreateClient("Medcard");
+
+                var response = await client.GetFromJsonAsync<List<OwnerModel>>(client.BaseAddress+"/get");
 
 
                 if (client.BaseAddress == null)
@@ -49,12 +34,6 @@ namespace Medcard.Client.Services
                     return null;
                 }
                
-
-
-                var response = await client.GetFromJsonAsync<List<OwnerModel>>($"{client.BaseAddress}/get");
-
-
->>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
                 return response ?? new List<OwnerModel>();
             }
             catch (HttpRequestException ex)
@@ -65,7 +44,7 @@ namespace Medcard.Client.Services
         }
         public async Task<OwnerModel> CreateMedcardAsync(MedcardViewModel medcardViewModel)
         {
-            var client = _httpClientFactory.CreateClient("Medcard");
+            var client = _httpClient.CreateClient("Medcard");
             Guid ownerId = Guid.NewGuid();
             var mappedOwner = new OwnerModel
             {
@@ -125,20 +104,12 @@ namespace Medcard.Client.Services
             }
             catch (Exception ex)
             {
-<<<<<<< HEAD
-                Console.WriteLine($"Ошибка запроса: {ex.Message}");
-
-                return new OwnerModel();
-                
-=======
-               
                 return null;
->>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
             }
         }
         public async Task<bool> DeleteMedcardAsync(Guid id)
         {
-            var client = _httpClientFactory.CreateClient("Medcard");
+            var client = _httpClient.CreateClient("Medcard");
 
             try
             {
