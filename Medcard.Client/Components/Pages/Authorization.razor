@@ -1,8 +1,9 @@
 ﻿@page "/login"
 
+@inject ILocalStorageService localStorageService
 @inject IHttpClientFactory HttpClientFactory
 @inject NavigationManager Navigation
-@inject IJSRuntime JSRuntime
+
 @layout AuthLayout
 
 @rendermode InteractiveServer
@@ -64,7 +65,12 @@
             if (response.IsSuccessStatusCode)
             {
                 var token = await response.Content.ReadAsStringAsync();
-                await JSRuntime.InvokeVoidAsync("document.cookie", $"Jwt={token}; path=/; Secure; HttpOnly");
+
+                await localStorageService.SetItemAsync("authToken", token);
+
+                
+
+                
 
                 Navigation.NavigateTo("/");
             }

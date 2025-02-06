@@ -1,18 +1,36 @@
 ﻿using Medcard.Client.Abstraction;
 using Medcard.Client.Models;
+using Microsoft.AspNetCore.Components;
+using Newtonsoft.Json.Linq;
 using System.Net.Http;
+<<<<<<< HEAD
 using System.Net.Http.Json;
+=======
+using System.Net.Http.Headers;
+>>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
 
 namespace Medcard.Client.Services
 {
     public class MedcardHttpService : IMedcardHttpService
     {
+<<<<<<< HEAD
         private readonly IHttpClientFactory _httpClientFactory;
 
         public MedcardHttpService(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }
+=======
+        private readonly IHttpClientFactory _httpClient;
+        private readonly NavigationManager _navigationManager;
+
+        public MedcardHttpService(IHttpClientFactory httpClient, NavigationManager navigationManager)
+        {
+            _httpClient = httpClient;
+            _navigationManager = navigationManager;
+
+    }
+>>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
 
         public async Task<List<OwnerModel>> GetAllFromApiAsync()
         {
@@ -20,7 +38,23 @@ namespace Medcard.Client.Services
 
             try
             {
+<<<<<<< HEAD
                 var response = await client.GetFromJsonAsync<List<OwnerModel>>(client.BaseAddress+"/get");
+=======
+                var client = _httpClient.CreateClient("Medcard");
+
+
+                if (client.BaseAddress == null)
+                {
+                    return null;
+                }
+               
+
+
+                var response = await client.GetFromJsonAsync<List<OwnerModel>>($"{client.BaseAddress}/get");
+
+
+>>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
                 return response ?? new List<OwnerModel>();
             }
             catch (HttpRequestException ex)
@@ -91,10 +125,15 @@ namespace Medcard.Client.Services
             }
             catch (Exception ex)
             {
+<<<<<<< HEAD
                 Console.WriteLine($"Ошибка запроса: {ex.Message}");
 
                 return new OwnerModel();
                 
+=======
+               
+                return null;
+>>>>>>> 2493f9586590e751666873f0f3dd4b15ce1bb853
             }
         }
         public async Task<bool> DeleteMedcardAsync(Guid id)

@@ -9,10 +9,11 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Options;
 using Medcard.Client.Abstraction;
 using Medcard.Client.Services;
+using Microsoft.AspNetCore.Components.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddHttpContextAccessor();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -21,8 +22,15 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddAntiforgery();
 
-builder.Services.AddAuthentication();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/login"; 
+    });
+builder.Services.AddAuthenticationCore();
+
 builder.Services.AddAuthorization();
+builder.Services.AddBlazoredLocalStorage();
 
 //HttpClientFactory 
 builder.Services.AddHttpClient("Medcard", client =>
