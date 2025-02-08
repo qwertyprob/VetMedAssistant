@@ -9,7 +9,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Medcard.Server/Medcard.Server.csproj", "Medcard.Server/"]
+COPY ["Medcard.Server/Medcard.Client.csproj", "Medcard.Client/"]
 COPY ["Medcard.Bl/Medcard.Bl.csproj", "Medcard.Bl/"]
 COPY ["Medcard.DbAccessLayer/Medcard.DbAccessLayer.csproj", "Medcard.DbAccessLayer/"]
 COPY ["Medcard.Client/Medcard.Client.csproj", "Medcard.Client/"]
