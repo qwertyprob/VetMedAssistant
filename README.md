@@ -27,11 +27,17 @@ The application allows users to add, edit, and view medical records for animals,
 The application is built using the following technologies:  
 
 ![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-blue?style=flat-square)  
+
 ![Entity Framework Core](https://img.shields.io/badge/Entity%20Framework%20Core-green?style=flat-square)  
+
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-blue?style=flat-square)  
+
 ![HTML/CSS/JavaScript](https://img.shields.io/badge/HTML%2FCSS%2FJavaScript-yellow?style=flat-square)  
+
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-purple?style=flat-square)  
+
 ![Blazor Server/WASM](https://img.shields.io/badge/Blazor%20Server%2FWASM-darkblue?style=flat-square)  
+
 ![Docker](https://img.shields.io/badge/Docker-blue?style=flat-square)  
 
 ## Installation and Running  
