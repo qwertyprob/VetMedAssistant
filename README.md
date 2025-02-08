@@ -7,38 +7,36 @@
 [![Website](https://medvetplus.onrender.com/)](https://medvetplus.onrender.com/)
 
 
-## Описание
+##Description
 
-**VetMedAssist** — это веб-приложение, разработанное для помощи специалостов в управлении медицинскими картами питомцев. Приложение позволяет пользователям добавлять, редактировать и просматривать медицинские записи для животных, а также управлять лекарствами и лечением.
+**VetMedAssist** is a web application designed to help specialists manage pet medical records. The application allows users to add, edit, and view medical records for animals, as well as manage medications and treatments.
 
-## Функциональные возможности
+##Features
 
-- Создание и управление медицинскими картами для питомцев.
-- Добавление и редактирование информации о владельцах животных.
-- Управление лекарствами и лечением.
-- Поиск по питомцам и владельцам.
-- Адаптивный интерфейс для удобного использования на ПК.
+-Create and manage pet medical records.
+-Add and edit owner information.
+-Manage medications and treatments.
+-Search for pets and owners.
+-Responsive interface for easy use on PC.
 
-## Технологии
+##Technologies
 
-Приложение разработано с использованием следующих технологий:
+The application is built using the following technologies:
+-ASP.NET Core
+-Entity Framework Core
+-PostgreSQL
+-HTML/CSS/JavaScript
+-Bootstrap
+-Blazor Server/WASM
+-Docker
 
-- ASP.NET Core
-- Entity Framework Core
-- PostgreSQL
-- HTML/CSS/JavaScript
-- Bootstrap
-- Blazor Server/WASM
+##Installation and Running
 
-## Установка и запуск
-
-1. Пример минимального запуска:
-
-   ```bash
-   git clone (https://github.com/qwertyprob/MedcardMvc.git)
-   cd ваш-репозиторий
-   dotnet restore
-   dotnet ef database update(если ставите свою постгря)
-   dotnet run
-
+Example of a minimal setup:
+bash
+git clone https://github.com/qwertyprob/MedcardMvc.git
+cd your-repository
+dotnet restore
+dotnet ef database update  # if using your own PostgreSQL
+dotnet run
 
