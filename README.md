@@ -52,7 +52,7 @@ dotnet ef database update  # if using your own PostgreSQL
 dotnet run
 ```
 
-## 🚀 Contributions & Support
+## Contributions & Support
 
 Feel free to contribute to the project or report any issues! 🤝
 If you like this project, give it a ⭐ on GitHub!
