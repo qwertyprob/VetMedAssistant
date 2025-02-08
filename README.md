@@ -4,7 +4,7 @@
   <img src="Medcard.Client/wwwroot/img/string-assistant-white.png" alt="VetMedAssist Logo" width="900" />
 </p>
 
-[![MedVetPlus](https://img.shields.io/badge/Visit-MedVetPlus-blue?style=for-the-badge)](https://medvetplus.onrender.com/)
+[![MedVetPlus](https://img.shields.io/badge/Visit-MedVetPlus-blue?style=for-the-badge)](https://vetmedassistant.onrender.com)
 
 
 # VetMedAssist  
