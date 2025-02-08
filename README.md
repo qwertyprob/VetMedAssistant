@@ -4,41 +4,56 @@
   <img src="Medcard.Client/wwwroot/img/string-assistant-white.png" alt="VetMedAssist Logo" width="900" />
 </p>
 
-[![Website](https://medvetplus.onrender.com/)](https://medvetplus.onrender.com/)
+[![MedVetPlus](https://img.shields.io/badge/Visit-MedVetPlus-blue?style=for-the-badge)](https://medvetplus.onrender.com/)
 
 
-## Описание
+# VetMedAssist  
 
-**VetMedAssist** — это веб-приложение, разработанное для помощи специалостов в управлении медицинскими картами питомцев. Приложение позволяет пользователям добавлять, редактировать и просматривать медицинские записи для животных, а также управлять лекарствами и лечением.
+## Description  
 
-## Функциональные возможности
+**VetMedAssist** is a web application designed to help specialists manage pet medical records.  
+The application allows users to add, edit, and view medical records for animals, as well as manage medications and treatments.  
 
-- Создание и управление медицинскими картами для питомцев.
-- Добавление и редактирование информации о владельцах животных.
-- Управление лекарствами и лечением.
-- Поиск по питомцам и владельцам.
-- Адаптивный интерфейс для удобного использования на ПК.
+## Features  
 
-## Технологии
+ **Create and manage pet medical records.**  
+ **Add and edit owner information.**  
+ **Manage medications and treatments.**  
+ **Search for pets and owners.**  
+ **Responsive interface for easy use on PC.**  
 
-Приложение разработано с использованием следующих технологий:
+## Technologies  
 
-- ASP.NET Core
-- Entity Framework Core
-- PostgreSQL
-- HTML/CSS/JavaScript
-- Bootstrap
-- Blazor Server/WASM
+The application is built using the following technologies:  
 
-## Установка и запуск
+![ASP.NET Core](https://img.shields.io/badge/ASP.NET%20Core-blue?style=flat-square)  
 
-1. Пример минимального запуска:
+![Entity Framework Core](https://img.shields.io/badge/Entity%20Framework%20Core-green?style=flat-square)  
 
-   ```bash
-   git clone (https://github.com/qwertyprob/MedcardMvc.git)
-   cd ваш-репозиторий
-   dotnet restore
-   dotnet ef database update(если ставите свою постгря)
-   dotnet run
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-blue?style=flat-square)  
 
+![HTML/CSS/JavaScript](https://img.shields.io/badge/HTML%2FCSS%2FJavaScript-yellow?style=flat-square)  
+
+![Bootstrap](https://img.shields.io/badge/Bootstrap-purple?style=flat-square)  
+
+![Blazor Server/WASM](https://img.shields.io/badge/Blazor%20Server%2FWASM-darkblue?style=flat-square)  
+
+![Docker](https://img.shields.io/badge/Docker-blue?style=flat-square)  
+
+## Installation and Running  
+
+To run the application, use the following commands:  
+
+```bash
+git clone https://github.com/qwertyprob/MedcardMvc.git
+cd your-repository
+dotnet restore
+dotnet ef database update  # if using your own PostgreSQL
+dotnet run
+```
+
+## 🚀 Contributions & Support
+
+Feel free to contribute to the project or report any issues! 🤝
+If you like this project, give it a ⭐ on GitHub!
 
