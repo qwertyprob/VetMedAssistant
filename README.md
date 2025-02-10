@@ -16,11 +16,11 @@ The application allows users to add, edit, and view medical records for animals,
 
 ## Features  
 
- **Create and manage pet medical records.**  
- **Add and edit owner information.**  
- **Manage medications and treatments.**  
- **Search for pets and owners.**  
- **Responsive interface for easy use on PC.**  
+ -**Create and manage pet medical records.**  
+ -**Add and edit owner information.**  
+ -**Manage medications and treatments.**  
+ -**Search for pets and owners.**  
+ -**Responsive interface for easy use on PC.**  
 
 ## Technologies  
 
@@ -52,7 +52,7 @@ dotnet ef database update  # if using your own PostgreSQL
 dotnet run
 ```
 
-## 🚀 Contributions & Support
+## Contributions & Support
 
 Feel free to contribute to the project or report any issues! 🤝
 If you like this project, give it a ⭐ on GitHub!
