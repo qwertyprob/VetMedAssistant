@@ -1,145 +1,137 @@
 ﻿@page "/"  
 
 @layout Layout.MainLayout
+
 @inject IMedcardHttpService _medcardService; 
 @inject NavigationManager nav
-@attribute [Authorize]
 @rendermode InteractiveServer
-@inject ILocalStorageService localStorageService;
 
 
 <header class="header" id="header">
     <div class="logo">
-        <a href="/">
-            <img src="/img/logo.png" alt="vetasist">
+        <a>
+            <img src="/img/logo.png" alt="vetasist" @onclick="() =>ForceLoadPage()">
         </a>
     </div>
     <div class="logo-string">
         <img src="/img/string-assistant-black.png" alt="vetasist">
     </div>
-
-    <button id="add" type="button" class="btn-input" @onclick="OpenPopup" >Добавить</button>
+   
+    <button id="add" type="button" class="btn-input" @onclick="()=>OpenPopup()" >Добавить</button>
 </header>
 
-
-        <div class="loader-container">
-            <div class="loader"></div>
-        </div>
-        <div class="container">
-            <br />
-            <p class="text-center fw-bold fs-1">Вы не авторизованы..Перенаправление.</p>
-        </div>
-    
-        @if (ShowPopup)
-        {
-            <Forms.EditForm Model="@medcardFormModel" OnValidSubmit="CreateAsync" FormName="Create">
-                    <div id="popup" class="popup" >
-                        <div class="popup__box">
-                            <div class="d-flex position-absolute top-0 end-0 p-3 " style="width: 15%;height: 12%;">
-                                <button type="button" class="btn-close ms-auto w-50 h-auto" aria-label="Close" 
-                                style="transform: scale(1.5); width: 20%;height: 12%;" 
-                                @onclick="ClosePopup"></button>
-                            </div>
-                            <br />
-                            <input placeholder="ФИО" type="text" id="name" @bind="@medcardFormModel.OwnerName"/>
-                            <input placeholder="Номер телефона" type="text" id="phonenumber" @bind="@medcardFormModel.PhoneNumber" />
-                            <input placeholder="Кличка" type="text" id="nick" @bind="@medcardFormModel.PetName" />
-                            <input placeholder="Номер чипа" type="text" id="chip" @bind="@medcardFormModel.ChipNumber" />
-                            <input placeholder="Возраст" type="text" id="age" @bind="@medcardFormModel.Age" />
-                            <input placeholder="Порода" type="text" id="breed" @bind="@medcardFormModel.Breed" />
-
-                            <button class="list__send" type="submit" style="margin-bottom:20px;">@(isEdit ? "Изменить" :"Отправить")</button>
-                        </div>
-                    </div>
-            </Forms.EditForm>
-        }
-
-
-        <div class="search">
-            <div class="search__box search-border">
-                <input placeholder="Поиск по имени" class="search__field__input search-border" type="search" id="search" />
-                <button type="button" class="search__field__btn search-border" >Поиск</button>
-
-            </div>
-        </div>
-
-        @if (medcardlist == null )
-        {
-            <div class="loader-container">
-                <div class="loader"></div>
-            </div>
-
-
-        }
-        @if(medcardlist.Count == 0)
-        {
-            <div class="loader-container">
-                <div class="loader"></div>
-            </div>
-            <div class="container">
-                <br />
-                <p class="text-center fw-bold fs-1">@ErrorMessage</p>
-            </div>
-        } 
-
-        else
-        {
-            <section class="list">
-                <div class="list__wrapper shadow">
-                    <div class="list__line-title" >
-                        <p class="number">Дата</p>
-                        <p class="name">Фио</p>
-                        <p class="phone">Телефон</p>
-                        <p class="nick">Кличка</p>
-                        <p class="chip">Номер чипа</p>
-                        <p class="age">Возраст</p>
-                        <p class="breed">Порода</p>
-                        <p class="heal" id="no-border">Параметры</p>
-                    </div>
-                    @foreach (var owner in medcardlist)
-                    {
-                        <div class="list__container">
-                            <div class="list__lines">
-                                @{
-                                    System.Globalization.CultureInfo russianCulture = new System.Globalization.CultureInfo("ru-RU");
-                                    DateTime localDateCreate = owner.DateCreate.ToLocalTime();
-                                    string dayOfWeek = localDateCreate.ToString("dddd", russianCulture);
-                                    string time = localDateCreate.ToString("HH:mm", russianCulture);
-                                    dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
-                                    string formattedDate = localDateCreate.ToString("dd/MM/yyyy", russianCulture);
-
-                                    <p class="number">@dayOfWeek<br /><br />@formattedDate</p>
-                                }
-                                <p class="name">@owner.Name</p>
-                                <p class="phone">@owner.PhoneNumber</p>
-                                @foreach (var pet in owner.Pets)
-                                {
-                                    <p class="nick">@pet.Name</p>
-                                    <p class="chip">@pet.ChipNumber</p>
-                                    <p class="age">@pet.Age</p>
-                                    <p class="breed">@pet.Breed</p>
-                                }
-                                <div class="list__param">
-                                    <button class="list__more" @onclick="NavigateToClient">Клиент</button>
-                                    <button class="list__more">Изменить</button>
-                                    <button type="submit" class="list__remove" @onclick="()=>DeleteAsync(owner.Id)">Удалить</button>
-                                </div>
-                            </div>
-                        </div>
-                    }
+@if (ShowPopup)
+{
+    <EditForm Model="@medcardFormModel" FormName="Create" OnSubmit="()=>DelegationEditOrCreateFormMethod(Guid.Empty)">
+        <div id="popup" class="popup" >
+            <div class="popup__box">
+                <div class="d-flex position-absolute top-0 end-0 p-3 " style="width: 15%;height: 12%;">
+                    <button type="button" class="btn-close ms-auto w-50 h-auto" aria-label="Close" 
+                    style="transform: scale(1.5); width: 20%;height: 12%;" 
+                    @onclick="ClosePopup"></button>
                 </div>
-            </section>
-        }
+                <br />
+                <input placeholder="ФИО" type="text" id="name" @bind="@medcardFormModel.OwnerName"/>
+                <input placeholder="Номер телефона" type="text" id="phonenumber" @bind="@medcardFormModel.PhoneNumber" />
+                <input placeholder="Кличка" type="text" id="nick" @bind="@medcardFormModel.PetName" />
+                <input placeholder="Номер чипа" type="text" id="chip" @bind="@medcardFormModel.ChipNumber" />
+                <input placeholder="Возраст" type="text" id="age" @bind="@medcardFormModel.Age" />
+                <input placeholder="Порода" type="text" id="breed" @bind="@medcardFormModel.Breed" />
 
-        <footer><br /></footer>
+                <button class="list__send" type="submit" style="margin-bottom:20px;">@(isEditGlobal ? "Изменить" : "Отправить")</button>
+            </div>
+        </div>
+    </EditForm>
+}
+
+
+<div class="search">
+    <div class="search__box search-border">
+        <input placeholder="Поиск по имени" class="search__field__input search-border" type="search" id="search" />
+        <button type="button" class="search__field__btn search-border" >Поиск</button>
+        
+    </div>
+</div>
+
+@if (medcardlist == null )
+{
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    
+   
+}
+ @if(medcardlist?.Count == 0)
+{
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+    <div class="container">
+        <br />
+        <p class="text-center fw-bold fs-1">@ErrorMessage</p>
+    </div>
+} 
+
+ else
+{
+    <section class="list">
+        <div class="list__wrapper shadow">
+            <div class="list__line-title" >
+                <p class="number">Дата</p>
+                <p class="name">Фио</p>
+                <p class="phone">Телефон</p>
+                <p class="nick">Кличка</p>
+                <p class="chip">Номер чипа</p>
+                <p class="age">Возраст</p>
+                <p class="breed">Порода</p>
+                <p class="heal" id="no-border">Параметры</p>
+            </div>
+            @foreach (var owner in medcardlist)
+            {
+                
+                <div class="list__container">
+                    <div class="list__lines">
+                        @{
+                            System.Globalization.CultureInfo russianCulture = new System.Globalization.CultureInfo("ru-RU");
+                            DateTime localDateCreate = owner.DateCreate.ToLocalTime();
+                            string dayOfWeek = localDateCreate.ToString("dddd", russianCulture);
+                            string time = localDateCreate.ToString("HH:mm", russianCulture);
+                            dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
+                            string formattedDate = localDateCreate.ToString("dd/MM/yyyy", russianCulture);
+
+                            <p class="number">@dayOfWeek<br /><br />@formattedDate</p>
+                        }
+                        <p class="name">@owner.Name</p>
+                        <p class="phone">@owner.PhoneNumber</p>
+                        @foreach (var pet in owner.Pets)
+                        {
+                            <p class="nick">@pet.Name</p>
+                            <p class="chip">@pet.ChipNumber</p>
+                            <p class="age">@pet.Age</p>
+                            <p class="breed">@pet.Breed</p>
+                        }
+                        <div class="list__param">
+                            <button class="list__more" @onclick="()=>NavigateToClient(owner.Id)">Клиент</button>
+                            <button class="list__more" @onclick="()=>DelegationEditOrCreateFormMethod(owner.Id,true)">Изменить</button>
+                            <button type="submit" class="list__remove" @onclick="()=>DeleteAsync(owner.Id)">Удалить</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </section>
+}
+
+<footer><br /></footer>
+
 
 @code{
     public List<OwnerModel>? medcardlist { get; set; } = new List<OwnerModel>();
 
     public MedcardViewModel medcardFormModel { get; set; } = new MedcardViewModel();
 
+
     public string ErrorMessage { get; set; } = string.Empty;
-    
 
     protected override async Task OnInitializedAsync()
     {
@@ -160,7 +152,7 @@
                 throw new Exception("Count is 0!");
             }
 
-            
+
         }
         catch (Exception ex)
         {
@@ -168,6 +160,69 @@
         }
 
     }
+    async Task CreateAsync()
+    {
+        try
+        {
+            var medcard = await _medcardService.CreateMedcardAsync(medcardFormModel);
+
+            medcardlist = await _medcardService.GetAllFromApiAsync();
+            StateHasChanged();
+            ClosePopup();
+            await Task.CompletedTask;
+
+
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+
+
+        await Task.CompletedTask;
+    }
+    async Task UpdateAsync(Guid id)
+    {
+        OpenPopup(true);
+
+        var mapModel = await _medcardService.GetMedcardById(id);
+
+        //Mapping for view
+        medcardFormModel = await MappingUpdateMedcard(medcardFormModel, mapModel);
+
+        mapModel = await _medcardService.UpdateMedcardAsync(id, mapModel);
+
+        //Mapping for view
+        medcardFormModel = await MappingUpdateMedcard(medcardFormModel, mapModel);
+
+
+    }
+    async Task<MedcardViewModel> MappingUpdateMedcard(MedcardViewModel medcardFormModel,OwnerModel mapModel )
+    {
+
+
+        medcardFormModel.OwnerName = mapModel.Name;
+        medcardFormModel.PhoneNumber = mapModel.PhoneNumber;
+        medcardFormModel.PetName = mapModel.Pets.First().Name;
+        medcardFormModel.ChipNumber = mapModel.Pets.First().ChipNumber;
+        medcardFormModel.Age = mapModel.Pets.First().Age;
+        medcardFormModel.Breed = mapModel.Pets.First().Breed;
+        StateHasChanged();
+
+        return medcardFormModel;
+    }
+
+    async void DelegationEditOrCreateFormMethod(Guid id,bool isEdit = false)
+    {
+        if (isEdit)
+        {
+            await UpdateAsync(id);
+            return;
+        }
+
+        await CreateAsync();
+    }
+
     async Task<bool> DeleteAsync(Guid id)
     {
         try
@@ -189,55 +244,36 @@
         }
     }
 
-    async Task<OwnerModel> CreateAsync()
+
+    //Navigation
+    public void NavigateToClient(Guid id)
     {
-        try
-        {
-            isEdit = false;
-            var response = await _medcardService.CreateMedcardAsync(medcardFormModel);
-            medcardlist = await _medcardService.GetAllFromApiAsync();
-            StateHasChanged();
-
-            return response;
-        }
-
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Ошибка при удалении: {ex.Message}");
-            return new OwnerModel();
-        }
-
-
+        nav.NavigateTo($"/Client/{id}");
     }
 
-    public void NavigateToClient()
+    public void ForceLoadPage()
     {
-        nav.NavigateTo("/Client");
+        nav.NavigateTo($"/", forceLoad: true);
     }
-    
 
-    private bool isEdit = false;
+    //Popup Changes
+    private bool isEditGlobal = false;
     private bool ShowPopup = false;
 
     void ClosePopup()
     {
+        medcardFormModel = new MedcardViewModel();
         ShowPopup = false;
-        isEdit = false;
+        isEditGlobal = false;
         StateHasChanged();
 
     }
-    void OpenPopup()
+    void OpenPopup(bool isEdit = false)
     {
-        medcardFormModel = new MedcardViewModel();
+        isEditGlobal = isEdit;
         ShowPopup = true;
         StateHasChanged();
     }
 
 
-    
-
-
-
-
-}
 }

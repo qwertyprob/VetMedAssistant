@@ -7,6 +7,7 @@ namespace Medcard.Client.Abstraction
         Task<List<OwnerModel>> GetAllFromApiAsync();
         Task<bool> DeleteMedcardAsync(Guid id);
         Task<OwnerModel> CreateMedcardAsync(MedcardViewModel medcardViewModel);
-
+        Task<OwnerModel> GetMedcardById(Guid id);
+        Task<OwnerModel> UpdateMedcardAsync(Guid id,OwnerModel model);
     }
 }

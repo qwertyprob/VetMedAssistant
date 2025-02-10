@@ -1,8 +1,8 @@
-﻿ @page "/Client"
+﻿ @page "/Client/{id:guid}"
 
 @inject NavigationManager navigation
-@inject IHttpClientFactory httpclientfactory
-@attribute [Authorize]
+@inject IMedcardHttpService _servivce
+
 @rendermode InteractiveServer
 
 
@@ -23,47 +23,47 @@
     </div>
 </header>
 
-
-
-
-@* <div class="loader-container">
-    <div class="loader"></div>
-</div> *@
-
-
-
-    <div class="list-more">
+@if (medcardmodel is null || medcardmodel.Id == Guid.Empty)
+{
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+}
+else{
+<div class="list-more">
         <div class="table-container">
+        @foreach(var pets in medcardmodel.Pets)
+        {
             
+        
                 <table>
                     <tr>
                         <td class="info-section">Фио:</td>
-                        <td class="info-value editable">medcardmodel.Name</td>
+                        <td class="info-value editable">@medcardmodel.Name</td>
                         <td class="info-section">Телефон:</td>
-                        <td class="info-value editable">medcardmodel.PhoneNumber</td>
+                        <td class="info-value editable">@medcardmodel.PhoneNumber</td>
                     </tr>
                     <tr>
-                        <td class="info-section">Кличка:</td>
-                        <td class="info-value editable">pet.</td>
+                    <td class="info-section">Кличка:</td>
+                    <td class="info-value editable">@pets.Name</td>
                         <td class="info-section">Чип:</td>
-                        <td class="info-value editable">pet.ChipNumber</td>
+                        <td class="info-value editable">@pets.ChipNumber</td>
                     </tr>
                     <tr>
                         <td class="info-section">Возраст:</td>
-                        <td class="info-value editable">pet.Age</td>
+                        <td class="info-value editable">@pets.Age</td>
                         <td class="info-section">Порода:</td>
-                        <td class="info-value editable">pet.Breed</td>
+                        <td class="info-value editable">@pets.Breed</td>
                     </tr>
-                </table>
-                
-                
-                    <div class="section-title">Препараты</div>
-                    <textarea class="textarea-editable" contenteditable="true"
-                              id="editablebiginput-pet.Id"
-                              >
+            </table>
+            foreach (var drugs in pets.Drugs)
+            {
+                <div class="section-title">Препараты</div>
+                <textarea class="textarea-editable" contenteditable="true">
+                @drugs.Description
                 </textarea>
-                    <button class="section-footer-button">Изменить</button>
-                
+                <button class="section-footer-button">Изменить</button>
+            }
                 
                 <!-- лечение -->
                 <div class="section-title">Лечение</div>
@@ -85,14 +85,28 @@
                     </textarea>
                     <button class="section-footer-button">Изменить</button>
                 
-            
+        }
         </div>
     </div>
     
-
+}
 
 @code {
-
+    [Parameter]
+    public Guid id { get; set; }
     public OwnerModel medcardmodel { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(1000);
+        medcardmodel = await LoadMedcard();
+
+    }
+
+    async Task<OwnerModel> LoadMedcard()
+    {
+         return await _servivce.GetMedcardById(id);
+
+    }
 
 }

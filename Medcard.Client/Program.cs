@@ -27,8 +27,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
-
-/*builder.Services.AddCascadingAuthenticationState()*/;
+builder.Services.AddScoped<IMedcardHttpService, MedcardHttpService>();
+/*builder.Services.AddCascadingAuthenticationState()*/
+;
 builder.Services.AddBlazoredSessionStorage();
 builder.Services.AddAntiforgery();
 //builder.Services.AddScoped<CustomAuthStateProvider>();
@@ -53,7 +54,7 @@ builder.Services.AddHttpClient("Medcard", client =>
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 
-builder.Services.AddScoped<IMedcardHttpService, MedcardHttpService>();
+
 
 var app = builder.Build();
 

@@ -78,6 +78,7 @@ namespace Medcard.DbAccessLayer
                 {
                     new PetEntity()
                     {
+                    Id = Guid.NewGuid(),
                     Name = medcardViewModel.PetName,
                     ChipNumber = medcardViewModel.ChipNumber,
                     Age = medcardViewModel.Age,
@@ -86,6 +87,7 @@ namespace Medcard.DbAccessLayer
                     {
                         new DrugEntity()
                         {
+                            
                             Description= medcardViewModel.Drugs
                         }
                     },
