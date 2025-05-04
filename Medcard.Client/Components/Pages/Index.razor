@@ -17,6 +17,35 @@
     <button id="add" type="button" class="btn-input" @onclick="() => OpenPopup()">Добавить</button>
 </header>
 
+@if (ShowSuccessModal)
+{
+    <div class="modal-toast">
+        <div class="modal-content-toast">
+            <p class="text fw-bold m-0" style="color:#1e3956;"> Данные успешно обновлены!</p>
+        </div>
+    </div>
+   
+}
+
+@if (ShowModal)
+{
+    <div class="modal" style="display:block; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5);">
+        <div class="modal-content" style="background:#fff; padding:20px; padding-top:30px; width:90%; max-width:50em; margin:15% auto; border-radius:8px; position:relative;">
+            <span @onclick="CloseModal" style="cursor:pointer; position:absolute; top:0px; right:10px; font-size:35px;">&times;</span>
+            <h5 class="py-1">Вы точно уверены, что хотите удалить этот контакт?</h5>
+
+            <div class="d-flex justify-content-end py-4 ms-2">
+                <button class="list__more d-flex me-2 align-items-center w-25" @onclick="CloseModal">
+                    Закрыть
+                </button>
+                <button class="list__remove d-flex me-2 align-items-center w-25" @onclick="()=>DeleteAsync(deleteId)">
+                    Удалить
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
 @if (ShowPopup)
 {
     <EditForm Model="@medcardFormModel" FormName="Create" OnSubmit="()=>CreateOrUpdateAsync()">
@@ -56,7 +85,7 @@
         }
     </div>
 }
-    
+
 else
 {
     <section class="list">
@@ -96,7 +125,7 @@ else
                         <div class="list__param">
                             <button class="list__more" @onclick="() => NavigateToClient(owner.Id)">Клиент</button>
                             <button class="list__more" @onclick="() => UpdateAsync(owner.Id)">Изменить</button>
-                            <button class="list__remove" @onclick="() =>DeleteAsync(owner.Id)">Удалить</button>
+                            <button class="list__remove" @onclick="() => Open(owner.Id)">Удалить</button>
                         </div>
                     </div>
                 </div>
@@ -112,7 +141,35 @@ else
 <footer><br /></footer>
 
 @code {
-   
+    private bool ShowSuccessModal = false;
+
+    private async Task ShowToast()
+    {
+        ShowSuccessModal = true;
+        StateHasChanged();
+        await Task.Delay(2000);
+        ShowSuccessModal = false;
+        StateHasChanged();
+    }
+
+
+    [Parameter] public EventCallback OnDeleted { get; set; }
+
+    private bool ShowModal { get; set; } = false;
+    private Guid deleteId { get; set; }
+
+    public async void Open(Guid id)
+    {
+        ShowModal = true;
+        deleteId = id;
+        
+        StateHasChanged();
+    }
+
+    private void CloseModal()
+    {
+        ShowModal = false;
+    }
 
 
 
@@ -224,11 +281,13 @@ else
                 var medcardFormModels = await MappingUpdateMedcard(medcardFormModel, updatedModel);
 
                 await _medcardService.UpdateMedcardAsync(editId.Value, medcardFormModels);
+                ShowToast();
             }
             else
             {
                 // Создаём
                 await _medcardService.CreateMedcardAsync(medcardFormModel);
+                ShowToast();
             }
 
             medcardlist = await _medcardService.GetAllFromApiAsync();
@@ -282,8 +341,12 @@ else
             if (response)
             {
                 medcardlist = await _medcardService.GetAllFromApiAsync();
+
                 StateHasChanged();
+                CloseModal();
+                ShowToast();
             }
+
             return response;
         }
         catch (Exception ex)

@@ -23,6 +23,16 @@
     </div>
 </header>
 
+@if (ShowSuccessModal)
+{
+    <div class="modal-toast ">
+        <div class="modal-content-toast">
+            <p class="text fw-bold m-0" style="color:#1e3956; font-size:1.5em;"> Данные успешно обновлены!</p>
+        </div>
+    </div>
+
+}
+
 @if (medcardmodel is null || medcardmodel.Id == Guid.Empty)
 {
     <div class="loader-container">
@@ -110,6 +120,17 @@ else{
 }
 
 @code {
+    private bool ShowSuccessModal = false;
+
+    private async Task ShowToast()
+    {
+        ShowSuccessModal = true;
+        StateHasChanged();
+        await Task.Delay(2000);
+        ShowSuccessModal = false;
+        StateHasChanged();
+    }
+
     [Parameter]
     public Guid id { get; set; }
     public OwnerModel medcardmodel { get; set; } = new();
@@ -132,6 +153,7 @@ else{
         await _servivce.UpdateDrugsAsync(model.PetId, model.Description);
         await LoadMedcard();
         StateHasChanged();
+        await ShowToast();
     }
 
     async Task UpdateRec(RecomendationsModel model)
@@ -139,6 +161,8 @@ else{
         await _servivce.UpdateRecAsync(model.PetId, model.Description);
         await LoadMedcard();
         StateHasChanged();
+        await ShowToast();
+
     }
 
     async Task UpdateTreat(TreatmentsModel model)
@@ -146,6 +170,8 @@ else{
         await _servivce.UpdateTreatAsync(model.PetId, model.Description);
         await LoadMedcard();
         StateHasChanged();
+        await ShowToast();
+
     }
 
     async Task PrintPage()
