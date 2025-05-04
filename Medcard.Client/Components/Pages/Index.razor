@@ -1,82 +1,67 @@
-﻿@page "/"  
+﻿@page "/"
 
 @layout Layout.MainLayout
+@inject IMedcardHttpService _medcardService
+@inject ISearchService _searchService
 
-@inject IMedcardHttpService _medcardService; 
 @inject NavigationManager nav
 @rendermode InteractiveServer
 
-
 <header class="header" id="header">
     <div class="logo">
-        <a>
-            <img src="/img/logo.png" alt="vetasist" @onclick="() =>ForceLoadPage()">
-        </a>
+        <a><img src="/img/logo.png" alt="vetasist" @onclick="ForceLoadPage"></a>
     </div>
     <div class="logo-string">
         <img src="/img/string-assistant-black.png" alt="vetasist">
     </div>
-   
-    <button id="add" type="button" class="btn-input" @onclick="()=>OpenPopup()" >Добавить</button>
+    <button id="add" type="button" class="btn-input" @onclick="() => OpenPopup()">Добавить</button>
 </header>
 
 @if (ShowPopup)
 {
-    <EditForm Model="@medcardFormModel" FormName="Create" OnSubmit="()=>DelegationEditOrCreateFormMethod(Guid.Empty)">
-        <div id="popup" class="popup" >
+    <EditForm Model="@medcardFormModel" FormName="Create" OnSubmit="()=>CreateOrUpdateAsync()">
+        <div id="popup" class="popup">
             <div class="popup__box">
-                <div class="d-flex position-absolute top-0 end-0 p-3 " style="width: 15%;height: 12%;">
-                    <button type="button" class="btn-close ms-auto w-50 h-auto" aria-label="Close" 
-                    style="transform: scale(1.5); width: 20%;height: 12%;" 
-                    @onclick="ClosePopup"></button>
+                <div class="d-flex position-absolute top-0 end-0 p-3" style="width: 15%;height: 12%;">
+                    <button type="button" class="btn-close ms-auto w-50 h-auto" style="transform: scale(1.5); width: 20%;height: 12%;" @onclick="ClosePopup"></button>
                 </div>
                 <br />
-                <input placeholder="ФИО" type="text" id="name" @bind="@medcardFormModel.OwnerName"/>
-                <input placeholder="Номер телефона" type="text" id="phonenumber" @bind="@medcardFormModel.PhoneNumber" />
-                <input placeholder="Кличка" type="text" id="nick" @bind="@medcardFormModel.PetName" />
-                <input placeholder="Номер чипа" type="text" id="chip" @bind="@medcardFormModel.ChipNumber" />
-                <input placeholder="Возраст" type="text" id="age" @bind="@medcardFormModel.Age" />
-                <input placeholder="Порода" type="text" id="breed" @bind="@medcardFormModel.Breed" />
-
-                <button class="list__send" type="submit" style="margin-bottom:20px;">@(isEditGlobal ? "Изменить" : "Отправить")</button>
+                <InputText placeholder="ФИО" @bind-Value="medcardFormModel.OwnerName" />
+                <InputText placeholder="Номер телефона" @bind-Value="medcardFormModel.PhoneNumber" />
+                <InputText placeholder="Кличка" @bind-Value="medcardFormModel.PetName" />
+                <InputText placeholder="Номер чипа" @bind-Value="medcardFormModel.ChipNumber" />
+                <InputText placeholder="Возраст" @bind-Value="medcardFormModel.Age" />
+                <InputText placeholder="Порода" @bind-Value="medcardFormModel.Breed" />
+                <button class="list__send" type="submit">@(isEditGlobal ? "Изменить" : "Отправить")</button>
             </div>
         </div>
     </EditForm>
 }
 
-
 <div class="search">
     <div class="search__box search-border">
-        <input placeholder="Поиск по имени" class="search__field__input search-border" type="search" id="search" />
-        <button type="button" class="search__field__btn search-border" >Поиск</button>
-        
+        <input placeholder="Поиск по имени" class="search__field__input search-border" type="search" @bind="@searchQuery" @oninput="OnInputChanged" />
+        <button type="button" class="search__field__btn search-border" @onclick="SearchAsync">Поиск</button>
     </div>
 </div>
 
-@if (medcardlist == null )
+@if (medcardlist == null || medcardlist.Count == 0)
 {
-    <div class="loader-container">
-        <div class="loader"></div>
-    </div>
-    
-   
-}
- @if(medcardlist?.Count == 0)
-{
-    <div class="loader-container">
-        <div class="loader"></div>
-    </div>
-    <div class="container">
-        <br />
-        <p class="text-center fw-bold fs-1">@ErrorMessage</p>
-    </div>
-} 
+    <div class="loader-container d-flex justify-content-center align-items-center flex-column text-center">
+        <div class="loader mb-4"></div>
 
- else
+        @if (!string.IsNullOrWhiteSpace(ErrorMessage))
+        {
+            <p class="fw-bold fs-1" style="color:#1e3956">@ErrorMessage</p>
+        }
+    </div>
+}
+    
+else
 {
     <section class="list">
         <div class="list__wrapper shadow">
-            <div class="list__line-title" >
+            <div class="list__line-title">
                 <p class="number">Дата</p>
                 <p class="name">Фио</p>
                 <p class="phone">Телефон</p>
@@ -88,19 +73,17 @@
             </div>
             @foreach (var owner in medcardlist)
             {
-                
                 <div class="list__container">
                     <div class="list__lines">
                         @{
-                            System.Globalization.CultureInfo russianCulture = new System.Globalization.CultureInfo("ru-RU");
-                            DateTime localDateCreate = owner.DateCreate.ToLocalTime();
-                            string dayOfWeek = localDateCreate.ToString("dddd", russianCulture);
-                            string time = localDateCreate.ToString("HH:mm", russianCulture);
-                            dayOfWeek = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
-                            string formattedDate = localDateCreate.ToString("dd/MM/yyyy", russianCulture);
-
-                            <p class="number">@dayOfWeek<br /><br />@formattedDate</p>
+                            var culture = new System.Globalization.CultureInfo("ru-RU");
+                            var localDate = owner.DateCreate.ToLocalTime();
+                            var dayOfWeek = localDate.ToString("dddd", culture);
+                            var capitalizedDay = char.ToUpper(dayOfWeek[0]) + dayOfWeek.Substring(1);
                         }
+                        <p class="number">@capitalizedDay<br /><br />@localDate.ToString("dd/MM/yyyy")</p>
+
+
                         <p class="name">@owner.Name</p>
                         <p class="phone">@owner.PhoneNumber</p>
                         @foreach (var pet in owner.Pets)
@@ -111,116 +94,184 @@
                             <p class="breed">@pet.Breed</p>
                         }
                         <div class="list__param">
-                            <button class="list__more" @onclick="()=>NavigateToClient(owner.Id)">Клиент</button>
-                            <button class="list__more" @onclick="()=>DelegationEditOrCreateFormMethod(owner.Id,true)">Изменить</button>
-                            <button type="submit" class="list__remove" @onclick="()=>DeleteAsync(owner.Id)">Удалить</button>
+                            <button class="list__more" @onclick="() => NavigateToClient(owner.Id)">Клиент</button>
+                            <button class="list__more" @onclick="() => UpdateAsync(owner.Id)">Изменить</button>
+                            <button class="list__remove" @onclick="() =>DeleteAsync(owner.Id)">Удалить</button>
                         </div>
                     </div>
                 </div>
+
+
             }
         </div>
     </section>
+
+
 }
 
 <footer><br /></footer>
 
+@code {
+   
 
-@code{
+
+
     public List<OwnerModel>? medcardlist { get; set; } = new List<OwnerModel>();
-
     public MedcardViewModel medcardFormModel { get; set; } = new MedcardViewModel();
-
-
     public string ErrorMessage { get; set; } = string.Empty;
+    private string searchQuery = "";
+    private Guid? editId = null;
+    private bool isEditGlobal = false;
+    private bool ShowPopup = false;
 
     protected override async Task OnInitializedAsync()
     {
-
         try
         {
-
             await Task.Delay(1000);
             medcardlist = await _medcardService.GetAllFromApiAsync();
-            StateHasChanged();
 
             if (medcardlist is null)
-            {
                 throw new Exception("It's null!");
-            }
-            if(medcardlist.Count == 0)
-            {
+            if (medcardlist.Count == 0)
                 throw new Exception("Count is 0!");
-            }
 
-
+            StateHasChanged();
         }
         catch (Exception ex)
         {
             ErrorMessage = ex.Message;
         }
-
     }
-    async Task CreateAsync()
+    private System.Timers.Timer debounceTimer;
+
+    private void OnInputChanged(ChangeEventArgs e)
+    {
+        searchQuery = e.Value?.ToString() ?? "";
+
+        debounceTimer?.Stop();
+        debounceTimer?.Dispose();
+
+        debounceTimer = new System.Timers.Timer(300);
+        debounceTimer.Elapsed += async (_, _) =>
+        {
+            debounceTimer.Stop();
+            debounceTimer.Dispose();
+            await InvokeAsync(SearchAsync);
+        };
+        debounceTimer.Start();
+    }
+    async Task SearchAsync()
     {
         try
         {
-            var medcard = await _medcardService.CreateMedcardAsync(medcardFormModel);
+            if (string.IsNullOrEmpty(searchQuery))
+            {
+                medcardlist = await _medcardService.GetAllFromApiAsync();
+                ErrorMessage = string.Empty;
+            }
+            else
+            {
+                var searchModel = await _searchService.SearchAsync(searchQuery);
+
+                if (searchModel != null && searchModel.Any())
+                {
+                    medcardlist = searchModel.ToList();
+                    ErrorMessage = string.Empty;
+                }
+                else
+                {
+                    medcardlist = new List<OwnerModel>();
+                    ErrorMessage = "Ничего не найдено.";
+                }
+            }
+
+            StateHasChanged();  
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = $"Ошибка поиска: {ex.Message}";
+        }
+    }
+
+
+
+
+    async Task CreateOrUpdateAsync()
+    {
+        try
+        {
+            if (isEditGlobal && editId.HasValue)
+            {
+                // Обновляем
+                var updatedModel = new OwnerModel
+                    {
+                        Id = editId.Value,
+                        Name = medcardFormModel.OwnerName,
+                        PhoneNumber = medcardFormModel.PhoneNumber,
+                        DateCreate = medcardFormModel.DateCreate,
+                        Pets = new List<PetModel>
+                    {
+                        new PetModel
+                        {
+                            Name = medcardFormModel.PetName,
+                            ChipNumber = medcardFormModel.ChipNumber,
+                            Age = medcardFormModel.Age,
+                            Breed = medcardFormModel.Breed
+                        }
+                    }
+                    };
+                var medcardFormModels = await MappingUpdateMedcard(medcardFormModel, updatedModel);
+
+                await _medcardService.UpdateMedcardAsync(editId.Value, medcardFormModels);
+            }
+            else
+            {
+                // Создаём
+                await _medcardService.CreateMedcardAsync(medcardFormModel);
+            }
 
             medcardlist = await _medcardService.GetAllFromApiAsync();
-            StateHasChanged();
             ClosePopup();
-            await Task.CompletedTask;
-
-
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
         }
-
-
-        await Task.CompletedTask;
     }
+
     async Task UpdateAsync(Guid id)
     {
-        OpenPopup(true);
-
-        var mapModel = await _medcardService.GetMedcardById(id);
-
-        //Mapping for view
-        medcardFormModel = await MappingUpdateMedcard(medcardFormModel, mapModel);
-
-        mapModel = await _medcardService.UpdateMedcardAsync(id, mapModel);
-
-        //Mapping for view
-        medcardFormModel = await MappingUpdateMedcard(medcardFormModel, mapModel);
-
-
-    }
-    async Task<MedcardViewModel> MappingUpdateMedcard(MedcardViewModel medcardFormModel,OwnerModel mapModel )
-    {
-
-
-        medcardFormModel.OwnerName = mapModel.Name;
-        medcardFormModel.PhoneNumber = mapModel.PhoneNumber;
-        medcardFormModel.PetName = mapModel.Pets.First().Name;
-        medcardFormModel.ChipNumber = mapModel.Pets.First().ChipNumber;
-        medcardFormModel.Age = mapModel.Pets.First().Age;
-        medcardFormModel.Breed = mapModel.Pets.First().Breed;
-        StateHasChanged();
-
-        return medcardFormModel;
-    }
-
-    async void DelegationEditOrCreateFormMethod(Guid id,bool isEdit = false)
-    {
-        if (isEdit)
+        try
         {
-            await UpdateAsync(id);
-            return;
+            OpenPopup(true);
+            var mapModel = await _medcardService.GetMedcardById(id);
+
+            medcardFormModel = await MappingUpdateMedcard(medcardFormModel, mapModel);
+            editId = id;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Ошибка загрузки данных для редактирования: " + ex.Message);
+        }
+    }
+
+    async Task<MedcardViewModel> MappingUpdateMedcard(MedcardViewModel viewModel, OwnerModel owner)
+    {
+        viewModel.OwnerName = owner.Name;
+        viewModel.PhoneNumber = owner.PhoneNumber;
+        viewModel.DateCreate = owner.DateCreate;
+
+        if (owner.Pets.Any())
+        {
+            var pet = owner.Pets.First();
+            viewModel.PetName = pet.Name;
+            viewModel.ChipNumber = pet.ChipNumber;
+            viewModel.Age = pet.Age;
+            viewModel.Breed = pet.Breed;
         }
 
-        await CreateAsync();
+        return viewModel;
     }
 
     async Task<bool> DeleteAsync(Guid id)
@@ -228,13 +279,11 @@
         try
         {
             var response = await _medcardService.DeleteMedcardAsync(id);
-
             if (response)
             {
                 medcardlist = await _medcardService.GetAllFromApiAsync();
-                StateHasChanged(); 
+                StateHasChanged();
             }
-
             return response;
         }
         catch (Exception ex)
@@ -244,8 +293,23 @@
         }
     }
 
+    // Popup UI
+    void OpenPopup(bool isEdit = false)
+    {
+        isEditGlobal = isEdit;
+        ShowPopup = true;
+        StateHasChanged();
+    }
 
-    //Navigation
+    void ClosePopup()
+    {
+        medcardFormModel = new MedcardViewModel();
+        isEditGlobal = false;
+        ShowPopup = false;
+        editId = null;
+        StateHasChanged();
+    }
+
     public void NavigateToClient(Guid id)
     {
         nav.NavigateTo($"/Client/{id}");
@@ -255,25 +319,4 @@
     {
         nav.NavigateTo($"/", forceLoad: true);
     }
-
-    //Popup Changes
-    private bool isEditGlobal = false;
-    private bool ShowPopup = false;
-
-    void ClosePopup()
-    {
-        medcardFormModel = new MedcardViewModel();
-        ShowPopup = false;
-        isEditGlobal = false;
-        StateHasChanged();
-
-    }
-    void OpenPopup(bool isEdit = false)
-    {
-        isEditGlobal = isEdit;
-        ShowPopup = true;
-        StateHasChanged();
-    }
-
-
 }

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 namespace Medcard.Api.Controllers
 {
     [ApiController]
+    //[Authorize]
     [Route("/api/")]
     public class MedcardController : ControllerBase
     {
@@ -20,7 +21,7 @@ namespace Medcard.Api.Controllers
 
         [HttpPost]
         [Route("create")]
-        public async Task<ActionResult> CreateMedcard(MedcardViewModel model)
+        public async Task<ActionResult> CreateMedcard([FromBody]MedcardViewModel model)
         {
             var medcard = await _service.CreateAsync(model);
 

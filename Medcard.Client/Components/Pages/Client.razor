@@ -18,7 +18,7 @@
         <img src="/img/string-assistant-black.png" alt="vetasist">
     </div>
     <div class="buttons">
-        <button class="btn-input" id="emailbutton" type="button" style="font-size:22px;"  target="_blank">Распечатать</button>
+        <button class="btn-input" id="emailbutton" type="button" style="font-size:22px;"  target="_blank" @onclick="()=>PrintPage()">Распечатать</button>
         <button class="btn-input" id="emailbutton" type="button" style="font-size:20px;">Email</button>
     </div>
 </header>
@@ -30,13 +30,14 @@
     </div>
 }
 else{
-<div class="list-more">
-        <div class="table-container">
-        @foreach(var pets in medcardmodel.Pets)
-        {
-            
-        
-                <table>
+    @foreach (var pets in medcardmodel.Pets)
+    {
+        <div class="container-fluid">
+            <div class="table-container" style=" margin-top:50px !important; ">
+
+
+
+                <table style="box-shadow:none!important;">
                     <tr>
                         <td class="info-section">Фио:</td>
                         <td class="info-value editable">@medcardmodel.Name</td>
@@ -44,8 +45,8 @@ else{
                         <td class="info-value editable">@medcardmodel.PhoneNumber</td>
                     </tr>
                     <tr>
-                    <td class="info-section">Кличка:</td>
-                    <td class="info-value editable">@pets.Name</td>
+                        <td class="info-section">Кличка:</td>
+                        <td class="info-value editable">@pets.Name</td>
                         <td class="info-section">Чип:</td>
                         <td class="info-value editable">@pets.ChipNumber</td>
                     </tr>
@@ -55,40 +56,57 @@ else{
                         <td class="info-section">Порода:</td>
                         <td class="info-value editable">@pets.Breed</td>
                     </tr>
-            </table>
-            foreach (var drugs in pets.Drugs)
-            {
-                <div class="section-title">Препараты</div>
-                <textarea class="textarea-editable" contenteditable="true">
-                @drugs.Description
-                </textarea>
-                <button class="section-footer-button">Изменить</button>
-            }
-                
-                <!-- лечение -->
-                <div class="section-title">Лечение</div>
-                <textarea class="textarea-editable" contenteditable="true"
-                              id="editablebiginputpet.Id">
-                  
-                        treatment.Description
-                 
-                </textarea>
-                    <button class="section-footer-button">Изменить</button>
-                
-                <!-- рекомендации -->
-                <div class="section-title">Рекомендации</div>
-                <textarea class="textarea-editable" contenteditable="true"
-                              id="editablebiginput-">
-                   
-                        
-                 
-                    </textarea>
-                    <button class="section-footer-button">Изменить</button>
-                
-        }
+                </table>
+            </div>
         </div>
-    </div>
-    
+        <div class="container-fluid w-100">
+            <div class="table-container d-flex flex-column" style="margin-top:20px !important; box-shadow:0px 0px 100px grey !important;">
+
+                @foreach (var drugs in pets.Drugs)
+                {
+                    <div class="section-title">Препараты</div>
+                    <textarea class="textarea-editable" style="height:"
+                    @bind="@drugs.Description"
+                    @onblur="@(() => UpdateDrugs(drugs))">
+                    </textarea>
+                    <button class="section-footer-button" disabled></button>
+                }
+
+                @foreach(var treatment in pets.Treatments)
+                { 
+                    <!-- лечение -->
+                    <div class="section-title">Лечение</div>
+                    <textarea class="textarea-editable" contenteditable="true"
+                    id="editablebiginputpet.Id" @bind="@treatment.Description"
+                    @onblur="@(() => UpdateTreat(treatment))">
+
+                        @treatment.Description
+
+                    </textarea>
+                    <button class="section-footer-button" disabled></button>
+                }
+
+                @foreach(var rec in pets.Recomendations)
+                {
+                    <!-- рекомендации -->
+
+                    <div class="section-title">Рекомендации</div>
+                    <textarea class="textarea-editable" contenteditable="true"
+                    id="editablebiginput-" @bind="@rec.Description" @onblur="@(() => UpdateRec(rec))">
+                        >
+                        @rec.Description
+
+
+                    </textarea>
+                    <button class="section-footer-button" disabled></button>
+                }
+
+
+            </div>
+
+        </div>
+
+    }
 }
 
 @code {
@@ -105,8 +123,34 @@ else{
 
     async Task<OwnerModel> LoadMedcard()
     {
-         return await _servivce.GetMedcardById(id);
+        return await _servivce.GetMedcardById(id);
 
+    }
+
+    async Task UpdateDrugs(DrugsModel model)
+    {
+        await _servivce.UpdateDrugsAsync(model.PetId, model.Description);
+        await LoadMedcard();
+        StateHasChanged();
+    }
+
+    async Task UpdateRec(RecomendationsModel model)
+    {
+        await _servivce.UpdateRecAsync(model.PetId, model.Description);
+        await LoadMedcard();
+        StateHasChanged();
+    }
+
+    async Task UpdateTreat(TreatmentsModel model)
+    {
+        await _servivce.UpdateTreatAsync(model.PetId, model.Description);
+        await LoadMedcard();
+        StateHasChanged();
+    }
+
+    async Task PrintPage()
+    {
+        navigation.NavigateTo($"/PrintPage/{id}");
     }
 
 }

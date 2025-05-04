@@ -1,0 +1,167 @@
+﻿@page "/PrintPage/{id:guid}"
+
+@inject IMedcardHttpService _servivce
+@inject IJSRuntime JSRuntime
+@rendermode InteractiveServer
+
+
+<MoreLayout></MoreLayout>
+
+<header class="header justify-content-center" id="header" style="background: none">
+    <div class="logo">
+        <a href="/">
+            <img src="/img/logo.png" alt="vetasist">
+        </a>
+    </div>
+    <div class="logo-string">
+        <img src="/img/string-assistant-black.png" alt="vetasist">
+    </div>
+
+</header>
+@if (medcardmodel is null || medcardmodel.Id == Guid.Empty)
+{
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>
+}
+else
+{
+    @foreach (var pets in medcardmodel.Pets)
+    {
+
+        <div class="container-fluid">
+            <div class="table-container" style=" margin-top:140px !important; width:80%;">
+
+
+
+                <table style="box-shadow:none!important;">
+
+                    <tr>
+                        <td class="info-section">Кличка:</td>
+                        <td class="info-value editable">@pets.Name</td>
+                        <td class="info-section">Чип:</td>
+                        <td class="info-value editable">@pets.ChipNumber</td>
+                    </tr>
+                    <tr>
+                        <td class="info-section">Возраст:</td>
+                        <td class="info-value editable">@pets.Age</td>
+                        <td class="info-section">Порода:</td>
+                        <td class="info-value editable">@pets.Breed</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="container-fluid w-100">
+            <div class="table-container d-flex flex-column" style="margin-top:20px !important; box-shadow:none !important; width:80%">
+
+                @foreach (var drugs in pets.Drugs)
+                {
+                    <!-- лечение -->
+                    <div class="section-title">Препараты</div>
+                    <textarea class="textarea-editable" contenteditable="true"
+                    id="editablebiginputpet.Id">
+
+                        @drugs.Description
+
+                    </textarea>
+                    <button class="section-footer-button" disabled></button>
+                }
+
+                @foreach (var treatment in pets.Treatments)
+                {
+                    <!-- лечение -->
+                    <div class="section-title">Лечение</div>
+                    <textarea class="textarea-editable" contenteditable="true"
+                    id="editablebiginputpet.Id"
+                    >
+
+                        @treatment.Description
+
+                    </textarea>
+                    <button class="section-footer-button" disabled></button>
+                }
+
+                @foreach (var rec in pets.Recomendations)
+                {
+                    <!-- рекомендации -->
+
+                    <div class="section-title">Рекомендации</div>
+                    <textarea class="textarea-editable" contenteditable="true"
+                    id="editablebiginput-">
+
+                        @rec.Description
+
+
+                    </textarea>
+                    <button class="section-footer-button" disabled></button>
+                }
+
+
+            </div>
+
+        </div>
+
+    }
+}
+
+
+
+<footer class="fixed-footer bg-light text-center text-lg-start py-3 border-top shadow-sm">
+    <div class="container d-flex justify-content-between align-items-center flex-wrap">
+        <span class="text-muted">&copy; @DateTime.Now.Year VetAssist. Все права защищены.</span>
+        <div>
+            <a href="/" class="text-decoration-none me-3 text-muted">Chișinău, Moldova</a>
+        </div>
+    </div>
+</footer>
+
+
+<style>
+    .fixed-footer {
+    font-size:2em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    }
+
+</style>
+
+@code {
+    [Parameter]
+    public Guid id { get; set; }
+
+    public OwnerModel medcardmodel { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        medcardmodel = await LoadMedcard();
+
+
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Task.Delay(1000);
+            await JSRuntime.InvokeVoidAsync("eval", @"
+            window.print();
+            setTimeout(() => {
+                window.location.href = '/';
+            });
+        ");
+        }
+    }
+
+
+    async Task<OwnerModel> LoadMedcard()
+    {
+        return await _servivce.GetMedcardById(id);
+
+    }
+
+    
+
+}
+

@@ -151,6 +151,7 @@ body {
     justify-content: center;
     width: 100%;
     margin-bottom: 15px;
+    margin-left:none;
 }
         .logo-string img {
             display: block;
@@ -496,3 +497,11 @@ body {
             min-height: 500px;
         }*/
     }
+.fixed-footer {
+    font-size: 2em;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+}

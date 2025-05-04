@@ -14,6 +14,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components.Server;
 using Blazored.SessionStorage;
 using System;
+using Medcard.Client.Abstractions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,8 +29,9 @@ builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
 builder.Services.AddScoped<IMedcardHttpService, MedcardHttpService>();
+builder.Services.AddScoped<ISearchService, SearchService>();
 /*builder.Services.AddCascadingAuthenticationState()*/
-;
+
 builder.Services.AddBlazoredSessionStorage();
 builder.Services.AddAntiforgery();
 //builder.Services.AddScoped<CustomAuthStateProvider>();
@@ -50,7 +52,7 @@ builder.Services.AddBlazoredLocalStorage();
 //HttpClientFactory 
 builder.Services.AddHttpClient("Medcard", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7211/api");
+    client.BaseAddress = new Uri("https://localhost:7211/api/");
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 

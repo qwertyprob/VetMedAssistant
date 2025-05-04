@@ -2,6 +2,7 @@
 using Medcard.Client.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Http.HttpResults;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Text;
@@ -20,13 +21,13 @@ namespace Medcard.Client.Services
             _navigationManager = navigationManager;
 
         }
-
+        //GET
         public async Task<List<OwnerModel>> GetAllFromApiAsync()
         {
             
                 var client = _httpClient.CreateClient("Medcard");
 
-                var response = await client.GetFromJsonAsync<List<OwnerModel>>(client.BaseAddress+"/get");
+                var response = await client.GetFromJsonAsync<List<OwnerModel>>(client.BaseAddress+"get");
 
 
                 if (client.BaseAddress == null)
@@ -41,7 +42,7 @@ namespace Medcard.Client.Services
         {
             var client = _httpClient.CreateClient("Medcard");
 
-            var response = await client.GetFromJsonAsync<OwnerModel>(client.BaseAddress + $"/get/{id}");
+            var response = await client.GetFromJsonAsync<OwnerModel>(client.BaseAddress + $"get/{id}");
             if(response == null)
             {
                 return new OwnerModel();
@@ -49,93 +50,155 @@ namespace Medcard.Client.Services
 
             return response;
 
-
         }
-        public async Task<OwnerModel> UpdateMedcardAsync(Guid id,OwnerModel model)
+
+        //CREATE
+        public async Task<OwnerModel> CreateMedcardAsync(MedcardViewModel request)
         {
             var client = _httpClient.CreateClient("Medcard");
 
-            var updateModel = new OwnerModel()
+            var json = JsonConvert.SerializeObject(request);
+
+            var requestContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync("create", requestContent);
+            if (!response.IsSuccessStatusCode)
             {
-                Id = id,
-                Name = model.Name,
-                PhoneNumber = model.PhoneNumber,
-                Pets = new List<PetModel>()
-                {
-                    new PetModel()
-                    {
-                        Name = model.Pets.First().Name,
-                        Age = model.Pets.First().Age,
-                        Breed = model.Pets.First().Breed,
-                        ChipNumber = model.Pets.First().ChipNumber
-                    }
-                }
-            };
-
-            var owner = await client.PostAsJsonAsync<OwnerModel>(client.BaseAddress + $"/update/{id}", updateModel);
+                Console.WriteLine($"Error response: {response.StatusCode}");
+                return null;
+            }
 
 
-            return updateModel;
+            var contentBody = await response.Content.ReadAsStringAsync();
+
+
+            if (string.IsNullOrWhiteSpace(contentBody))
+            {
+                Console.WriteLine("Empty response body");
+                return null;
+            }
+
+            var responseBody = JsonConvert.DeserializeObject<OwnerModel>(contentBody);
+
+            Console.WriteLine(responseBody.Name);
+
+
+            return responseBody;
+
 
 
         }
-        public async Task<OwnerModel> CreateMedcardAsync(MedcardViewModel medcardViewModel)
+        //UPDATE
+        public async Task<OwnerModel> UpdateMedcardAsync(Guid id, MedcardViewModel model)
         {
             var client = _httpClient.CreateClient("Medcard");
-            Guid ownerId = Guid.NewGuid();
-
-            var mappedOwner = new OwnerModel
-            {
-                Id = ownerId,
-                Name = medcardViewModel.OwnerName,
-                PhoneNumber = medcardViewModel.PhoneNumber,
-                DateCreate = medcardViewModel.DateCreate,
-                Pets = new List<PetModel>
-                {
-                    new PetModel()
-                    {
-                        Name = medcardViewModel.PetName,
-                        ChipNumber = medcardViewModel.ChipNumber,
-                        Age = medcardViewModel.Age,
-                        Breed = medcardViewModel.Breed,
-                        Drugs = new List<DrugsModel>
-                        {
-                            new DrugsModel {  Description = medcardViewModel.Drugs }
-                        },
-                        Treatments = new List<TreatmentsModel>
-                        {
-                            new TreatmentsModel {  Description = medcardViewModel.Treatments }
-                        },
-                        Recomendations = new List<RecomendationsModel>
-                        {
-                            new RecomendationsModel {  Description = medcardViewModel.Recomendations }
-                        }
-                    }
-                }
-            };
 
             
-                Console.WriteLine($"Отправка запроса на {client.BaseAddress}/create");
-                var response = await client.PostAsJsonAsync($"{client.BaseAddress}/create", mappedOwner);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    var result = await response.Content.ReadFromJsonAsync<OwnerModel>();
+            var requestContent = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
-                    return result;
-                }
+            // Debugging the request content
+            Console.WriteLine($"Sending request body: {await requestContent.ReadAsStringAsync()}");
 
-                Console.WriteLine($"Ошибка API: {response.StatusCode}");
-                return new OwnerModel();
-           
+            var response = await client.PutAsync($"update/{id}", requestContent);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Error response: {response.StatusCode}, {await response.Content.ReadAsStringAsync()}");
+                return null;
+            }
+
+            var contentBody = await response.Content.ReadAsStringAsync();
+
+
+            if (string.IsNullOrWhiteSpace(contentBody))
+            {
+                Console.WriteLine("Empty response body");
+                return null;
+            }
+
+            var responseBody = JsonConvert.DeserializeObject<OwnerModel>(contentBody);
+
+            Console.WriteLine($"Response body: {responseBody.Name}");
+
+            return responseBody;
+        }
+        public async Task<bool> UpdateDrugsAsync(Guid id, string text)
+        {
+            var client = _httpClient.CreateClient("Medcard");
+
+            var request = new HttpRequestMessage(HttpMethod.Put, $"drugs/{id}?text={Uri.EscapeDataString(text)}");
+
+            request.Headers.Add("Accept", "*/*");
+
+            // Empty body
+            request.Content = new StringContent(string.Empty);
+
+            var response = await client.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Error: {response.StatusCode}");
+                return false;
+            }
+
+            var json = await response.Content.ReadAsStringAsync();
+            return true;
+        }
+        public async Task<bool> UpdateTreatAsync(Guid id, string text)
+        {
+            var client = _httpClient.CreateClient("Medcard");
+
+            var request = new HttpRequestMessage(HttpMethod.Put, $"treatments/{id}?text={Uri.EscapeDataString(text)}");
+
+            request.Headers.Add("Accept", "*/*");
+
+            // Empty body
+            request.Content = new StringContent(string.Empty);
+
+            var response = await client.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Error: {response.StatusCode}");
+                return false;
+            }
+
+            var json = await response.Content.ReadAsStringAsync();
+            return true;
+        }
+        public async Task<bool> UpdateRecAsync(Guid id, string text)
+        {
+            var client = _httpClient.CreateClient("Medcard");
+
+            var request = new HttpRequestMessage(HttpMethod.Put, $"recomendations/{id}?text={Uri.EscapeDataString(text)}");
+
+            request.Headers.Add("Accept", "*/*");
+
+            // Empty body
+            request.Content = new StringContent(string.Empty);
+
+            var response = await client.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Error: {response.StatusCode}");
+                return false;
+            }
+
+            var json = await response.Content.ReadAsStringAsync();
+            return true;
         }
 
+
+
+        //DELETE
         public async Task<bool> DeleteMedcardAsync(Guid id)
         {
             var client = _httpClient.CreateClient("Medcard");
 
            
-                var response = await client.DeleteAsync(client.BaseAddress + $"/delete/{id}");
+                var response = await client.DeleteAsync(client.BaseAddress + $"delete/{id}");
                 return true;
             
         }

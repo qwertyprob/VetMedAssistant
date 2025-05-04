@@ -10,7 +10,7 @@ namespace Medcard.Client.Models
     [Serializable]
     public class PetModel
     {
-        private Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required(ErrorMessage = "Кличка питомца обязательна для заполнения.")]
         public string Name { get; set; }

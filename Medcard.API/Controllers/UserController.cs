@@ -1,6 +1,7 @@
 ﻿using Medcard.Bl.Abstraction;
 using Medcard.Bl.Models;
 using Medcard.DbAccessLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ namespace Medcard.Api.Controllers
 {
     [Route("api/user")]
     [ApiController]
+    [AllowAnonymous]
     public class UserController : ControllerBase
     {
         private readonly IAuthService _service;
