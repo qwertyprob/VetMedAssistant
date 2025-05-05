@@ -1,13 +1,15 @@
-﻿@page "/PrintPage/{id:guid}"
+﻿@attribute [Authorize]
+@page "/PrintPage/{id:guid}"
 
 @inject IMedcardHttpService _servivce
 @inject IJSRuntime JSRuntime
+@inject NavigationManager navigation
 @rendermode InteractiveServer
 
 
 <MoreLayout></MoreLayout>
 
-<header class="header justify-content-center" id="header" style="background: none">
+<header class="header justify-content-center" id="header" style="background: grey;">
     <div class="logo">
         <a href="/">
             <img src="/img/logo.png" alt="vetasist">
@@ -151,6 +153,8 @@ else
                 window.location.href = '/';
             });
         ");
+            
+
         }
     }
 

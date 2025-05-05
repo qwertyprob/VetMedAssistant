@@ -40,37 +40,38 @@ body {
     animation: moving-background 40s linear infinite;
 }
 
-.popup {
-    z-index: 99;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.8);
-}
 
-.disable {
-    display: none !important;
-}
+    .popup {
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+    }
 
-.popup .popup__box {
-    position: relative;
-    margin: 0 auto;
-    min-height: 400px;
-    width: 30%;
-    height: 46%;
-    background: white;
-    border-radius: 10px;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    gap: 20px;
-    padding-top: 30px;
-}
+    .disable {
+        display: none !important;
+    }
+
+    .popup .popup__box {
+        position: relative;
+        margin: 0 auto;
+        min-height: 400px;
+        width: 30%;
+        height: 46%;
+        background: white;
+        border-radius: 10px;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        gap: 20px;
+        padding-top: 30px;
+    }
 
     .popup .popup__box input, .popup .popup__box button {
         width: 60%;
@@ -85,33 +86,33 @@ body {
         background-image: url(../img/back.jpg);
     }
 
-.popup__box button:hover {
-    background-image: url(../img/back.jpg);
-    border-color: lightblue;
-}
+    .popup__box button:hover {
+        background-image: url(../img/back.jpg);
+        border-color: lightblue;
+    }
 
-.popup .popup__box input::placeholder {
-    background-image: url(../img/back-new-gray.jpg);
-    border-color: lightblue;
-}
+    .popup .popup__box input::placeholder {
+        background-image: url(../img/back-new-gray.jpg);
+        border-color: lightblue;
+    }
 
-.popup .popup__box button {
-    background-image: url(../img/back-new-gray.jpg);
-}
+    .popup .popup__box button {
+        background-image: url(../img/back-new-gray.jpg);
+    }
 
     .popup .popup__box button:hover {
         background-image: url(../img/back.jpg);
     }
 
-.shadow {
-    box-shadow: 0px 0px 70px grey;
-}
+    .shadow {
+        box-shadow: 0px 0px 70px grey;
+    }
 
-.header {
-    background-color: lightblue;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-}
+    .header {
+        background-color: lightblue;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
 
     .header .btn-input {
         background-color: ghostwhite;
@@ -123,19 +124,19 @@ body {
         transition: all ease .3s;
     }
 
-        .header .btn-input:hover {
-            background-color: whitesmoke;
-        }
+    .header .btn-input:hover {
+        background-color: whitesmoke;
+    }
 
-.logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e4f3f8;
-    border-radius: 50%;
-    margin-bottom: 7px;
-    margin-top: 7px;
-}
+    .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e4f3f8;
+        border-radius: 50%;
+        margin-bottom: 7px;
+        margin-top: 7px;
+    }
 
 
     .logo, .logo img {
@@ -145,24 +146,25 @@ body {
         object-fit: contain;
     }
 
-.logo-string {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-bottom: 15px;
-    margin-left:none;
-}
-        .logo-string img {
-            display: block;
-            width: auto;
-            height: 6em;
-            justify-content: center;
-        }
-
-
-@media (max-width: 1600px) {
     .logo-string {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 15px;
+        margin-left: none;
+    }
+
+    .logo-string img {
+        display: block;
+        width: auto;
+        height: 6em;
+        justify-content: center;
+    }
+
+
+    @media (max-width: 1600px) {
+        .logo-string {
         justify-content: start;
     }
 

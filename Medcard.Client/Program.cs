@@ -30,12 +30,10 @@ builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 builder.Services.AddScoped<IMedcardHttpService, MedcardHttpService>();
 builder.Services.AddScoped<ISearchService, SearchService>();
-/*builder.Services.AddCascadingAuthenticationState()*/
+builder.Services.AddScoped<IUserService, UserService>();
 
-builder.Services.AddBlazoredSessionStorage();
 builder.Services.AddAntiforgery();
-//builder.Services.AddScoped<CustomAuthStateProvider>();
-//builder.Services.AddScoped<AuthenticationStateProvider>(sp => sp.GetRequiredService<CustomAuthStateProvider>());
+
 
 builder.Services.AddAuthenticationCore();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -43,11 +41,11 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     {
         options.LoginPath = "/login";
     });
-
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
 
 builder.Services.AddAuthorization();
 
-builder.Services.AddBlazoredLocalStorage();
 
 //HttpClientFactory 
 builder.Services.AddHttpClient("Medcard", client =>

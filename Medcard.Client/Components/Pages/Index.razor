@@ -1,4 +1,5 @@
-﻿@page "/"
+﻿@attribute [Authorize]
+@page "/"
 
 @layout Layout.MainLayout
 @inject IMedcardHttpService _medcardService
@@ -24,7 +25,7 @@
             <p class="text fw-bold m-0" style="color:#1e3956;"> Данные успешно обновлены!</p>
         </div>
     </div>
-   
+
 }
 
 @if (ShowModal)
@@ -73,8 +74,13 @@
         <button type="button" class="search__field__btn search-border" @onclick="SearchAsync">Поиск</button>
     </div>
 </div>
-
-@if (medcardlist == null || medcardlist.Count == 0)
+@if (isLoading)
+{
+    <div class="loader-container d-flex justify-content-center align-items-center flex-column text-center">
+        <div class="loader mb-4"></div>
+    </div>
+}
+else if(medcardlist == null || medcardlist.Count == 0)
 {
     <div class="loader-container d-flex justify-content-center align-items-center flex-column text-center">
         <div class="loader mb-4"></div>
@@ -85,7 +91,6 @@
         }
     </div>
 }
-
 else
 {
     <section class="list">
@@ -141,39 +146,11 @@ else
 <footer><br /></footer>
 
 @code {
-    private bool ShowSuccessModal = false;
-
-    private async Task ShowToast()
-    {
-        ShowSuccessModal = true;
-        StateHasChanged();
-        await Task.Delay(2000);
-        ShowSuccessModal = false;
-        StateHasChanged();
-    }
+    
+    private bool isLoading = true;
 
 
-    [Parameter] public EventCallback OnDeleted { get; set; }
-
-    private bool ShowModal { get; set; } = false;
-    private Guid deleteId { get; set; }
-
-    public async void Open(Guid id)
-    {
-        ShowModal = true;
-        deleteId = id;
-        
-        StateHasChanged();
-    }
-
-    private void CloseModal()
-    {
-        ShowModal = false;
-    }
-
-
-
-    public List<OwnerModel>? medcardlist { get; set; } = new List<OwnerModel>();
+    public List<OwnerModel>? medcardlist { get; set; } = null;
     public MedcardViewModel medcardFormModel { get; set; } = new MedcardViewModel();
     public string ErrorMessage { get; set; } = string.Empty;
     private string searchQuery = "";
@@ -183,6 +160,10 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        isLoading = true;
+        StateHasChanged();
+        ErrorMessage = "";
+        
         try
         {
             await Task.Delay(1000);
@@ -198,6 +179,11 @@ else
         catch (Exception ex)
         {
             ErrorMessage = ex.Message;
+        }
+        finally
+        {
+            isLoading = false;
+            StateHasChanged();
         }
     }
     private System.Timers.Timer debounceTimer;
@@ -381,5 +367,36 @@ else
     public void ForceLoadPage()
     {
         nav.NavigateTo($"/", forceLoad: true);
+    }
+
+    //Success modal; Delete modal
+    private bool ShowSuccessModal = false;
+
+    private async Task ShowToast()
+    {
+        ShowSuccessModal = true;
+        StateHasChanged();
+        await Task.Delay(2000);
+        ShowSuccessModal = false;
+        StateHasChanged();
+    }
+
+
+    [Parameter] public EventCallback OnDeleted { get; set; }
+
+    private bool ShowModal { get; set; } = false;
+    private Guid deleteId { get; set; }
+
+    public async void Open(Guid id)
+    {
+        ShowModal = true;
+        deleteId = id;
+
+        StateHasChanged();
+    }
+
+    private void CloseModal()
+    {
+        ShowModal = false;
     }
 }

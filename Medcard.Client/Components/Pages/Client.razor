@@ -1,4 +1,5 @@
-﻿ @page "/Client/{id:guid}"
+﻿@attribute [Authorize]
+@page "/Client/{id:guid}"
 
 @inject NavigationManager navigation
 @inject IMedcardHttpService _servivce
