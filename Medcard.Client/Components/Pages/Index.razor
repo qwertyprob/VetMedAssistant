@@ -150,7 +150,7 @@ else
     private bool isLoading = true;
 
 
-    public List<OwnerModel>? medcardlist { get; set; } = null;
+    public List<OwnerModel>? medcardlist { get; set; } = new();
     public MedcardViewModel medcardFormModel { get; set; } = new MedcardViewModel();
     public string ErrorMessage { get; set; } = string.Empty;
     private string searchQuery = "";
@@ -169,8 +169,7 @@ else
             await Task.Delay(1000);
             medcardlist = await _medcardService.GetAllFromApiAsync();
 
-            if (medcardlist is null)
-                throw new Exception("It's null!");
+            
             if (medcardlist.Count == 0)
                 throw new Exception("Count is 0!");
 

@@ -9,9 +9,10 @@ namespace Medcard.Api.Dependency
 {
     public static class ApiExtensions
     {
-        public static void AddApiAuthentication(this IServiceCollection services,
-                                                     IOptions<JwtOptions> jwtOptions)
+        public static void AddApiAuthentication(this IServiceCollection services, IConfiguration config)
         {
+            var jwtOptions = config.GetSection(nameof(JwtOptions)).Get<JwtOptions>();
+
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
                 {
@@ -19,37 +20,37 @@ namespace Medcard.Api.Dependency
                     {
                         ValidateIssuer = false,
                         ValidateAudience = false,
-                        ValidateLifetime = true,
+                        ValidateLifetime = false,
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.Value.SecretKey))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SecretKey))
                     };
-                    options.Events = new JwtBearerEvents()
-                    {   //Запись токена в куки 
+                    options.Events = new JwtBearerEvents
+                    {
                         OnMessageReceived = context =>
                         {
-                            context.Token = context.Request.Cookies["Jwt"];
+                            var authHeader = context.Request.Headers["Authorization"].FirstOrDefault();
+                            if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Bearer "))
+                                context.Token = authHeader.Substring("Bearer ".Length).Trim();
+                            else
+                                context.Token = context.Request.Cookies["Jwt"];
+
                             return Task.CompletedTask;
                         },
                         OnAuthenticationFailed = context =>
                         {
-                            
                             context.Response.Redirect("/login");
                             return Task.CompletedTask;
                         },
-
-                        // Обработчик на случай ошибки авторизации (например, пользователь не авторизован)
                         OnChallenge = context =>
                         {
                             context.Response.Redirect("/login");
                             return Task.CompletedTask;
                         },
                     };
-
                 });
 
             services.AddAuthorization();
-
-            
         }
+
     }
 }

@@ -14,18 +14,40 @@ namespace Medcard.Client.Services
     {
         private readonly IHttpClientFactory _httpClient;
         private readonly NavigationManager _navigationManager;
+        private readonly IUserService _userService;
+        private readonly TokenService _tokenService;
 
-        public MedcardHttpService(IHttpClientFactory httpClient, NavigationManager navigationManager)
+        public MedcardHttpService(IHttpClientFactory httpClient, NavigationManager navigationManager, IUserService userService, TokenService tokenService)
         {
             _httpClient = httpClient;
             _navigationManager = navigationManager;
-
+            _userService = userService;
+            _tokenService = tokenService;
         }
+        private HttpClient GetClientWithAuth()
+        {
+            var client = _httpClient.CreateClient("Medcard");
+
+            // Получаем токен
+            var token = _tokenService.GetToken(); 
+
+            if (_tokenService.HasToken())
+            {
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            }
+            else
+            {
+                _navigationManager.NavigateTo("/Login");
+            }
+
+                return client;
+        }
+
         //GET
         public async Task<List<OwnerModel>> GetAllFromApiAsync()
         {
             
-                var client = _httpClient.CreateClient("Medcard");
+                var client = GetClientWithAuth();
 
                 var response = await client.GetFromJsonAsync<List<OwnerModel>>(client.BaseAddress+"get");
 
@@ -40,13 +62,13 @@ namespace Medcard.Client.Services
         }
         public async Task<OwnerModel> GetMedcardById(Guid id)
         {
-            var client = _httpClient.CreateClient("Medcard");
-
+            var client = GetClientWithAuth();
             var response = await client.GetFromJsonAsync<OwnerModel>(client.BaseAddress + $"get/{id}");
             if(response == null)
             {
                 return new OwnerModel();
             }
+            
 
             return response;
 
@@ -55,8 +77,7 @@ namespace Medcard.Client.Services
         //CREATE
         public async Task<OwnerModel> CreateMedcardAsync(MedcardViewModel request)
         {
-            var client = _httpClient.CreateClient("Medcard");
-
+            var client = GetClientWithAuth();
             var json = JsonConvert.SerializeObject(request);
 
             var requestContent = new StringContent(json, Encoding.UTF8, "application/json");
@@ -80,8 +101,6 @@ namespace Medcard.Client.Services
 
             var responseBody = JsonConvert.DeserializeObject<OwnerModel>(contentBody);
 
-            Console.WriteLine(responseBody.Name);
-
 
             return responseBody;
 
@@ -91,9 +110,9 @@ namespace Medcard.Client.Services
         //UPDATE
         public async Task<OwnerModel> UpdateMedcardAsync(Guid id, MedcardViewModel model)
         {
-            var client = _httpClient.CreateClient("Medcard");
+            var client = GetClientWithAuth();
 
-            
+
 
             var requestContent = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
@@ -125,7 +144,7 @@ namespace Medcard.Client.Services
         }
         public async Task<bool> UpdateDrugsAsync(Guid id, string text)
         {
-            var client = _httpClient.CreateClient("Medcard");
+            var client = GetClientWithAuth();
 
             var request = new HttpRequestMessage(HttpMethod.Put, $"drugs/{id}?text={Uri.EscapeDataString(text)}");
 
@@ -147,7 +166,7 @@ namespace Medcard.Client.Services
         }
         public async Task<bool> UpdateTreatAsync(Guid id, string text)
         {
-            var client = _httpClient.CreateClient("Medcard");
+            var client = GetClientWithAuth();
 
             var request = new HttpRequestMessage(HttpMethod.Put, $"treatments/{id}?text={Uri.EscapeDataString(text)}");
 
@@ -169,7 +188,7 @@ namespace Medcard.Client.Services
         }
         public async Task<bool> UpdateRecAsync(Guid id, string text)
         {
-            var client = _httpClient.CreateClient("Medcard");
+            var client = GetClientWithAuth();
 
             var request = new HttpRequestMessage(HttpMethod.Put, $"recomendations/{id}?text={Uri.EscapeDataString(text)}");
 
@@ -195,10 +214,10 @@ namespace Medcard.Client.Services
         //DELETE
         public async Task<bool> DeleteMedcardAsync(Guid id)
         {
-            var client = _httpClient.CreateClient("Medcard");
+            var client = GetClientWithAuth();
 
-           
-                var response = await client.DeleteAsync(client.BaseAddress + $"delete/{id}");
+
+            var response = await client.DeleteAsync(client.BaseAddress + $"delete/{id}");
                 return true;
             
         }

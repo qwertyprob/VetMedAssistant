@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace Medcard.Api.Controllers
 {
     [ApiController]
-    //[Authorize]
+    [Authorize]
     [Route("/api/")]
     public class MedcardController : ControllerBase
     {
@@ -25,6 +25,7 @@ namespace Medcard.Api.Controllers
         {
             var medcard = await _service.CreateAsync(model);
 
+
             return Ok(medcard);   
         }
 
@@ -33,6 +34,7 @@ namespace Medcard.Api.Controllers
         public async Task<IActionResult> GetMedcards()
         {
             var medcard = await _service.GetAllAsync();
+
             return Ok(medcard);
         }
 

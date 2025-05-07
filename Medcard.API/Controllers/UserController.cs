@@ -33,8 +33,6 @@ namespace Medcard.Api.Controllers
             {
                 var token = _service.Login(user.Email, user.Password);
 
-                Response.Cookies.Append("Jwt", token);
-
                 return Ok(token);
             }
             catch(Exception ex)

@@ -20,8 +20,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     ServiceLifetime.Scoped);
 
 //From Dependency 
-builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection(nameof(JwtOptions)));
-builder.Services.AddApiAuthentication(builder.Services.BuildServiceProvider().GetRequiredService<IOptions<JwtOptions>>());
+builder.Services.Configure<JwtOptions>(
+    builder.Configuration.GetSection(nameof(JwtOptions)));
+
+builder.Services.AddApiAuthentication(builder.Configuration);
+
+
 
 builder.Services.AddServices();
 

@@ -31,15 +31,17 @@ builder.Services.AddRazorComponents()
 builder.Services.AddScoped<IMedcardHttpService, MedcardHttpService>();
 builder.Services.AddScoped<ISearchService, SearchService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddSingleton<TokenService>();
 
 builder.Services.AddAntiforgery();
 
+builder.Services.AddBlazoredLocalStorage();
 
 builder.Services.AddAuthenticationCore();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/login";
+        options.LoginPath = "/Login";
     });
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();

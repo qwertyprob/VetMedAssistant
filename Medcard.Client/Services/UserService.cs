@@ -1,4 +1,5 @@
-﻿using Medcard.Client.Models;
+﻿using Blazored.LocalStorage;
+using Medcard.Client.Models;
 using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
 using System.Text;
@@ -9,11 +10,12 @@ namespace Medcard.Client.Services
     {
         private readonly IHttpClientFactory _httpClient;
         private readonly NavigationManager _navigationManager;
-        public UserService(IHttpClientFactory httpClient, NavigationManager navigationManager)
+        private readonly TokenService _tokenService;
+        public UserService(IHttpClientFactory httpClient, NavigationManager navigationManager, TokenService tokenService)
         {
             _httpClient = httpClient;
             _navigationManager = navigationManager;
-
+            _tokenService = tokenService;
         }
 
         //LOGIN
@@ -24,7 +26,7 @@ namespace Medcard.Client.Services
                 return "Пустой юзер";
             }
 
-            if(string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Email))
+            if (string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Email))
             {
                 return "Пустой логин или пароль";
             }
@@ -35,7 +37,7 @@ namespace Medcard.Client.Services
 
             var response = await client.PostAsync("user/login", requestContent);
 
-            
+
 
             if (!response.IsSuccessStatusCode)
             {
@@ -46,8 +48,17 @@ namespace Medcard.Client.Services
 
             var content = await response.Content.ReadAsStringAsync();
 
+            _tokenService.SetToken(content);
+
+
             return "Успешный логин";
 
         }
+
+        
+
+
+
+
     }
 }
