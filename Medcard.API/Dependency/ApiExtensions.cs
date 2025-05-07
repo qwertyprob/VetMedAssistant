@@ -29,6 +29,7 @@ namespace Medcard.Api.Dependency
                         OnMessageReceived = context =>
                         {
                             var authHeader = context.Request.Headers["Authorization"].FirstOrDefault();
+                            Console.WriteLine("refreshed");
                             if (!string.IsNullOrEmpty(authHeader) && authHeader.StartsWith("Bearer "))
                                 context.Token = authHeader.Substring("Bearer ".Length).Trim();
                             else

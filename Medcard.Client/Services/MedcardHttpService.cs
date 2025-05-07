@@ -39,8 +39,12 @@ namespace Medcard.Client.Services
             {
                 _navigationManager.NavigateTo("/Login");
             }
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine(token);
+            Console.ForegroundColor = ConsoleColor.White;
 
-                return client;
+
+            return client;
         }
 
         //GET

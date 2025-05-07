@@ -152,7 +152,6 @@ body {
         justify-content: center;
         width: 100%;
         margin-bottom: 15px;
-        margin-left: none;
     }
 
     .logo-string img {
@@ -170,7 +169,6 @@ body {
 
         .logo-string img {
             margin-right: 40em;
-            margin-left: 2em;
         }
 
     /*.header .btn-input {
@@ -185,7 +183,6 @@ body {
 
         .logo-string img {
             margin-right: 45em;
-            margin-left: 2em;
         }
 
 }
