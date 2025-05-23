@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace Medcard.Api.Controllers
 {
     [ApiController]
-    [Authorize]
+    //[Authorize]
     [Route("/api/")]
     public class MedcardController : ControllerBase
     {

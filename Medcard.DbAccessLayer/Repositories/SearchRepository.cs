@@ -23,20 +23,31 @@ namespace Medcard.DbAccessLayer.Repositories
         }
         public async Task<IReadOnlyCollection<OwnerDto>> GetAllFromSearchAsync(string searchItem)
         {
-            
-            var lowerSearchItem = searchItem.ToLower();
+            if (string.IsNullOrWhiteSpace(searchItem))
+                return new List<OwnerDto>();
 
+            var lowerSearchWords = searchItem
+                .ToLower()
+                .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-            var medcardResult = await _dbcontext.Owners
+            var query = _dbcontext.Owners
                 .Include(o => o.Pets)
                     .ThenInclude(p => p.Drugs)
                 .Include(o => o.Pets)
                     .ThenInclude(p => p.Treatments)
                 .Include(o => o.Pets)
                     .ThenInclude(p => p.Recomendations)
-                .AsNoTracking()
-                .Where(o => o.Name.ToLower().StartsWith(lowerSearchItem) ||
-                            o.Pets.Any(pet => pet.Name.ToLower().StartsWith(lowerSearchItem)))
+                .AsNoTracking();
+
+            // Фильтрация по каждому слову
+            foreach (var word in lowerSearchWords)
+            {
+                query = query.Where(o =>
+                    o.Name.ToLower().Contains(word) ||
+                    o.Pets.Any(pet => pet.Name.ToLower().Contains(word)));
+            }
+
+            var medcardResult = await query
                 .OrderByDescending(o => o.DateCreate)
                 .ToListAsync();
 
@@ -44,6 +55,7 @@ namespace Medcard.DbAccessLayer.Repositories
 
             return mappedMedcard;
         }
+
 
 
     }

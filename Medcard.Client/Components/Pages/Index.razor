@@ -22,7 +22,7 @@
 {
     <div class="modal-toast">
         <div class="modal-content-toast">
-            <p class="text fw-bold m-0" style="color:#1e3956;"> Данные успешно обновлены!</p>
+            <p class="text fw-bold m-0" style="color:#1e3956;"> Данные успешно @ErrorMessage</p>
         </div>
     </div>
 
@@ -146,7 +146,7 @@ else
 <footer><br /></footer>
 
 @code {
-    
+
     private bool isLoading = true;
 
 
@@ -163,13 +163,13 @@ else
         isLoading = true;
         StateHasChanged();
         ErrorMessage = "";
-        
+
         try
         {
             await Task.Delay(1000);
             medcardlist = await _medcardService.GetAllFromApiAsync();
 
-            
+
             if (medcardlist.Count == 0)
                 throw new Exception("Count is 0!");
 
@@ -224,7 +224,8 @@ else
                 else
                 {
                     medcardlist = new List<OwnerModel>();
-                    ErrorMessage = "Ничего не найдено.";
+                    ErrorMessage = $"{searchQuery} не найдено.";
+
                 }
             }
 
@@ -273,6 +274,8 @@ else
                 // Создаём
                 await _medcardService.CreateMedcardAsync(medcardFormModel);
                 ShowToast();
+                ErrorMessage = "Созданы!";
+
             }
 
             medcardlist = await _medcardService.GetAllFromApiAsync();
@@ -293,6 +296,8 @@ else
 
             medcardFormModel = await MappingUpdateMedcard(medcardFormModel, mapModel);
             editId = id;
+            ErrorMessage = "Обновлены!";
+
         }
         catch (Exception ex)
         {
@@ -330,6 +335,8 @@ else
                 StateHasChanged();
                 CloseModal();
                 ShowToast();
+                ErrorMessage = "Удалены!";
+
             }
 
             return response;

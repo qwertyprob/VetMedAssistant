@@ -7,7 +7,7 @@ namespace Medcard.Api.Controllers
 {
     [ApiController]
     [Route("/api/search/{searchItem}")]
-    [Authorize]
+    //[Authorize]
 
     public class SearchController : ControllerBase
     {

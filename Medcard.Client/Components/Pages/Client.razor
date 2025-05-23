@@ -28,7 +28,7 @@
 {
     <div class="modal-toast ">
         <div class="modal-content-toast">
-            <p class="text fw-bold m-0" style="color:#1e3956; font-size:1.5em;"> Данные успешно обновлены!</p>
+            <p class="text fw-bold m-0" style="color:#1e3956; font-size:1.5em;"> @PopupMessage</p>
         </div>
     </div>
 
@@ -122,7 +122,7 @@ else{
 
 @code {
     private bool ShowSuccessModal = false;
-
+    private string PopupMessage{ get; set; }
     private async Task ShowToast()
     {
         ShowSuccessModal = true;
@@ -154,7 +154,8 @@ else{
         await _servivce.UpdateDrugsAsync(model.PetId, model.Description);
         await LoadMedcard();
         StateHasChanged();
-        await ShowToast();
+        ShowToast();
+        PopupMessage = "Препараты успешно обновлены!";
     }
 
     async Task UpdateRec(RecomendationsModel model)
@@ -162,7 +163,9 @@ else{
         await _servivce.UpdateRecAsync(model.PetId, model.Description);
         await LoadMedcard();
         StateHasChanged();
-        await ShowToast();
+        ShowToast();
+        PopupMessage = "Рекомендации успешно обновлены!";
+
 
     }
 
@@ -171,7 +174,9 @@ else{
         await _servivce.UpdateTreatAsync(model.PetId, model.Description);
         await LoadMedcard();
         StateHasChanged();
-        await ShowToast();
+        ShowToast();
+        PopupMessage = "Лечение успешно обновлено!";
+
 
     }
 
