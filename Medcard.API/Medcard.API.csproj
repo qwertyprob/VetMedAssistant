@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Medcard.DbAccessLayer\Medcard.DbAccessLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="..\.dockerignore" Link=".dockerignore" />
+  </ItemGroup>
+
 </Project>

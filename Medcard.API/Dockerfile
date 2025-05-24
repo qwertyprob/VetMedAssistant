@@ -2,7 +2,7 @@
 
 # This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER app
+USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
@@ -12,21 +12,22 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Medcard.Client/Medcard.Client.csproj", "Medcard.Client/"]
+COPY ["NuGet.config", "."]
+COPY ["Medcard.Api/Medcard.Api.csproj", "Medcard.Api/"]
 COPY ["Medcard.Bl/Medcard.Bl.csproj", "Medcard.Bl/"]
 COPY ["Medcard.DbAccessLayer/Medcard.DbAccessLayer.csproj", "Medcard.DbAccessLayer/"]
-RUN dotnet restore "./Medcard.Client/Medcard.Client.csproj"
+RUN dotnet restore "./Medcard.Api/Medcard.Api.csproj"
 COPY . .
-WORKDIR "/src/Medcard.Client"
-RUN dotnet build "./Medcard.Client.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/Medcard.Api"
+RUN dotnet build "./Medcard.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Medcard.Client.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Medcard.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Medcard.Client.dll"]
+ENTRYPOINT ["dotnet", "Medcard.Api.dll"]

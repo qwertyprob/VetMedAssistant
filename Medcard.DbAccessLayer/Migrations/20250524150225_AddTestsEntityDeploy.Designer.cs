@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Medcard.DbAccessLayer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20241031075835_InitialPostgresNumbers")]
-    partial class InitialPostgresNumbers
+    [Migration("20250524150225_AddTestsEntityDeploy")]
+    partial class AddTestsEntityDeploy
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -114,6 +114,25 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.ToTable("Recomendations");
                 });
 
+            modelBuilder.Entity("Medcard.DbAccessLayer.Entities.TestsEntitity", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("PetId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PetId");
+
+                    b.ToTable("Tests");
+                });
+
             modelBuilder.Entity("Medcard.DbAccessLayer.Entities.TreatmentEntity", b =>
                 {
                     b.Property<Guid>("Id")
@@ -193,6 +212,17 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.Navigation("Pet");
                 });
 
+            modelBuilder.Entity("Medcard.DbAccessLayer.Entities.TestsEntitity", b =>
+                {
+                    b.HasOne("Medcard.DbAccessLayer.Entities.PetEntity", "Pet")
+                        .WithMany("Tests")
+                        .HasForeignKey("PetId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Pet");
+                });
+
             modelBuilder.Entity("Medcard.DbAccessLayer.Entities.TreatmentEntity", b =>
                 {
                     b.HasOne("Medcard.DbAccessLayer.Entities.PetEntity", "Pet")
@@ -214,6 +244,8 @@ namespace Medcard.DbAccessLayer.Migrations
                     b.Navigation("Drugs");
 
                     b.Navigation("Recomendations");
+
+                    b.Navigation("Tests");
 
                     b.Navigation("Treatments");
                 });
