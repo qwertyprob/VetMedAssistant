@@ -1,39 +1,33 @@
-# Base image for runtime
+# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+# This stage is used when running from VS in fast mode (Default for Debug configuration)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-# Build image with SDK
+
+# This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-
-# Copy NuGet config (if you use private feeds or custom sources)
 COPY ["NuGet.config", "."]
-
-# Copy csproj files with correct casing
-COPY ["Medcard.API/Medcard.API.csproj", "Medcard.API/"]
-COPY ["Medcard.BI/Medcard.BI.csproj", "Medcard.BI/"]
+COPY ["Medcard.Api/Medcard.Api.csproj", "Medcard.Api/"]
+COPY ["Medcard.Bl/Medcard.Bl.csproj", "Medcard.Bl/"]
 COPY ["Medcard.DbAccessLayer/Medcard.DbAccessLayer.csproj", "Medcard.DbAccessLayer/"]
-
-# Restore dependencies
-RUN dotnet restore "Medcard.API/Medcard.API.csproj"
-
-# Copy all source code
+RUN dotnet restore "./Medcard.Api/Medcard.Api.csproj"
 COPY . .
+WORKDIR "/src/Medcard.Api"
+RUN dotnet build "./Medcard.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# Build the project
-WORKDIR "/src/Medcard.API"
-RUN dotnet build "Medcard.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
-
-# Publish the project
+# This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "Medcard.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Medcard.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# Final runtime image
+# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Medcard.API.dll"]
+ENTRYPOINT ["dotnet", "Medcard.Api.dll"]
