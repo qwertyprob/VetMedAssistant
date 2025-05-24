@@ -35,7 +35,7 @@ namespace Medcard.Client.Services
 
             var requestContent = new StringContent(JsonConvert.SerializeObject(model), Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("user/login", requestContent);
+            var response = await client.PostAsync(client.BaseAddress +"user/login", requestContent);
 
 
 
