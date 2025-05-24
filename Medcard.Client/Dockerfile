@@ -10,12 +10,12 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Копирование файлов проектов в контекст сборки
-COPY ["Medcard.Сlient/Medcard.Client.csproj", "Medcard.Client/"]
+COPY ["Medcard.Client/Medcard.Client.csproj", "Medcard.Client/"]
 COPY ["Medcard.Bl/Medcard.Bl.csproj", "Medcard.Bl/"]
 COPY ["Medcard.DbAccessLayer/Medcard.DbAccessLayer.csproj", "Medcard.DbAccessLayer/"]
 
 # Восстановление зависимостей
-RUN dotnet restore "Medcard.API/Medcard.API.csproj"
+RUN dotnet restore "Medcard.Client/Medcard.Client.csproj"
 
 # Копирование остальных файлов
 COPY . .
