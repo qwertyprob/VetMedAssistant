@@ -1,33 +1,40 @@
-# See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
-# This stage is used when running from VS in fast mode (Default for Debug configuration)
+# Базовый образ среды выполнения (для production)
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-USER $APP_UID
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 80
+EXPOSE 443
 
-
-# This stage is used to build the service project
+# Сборочный этап: используется для компиляции проекта API
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["NuGet.config", "."]
-COPY ["Medcard.Api/Medcard.API.csproj", "Medcard.API/"]
+
+# Копирование файлов проектов в контекст сборки
+COPY ["Medcard.API/Medcard.API.csproj", "Medcard.API/"]
 COPY ["Medcard.Bl/Medcard.Bl.csproj", "Medcard.Bl/"]
 COPY ["Medcard.DbAccessLayer/Medcard.DbAccessLayer.csproj", "Medcard.DbAccessLayer/"]
-RUN dotnet restore "./Medcard.Api/Medcard.API.csproj"
-COPY . .
-WORKDIR "/src/Medcard.API"
-RUN dotnet build "./Medcard.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# This stage is used to publish the service project to be copied to the final stage
+# Восстановление зависимостей
+RUN dotnet restore "Medcard.API/Medcard.API.csproj"
+
+# Копирование остальных файлов
+COPY . .
+
+# Переход в рабочую директорию API-проекта
+WORKDIR "/src/Medcard.API"
+
+# Сборка проекта
+RUN dotnet build "Medcard.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+
+# Этап публикации: сборка выходных артефактов
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Medcard.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "Medcard.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
+# Финальный образ: используется в продакшене
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+# Указание команды запуска
 ENTRYPOINT ["dotnet", "Medcard.API.dll"]
