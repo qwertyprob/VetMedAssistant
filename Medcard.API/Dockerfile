@@ -13,21 +13,21 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["NuGet.config", "."]
-COPY ["Medcard.Api/Medcard.Api.csproj", "Medcard.Api/"]
+COPY ["Medcard.API/Medcard.API.csproj", "Medcard.API/"]
 COPY ["Medcard.Bl/Medcard.Bl.csproj", "Medcard.Bl/"]
 COPY ["Medcard.DbAccessLayer/Medcard.DbAccessLayer.csproj", "Medcard.DbAccessLayer/"]
 RUN dotnet restore "./Medcard.Api/Medcard.Api.csproj"
 COPY . .
-WORKDIR "/src/Medcard.Api"
-RUN dotnet build "./Medcard.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/Medcard.API"
+RUN dotnet build "./Medcard.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./Medcard.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./Medcard.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "Medcard.Api.dll"]
+ENTRYPOINT ["dotnet", "Medcard.API.dll"]
