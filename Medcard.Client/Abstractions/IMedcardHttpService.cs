@@ -13,5 +13,6 @@ namespace Medcard.Client.Abstraction
         Task<bool> UpdateDrugsAsync(Guid id, string text);
         Task<bool> UpdateTreatAsync(Guid id, string text);
         Task<bool> UpdateRecAsync(Guid id, string text);
+        Task<bool> UpdateTestsAsync(Guid id, string text);
     }
 }

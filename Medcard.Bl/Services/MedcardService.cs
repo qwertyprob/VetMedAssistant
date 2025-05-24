@@ -81,7 +81,13 @@ namespace Medcard.Bl.Services
             return mappedMedcard;
 
         }
+        public async Task<string> UpdateTestsAsync(Guid id, string tests)
+        {
 
+            await _repository.UpdateTestsAsync(id, tests);
+
+            return tests;
+        }
         public async Task<string> UpdateDrugsAsync(Guid id, string drugs)
         {
 

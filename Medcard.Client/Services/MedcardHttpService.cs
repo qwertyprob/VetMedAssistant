@@ -168,6 +168,28 @@ namespace Medcard.Client.Services
             var json = await response.Content.ReadAsStringAsync();
             return true;
         }
+        public async Task<bool> UpdateTestsAsync(Guid id, string text)
+        {
+            var client = GetClientWithAuth();
+
+            var request = new HttpRequestMessage(HttpMethod.Put, $"tests/{id}?text={Uri.EscapeDataString(text)}");
+
+            request.Headers.Add("Accept", "*/*");
+
+            // Empty body
+            request.Content = new StringContent(string.Empty);
+
+            var response = await client.SendAsync(request);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Error: {response.StatusCode}");
+                return false;
+            }
+
+            var json = await response.Content.ReadAsStringAsync();
+            return true;
+        }
         public async Task<bool> UpdateTreatAsync(Guid id, string text)
         {
             var client = GetClientWithAuth();

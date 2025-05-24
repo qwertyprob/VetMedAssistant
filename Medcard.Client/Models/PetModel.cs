@@ -22,5 +22,7 @@ namespace Medcard.Client.Models
         public List<TreatmentsModel> Treatments { get; set; } = new List<TreatmentsModel>();
         public List<RecomendationsModel> Recomendations { get; set; } = new List<RecomendationsModel>();
         public List<DrugsModel> Drugs { get; set; } = new List<DrugsModel>();
+
+        public List<TestsModel> Tests { get; set;} = new List<TestsModel>();
     }
 }

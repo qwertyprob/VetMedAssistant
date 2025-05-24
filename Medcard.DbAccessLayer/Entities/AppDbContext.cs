@@ -15,6 +15,7 @@ namespace Medcard.DbAccessLayer.Entities
         public DbSet<TreatmentEntity> Treatments { get; set; }
         public DbSet<RecomendationEntity> Recomendations { get; set; }
         public DbSet<UserEntity> Users { get; set; }
+        public DbSet<TestsEntitity> Tests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

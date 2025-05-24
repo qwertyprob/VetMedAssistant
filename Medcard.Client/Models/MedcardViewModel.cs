@@ -21,6 +21,6 @@ namespace Medcard.Client.Models
         public string Treatments { get; set; } = "-\n-\n-\n-\n-\n-\n-\n-\n-";
         public string Recomendations {  get; set; } = "-\n-\n-\n-\n-\n-\n-\n-\n-";
 
-        
+        public string Tests { get; set; } = "-Общий анализ крови:\n-Биохимия крови:\n-Анализ мочи:\n-УЗИ:\n-\n-\n-\n-";
     }
 }

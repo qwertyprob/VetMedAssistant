@@ -17,11 +17,13 @@ namespace Medcard.Bl.Mapping
             CreateMap<PetEntity, PetDto>()
                 .ForMember(dest => dest.DrugDtos, opt => opt.MapFrom(src => src.Drugs))
                 .ForMember(dest => dest.TreatmentDtos, opt => opt.MapFrom(src => src.Treatments))
-                .ForMember(dest => dest.RecomendationsDtos, opt => opt.MapFrom(src => src.Recomendations));
+                .ForMember(dest => dest.RecomendationsDtos, opt => opt.MapFrom(src => src.Recomendations))
+                .ForMember(dest => dest.TestsDtos, opt => opt.MapFrom(src => src.Tests));
 
             CreateMap<DrugEntity, DrugsDto>();
             CreateMap<TreatmentEntity, TreatmentsDto>();
             CreateMap<RecomendationEntity, RecomendationsDto>();
+            CreateMap<TestsEntitity, TestsDto>();
 
             // DTO to Model
             CreateMap<OwnerDto, OwnerModel>()
@@ -30,11 +32,13 @@ namespace Medcard.Bl.Mapping
             CreateMap<PetDto, PetModel>()
                 .ForMember(dest => dest.Treatments, opt => opt.MapFrom(src => src.TreatmentDtos))
                 .ForMember(dest => dest.Drugs, opt => opt.MapFrom(src => src.DrugDtos))
-                .ForMember(dest => dest.Recomendations, opt => opt.MapFrom(src => src.RecomendationsDtos));
+                .ForMember(dest => dest.Recomendations, opt => opt.MapFrom(src => src.RecomendationsDtos))
+                .ForMember(dest => dest.Tests, opt => opt.MapFrom(src => src.TestsDtos));
 
             CreateMap<DrugsDto, DrugsModel>();
             CreateMap<TreatmentsDto, TreatmentsModel>();
             CreateMap<RecomendationsDto, RecomendationsModel>();
+            CreateMap<TestsDto, TestsModel>();
 
             //Dto to ViewModel
 
@@ -50,7 +54,9 @@ namespace Medcard.Bl.Mapping
             .ForMember(dest => dest.Treatments, opt => opt.MapFrom(src =>
                 string.Join("\n", src.PetsDtos.SelectMany(p => p.TreatmentDtos.Select(t => t.Description)))))
             .ForMember(dest => dest.Treatments, opt => opt.MapFrom(src =>
-                string.Join("\n", src.PetsDtos.SelectMany(p => p.RecomendationsDtos.Select(t => t.Description)))));
+                string.Join("\n", src.PetsDtos.SelectMany(p => p.RecomendationsDtos.Select(t => t.Description)))))
+            .ForMember(dest => dest.Tests, opt => opt.MapFrom(src =>
+                string.Join("\n", src.PetsDtos.SelectMany(p => p.TestsDtos.Select(t => t.Description)))));
         }
 
 

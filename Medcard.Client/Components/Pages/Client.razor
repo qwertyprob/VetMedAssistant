@@ -20,7 +20,6 @@
     </div>
     <div class="buttons">
         <button class="btn-input" id="emailbutton" type="button" style="font-size:22px;"  target="_blank" @onclick="()=>PrintPage()">Распечатать</button>
-        <button class="btn-input" id="emailbutton" type="button" style="font-size:20px;">Email</button>
     </div>
 </header>
 
@@ -72,16 +71,32 @@ else{
         </div>
         <div class="container-fluid w-100">
             <div class="table-container d-flex flex-column" style="margin-top:20px !important; box-shadow:0px 0px 100px grey !important;">
+                <div class="row">
 
-                @foreach (var drugs in pets.Drugs)
-                {
-                    <div class="section-title">Препараты</div>
-                    <textarea class="textarea-editable" style="height:"
-                    @bind="@drugs.Description"
-                    @onblur="@(() => UpdateDrugs(drugs))">
-                    </textarea>
-                    <button class="section-footer-button" disabled></button>
-                }
+                    @foreach (var drugs in pets.Drugs)
+                    {
+                        <div class="col-6">
+                            <div class="section-title">Препараты</div>
+                            <textarea class="textarea-editable" style="height:"
+                                      @bind="@drugs.Description"
+                                      @onblur="@(() => UpdateDrugs(drugs))">
+                                            </textarea>
+                            <button class="section-footer-button" disabled style="height:0 !important;"></button>
+                        </div>
+                    }
+                    @foreach (var tests in pets.Tests)
+                    {
+                        <div class="col-6">
+                            <div class="section-title">Анализы</div>
+                            <textarea class="textarea-editable" style="height:"
+                                      @bind="@tests.Description"
+                                      @onblur="@(() => UpdateTests(tests))">
+                                                        </textarea>
+                            <button class="section-footer-button" disabled style="height:0!important;"></button>
+                        </div>
+                    }
+
+                </div>
 
                 @foreach(var treatment in pets.Treatments)
                 { 
@@ -116,6 +131,9 @@ else{
             </div>
 
         </div>
+
+       
+
 
     }
 }
@@ -165,6 +183,16 @@ else{
         StateHasChanged();
         ShowToast();
         PopupMessage = "Рекомендации успешно обновлены!";
+
+
+    }
+    async Task UpdateTests(TestsModel model)
+    {
+        await _servivce.UpdateTestsAsync(model.PetId, model.Description);
+        await LoadMedcard();
+        StateHasChanged();
+        ShowToast();
+        PopupMessage = "Анализы успешно обновлены!";
 
 
     }

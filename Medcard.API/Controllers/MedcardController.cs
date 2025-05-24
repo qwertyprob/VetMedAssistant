@@ -55,6 +55,14 @@ namespace Medcard.Api.Controllers
             return Ok(medcard);
             
         }
+        [HttpPut]
+        [Route("tests/{id}")]
+        public async Task<IActionResult> UpdateTests(Guid id, string text)
+        {
+            var medcard = await _service.UpdateTestsAsync(id, text);
+
+            return Ok(medcard);
+        }
 
         [HttpPut]
         [Route("treatments/{id}")]

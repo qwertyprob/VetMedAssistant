@@ -55,19 +55,8 @@ else
         </div>
         <div class="container-fluid w-100">
             <div class="table-container d-flex flex-column" style="margin-top:20px !important; box-shadow:none !important; width:80%">
-
-                @foreach (var drugs in pets.Drugs)
-                {
-                    <!-- лечение -->
-                    <div class="section-title">Препараты</div>
-                    <textarea class="textarea-editable" contenteditable="true"
-                    id="editablebiginputpet.Id">
-
-                        @drugs.Description
-
-                    </textarea>
-                    <button class="section-footer-button" disabled></button>
-                }
+                
+                
 
                 @foreach (var treatment in pets.Treatments)
                 {
@@ -82,7 +71,35 @@ else
                     </textarea>
                     <button class="section-footer-button" disabled></button>
                 }
+                <div class="row">
 
+                    @foreach (var drugs in pets.Drugs)
+                    {
+                        <div class="col-6">
+                            <div class="section-title">Препараты</div>
+                            <textarea class="textarea-editable" contenteditable="true"
+                                      id="editablebiginputpet.Id">
+
+                                @drugs.Description
+
+                                </textarea>
+                            <button class="section-footer-button" disabled style="height:0!important;"></button>
+                        </div>
+                    }
+                    @foreach (var tests in pets.Tests)
+                    {
+                        <div class="col-6">
+                            <div class="section-title">Анализы</div>
+                            <textarea class="textarea-editable" contenteditable="true"
+                                      id="editablebiginputpet.Id">
+
+                                @tests.Description
+
+                                </textarea>
+                            <button class="section-footer-button" disabled style="height:0!important;"></button>
+                        </div>
+                    }
+                </div>
                 @foreach (var rec in pets.Recomendations)
                 {
                     <!-- рекомендации -->

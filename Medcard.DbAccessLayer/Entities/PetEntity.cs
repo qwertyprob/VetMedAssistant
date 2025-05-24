@@ -25,5 +25,7 @@ namespace Medcard.DbAccessLayer.Entities
         public List<DrugEntity> Drugs { get; set; } = new List<DrugEntity>();
 
         public List<RecomendationEntity> Recomendations { get; set; } = new List<RecomendationEntity>();
+        public List<TestsEntitity> Tests { get; set; } = new List<TestsEntitity>();
+
     }
 }

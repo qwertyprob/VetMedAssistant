@@ -19,5 +19,6 @@ namespace Medcard.DbAccessLayer.Dto
         public List<TreatmentsDto> TreatmentDtos { get; set; } = new List<TreatmentsDto>();
         public List<DrugsDto> DrugDtos { get; set; } = new List<DrugsDto>();
         public List<RecomendationsDto> RecomendationsDtos { get; set; } = new List<RecomendationsDto>();
+        public List<TestsDto> TestsDtos { get; set; } = new List<TestsDto>();
     }
 }

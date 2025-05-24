@@ -13,6 +13,7 @@ namespace Medcard.Bl.Abstraction
         Task<OwnerModel> CreateAsync(MedcardViewModel medcardViewModel);
         Task<bool> DeleteAsync(Guid id);
         Task<OwnerModel> UpdateAsync(Guid id, MedcardViewModel medcardViewModel);
+        Task<string> UpdateTestsAsync(Guid id, string tests);
         Task<string> UpdateDrugsAsync(Guid id, string Drugs);
         Task<string> UpdateTreatAsync(Guid id, string Treatments);
         Task<string> UpdateRecAsync(Guid id, string Recomendations);

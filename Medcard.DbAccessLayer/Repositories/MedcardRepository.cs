@@ -35,6 +35,8 @@ namespace Medcard.DbAccessLayer
                     .ThenInclude(t => t.Treatments)
                 .Include(p=> p.Pets)
                     .ThenInclude(r => r.Recomendations)
+                .Include(p => p.Pets)
+                    .ThenInclude(t => t.Tests)
                 .OrderByDescending(p => p.DateCreate)
                 .AsNoTracking()
                 .ToListAsync();
@@ -56,6 +58,8 @@ namespace Medcard.DbAccessLayer
                     .ThenInclude(t => t.Treatments)
                 .Include(p => p.Pets)
                     .ThenInclude(r=>r.Recomendations)
+                .Include(p => p.Pets)
+                    .ThenInclude(t => t.Tests)
                 .AsNoTracking()
                 .SingleOrDefaultAsync(x => x.Id == id);
 
@@ -67,7 +71,6 @@ namespace Medcard.DbAccessLayer
         }
         public async Task<OwnerDto> CreateAsync(MedcardViewModel medcardViewModel)
         {
-
             var ownerEntity = new OwnerEntity
             {
                 Id = Guid.NewGuid(),
@@ -75,47 +78,53 @@ namespace Medcard.DbAccessLayer
                 PhoneNumber = medcardViewModel.PhoneNumber,
                 DateCreate = medcardViewModel.DateCreate,
                 Pets = new List<PetEntity>
+        {
+            new PetEntity
+            {
+                Id = Guid.NewGuid(),
+                Name = medcardViewModel.PetName,
+                ChipNumber = medcardViewModel.ChipNumber,
+                Age = medcardViewModel.Age,
+                Breed = medcardViewModel.Breed,
+                Drugs = new List<DrugEntity>
                 {
-                    new PetEntity()
+                    new DrugEntity
                     {
-                    Id = Guid.NewGuid(),
-                    Name = medcardViewModel.PetName,
-                    ChipNumber = medcardViewModel.ChipNumber,
-                    Age = medcardViewModel.Age,
-                    Breed = medcardViewModel.Breed,
-                    Drugs = new List<DrugEntity>()
-                    {
-                        new DrugEntity()
-                        {
-                            
-                            Description= medcardViewModel.Drugs
-                        }
-                    },
-                    Treatments = new List<TreatmentEntity>()
-                    {
-                        new TreatmentEntity()
-                        {
-                            Description = medcardViewModel.Treatments
-                        }
-                    },
-                    Recomendations = new List<RecomendationEntity>()
-                    {
-                        new RecomendationEntity()
-                        {
-                            Description = medcardViewModel.Recomendations
-                        }
+                        Description = medcardViewModel.Drugs
                     }
-                    
+                },
+                Treatments = new List<TreatmentEntity>
+                {
+                    new TreatmentEntity
+                    {
+                        Description = medcardViewModel.Treatments
+                    }
+                },
+                Recomendations = new List<RecomendationEntity>
+                {
+                    new RecomendationEntity
+                    {
+                        Description = medcardViewModel.Recomendations
+                    }
+                },
+                Tests = new List<TestsEntitity>
+                {
+                    new TestsEntitity
+                    {
+                        Description = medcardViewModel.Tests
                     }
                 }
+            }
+        } 
+            }; 
 
-            };    
             _dbcontext.Owners.Add(ownerEntity);
             await _dbcontext.SaveChangesAsync();
-            var medcard = _mapper.Map<OwnerDto>(ownerEntity);
 
+            var medcard = _mapper.Map<OwnerDto>(ownerEntity);
             return medcard;
         }
+
 
         public async Task <OwnerDto> UpdateAsync(Guid id, MedcardViewModel medcardViewModel)
         {
@@ -158,6 +167,21 @@ namespace Medcard.DbAccessLayer
 
             return Drugs; 
 
+        }
+        public async Task<string> UpdateTestsAsync(Guid id, string text)
+        {
+            var ownerEntity = await _dbcontext.Pets
+             .Include(o => o.Tests)
+             .FirstOrDefaultAsync(o => o.Id == id);
+
+            foreach (var test in ownerEntity.Tests)
+            {
+
+                test.Description = text;
+
+            }
+            await _dbcontext.SaveChangesAsync();
+            return text;
         }
         public async Task<string> UpdateTreatAsync(Guid id, string Treatments)
         {
