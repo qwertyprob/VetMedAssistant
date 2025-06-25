@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Bl", "Medcard.Bl\Medcard.Bl.csproj", "{9548F37A-5F21-460A-83E5-06B5FE0D0CF5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Api", "Medcard.Api\Medcard.Api.csproj", "{50C5EB9E-5B4C-431C-AB9F-782F75CA7E86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.API", "Medcard.Api\Medcard.API.csproj", "{50C5EB9E-5B4C-431C-AB9F-782F75CA7E86}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Medcard.Client", "Medcard.Client\Medcard.Client.csproj", "{83F4F507-A093-4425-B757-FC3645A14934}"
 EndProject

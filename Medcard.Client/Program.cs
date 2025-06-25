@@ -52,7 +52,8 @@ builder.Services.AddAuthorization();
 //HttpClientFactory 
 builder.Services.AddHttpClient("Medcard", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7211/api/");
+    client.BaseAddress = new Uri("https://vetassistant-diploma.onrender.com/api/");
+    //client.BaseAddress = new Uri("https://localhost:7211/api/");
     client.DefaultRequestHeaders.Add("Accept", "application/json");
 });
 

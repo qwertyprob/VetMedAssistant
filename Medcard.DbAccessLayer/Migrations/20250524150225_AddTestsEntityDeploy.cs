@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Medcard.DbAccessLayer.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialPostgresNumbers : Migration
+    public partial class AddTestsEntityDeploy : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -101,6 +101,25 @@ namespace Medcard.DbAccessLayer.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Tests",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uuid", nullable: false),
+                    Description = table.Column<string>(type: "text", nullable: true),
+                    PetId = table.Column<Guid>(type: "uuid", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tests", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Tests_Pets_PetId",
+                        column: x => x.PetId,
+                        principalTable: "Pets",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Treatments",
                 columns: table => new
                 {
@@ -135,6 +154,11 @@ namespace Medcard.DbAccessLayer.Migrations
                 column: "PetId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Tests_PetId",
+                table: "Tests",
+                column: "PetId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Treatments_PetId",
                 table: "Treatments",
                 column: "PetId");
@@ -154,6 +178,9 @@ namespace Medcard.DbAccessLayer.Migrations
 
             migrationBuilder.DropTable(
                 name: "Recomendations");
+
+            migrationBuilder.DropTable(
+                name: "Tests");
 
             migrationBuilder.DropTable(
                 name: "Treatments");
