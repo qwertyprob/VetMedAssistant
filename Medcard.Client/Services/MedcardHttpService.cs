@@ -31,14 +31,14 @@ namespace Medcard.Client.Services
             // Получаем токен
             var token = _tokenService.GetToken(); 
 
-            if (_tokenService.HasToken())
-            {
-                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
-            }
-            else
-            {
-                _navigationManager.NavigateTo("/Login");
-            }
+            //if (_tokenService.HasToken())
+            //{
+            //    client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            //}
+            //else
+            //{
+            //    _navigationManager.NavigateTo("/Login");
+            //}
             Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine(token);
             Console.ForegroundColor = ConsoleColor.White;

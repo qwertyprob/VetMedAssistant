@@ -41,7 +41,7 @@ builder.Services.AddAuthenticationCore();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Login";
+        options.LoginPath = "/";
     });
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
